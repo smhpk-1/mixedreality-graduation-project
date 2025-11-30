@@ -323,7 +323,7 @@ struct U3CGlitchRoutineU3Ed__18_tD425AA203AB8100C1E41563F28A12ADDB48361C0;
 struct U3CTransitionRoutineU3Ed__19_tE8CBE991B0BEEE431D4527DDA4CE90714B69048B;
 struct U3CWorkRoutineU3Ed__17_t2EB3D033B9FA89A7633034A48AE4ABE684D2D1B2;
 struct CullStateChangedEvent_t6073CD0D951EC1256BF74B8F9107D68FC89B99B8;
-struct U3CSpawnLoopU3Ed__16_t57981BB3FFC472928D3040C438FC365458C2EBC4;
+struct U3CSpawnLoopU3Ed__18_t2C6F88B6717DA90BDF7E67C5BE6B69A6E15141D5;
 struct ReapplyDrivenProperties_t3482EA130A01FF7EE2EEFE37F66A5215D08CFE24;
 struct SliderEvent_t92A82EF6C62E15AF92B640FE2D960E877E8C6555;
 struct Step_t2758B5C1956131A187D151FF43843F47B959E8FB;
@@ -373,7 +373,7 @@ IL2CPP_EXTERN_C RuntimeClass* U3CFadeCanvasU3Ed__21_t4F4CDC1732CBA146D71FBA3A740
 IL2CPP_EXTERN_C RuntimeClass* U3CGlitchRoutineU3Ed__18_tD425AA203AB8100C1E41563F28A12ADDB48361C0_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CHideSliderAfterSecondsU3Ed__18_t1F61E8A886E4021E0F4D6B5A76F797BF234188C3_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CMoveTowardCameraU3Ed__18_t32EBCC37016ED136518B616EBCC8C6ECBBC0D740_il2cpp_TypeInfo_var;
-IL2CPP_EXTERN_C RuntimeClass* U3CSpawnLoopU3Ed__16_t57981BB3FFC472928D3040C438FC365458C2EBC4_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* U3CSpawnLoopU3Ed__18_t2C6F88B6717DA90BDF7E67C5BE6B69A6E15141D5_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CStartDelayU3Ed__11_t30E319CCBE7D23E7026D92241D11DD660006B052_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CTransitionRoutineU3Ed__19_tE8CBE991B0BEEE431D4527DDA4CE90714B69048B_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CWorkRoutineU3Ed__17_t2EB3D033B9FA89A7633034A48AE4ABE684D2D1B2_il2cpp_TypeInfo_var;
@@ -441,7 +441,7 @@ IL2CPP_EXTERN_C const RuntimeMethod* U3CFadeCanvasU3Ed__21_System_Collections_IE
 IL2CPP_EXTERN_C const RuntimeMethod* U3CGlitchRoutineU3Ed__18_System_Collections_IEnumerator_Reset_m166CC074102A847F57042FEE0F32F8C32AEE24D4_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3CHideSliderAfterSecondsU3Ed__18_System_Collections_IEnumerator_Reset_m794091AF7D9CBEB40E940C1AD4F32258A79AFA81_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3CMoveTowardCameraU3Ed__18_System_Collections_IEnumerator_Reset_mB932ACFDBB0E74D7E0C102EF59659CFEA5AA82F4_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* U3CSpawnLoopU3Ed__16_System_Collections_IEnumerator_Reset_mF4AB7177B6B42CEBD5678F01C386EDE1DDE49569_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* U3CSpawnLoopU3Ed__18_System_Collections_IEnumerator_Reset_m9B7C81DE0BD37EDFC9D3EC6CA70BA94A223D2130_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3CStartDelayU3Ed__11_System_Collections_IEnumerator_Reset_mBBF8CBD341002CA190DE75AC4864E0CC1D55D2BD_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3CTransitionRoutineU3Ed__19_System_Collections_IEnumerator_Reset_m39D4FAF9BE3CEDBE23263D88E10520BB03C144B4_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3CWorkRoutineU3Ed__17_System_Collections_IEnumerator_Reset_mAC430BFD326C728CE840CF46A1F9AB71A72E9ADC_RuntimeMethod_var;
@@ -606,7 +606,7 @@ struct U3CWorkRoutineU3Ed__17_t2EB3D033B9FA89A7633034A48AE4ABE684D2D1B2  : publi
 	RuntimeObject* ___U3CU3E2__current;
 	GameManager_tD2A141CDC4D8B352B55DC10F337F83AAF44B9035* ___U3CU3E4__this;
 };
-struct U3CSpawnLoopU3Ed__16_t57981BB3FFC472928D3040C438FC365458C2EBC4  : public RuntimeObject
+struct U3CSpawnLoopU3Ed__18_t2C6F88B6717DA90BDF7E67C5BE6B69A6E15141D5  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -1518,6 +1518,10 @@ struct RaycastResult_tEC6A7B7CABA99C386F054F01E498AEC426CF8023_marshaled_com
 	UIDocument_t4186BEBCC01278F63B895274AA08AD9ADFBF4C77* ___document;
 	VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* ___element;
 };
+struct RigidbodyConstraints_tE93C9173FB4F24EF4D38166A288214D28D8E85C8 
+{
+	int32_t ___value__;
+};
 struct RigidbodyInterpolation_tE2BE80352B0D72DB26B81EFD5A0845DEFEE994F8 
 {
 	int32_t ___value__;
@@ -2413,7 +2417,8 @@ struct CalloutGazeController_t968951EF07E856BE01FEC52D878133D40F195204  : public
 };
 struct ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
-	float ___beltForce;
+	float ___targetSpeed;
+	float ___acceleration;
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___localDirection;
 	Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* ___beltRenderer;
 	float ___textureScrollSpeed;
@@ -2465,6 +2470,7 @@ struct ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6  : public MonoBeh
 	float ___initialDropForce;
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___randomTorqueRange;
 	float ___rigidbodyDrag;
+	bool ___autoStart;
 	bool ___isRunning;
 	Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* ___spawnRoutine;
 };
@@ -3978,8 +3984,13 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Action_Invoke_m7126A54DACA72
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* Renderer_get_material_m5BA2A00816C4CC66580D4B2E409CF10718C15656 (Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Collider_set_sharedMaterial_mA67DC663BEEBE9315F3B91A0B74B31D33579CD7D (Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* __this, PhysicsMaterial_t2949C5AB81E97E3B99B71EAFA5966CB89A9BEB1C* ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_set_mainTextureOffset_m87C139F275814719F9A10709C34E2132DFEB7A12 (Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___0_value, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B (Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* __this, const RuntimeMethod* method) ;
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F Color_get_yellow_m66637FA14383E8D74F24AE256B577CE1D55D469F_inline (const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Transform_TransformDirection_m9BE1261DF2D48B7A4A27D31EE24D2D97F89E7757 (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_direction, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Gizmos_DrawSphere_mC7B2862BBDB3141A63B83F0F1E56E30101D4F472 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_center, float ___1_radius, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B (Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody_set_constraints_mE81BF0DAEB980E320538231E092CA4663885A9A3 (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, int32_t ___0_value, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody_set_angularVelocity_m23266B4E52BF0D2E65CC984AC73CC40B8D4A27E0 (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_value, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Rigidbody_get_linearVelocity_m367F5415641E5FB968440A91BAE2FCB8CAEA2C8C (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody_AddForce_mBDBC288D0E266BC1B62E3649B4FCE46E7EA9CCBC (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_force, int32_t ___1_mode, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object_Destroy_mE97D0A766419A81296E8D4E5C23D01D3FE91ACBB (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* ___0_obj, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Vector3_get_forward_mAA55A7034304DF8B2152EAD49AE779FC4CA2EB4A_inline (const RuntimeMethod* method) ;
@@ -4010,7 +4021,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_StartBelt_m560FF9A830786B85
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner_StartSpawning_mF61CF7D9685F98AE4F10DD77432794D887204A43 (ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_ResetAnomaly_m6FA963D71770CCDDCDB94FB8DAD8B49E7FDAD593 (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ObjectSpawner_SpawnLoop_m37DB01F2872CB973EC47BB55AFFF0C5672D8AD0E (ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* __this, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CSpawnLoopU3Ed__16__ctor_m61E67331EEE1E5C8437BE78C164F14F83BF974FD (U3CSpawnLoopU3Ed__16_t57981BB3FFC472928D3040C438FC365458C2EBC4* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CSpawnLoopU3Ed__18__ctor_m529941A3826B9E369FEE35069361BD8DE60089A2 (U3CSpawnLoopU3Ed__18_t2C6F88B6717DA90BDF7E67C5BE6B69A6E15141D5* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Random_get_value_m2CEA87FADF5222EF9E13D32695F15E2BA282E24B (const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ObjectSpawner_ChoosePrefab_m1A9D10E1DBC5A63AD508A698FBE800019E4DB2AB (ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* __this, bool ___0_spawnRed, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ObjectSpawner_InstantiateObject_mCF623D6BE4A71810ED2244E9273046ACA898B7EF (ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* __this, GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___0_prefab, bool ___1_isRed, const RuntimeMethod* method) ;
@@ -4053,7 +4064,6 @@ inline XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* GameObject_
 	return ((  XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* (*) (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*, const RuntimeMethod*))GameObject_AddComponent_TisRuntimeObject_m69B93700FACCF372F5753371C6E8FB780800B824_gshared)(__this, method);
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Vector3_op_UnaryNegation_m5450829F333BD2A88AF9A592C4EE331661225915_inline (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_a, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody_AddTorque_m7922F76C73DACF9E1610D72726C01709C14F0937 (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_torque, int32_t ___1_mode, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRGrabInteractable_set_throwOnDetach_mFE16597F775A78F44E5BCA41F5DA789D22097E10_inline (XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* __this, bool ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner_SpawnObject_m38FB183CA3A5FD712F3982A893155A797295CD1B (ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* __this, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Vector3_Normalize_mEF8349CC39674236CFC694189AFD36E31F89AC8F_inline (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_value, const RuntimeMethod* method) ;
@@ -10148,7 +10158,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_Awake_m045650FB3D9CA5FE6C13
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:24>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:25>
 		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_0 = __this->___beltRenderer;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -10159,7 +10169,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_Awake_m045650FB3D9CA5FE6C13
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:26>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:27>
 		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_2 = __this->___beltRenderer;
 		NullCheck(L_2);
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_3;
@@ -10170,7 +10180,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_Awake_m045650FB3D9CA5FE6C13
 
 IL_001f:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:28>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:29>
 		return;
 	}
 }
@@ -10184,17 +10194,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_Reset_mD810EF6EE1AF12756A7B
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:32>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:33>
 		Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* L_0;
 		L_0 = Component_GetComponent_TisCollider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76_m820398EDBF1D3766C3166A0C323A127662A29A14(__this, Component_GetComponent_TisCollider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76_m820398EDBF1D3766C3166A0C323A127662A29A14_RuntimeMethod_var);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:33>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:34>
 		Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* L_1 = L_0;
 		NullCheck(L_1);
 		Collider_set_sharedMaterial_mA67DC663BEEBE9315F3B91A0B74B31D33579CD7D(L_1, (PhysicsMaterial_t2949C5AB81E97E3B99B71EAFA5966CB89A9BEB1C*)NULL, NULL);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:34>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:35>
 		NullCheck(L_1);
 		Collider_set_isTrigger_mFCD22F3EB5E28C97863956AB725D53F7F4B7CA78(L_1, (bool)0, NULL);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:35>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:36>
 		return;
 	}
 }
@@ -10208,7 +10218,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_Update_m361F269EF2D85237A4A
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:39>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:40>
 		bool L_0 = __this->___isActive;
 		if (!L_0)
 		{
@@ -10228,13 +10238,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_Update_m361F269EF2D85237A4A
 
 IL_0016:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:41>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:42>
 		return;
 	}
 
 IL_0017:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:45>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:46>
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* L_3 = (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7*)(&__this->___currentOffset);
 		float* L_4 = (float*)(&L_3->___y);
 		float* L_5 = L_4;
@@ -10243,7 +10253,7 @@ IL_0017:
 		float L_8;
 		L_8 = Time_get_deltaTime_mC3195000401F0FD167DD2F948FD2BC58330D0865(NULL);
 		*((float*)L_5) = (float)((float)il2cpp_codegen_add(L_6, ((float)il2cpp_codegen_multiply(L_7, L_8))));
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:48>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:49>
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* L_9 = (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7*)(&__this->___currentOffset);
 		float L_10 = L_9->___y;
 		if ((!(((float)L_10) > ((float)(1.0f)))))
@@ -10252,7 +10262,7 @@ IL_0017:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:50>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:51>
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* L_11 = (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7*)(&__this->___currentOffset);
 		float* L_12 = (float*)(&L_11->___y);
 		float* L_13 = L_12;
@@ -10262,16 +10272,72 @@ IL_0017:
 
 IL_0058:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:53>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:54>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_15 = __this->___beltMaterial;
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_16 = __this->___currentOffset;
 		NullCheck(L_15);
 		Material_set_mainTextureOffset_m87C139F275814719F9A10709C34E2132DFEB7A12(L_15, L_16, NULL);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:54>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:55>
 		return;
 	}
 }
 // Method Definition Index: 80075
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_OnDrawGizmosSelected_m6BB48476AE3B7271C0AA67F95BF0B603CF3D6E41 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
+{
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_1;
+	memset((&V_1), 0, sizeof(V_1));
+	{
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:59>
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_0;
+		L_0 = Color_get_yellow_m66637FA14383E8D74F24AE256B577CE1D55D469F_inline(NULL);
+		Gizmos_set_color_m53927A2741937484180B20B55F7F20F8F60C5797(L_0, NULL);
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:60>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_1;
+		L_1 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_2 = __this->___localDirection;
+		NullCheck(L_1);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_3;
+		L_3 = Transform_TransformDirection_m9BE1261DF2D48B7A4A27D31EE24D2D97F89E7757(L_1, L_2, NULL);
+		V_1 = L_3;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_4;
+		L_4 = Vector3_get_normalized_m736BBF65D5CDA7A18414370D15B4DFCC1E466F07_inline((&V_1), NULL);
+		V_0 = L_4;
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:61>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_5;
+		L_5 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
+		NullCheck(L_5);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_6;
+		L_6 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_5, NULL);
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_7;
+		L_7 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
+		NullCheck(L_7);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_8;
+		L_8 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_7, NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_9 = V_0;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_10;
+		L_10 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_9, (2.0f), NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_11;
+		L_11 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_8, L_10, NULL);
+		Gizmos_DrawLine_mB139054F55D615637A39A3127AADB16043387F8A(L_6, L_11, NULL);
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:62>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_12;
+		L_12 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
+		NullCheck(L_12);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_13;
+		L_13 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_12, NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_14 = V_0;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_15;
+		L_15 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_14, (2.0f), NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_16;
+		L_16 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_13, L_15, NULL);
+		Gizmos_DrawSphere_mC7B2862BBDB3141A63B83F0F1E56E30101D4F472(L_16, (0.100000001f), NULL);
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:63>
+		return;
+	}
+}
+// Method Definition Index: 80076
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_OnCollisionStay_m7219F69A4F0E7666A017B27989A2712E829914D8 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* ___0_collision, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -10284,8 +10350,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_OnCollisionStay_m7219F69A4F
 	memset((&V_0), 0, sizeof(V_0));
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_1;
 	memset((&V_1), 0, sizeof(V_1));
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_2;
+	memset((&V_2), 0, sizeof(V_2));
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:58>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:67>
 		bool L_0 = __this->___isActive;
 		if (!L_0)
 		{
@@ -10308,59 +10376,133 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_OnCollisionStay_m7219F69A4F
 
 IL_0016:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:60>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:69>
 		return;
 	}
 
 IL_0017:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:63>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_4;
-		L_4 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_5 = __this->___localDirection;
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:73>
+		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_4 = ___0_collision;
 		NullCheck(L_4);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_6;
-		L_6 = Transform_TransformDirection_m9BE1261DF2D48B7A4A27D31EE24D2D97F89E7757(L_4, L_5, NULL);
-		V_1 = L_6;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_7;
-		L_7 = Vector3_get_normalized_m736BBF65D5CDA7A18414370D15B4DFCC1E466F07_inline((&V_1), NULL);
-		V_0 = L_7;
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:64>
-		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_8 = ___0_collision;
-		NullCheck(L_8);
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_9;
-		L_9 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_8, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_10 = V_0;
-		float L_11 = __this->___beltForce;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_12;
-		L_12 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_10, L_11, NULL);
+		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_5;
+		L_5 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_4, NULL);
+		NullCheck(L_5);
+		Rigidbody_set_constraints_mE81BF0DAEB980E320538231E092CA4663885A9A3(L_5, ((int32_t)112), NULL);
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:74>
+		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_6 = ___0_collision;
+		NullCheck(L_6);
+		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_7;
+		L_7 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_6, NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_8;
+		L_8 = Vector3_get_zero_m0C1249C3F25B1C70EAD3CC8B31259975A457AE39_inline(NULL);
+		NullCheck(L_7);
+		Rigidbody_set_angularVelocity_m23266B4E52BF0D2E65CC984AC73CC40B8D4A27E0(L_7, L_8, NULL);
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:77>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_9;
+		L_9 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_10 = __this->___localDirection;
 		NullCheck(L_9);
-		Rigidbody_AddForce_mBDBC288D0E266BC1B62E3649B4FCE46E7EA9CCBC(L_9, L_12, 5, NULL);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:65>
-		return;
-	}
-}
-// Method Definition Index: 80076
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_StartBelt_m560FF9A830786B85C9AB5CB315808D3DB92E6632 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
-{
-	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:69>
-		__this->___isActive = (bool)1;
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:70>
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_11;
+		L_11 = Transform_TransformDirection_m9BE1261DF2D48B7A4A27D31EE24D2D97F89E7757(L_9, L_10, NULL);
+		V_2 = L_11;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_12;
+		L_12 = Vector3_get_normalized_m736BBF65D5CDA7A18414370D15B4DFCC1E466F07_inline((&V_2), NULL);
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:78>
+		float L_13 = __this->___targetSpeed;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_14;
+		L_14 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_12, L_13, NULL);
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:81>
+		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_15 = ___0_collision;
+		NullCheck(L_15);
+		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_16;
+		L_16 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_15, NULL);
+		NullCheck(L_16);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_17;
+		L_17 = Rigidbody_get_linearVelocity_m367F5415641E5FB968440A91BAE2FCB8CAEA2C8C(L_16, NULL);
+		V_0 = L_17;
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:84>
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_18 = V_0;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_19;
+		L_19 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_14, L_18, NULL);
+		V_1 = L_19;
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:85>
+		(&V_1)->___y = (0.0f);
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:88>
+		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_20 = ___0_collision;
+		NullCheck(L_20);
+		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_21;
+		L_21 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_20, NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_22 = V_1;
+		float L_23 = __this->___acceleration;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_24;
+		L_24 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_22, L_23, NULL);
+		NullCheck(L_21);
+		Rigidbody_AddForce_mBDBC288D0E266BC1B62E3649B4FCE46E7EA9CCBC(L_21, L_24, 5, NULL);
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:89>
 		return;
 	}
 }
 // Method Definition Index: 80077
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_StopBelt_mF54CF55DF66BB52C6259B82BE8F16E0E0C62B235 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_OnCollisionExit_mEBA65AED1F47BE975DE3E75F8228A0390DE75176 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* ___0_collision, const RuntimeMethod* method) 
 {
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:74>
-		__this->___isActive = (bool)0;
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:75>
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:93>
+		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_0 = ___0_collision;
+		NullCheck(L_0);
+		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_1;
+		L_1 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_0, NULL);
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_2;
+		L_2 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_1, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_2)
+		{
+			goto IL_001a;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:96>
+		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_3 = ___0_collision;
+		NullCheck(L_3);
+		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_4;
+		L_4 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_3, NULL);
+		NullCheck(L_4);
+		Rigidbody_set_constraints_mE81BF0DAEB980E320538231E092CA4663885A9A3(L_4, 0, NULL);
+	}
+
+IL_001a:
+	{
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:98>
 		return;
 	}
 }
 // Method Definition Index: 80078
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_StartBelt_m560FF9A830786B85C9AB5CB315808D3DB92E6632 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
+{
+	{
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:102>
+		__this->___isActive = (bool)1;
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:103>
+		return;
+	}
+}
+// Method Definition Index: 80079
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_StopBelt_mF54CF55DF66BB52C6259B82BE8F16E0E0C62B235 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
+{
+	{
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:107>
+		__this->___isActive = (bool)0;
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:108>
+		return;
+	}
+}
+// Method Definition Index: 80080
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_OnDestroy_m6924C52EBF5550D45FFD896E8D66168E1EF97B53 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -10370,7 +10512,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_OnDestroy_m6924C52EBF5550D4
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:80>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:113>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_0 = __this->___beltMaterial;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -10381,7 +10523,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_OnDestroy_m6924C52EBF5550D4
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:82>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:115>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_2 = __this->___beltMaterial;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		Object_Destroy_mE97D0A766419A81296E8D4E5C23D01D3FE91ACBB(L_2, NULL);
@@ -10389,25 +10531,27 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_OnDestroy_m6924C52EBF5550D4
 
 IL_0019:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:84>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:117>
 		return;
 	}
 }
-// Method Definition Index: 80079
+// Method Definition Index: 80081
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt__ctor_mA329AF3599AF5F8BED289B13A20A87D77CDCD584 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
 {
 	{
 		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:12>
-		__this->___beltForce = (8.0f);
+		__this->___targetSpeed = (1.5f);
 		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:13>
+		__this->___acceleration = (15.0f);
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:14>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_0;
 		L_0 = Vector3_get_forward_mAA55A7034304DF8B2152EAD49AE779FC4CA2EB4A_inline(NULL);
 		__this->___localDirection = L_0;
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:15>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:16>
 		__this->___textureScrollSpeed = (2.0f);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:17>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:18>
 		__this->___isActive = (bool)1;
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:19>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ConveyorBelt.cs:20>
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_1;
 		L_1 = Vector2_get_zero_m32506C40EC2EE7D5D4410BF40D3EE683A3D5F32C_inline(NULL);
 		__this->___currentOffset = L_1;
@@ -10423,7 +10567,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt__ctor_mA329AF3599AF5F8BED28
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 80080
+// Method Definition Index: 80082
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_Awake_m01A18357608E327B357B8BADF311A8F55FAC9CE7 (GameManager_tD2A141CDC4D8B352B55DC10F337F83AAF44B9035* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -10512,7 +10656,7 @@ IL_0083:
 		return;
 	}
 }
-// Method Definition Index: 80081
+// Method Definition Index: 80083
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_OnDestroy_m23165EDF5D9C6EEB25212AFA574D32F82E4E7886 (GameManager_tD2A141CDC4D8B352B55DC10F337F83AAF44B9035* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -10549,7 +10693,7 @@ IL_0025:
 		return;
 	}
 }
-// Method Definition Index: 80082
+// Method Definition Index: 80084
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_Start_m3CBE14B5AE1BAA8EFAD2E558F0D69B41BCEE8E61 (GameManager_tD2A141CDC4D8B352B55DC10F337F83AAF44B9035* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10559,7 +10703,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_Start_m3CBE14B5AE1BAA8EFAD2E
 		return;
 	}
 }
-// Method Definition Index: 80083
+// Method Definition Index: 80085
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_SwitchState_mA9E1316B558AEAE205E0DEB801694BD1D7FBEC54 (GameManager_tD2A141CDC4D8B352B55DC10F337F83AAF44B9035* __this, int32_t ___0_nextState, const RuntimeMethod* method) 
 {
 	int32_t V_0 = 0;
@@ -10653,7 +10797,7 @@ IL_006f:
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_11, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&GameManager_SwitchState_mA9E1316B558AEAE205E0DEB801694BD1D7FBEC54_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 80084
+// Method Definition Index: 80086
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GameManager_WorkRoutine_mBE5E70E12D6CABBBC5ADD9684A2837162ED86BA8 (GameManager_tD2A141CDC4D8B352B55DC10F337F83AAF44B9035* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -10672,7 +10816,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GameManager_WorkRoutine_mBE5E7
 		return L_1;
 	}
 }
-// Method Definition Index: 80085
+// Method Definition Index: 80087
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GameManager_GlitchRoutine_m56AD96CB553BCBB5D1185513103AD0E55C6D9F58 (GameManager_tD2A141CDC4D8B352B55DC10F337F83AAF44B9035* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -10691,7 +10835,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GameManager_GlitchRoutine_m56A
 		return L_1;
 	}
 }
-// Method Definition Index: 80086
+// Method Definition Index: 80088
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GameManager_TransitionRoutine_mB42D42ECEC6BCCB5081C598C292F4324F7CE548B (GameManager_tD2A141CDC4D8B352B55DC10F337F83AAF44B9035* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -10710,7 +10854,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GameManager_TransitionRoutine_
 		return L_1;
 	}
 }
-// Method Definition Index: 80087
+// Method Definition Index: 80089
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_HandleAnomalyComplete_m37E321BC0390FC12C72F7691A4DEA8F260A22EE7 (GameManager_tD2A141CDC4D8B352B55DC10F337F83AAF44B9035* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10734,7 +10878,7 @@ IL_000a:
 		return;
 	}
 }
-// Method Definition Index: 80088
+// Method Definition Index: 80090
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GameManager_FadeCanvas_mFE6DC1661437AF06BFF99DA8B5405E2FC6BF3027 (GameManager_tD2A141CDC4D8B352B55DC10F337F83AAF44B9035* __this, CanvasGroup_t048C1461B14628CFAEBE6E7353093ADB04EBC094* ___0_canvas, float ___1_targetAlpha, float ___2_duration, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -10766,7 +10910,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GameManager_FadeCanvas_mFE6DC1
 		return L_6;
 	}
 }
-// Method Definition Index: 80089
+// Method Definition Index: 80091
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager__ctor_m14E6509275E6E56A10D409B2C8B77AD2A0B3F5F1 (GameManager_tD2A141CDC4D8B352B55DC10F337F83AAF44B9035* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -10810,7 +10954,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager__ctor_m14E6509275E6E56A10D40
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 80090
+// Method Definition Index: 80092
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CFadeCanvasU3Ed__21__ctor_m33D52F067EDC1934E61AA9E6407AC39A3372CE7D (U3CFadeCanvasU3Ed__21_t4F4CDC1732CBA146D71FBA3A7408422F2312CF40* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -10820,14 +10964,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CFadeCanvasU3Ed__21__ctor_m33D52F067ED
 		return;
 	}
 }
-// Method Definition Index: 80091
+// Method Definition Index: 80093
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CFadeCanvasU3Ed__21_System_IDisposable_Dispose_m9E5FE8C7484E4060C9E2CC08B84A50C607B164CB (U3CFadeCanvasU3Ed__21_t4F4CDC1732CBA146D71FBA3A7408422F2312CF40* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 80092
+// Method Definition Index: 80094
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CFadeCanvasU3Ed__21_MoveNext_mD56D655309E35DBE25EF2FF484F63313E5F1200A (U3CFadeCanvasU3Ed__21_t4F4CDC1732CBA146D71FBA3A7408422F2312CF40* __this, const RuntimeMethod* method) 
 {
 	int32_t V_0 = 0;
@@ -10940,7 +11084,7 @@ IL_00b4:
 		return (bool)0;
 	}
 }
-// Method Definition Index: 80093
+// Method Definition Index: 80095
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CFadeCanvasU3Ed__21_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m563B54CF53619B1228B1FE3B95822519B2151D5D (U3CFadeCanvasU3Ed__21_t4F4CDC1732CBA146D71FBA3A7408422F2312CF40* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10948,7 +11092,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CFadeCanvasU3Ed__21_System_C
 		return L_0;
 	}
 }
-// Method Definition Index: 80094
+// Method Definition Index: 80096
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CFadeCanvasU3Ed__21_System_Collections_IEnumerator_Reset_mDA36ADFC803FD401C320EBBE48A8735AF7B4AF08 (U3CFadeCanvasU3Ed__21_t4F4CDC1732CBA146D71FBA3A7408422F2312CF40* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10957,7 +11101,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CFadeCanvasU3Ed__21_System_Collections
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CFadeCanvasU3Ed__21_System_Collections_IEnumerator_Reset_mDA36ADFC803FD401C320EBBE48A8735AF7B4AF08_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 80095
+// Method Definition Index: 80097
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CFadeCanvasU3Ed__21_System_Collections_IEnumerator_get_Current_mD7319251E8BDC615301BC00BFF13EB2651DDFB97 (U3CFadeCanvasU3Ed__21_t4F4CDC1732CBA146D71FBA3A7408422F2312CF40* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10973,7 +11117,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CFadeCanvasU3Ed__21_System_C
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 80096
+// Method Definition Index: 80098
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGlitchRoutineU3Ed__18__ctor_m439432BC64297B124C8E4E650EB50524C7852C74 (U3CGlitchRoutineU3Ed__18_tD425AA203AB8100C1E41563F28A12ADDB48361C0* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -10983,14 +11127,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGlitchRoutineU3Ed__18__ctor_m439432BC
 		return;
 	}
 }
-// Method Definition Index: 80097
+// Method Definition Index: 80099
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGlitchRoutineU3Ed__18_System_IDisposable_Dispose_mA0F7A85007267A8A0996F0FEB2FFA1D2511CC918 (U3CGlitchRoutineU3Ed__18_tD425AA203AB8100C1E41563F28A12ADDB48361C0* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 80098
+// Method Definition Index: 80100
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CGlitchRoutineU3Ed__18_MoveNext_mF45443C59857AB41D12B7833813C8BF39687FB5A (U3CGlitchRoutineU3Ed__18_tD425AA203AB8100C1E41563F28A12ADDB48361C0* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -11180,7 +11324,7 @@ IL_00ae:
 		return (bool)0;
 	}
 }
-// Method Definition Index: 80099
+// Method Definition Index: 80101
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CGlitchRoutineU3Ed__18_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mD9DD19A7CC081120F9F6F168F76B4B089E89C04E (U3CGlitchRoutineU3Ed__18_tD425AA203AB8100C1E41563F28A12ADDB48361C0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11188,7 +11332,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CGlitchRoutineU3Ed__18_Syste
 		return L_0;
 	}
 }
-// Method Definition Index: 80100
+// Method Definition Index: 80102
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGlitchRoutineU3Ed__18_System_Collections_IEnumerator_Reset_m166CC074102A847F57042FEE0F32F8C32AEE24D4 (U3CGlitchRoutineU3Ed__18_tD425AA203AB8100C1E41563F28A12ADDB48361C0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11197,7 +11341,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGlitchRoutineU3Ed__18_System_Collecti
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CGlitchRoutineU3Ed__18_System_Collections_IEnumerator_Reset_m166CC074102A847F57042FEE0F32F8C32AEE24D4_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 80101
+// Method Definition Index: 80103
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CGlitchRoutineU3Ed__18_System_Collections_IEnumerator_get_Current_m56052FB98E38EB066903DAD467B6814D4A936582 (U3CGlitchRoutineU3Ed__18_tD425AA203AB8100C1E41563F28A12ADDB48361C0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11213,7 +11357,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CGlitchRoutineU3Ed__18_Syste
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 80102
+// Method Definition Index: 80104
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CTransitionRoutineU3Ed__19__ctor_mEDF92D747395A6D9E05773125544C705F1FCDB27 (U3CTransitionRoutineU3Ed__19_tE8CBE991B0BEEE431D4527DDA4CE90714B69048B* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -11223,14 +11367,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CTransitionRoutineU3Ed__19__ctor_mEDF9
 		return;
 	}
 }
-// Method Definition Index: 80103
+// Method Definition Index: 80105
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CTransitionRoutineU3Ed__19_System_IDisposable_Dispose_m974B70E77BC7C165086007034E56114EBB28FE39 (U3CTransitionRoutineU3Ed__19_tE8CBE991B0BEEE431D4527DDA4CE90714B69048B* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 80104
+// Method Definition Index: 80106
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CTransitionRoutineU3Ed__19_MoveNext_m8AA20B73BA5D528330BAD278C805802B4A9A7E83 (U3CTransitionRoutineU3Ed__19_tE8CBE991B0BEEE431D4527DDA4CE90714B69048B* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -11369,7 +11513,7 @@ IL_00a7:
 		return (bool)0;
 	}
 }
-// Method Definition Index: 80105
+// Method Definition Index: 80107
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CTransitionRoutineU3Ed__19_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m0292640B23999C5F5367DDFA4182EF33A7183065 (U3CTransitionRoutineU3Ed__19_tE8CBE991B0BEEE431D4527DDA4CE90714B69048B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11377,7 +11521,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CTransitionRoutineU3Ed__19_S
 		return L_0;
 	}
 }
-// Method Definition Index: 80106
+// Method Definition Index: 80108
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CTransitionRoutineU3Ed__19_System_Collections_IEnumerator_Reset_m39D4FAF9BE3CEDBE23263D88E10520BB03C144B4 (U3CTransitionRoutineU3Ed__19_tE8CBE991B0BEEE431D4527DDA4CE90714B69048B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11386,7 +11530,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CTransitionRoutineU3Ed__19_System_Coll
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CTransitionRoutineU3Ed__19_System_Collections_IEnumerator_Reset_m39D4FAF9BE3CEDBE23263D88E10520BB03C144B4_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 80107
+// Method Definition Index: 80109
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CTransitionRoutineU3Ed__19_System_Collections_IEnumerator_get_Current_m04F3BFF58CE1A9F6D0D3C8C86CF25D5DAD2F6853 (U3CTransitionRoutineU3Ed__19_tE8CBE991B0BEEE431D4527DDA4CE90714B69048B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11402,7 +11546,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CTransitionRoutineU3Ed__19_S
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 80108
+// Method Definition Index: 80110
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CWorkRoutineU3Ed__17__ctor_mD24A62A8D4377DF595D29B9363154B893F4A63CE (U3CWorkRoutineU3Ed__17_t2EB3D033B9FA89A7633034A48AE4ABE684D2D1B2* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -11412,14 +11556,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CWorkRoutineU3Ed__17__ctor_mD24A62A8D4
 		return;
 	}
 }
-// Method Definition Index: 80109
+// Method Definition Index: 80111
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CWorkRoutineU3Ed__17_System_IDisposable_Dispose_m1F84D959D5F8555B887C0E1A87009B8BA78CC10F (U3CWorkRoutineU3Ed__17_t2EB3D033B9FA89A7633034A48AE4ABE684D2D1B2* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 80110
+// Method Definition Index: 80112
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CWorkRoutineU3Ed__17_MoveNext_mDCD97FEEBC96586358DE3BC89FBA1152BF532F8D (U3CWorkRoutineU3Ed__17_t2EB3D033B9FA89A7633034A48AE4ABE684D2D1B2* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -11556,7 +11700,7 @@ IL_006b:
 		return (bool)0;
 	}
 }
-// Method Definition Index: 80111
+// Method Definition Index: 80113
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CWorkRoutineU3Ed__17_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m2263BFEDEEE6EDABB955BCF03E0863108F6F623C (U3CWorkRoutineU3Ed__17_t2EB3D033B9FA89A7633034A48AE4ABE684D2D1B2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11564,7 +11708,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CWorkRoutineU3Ed__17_System_
 		return L_0;
 	}
 }
-// Method Definition Index: 80112
+// Method Definition Index: 80114
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CWorkRoutineU3Ed__17_System_Collections_IEnumerator_Reset_mAC430BFD326C728CE840CF46A1F9AB71A72E9ADC (U3CWorkRoutineU3Ed__17_t2EB3D033B9FA89A7633034A48AE4ABE684D2D1B2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11573,7 +11717,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CWorkRoutineU3Ed__17_System_Collection
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CWorkRoutineU3Ed__17_System_Collections_IEnumerator_Reset_mAC430BFD326C728CE840CF46A1F9AB71A72E9ADC_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 80113
+// Method Definition Index: 80115
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CWorkRoutineU3Ed__17_System_Collections_IEnumerator_get_Current_m63421C7EA8A740DE2765625F8328E00F3FF93A4D (U3CWorkRoutineU3Ed__17_t2EB3D033B9FA89A7633034A48AE4ABE684D2D1B2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11589,7 +11733,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CWorkRoutineU3Ed__17_System_
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 80114
+// Method Definition Index: 80116
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ObjectSpawner_get_SpawnRoot_m81360C325CB287B581EE8F72296A2A086C1D9F24 (ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -11599,7 +11743,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Transform_tB27202C6F4E36D225EE28A13E4D662BF99
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:30>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:31>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = __this->___spawnPoint;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -11621,11 +11765,33 @@ IL_0015:
 		return L_3;
 	}
 }
-// Method Definition Index: 80115
+// Method Definition Index: 80117
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner_Start_mCD628ED32310D73EA8ECED0ABC51D7ADAB8F7B81 (ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* __this, const RuntimeMethod* method) 
+{
+	{
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:35>
+		bool L_0 = __this->___autoStart;
+		if (!L_0)
+		{
+			goto IL_000e;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:37>
+		ObjectSpawner_StartSpawning_mF61CF7D9685F98AE4F10DD77432794D887204A43(__this, NULL);
+	}
+
+IL_000e:
+	{
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:39>
+		return;
+	}
+}
+// Method Definition Index: 80118
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner_StartSpawning_mF61CF7D9685F98AE4F10DD77432794D887204A43 (ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:34>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:43>
 		bool L_0 = __this->___isRunning;
 		if (!L_0)
 		{
@@ -11633,30 +11799,30 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner_StartSpawning_mF61CF7D9685
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:36>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:45>
 		return;
 	}
 
 IL_0009:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:39>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:48>
 		__this->___isRunning = (bool)1;
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:40>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:49>
 		RuntimeObject* L_1;
 		L_1 = ObjectSpawner_SpawnLoop_m37DB01F2872CB973EC47BB55AFFF0C5672D8AD0E(__this, NULL);
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_2;
 		L_2 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_1, NULL);
 		__this->___spawnRoutine = L_2;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___spawnRoutine), (void*)L_2);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:41>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:50>
 		return;
 	}
 }
-// Method Definition Index: 80116
+// Method Definition Index: 80119
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner_StopSpawning_m307E7506C3458021CD53FE88CCBBE0D844EC6E22 (ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:45>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:54>
 		bool L_0 = __this->___isRunning;
 		if (L_0)
 		{
@@ -11664,15 +11830,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner_StopSpawning_m307E7506C345
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:47>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:56>
 		return;
 	}
 
 IL_0009:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:50>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:59>
 		__this->___isRunning = (bool)0;
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:52>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:61>
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_1 = __this->___spawnRoutine;
 		if (!L_1)
 		{
@@ -11680,40 +11846,40 @@ IL_0009:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:54>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:63>
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_2 = __this->___spawnRoutine;
 		MonoBehaviour_StopCoroutine_mB0FC91BE84203BD8E360B3FBAE5B958B4C5ED22A(__this, L_2, NULL);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:55>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:64>
 		__this->___spawnRoutine = (Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B*)NULL;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___spawnRoutine), (void*)(Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B*)NULL);
 	}
 
 IL_002b:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:57>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:66>
 		return;
 	}
 }
-// Method Definition Index: 80117
+// Method Definition Index: 80120
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ObjectSpawner_SpawnLoop_m37DB01F2872CB973EC47BB55AFFF0C5672D8AD0E (ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CSpawnLoopU3Ed__16_t57981BB3FFC472928D3040C438FC365458C2EBC4_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CSpawnLoopU3Ed__18_t2C6F88B6717DA90BDF7E67C5BE6B69A6E15141D5_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		U3CSpawnLoopU3Ed__16_t57981BB3FFC472928D3040C438FC365458C2EBC4* L_0 = (U3CSpawnLoopU3Ed__16_t57981BB3FFC472928D3040C438FC365458C2EBC4*)il2cpp_codegen_object_new(U3CSpawnLoopU3Ed__16_t57981BB3FFC472928D3040C438FC365458C2EBC4_il2cpp_TypeInfo_var);
-		U3CSpawnLoopU3Ed__16__ctor_m61E67331EEE1E5C8437BE78C164F14F83BF974FD(L_0, 0, NULL);
-		U3CSpawnLoopU3Ed__16_t57981BB3FFC472928D3040C438FC365458C2EBC4* L_1 = L_0;
+		U3CSpawnLoopU3Ed__18_t2C6F88B6717DA90BDF7E67C5BE6B69A6E15141D5* L_0 = (U3CSpawnLoopU3Ed__18_t2C6F88B6717DA90BDF7E67C5BE6B69A6E15141D5*)il2cpp_codegen_object_new(U3CSpawnLoopU3Ed__18_t2C6F88B6717DA90BDF7E67C5BE6B69A6E15141D5_il2cpp_TypeInfo_var);
+		U3CSpawnLoopU3Ed__18__ctor_m529941A3826B9E369FEE35069361BD8DE60089A2(L_0, 0, NULL);
+		U3CSpawnLoopU3Ed__18_t2C6F88B6717DA90BDF7E67C5BE6B69A6E15141D5* L_1 = L_0;
 		NullCheck(L_1);
 		L_1->___U3CU3E4__this = __this;
 		Il2CppCodeGenWriteBarrier((void**)(&L_1->___U3CU3E4__this), (void*)__this);
 		return L_1;
 	}
 }
-// Method Definition Index: 80118
+// Method Definition Index: 80121
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner_SpawnObject_m38FB183CA3A5FD712F3982A893155A797295CD1B (ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -11726,22 +11892,22 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner_SpawnObject_m38FB183CA3A5F
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* V_1 = NULL;
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* V_2 = NULL;
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:71>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:80>
 		float L_0;
 		L_0 = Random_get_value_m2CEA87FADF5222EF9E13D32695F15E2BA282E24B(NULL);
 		V_0 = (bool)((((float)L_0) > ((float)(0.5f)))? 1 : 0);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:72>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:81>
 		bool L_1 = V_0;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_2;
 		L_2 = ObjectSpawner_ChoosePrefab_m1A9D10E1DBC5A63AD508A698FBE800019E4DB2AB(__this, L_1, NULL);
 		V_1 = L_2;
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:73>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:82>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_3 = V_1;
 		bool L_4 = V_0;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_5;
 		L_5 = ObjectSpawner_InstantiateObject_mCF623D6BE4A71810ED2244E9273046ACA898B7EF(__this, L_3, L_4, NULL);
 		V_2 = L_5;
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:74>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:83>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_6 = V_2;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_7;
@@ -11752,27 +11918,27 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner_SpawnObject_m38FB183CA3A5F
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:76>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:85>
 		return;
 	}
 
 IL_0028:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:79>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:88>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_8 = V_2;
 		ObjectSpawner_ConfigureInteractable_m58A1D79E90C116633A85401325ECEA4990C0EA41(__this, L_8, NULL);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:80>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:89>
 		return;
 	}
 }
-// Method Definition Index: 80119
+// Method Definition Index: 80122
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ObjectSpawner_ChoosePrefab_m1A9D10E1DBC5A63AD508A698FBE800019E4DB2AB (ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* __this, bool ___0_spawnRed, const RuntimeMethod* method) 
 {
 	GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* V_0 = NULL;
 	int32_t V_1 = 0;
 	GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* G_B3_0 = NULL;
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:84>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:93>
 		bool L_0 = ___0_spawnRed;
 		if (L_0)
 		{
@@ -11794,7 +11960,7 @@ IL_000b:
 IL_0011:
 	{
 		V_0 = G_B3_0;
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:86>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:95>
 		GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* L_3 = V_0;
 		if (!L_3)
 		{
@@ -11812,19 +11978,19 @@ IL_0011:
 
 IL_0019:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:88>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:97>
 		return (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*)NULL;
 	}
 
 IL_001b:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:91>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:100>
 		GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* L_5 = V_0;
 		NullCheck(L_5);
 		int32_t L_6;
 		L_6 = Random_Range_m6763D9767F033357F88B6637F048F4ACA4123B68(0, ((int32_t)(((RuntimeArray*)L_5)->max_length)), NULL);
 		V_1 = L_6;
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:92>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:101>
 		GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* L_7 = V_0;
 		int32_t L_8 = V_1;
 		NullCheck(L_7);
@@ -11833,7 +11999,7 @@ IL_001b:
 		return L_10;
 	}
 }
-// Method Definition Index: 80120
+// Method Definition Index: 80123
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ObjectSpawner_InstantiateObject_mCF623D6BE4A71810ED2244E9273046ACA898B7EF (ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* __this, GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___0_prefab, bool ___1_isRed, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -11849,7 +12015,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651
 	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* G_B5_0 = NULL;
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* G_B5_1 = NULL;
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:97>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:106>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_0 = ___0_prefab;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -11860,7 +12026,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:99>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:108>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_2 = ___0_prefab;
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_3;
 		L_3 = ObjectSpawner_get_SpawnRoot_m81360C325CB287B581EE8F72296A2A086C1D9F24(__this, NULL);
@@ -11880,10 +12046,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651
 
 IL_0026:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:102>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:111>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_8;
 		L_8 = GameObject_CreatePrimitive_m13C0A691E679A83DD595913200A1DD9A906EB47B(3, NULL);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:103>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:112>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_9 = L_8;
 		NullCheck(L_9);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_10;
@@ -11900,7 +12066,7 @@ IL_0026:
 		L_14 = Transform_get_rotation_m32AF40CA0D50C797DA639A696F8EAEC7524C179C(L_13, NULL);
 		NullCheck(L_10);
 		Transform_SetPositionAndRotation_m418859BF59086EEAA084FFD6F258A43FAB408F5A(L_10, L_12, L_14, NULL);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:104>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:114>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_15 = L_9;
 		NullCheck(L_15);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_16;
@@ -11908,12 +12074,12 @@ IL_0026:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_17;
 		L_17 = Vector3_get_one_mC9B289F1E15C42C597180C9FE6FB492495B51D02_inline(NULL);
 		float L_18;
-		L_18 = Random_Range_m5236C99A7D8AE6AC9190592DC66016652A2D2494((0.300000012f), (0.5f), NULL);
+		L_18 = Random_Range_m5236C99A7D8AE6AC9190592DC66016652A2D2494((0.150000006f), (0.200000003f), NULL);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_19;
 		L_19 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_17, L_18, NULL);
 		NullCheck(L_16);
 		Transform_set_localScale_mBA79E811BAF6C47B80FF76414C12B47B3CD03633(L_16, L_19, NULL);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:106>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:116>
 		bool L_20 = ___1_isRed;
 		if (L_20)
 		{
@@ -11939,16 +12105,16 @@ IL_007c:
 IL_0082:
 	{
 		V_0 = G_B5_0;
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:107>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:117>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_23 = G_B5_1;
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_24 = V_0;
 		bool L_25 = ___1_isRed;
 		ObjectSpawner_ApplyMaterial_m5BEA71FE825401A9E27E386B1C397A1CDF7F96E8(L_23, L_24, L_25, NULL);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:108>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:118>
 		return L_23;
 	}
 }
-// Method Definition Index: 80121
+// Method Definition Index: 80124
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner_ApplyMaterial_m5BEA71FE825401A9E27E386B1C397A1CDF7F96E8 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___0_primitive, Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___1_material, bool ___2_isRed, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -11973,13 +12139,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner_ApplyMaterial_m5BEA71FE825
 	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* G_B7_2 = NULL;
 	Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* G_B7_3 = NULL;
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:113>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:123>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_0 = ___0_primitive;
 		NullCheck(L_0);
 		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_1;
 		L_1 = GameObject_GetComponent_TisRenderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF_m026EB44DB6238F13E2AFBECF1FBBE924CB1B040A(L_0, GameObject_GetComponent_TisRenderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF_m026EB44DB6238F13E2AFBECF1FBBE924CB1B040A_RuntimeMethod_var);
 		V_0 = L_1;
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:115>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:125>
 		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_2 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_3;
@@ -11990,13 +12156,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner_ApplyMaterial_m5BEA71FE825
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:117>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:127>
 		return;
 	}
 
 IL_0011:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:120>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:130>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_4 = ___1_material;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_5;
@@ -12007,7 +12173,7 @@ IL_0011:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:122>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:132>
 		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_6 = V_0;
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_7 = ___1_material;
 		NullCheck(L_6);
@@ -12017,10 +12183,10 @@ IL_0011:
 
 IL_0022:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:126>
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:127>
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:128>
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:129>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:136>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:137>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:138>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:139>
 		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_8 = V_0;
 		Shader_tADC867D36B7876EE22427FAA2CE485105F4EE692* L_9;
 		L_9 = Shader_Find_m183AA54F78320212DDEC811592F98456898A41C5(_stringLiteral9B4FEEFA76B93D58B6E47CD9FF76F6E287D0D321, NULL);
@@ -12065,11 +12231,11 @@ IL_0042:
 		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(G_B7_1, G_B7_0, NULL);
 		NullCheck(G_B7_3);
 		Renderer_set_sharedMaterial_m5E842F9A06CFB7B77656EB319881CB4B3E8E4288(G_B7_3, G_B7_2, NULL);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:131>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:141>
 		return;
 	}
 }
-// Method Definition Index: 80122
+// Method Definition Index: 80125
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner_ConfigureInteractable_m58A1D79E90C116633A85401325ECEA4990C0EA41 (ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* __this, GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___0_instance, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -12084,16 +12250,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner_ConfigureInteractable_m58A
 	}
 	Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* V_0 = NULL;
 	XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* V_1 = NULL;
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_2;
-	memset((&V_2), 0, sizeof(V_2));
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:135>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:145>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_0 = ___0_instance;
 		NullCheck(L_0);
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_1;
 		L_1 = GameObject_GetComponent_TisRigidbody_t268697F5A994213ED97393309870968BC1C7393C_m2D7F86C77ECF9B82AAC077B511F1004280571B90(L_0, GameObject_GetComponent_TisRigidbody_t268697F5A994213ED97393309870968BC1C7393C_m2D7F86C77ECF9B82AAC077B511F1004280571B90_RuntimeMethod_var);
 		V_0 = L_1;
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:137>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:147>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_2 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_3;
@@ -12104,7 +12268,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner_ConfigureInteractable_m58A
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:139>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:149>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_4 = ___0_instance;
 		NullCheck(L_4);
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_5;
@@ -12114,26 +12278,26 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner_ConfigureInteractable_m58A
 
 IL_0017:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:143>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:153>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_6 = V_0;
 		float L_7 = __this->___rigidbodyDrag;
 		NullCheck(L_6);
 		Rigidbody_set_linearDamping_m42BB8ADA5D26250A11256502D08BDC2DAB980242(L_6, L_7, NULL);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:144>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:154>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_8 = V_0;
 		NullCheck(L_8);
 		Rigidbody_set_angularDamping_m2763171B779080FC724173D87C34015ABED51671(L_8, (5.0f), NULL);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:145>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:155>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_9 = V_0;
 		NullCheck(L_9);
 		Rigidbody_set_mass_mC7F886DEDB57C742A16F8B6B779F69AFE164CA4B(L_9, (0.5f), NULL);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:147>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:157>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_10 = ___0_instance;
 		NullCheck(L_10);
 		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_11;
 		L_11 = GameObject_GetComponent_TisXRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B_m31A48046157D81B737F6966AD4C07768868EB6CC(L_10, GameObject_GetComponent_TisXRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B_m31A48046157D81B737F6966AD4C07768868EB6CC_RuntimeMethod_var);
 		V_1 = L_11;
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:149>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:159>
 		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_12 = V_1;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_13;
@@ -12144,7 +12308,7 @@ IL_0017:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:151>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:161>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_14 = ___0_instance;
 		NullCheck(L_14);
 		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_15;
@@ -12154,7 +12318,7 @@ IL_0017:
 
 IL_0050:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:155>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:165>
 		float L_16 = __this->___initialDropForce;
 		if ((!(((float)L_16) > ((float)(0.0f)))))
 		{
@@ -12162,7 +12326,7 @@ IL_0050:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:157>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:167>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_17 = V_0;
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_18;
 		L_18 = ObjectSpawner_get_SpawnRoot_m81360C325CB287B581EE8F72296A2A086C1D9F24(__this, NULL);
@@ -12180,64 +12344,22 @@ IL_0050:
 
 IL_007f:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:161>
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* L_23 = (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)(&__this->___randomTorqueRange);
-		float L_24;
-		L_24 = Vector3_get_magnitude_mF0D6017E90B345F1F52D1CC564C640F1A847AF2D_inline(L_23, NULL);
-		if ((!(((float)L_24) > ((float)(0.0f)))))
-		{
-			goto IL_00f4;
-		}
-	}
-	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:163>
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:164>
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:165>
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:166>
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* L_25 = (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)(&__this->___randomTorqueRange);
-		float L_26 = L_25->___x;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* L_27 = (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)(&__this->___randomTorqueRange);
-		float L_28 = L_27->___x;
-		float L_29;
-		L_29 = Random_Range_m5236C99A7D8AE6AC9190592DC66016652A2D2494(((-L_26)), L_28, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* L_30 = (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)(&__this->___randomTorqueRange);
-		float L_31 = L_30->___y;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* L_32 = (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)(&__this->___randomTorqueRange);
-		float L_33 = L_32->___y;
-		float L_34;
-		L_34 = Random_Range_m5236C99A7D8AE6AC9190592DC66016652A2D2494(((-L_31)), L_33, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* L_35 = (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)(&__this->___randomTorqueRange);
-		float L_36 = L_35->___z;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* L_37 = (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)(&__this->___randomTorqueRange);
-		float L_38 = L_37->___z;
-		float L_39;
-		L_39 = Random_Range_m5236C99A7D8AE6AC9190592DC66016652A2D2494(((-L_36)), L_38, NULL);
-		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&V_2), L_29, L_34, L_39, NULL);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:168>
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_40 = V_0;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_41 = V_2;
-		NullCheck(L_40);
-		Rigidbody_AddTorque_m7922F76C73DACF9E1610D72726C01709C14F0937(L_40, L_41, 1, NULL);
-	}
-
-IL_00f4:
-	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:171>
-		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_42 = V_1;
-		NullCheck(L_42);
-		XRGrabInteractable_set_throwOnDetach_mFE16597F775A78F44E5BCA41F5DA789D22097E10_inline(L_42, (bool)1, NULL);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:172>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:183>
+		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_23 = V_1;
+		NullCheck(L_23);
+		XRGrabInteractable_set_throwOnDetach_mFE16597F775A78F44E5BCA41F5DA789D22097E10_inline(L_23, (bool)1, NULL);
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:184>
 		return;
 	}
 }
-// Method Definition Index: 80123
+// Method Definition Index: 80126
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner__ctor_mA0430FA3E19D356DA46A2AE80B179D488C3C70A5 (ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* __this, const RuntimeMethod* method) 
 {
 	{
 		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:19>
-		__this->___minSpawnDelay = (0.600000024f);
+		__this->___minSpawnDelay = (2.0f);
 		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:20>
-		__this->___maxSpawnDelay = (1.39999998f);
+		__this->___maxSpawnDelay = (4.0f);
 		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:23>
 		__this->___initialDropForce = (0.100000001f);
 		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:24>
@@ -12259,8 +12381,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectSpawner__ctor_mA0430FA3E19D356DA46
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 80124
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CSpawnLoopU3Ed__16__ctor_m61E67331EEE1E5C8437BE78C164F14F83BF974FD (U3CSpawnLoopU3Ed__16_t57981BB3FFC472928D3040C438FC365458C2EBC4* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
+// Method Definition Index: 80127
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CSpawnLoopU3Ed__18__ctor_m529941A3826B9E369FEE35069361BD8DE60089A2 (U3CSpawnLoopU3Ed__18_t2C6F88B6717DA90BDF7E67C5BE6B69A6E15141D5* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
 		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2(__this, NULL);
@@ -12269,15 +12391,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CSpawnLoopU3Ed__16__ctor_m61E67331EEE1
 		return;
 	}
 }
-// Method Definition Index: 80125
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CSpawnLoopU3Ed__16_System_IDisposable_Dispose_mEDE235026D960DFBC7640CDE74DE2153ED74128D (U3CSpawnLoopU3Ed__16_t57981BB3FFC472928D3040C438FC365458C2EBC4* __this, const RuntimeMethod* method) 
+// Method Definition Index: 80128
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CSpawnLoopU3Ed__18_System_IDisposable_Dispose_m4DB154A0488FBE79719C39275424A61BBADF389A (U3CSpawnLoopU3Ed__18_t2C6F88B6717DA90BDF7E67C5BE6B69A6E15141D5* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 80126
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CSpawnLoopU3Ed__16_MoveNext_mA74B83E86F91E568B351A345B0C3DDC10BEC7F4B (U3CSpawnLoopU3Ed__16_t57981BB3FFC472928D3040C438FC365458C2EBC4* __this, const RuntimeMethod* method) 
+// Method Definition Index: 80129
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CSpawnLoopU3Ed__18_MoveNext_m04A5B84BB580FE81C7998842545AF3B0F1DB3002 (U3CSpawnLoopU3Ed__18_t2C6F88B6717DA90BDF7E67C5BE6B69A6E15141D5* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -12318,11 +12440,11 @@ IL_0017:
 
 IL_0020:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:63>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:72>
 		ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* L_4 = V_1;
 		NullCheck(L_4);
 		ObjectSpawner_SpawnObject_m38FB183CA3A5FD712F3982A893155A797295CD1B(L_4, NULL);
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:64>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:73>
 		ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* L_5 = V_1;
 		NullCheck(L_5);
 		float L_6 = L_5->___minSpawnDelay;
@@ -12332,7 +12454,7 @@ IL_0020:
 		float L_9;
 		L_9 = Random_Range_m5236C99A7D8AE6AC9190592DC66016652A2D2494(L_6, L_8, NULL);
 		V_2 = L_9;
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:65>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:74>
 		float L_10 = V_2;
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_11 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_11, L_10, NULL);
@@ -12349,7 +12471,7 @@ IL_004d:
 
 IL_0054:
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:61>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:70>
 		ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6* L_12 = V_1;
 		NullCheck(L_12);
 		bool L_13 = L_12->___isRunning;
@@ -12359,29 +12481,29 @@ IL_0054:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:67>
+		//<source_info:/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Assets/Scripts/ObjectSpawner.cs:76>
 		return (bool)0;
 	}
 }
-// Method Definition Index: 80127
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CSpawnLoopU3Ed__16_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m7D5BA8C0076A8E9619714CBB0550EE5EAA309210 (U3CSpawnLoopU3Ed__16_t57981BB3FFC472928D3040C438FC365458C2EBC4* __this, const RuntimeMethod* method) 
+// Method Definition Index: 80130
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CSpawnLoopU3Ed__18_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mAF845368ED92A5988A6E65310F614A88CA385ED8 (U3CSpawnLoopU3Ed__18_t2C6F88B6717DA90BDF7E67C5BE6B69A6E15141D5* __this, const RuntimeMethod* method) 
 {
 	{
 		RuntimeObject* L_0 = __this->___U3CU3E2__current;
 		return L_0;
 	}
 }
-// Method Definition Index: 80128
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CSpawnLoopU3Ed__16_System_Collections_IEnumerator_Reset_mF4AB7177B6B42CEBD5678F01C386EDE1DDE49569 (U3CSpawnLoopU3Ed__16_t57981BB3FFC472928D3040C438FC365458C2EBC4* __this, const RuntimeMethod* method) 
+// Method Definition Index: 80131
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CSpawnLoopU3Ed__18_System_Collections_IEnumerator_Reset_m9B7C81DE0BD37EDFC9D3EC6CA70BA94A223D2130 (U3CSpawnLoopU3Ed__18_t2C6F88B6717DA90BDF7E67C5BE6B69A6E15141D5* __this, const RuntimeMethod* method) 
 {
 	{
 		NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A* L_0 = (NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A_il2cpp_TypeInfo_var)));
 		NotSupportedException__ctor_m1398D0CDE19B36AA3DE9392879738C1EA2439CDF(L_0, NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CSpawnLoopU3Ed__16_System_Collections_IEnumerator_Reset_mF4AB7177B6B42CEBD5678F01C386EDE1DDE49569_RuntimeMethod_var)));
+		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CSpawnLoopU3Ed__18_System_Collections_IEnumerator_Reset_m9B7C81DE0BD37EDFC9D3EC6CA70BA94A223D2130_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 80129
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CSpawnLoopU3Ed__16_System_Collections_IEnumerator_get_Current_mE278C3A635A7BD284F8DA84647D2AD15CE10AEF7 (U3CSpawnLoopU3Ed__16_t57981BB3FFC472928D3040C438FC365458C2EBC4* __this, const RuntimeMethod* method) 
+// Method Definition Index: 80132
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CSpawnLoopU3Ed__18_System_Collections_IEnumerator_get_Current_mAF22421C130F03D5106828D54F489896B37EABB5 (U3CSpawnLoopU3Ed__18_t2C6F88B6717DA90BDF7E67C5BE6B69A6E15141D5* __this, const RuntimeMethod* method) 
 {
 	{
 		RuntimeObject* L_0 = __this->___U3CU3E2__current;
@@ -12768,7 +12890,7 @@ IL_002d:
 		return L_12;
 	}
 }
-// Method Definition Index: 81829
+// Method Definition Index: 81832
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool SubsystemWithProvider_get_running_m6BF31FC3BDA38C56C0F60FEA37767A4151B22C44_inline (SubsystemWithProvider_tC72E35EE2D413A4B0635B058154BABF265F31242* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13382,6 +13504,16 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Action_Invoke_m7126A54DACA72
 {
 	typedef void (*FunctionPointerType) (RuntimeObject*, const RuntimeMethod*);
 	((FunctionPointerType)__this->___invoke_impl)((Il2CppObject*)__this->___method_code, reinterpret_cast<RuntimeMethod*>(__this->___method));
+}
+// Method Definition Index: 45370
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F Color_get_yellow_m66637FA14383E8D74F24AE256B577CE1D55D469F_inline (const RuntimeMethod* method) 
+{
+	{
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_0;
+		memset((&L_0), 0, sizeof(L_0));
+		Color__ctor_m3786F0D6E510D9CFA544523A955870BD2A514C8C_inline((&L_0), (1.0f), (0.921568632f), (0.0156862754f), (1.0f), NULL);
+		return L_0;
+	}
 }
 // Method Definition Index: 45507
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Vector3_get_forward_mAA55A7034304DF8B2152EAD49AE779FC4CA2EB4A_inline (const RuntimeMethod* method) 
