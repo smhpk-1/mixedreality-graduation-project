@@ -166,7 +166,8 @@ namespace ConveyorShift
                 rigidbody.AddForce(-SpawnRoot.up * initialDropForce, ForceMode.Impulse);
             }
 
-            // Çok hafif rastgele dönüş - bantla uyumlu hareket için minimal
+            // Random torque removed to ensure objects land flat on the conveyor
+            /* 
             if (randomTorqueRange.magnitude > 0f)
             {
                 Vector3 torque = new Vector3(
@@ -176,6 +177,7 @@ namespace ConveyorShift
 
                 rigidbody.AddTorque(torque, ForceMode.Impulse);
             }
+            */
 
             grab.throwOnDetach = true;
         }
