@@ -16,19 +16,25 @@
           },
           {
             "name": "AnimationClip",
-            "scenes": [],
+            "scenes": [
+              "Assets/scene1.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "Animator",
-            "scenes": [],
+            "scenes": [
+              "Assets/scene1.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "AnimatorController",
-            "scenes": [],
+            "scenes": [
+              "Assets/scene1.unity"
+            ],
             "dependencyType": 1,
             "icon": null
           },
@@ -254,7 +260,9 @@
           },
           {
             "name": "LineRenderer",
-            "scenes": [],
+            "scenes": [
+              "Assets/scene1.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
@@ -418,7 +426,9 @@
           },
           {
             "name": "SkinnedMeshRenderer",
-            "scenes": [],
+            "scenes": [
+              "Assets/scene1.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
@@ -430,7 +440,9 @@
           },
           {
             "name": "SortingGroup",
-            "scenes": [],
+            "scenes": [
+              "Assets/scene1.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
@@ -950,7 +962,9 @@
           },
           {
             "name": "CharacterController",
-            "scenes": [],
+            "scenes": [
+              "Assets/scene1.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },

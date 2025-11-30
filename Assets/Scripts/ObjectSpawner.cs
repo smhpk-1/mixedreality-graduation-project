@@ -167,6 +167,17 @@ namespace ConveyorShift
             grab.movementType = UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable.MovementType.VelocityTracking;
             grab.throwOnDetach = true;
             grab.forceGravityOnDetach = true;
+            
+            // FIX: Ensure the object is interactable by Everything (Layer -1)
+            // This fixes issues where the controller might be looking for a specific layer
+            grab.interactionLayers = -1; 
+
+            // FIX: Explicitly tell the interactable which collider to use
+            Collider col = instance.GetComponent<Collider>();
+            if (col != null && !grab.colliders.Contains(col))
+            {
+                grab.colliders.Add(col);
+            }
 
             // Initial drop force
             if (initialDropForce > 0f)
