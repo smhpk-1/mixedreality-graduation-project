@@ -110,8 +110,8 @@ namespace ConveyorShift
 
             GameObject primitive = GameObject.CreatePrimitive(PrimitiveType.Cube);
             primitive.transform.SetPositionAndRotation(SpawnRoot.position, SpawnRoot.rotation);
-            // Reduced size for better hand interaction on Quest 3S (approx 10-15cm)
-            primitive.transform.localScale = Vector3.one * Random.Range(0.1f, 0.15f);
+            // Adjusted size for hand interaction (approx 15-20cm) with slight randomness
+            primitive.transform.localScale = Vector3.one * Random.Range(0.15f, 0.2f);
 
             Material runtimeMaterial = isRed ? redMaterial : blueMaterial;
             ApplyMaterial(primitive, runtimeMaterial, isRed);
