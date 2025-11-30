@@ -1,0 +1,10 @@
+# ninja log v5
+2	732	1764377503336195418	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	8443a8a693ef4044
+1	738	1764377503343153321	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	1ca57fd9690a70e4
+2	756	1764377503359928848	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	2a70b7a4c0aab40
+1	757	1764377503359212137	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	ef51f01bbda5e858
+1	792	1764377503396833248	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	9bc89d84d4d5fc37
+3	828	1764377503434170984	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	db088da499c477c9
+2	932	1764377503537089612	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	5ec91bfec15a8dc3
+0	1009	1764377503614011467	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	22889ec20cb47fc6
+1009	1137	1764377503736240757	/Users/semiha/Library/Mobile Documents/com~apple~CloudDocs/Bilgi Music/unity ilk denemeler/mixedreality1/My project/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2g654863/obj/arm64-v8a/libgame.so	8eb454ae2de698ea

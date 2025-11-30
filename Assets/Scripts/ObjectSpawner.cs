@@ -1,0 +1,175 @@
+using System.Collections;
+using UnityEngine;
+
+
+namespace ConveyorShift
+{
+    /// <summary>
+    /// Spawns coloured cube interactables onto the conveyor in random intervals.
+    /// </summary>
+    public class ObjectSpawner : MonoBehaviour
+    {
+        [SerializeField] private Transform spawnPoint;
+        [SerializeField] private GameObject[] redPrefabs;
+        [SerializeField] private GameObject[] bluePrefabs;
+        [SerializeField] private Material redMaterial;
+        [SerializeField] private Material blueMaterial;
+
+        [Header("Timing")]
+        [SerializeField] private float minSpawnDelay = 0.6f;
+        [SerializeField] private float maxSpawnDelay = 1.4f;
+
+        [Header("Physics")]
+        [SerializeField] private float initialDropForce = 0.1f;
+        [SerializeField] private Vector3 randomTorqueRange = new Vector3(0.5f, 0.5f, 0.5f);
+        [SerializeField] private float rigidbodyDrag = 5f;
+
+        private bool isRunning;
+        private Coroutine spawnRoutine;
+
+        private Transform SpawnRoot => spawnPoint != null ? spawnPoint : transform;
+
+        public void StartSpawning()
+        {
+            if (isRunning)
+            {
+                return;
+            }
+
+            isRunning = true;
+            spawnRoutine = StartCoroutine(SpawnLoop());
+        }
+
+        public void StopSpawning()
+        {
+            if (!isRunning)
+            {
+                return;
+            }
+
+            isRunning = false;
+
+            if (spawnRoutine != null)
+            {
+                StopCoroutine(spawnRoutine);
+                spawnRoutine = null;
+            }
+        }
+
+        private IEnumerator SpawnLoop()
+        {
+            while (isRunning)
+            {
+                SpawnObject();
+                float delay = Random.Range(minSpawnDelay, maxSpawnDelay);
+                yield return new WaitForSeconds(delay);
+            }
+        }
+
+        private void SpawnObject()
+        {
+            bool spawnRed = Random.value > 0.5f;
+            GameObject prefab = ChoosePrefab(spawnRed);
+            GameObject instance = InstantiateObject(prefab, spawnRed);
+            if (instance == null)
+            {
+                return;
+            }
+
+            ConfigureInteractable(instance);
+        }
+
+        private GameObject ChoosePrefab(bool spawnRed)
+        {
+            GameObject[] pool = spawnRed ? redPrefabs : bluePrefabs;
+
+            if (pool == null || pool.Length == 0)
+            {
+                return null;
+            }
+
+            int index = Random.Range(0, pool.Length);
+            return pool[index];
+        }
+
+        private GameObject InstantiateObject(GameObject prefab, bool isRed)
+        {
+            if (prefab != null)
+            {
+                return Instantiate(prefab, SpawnRoot.position, SpawnRoot.rotation);
+            }
+
+            GameObject primitive = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            primitive.transform.SetPositionAndRotation(SpawnRoot.position, SpawnRoot.rotation);
+            primitive.transform.localScale = Vector3.one * Random.Range(0.3f, 0.5f);
+
+            Material runtimeMaterial = isRed ? redMaterial : blueMaterial;
+            ApplyMaterial(primitive, runtimeMaterial, isRed);
+            return primitive;
+        }
+
+        private static void ApplyMaterial(GameObject primitive, Material material, bool isRed)
+        {
+            Renderer renderer = primitive.GetComponent<Renderer>();
+
+            if (renderer == null)
+            {
+                return;
+            }
+
+            if (material != null)
+            {
+                renderer.sharedMaterial = material;
+            }
+            else
+            {
+                renderer.sharedMaterial = new Material(Shader.Find("Universal Render Pipeline/Lit"))
+                {
+                    color = isRed ? Color.red : Color.blue
+                };
+            }
+        }
+
+        private void ConfigureInteractable(GameObject instance)
+        {
+            Rigidbody rigidbody = instance.GetComponent<Rigidbody>();
+
+            if (rigidbody == null)
+            {
+                rigidbody = instance.AddComponent<Rigidbody>();
+            }
+
+            // Rigidbody ayarları: yüksek drag ile bantla birlikte hareket etsin
+            rigidbody.linearDamping = rigidbodyDrag;
+            rigidbody.angularDamping = 5f;
+            rigidbody.mass = 0.5f; // Hafif kütle
+
+            UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grab = instance.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+
+            if (grab == null)
+            {
+                grab = instance.AddComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+            }
+
+            // Çok hafif bir aşağı itme - sadece yerçekimi yeterli olmalı
+            if (initialDropForce > 0f)
+            {
+                rigidbody.AddForce(-SpawnRoot.up * initialDropForce, ForceMode.Impulse);
+            }
+
+            // Çok hafif rastgele dönüş - bantla uyumlu hareket için minimal
+            if (randomTorqueRange.magnitude > 0f)
+            {
+                Vector3 torque = new Vector3(
+                    Random.Range(-randomTorqueRange.x, randomTorqueRange.x),
+                    Random.Range(-randomTorqueRange.y, randomTorqueRange.y),
+                    Random.Range(-randomTorqueRange.z, randomTorqueRange.z));
+
+                rigidbody.AddTorque(torque, ForceMode.Impulse);
+            }
+
+            grab.throwOnDetach = true;
+        }
+    }
+}
+
