@@ -1505,7 +1505,6 @@ UnityEngine.Rigidbody::get_linearDamping_Injected
 UnityEngine.Rigidbody::get_maxAngularVelocity_Injected
 UnityEngine.Rigidbody::get_maxLinearVelocity_Injected
 UnityEngine.Rigidbody::AddForce_Injected
-UnityEngine.Rigidbody::AddTorque_Injected
 UnityEngine.Rigidbody::MovePosition_Injected
 UnityEngine.Rigidbody::MoveRotation_Injected
 UnityEngine.Rigidbody::get_angularVelocity_Injected
@@ -1514,6 +1513,7 @@ UnityEngine.Rigidbody::get_position_Injected
 UnityEngine.Rigidbody::get_rotation_Injected
 UnityEngine.Rigidbody::set_angularDamping_Injected
 UnityEngine.Rigidbody::set_angularVelocity_Injected
+UnityEngine.Rigidbody::set_constraints_Injected
 UnityEngine.Rigidbody::set_interpolation_Injected
 UnityEngine.Rigidbody::set_isKinematic_Injected
 UnityEngine.Rigidbody::set_linearDamping_Injected
