@@ -2302,7 +2302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c1da254e74448fb901ce36caa09c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConveyorShift.ConveyorBelt
-  beltForce: 15
+  targetSpeed: 1.5
+  acceleration: 15
   localDirection: {x: 0, y: 0, z: -1}
   beltRenderer: {fileID: 2041766301}
   textureScrollSpeed: 0.5
