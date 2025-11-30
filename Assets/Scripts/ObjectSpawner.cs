@@ -149,19 +149,26 @@ namespace ConveyorShift
                 rigidbody = instance.AddComponent<Rigidbody>();
             }
 
-            // Rigidbody ayarları: yüksek drag ile bantla birlikte hareket etsin
+            // Rigidbody settings
             rigidbody.linearDamping = rigidbodyDrag;
             rigidbody.angularDamping = 5f;
-            rigidbody.mass = 0.5f; // Hafif kütle
+            rigidbody.mass = 0.5f;
+            rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
 
-            UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grab = instance.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+            // Add Grab Interaction
+            var grab = instance.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
 
             if (grab == null)
             {
                 grab = instance.AddComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
             }
 
-            // Çok hafif bir aşağı itme - sadece yerçekimi yeterli olmalı
+            // Configure Grab settings for best feel
+            grab.movementType = UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable.MovementType.VelocityTracking;
+            grab.throwOnDetach = true;
+            grab.forceGravityOnDetach = true;
+
+            // Initial drop force
             if (initialDropForce > 0f)
             {
                 rigidbody.AddForce(-SpawnRoot.up * initialDropForce, ForceMode.Impulse);
@@ -179,8 +186,6 @@ namespace ConveyorShift
                 rigidbody.AddTorque(torque, ForceMode.Impulse);
             }
             */
-
-            grab.throwOnDetach = true;
         }
     }
 }
