@@ -9,7 +9,8 @@ namespace ConveyorShift
     [RequireComponent(typeof(Collider))]
     public class ConveyorBelt : MonoBehaviour
     {
-        [SerializeField] private float beltForce = 8f;
+        [SerializeField] private float targetSpeed = 1.5f;
+        [SerializeField] private float acceleration = 15f;
         [SerializeField] private Vector3 localDirection = Vector3.forward;
         [SerializeField] private Renderer beltRenderer;
         [SerializeField] private float textureScrollSpeed = 2f;
@@ -68,8 +69,22 @@ namespace ConveyorShift
                 return;
             }
 
+            // 1. Stop Rolling: Heavily dampen angular velocity while on the belt
+            collision.rigidbody.angularVelocity = Vector3.Lerp(collision.rigidbody.angularVelocity, Vector3.zero, Time.deltaTime * 20f);
+
+            // 2. Move: Accelerate towards target speed instead of adding raw force
             Vector3 worldDirection = transform.TransformDirection(localDirection).normalized;
-            collision.rigidbody.AddForce(worldDirection * beltForce, ForceMode.Acceleration);
+            Vector3 targetVelocity = worldDirection * targetSpeed;
+            
+            // Use linearVelocity for Unity 6 compatibility (matches ObjectSpawner's linearDamping)
+            Vector3 currentVelocity = collision.rigidbody.linearVelocity;
+            
+            // Calculate speed difference (ignoring gravity/Y axis)
+            Vector3 velocityDiff = targetVelocity - currentVelocity;
+            velocityDiff.y = 0;
+
+            // Apply acceleration to match speed
+            collision.rigidbody.AddForce(velocityDiff * acceleration, ForceMode.Acceleration);
         }
 
         public void StartBelt()
