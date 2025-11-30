@@ -16,8 +16,8 @@ namespace ConveyorShift
         [SerializeField] private Material blueMaterial;
 
         [Header("Timing")]
-        [SerializeField] private float minSpawnDelay = 0.6f;
-        [SerializeField] private float maxSpawnDelay = 1.4f;
+        [SerializeField] private float minSpawnDelay = 2.0f;
+        [SerializeField] private float maxSpawnDelay = 4.0f;
 
         [Header("Physics")]
         [SerializeField] private float initialDropForce = 0.1f;
@@ -110,7 +110,8 @@ namespace ConveyorShift
 
             GameObject primitive = GameObject.CreatePrimitive(PrimitiveType.Cube);
             primitive.transform.SetPositionAndRotation(SpawnRoot.position, SpawnRoot.rotation);
-            primitive.transform.localScale = Vector3.one * Random.Range(0.3f, 0.5f);
+            // Reduced size for better hand interaction on Quest 3S (approx 10-15cm)
+            primitive.transform.localScale = Vector3.one * Random.Range(0.1f, 0.15f);
 
             Material runtimeMaterial = isRed ? redMaterial : blueMaterial;
             ApplyMaterial(primitive, runtimeMaterial, isRed);
