@@ -23,11 +23,20 @@ namespace ConveyorShift
         [SerializeField] private float initialDropForce = 0.1f;
         [SerializeField] private Vector3 randomTorqueRange = new Vector3(0.5f, 0.5f, 0.5f);
         [SerializeField] private float rigidbodyDrag = 5f;
+        [SerializeField] private bool autoStart = false;
 
         private bool isRunning;
         private Coroutine spawnRoutine;
 
         private Transform SpawnRoot => spawnPoint != null ? spawnPoint : transform;
+
+        private void Start()
+        {
+            if (autoStart)
+            {
+                StartSpawning();
+            }
+        }
 
         public void StartSpawning()
         {

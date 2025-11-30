@@ -2303,7 +2303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConveyorShift.ConveyorBelt
   beltForce: 8
-  localDirection: {x: 0, y: 0, z: 1}
+  localDirection: {x: 0, y: 0, z: -1}
   beltRenderer: {fileID: 2041766301}
   textureScrollSpeed: 0.5
 --- !u!65 &2041766300
