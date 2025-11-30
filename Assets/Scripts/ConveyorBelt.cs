@@ -69,8 +69,9 @@ namespace ConveyorShift
                 return;
             }
 
-            // 1. Stop Rolling: Heavily dampen angular velocity while on the belt
-            collision.rigidbody.angularVelocity = Vector3.Lerp(collision.rigidbody.angularVelocity, Vector3.zero, Time.deltaTime * 20f);
+            // 1. Stop Rolling: Freeze rotation while on the belt to prevent tumbling
+            collision.rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+            collision.rigidbody.angularVelocity = Vector3.zero;
 
             // 2. Move: Accelerate towards target speed instead of adding raw force
             Vector3 worldDirection = transform.TransformDirection(localDirection).normalized;
@@ -85,6 +86,15 @@ namespace ConveyorShift
 
             // Apply acceleration to match speed
             collision.rigidbody.AddForce(velocityDiff * acceleration, ForceMode.Acceleration);
+        }
+
+        private void OnCollisionExit(Collision collision)
+        {
+            if (collision.rigidbody != null)
+            {
+                // Allow rotation again when leaving the belt (e.g. falling off or being grabbed)
+                collision.rigidbody.constraints = RigidbodyConstraints.None;
+            }
         }
 
         public void StartBelt()
