@@ -53,6 +53,14 @@ namespace ConveyorShift
             beltMaterial.mainTextureOffset = currentOffset;
         }
 
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.yellow;
+            Vector3 worldDirection = transform.TransformDirection(localDirection).normalized;
+            Gizmos.DrawLine(transform.position, transform.position + worldDirection * 2f);
+            Gizmos.DrawSphere(transform.position + worldDirection * 2f, 0.1f);
+        }
+
         private void OnCollisionStay(Collision collision)
         {
             if (!isActive || collision.rigidbody == null)
