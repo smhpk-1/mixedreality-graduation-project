@@ -25,3 +25,4 @@
 
 # OS generated
 .DS_Store
+.utmp/
