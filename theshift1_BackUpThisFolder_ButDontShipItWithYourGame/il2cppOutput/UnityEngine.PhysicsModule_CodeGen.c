@@ -200,6 +200,7 @@ extern void Rigidbody_get_useGravity_mBDA227BDCB0F9A81B61A6592929EE43EDDEE7D16 (
 extern void Rigidbody_set_useGravity_m1B1B22E093F9DC92D7BEEBBE6B02642B3B6C4389 (void);
 extern void Rigidbody_get_isKinematic_mC20906CA5A89983DE06EAC6E3AFC5BC012F90CA1 (void);
 extern void Rigidbody_set_isKinematic_m6C3FD3EA358DADA3B191F2449CF1C4F8B22695ED (void);
+extern void Rigidbody_set_constraints_mE81BF0DAEB980E320538231E092CA4663885A9A3 (void);
 extern void Rigidbody_get_position_m4ECB79BDBBF8FD1EA572EDB792D3330DDED24691 (void);
 extern void Rigidbody_get_rotation_m07882A7024FB3F96BA13EC577A96163BBB621AA1 (void);
 extern void Rigidbody_get_interpolation_mE508FC846FB031C118464637507C004408A32696 (void);
@@ -211,7 +212,6 @@ extern void Rigidbody_MoveRotation_m85825C7206E770E39DED9EE6D792702F577A891D (vo
 extern void Rigidbody_IsSleeping_m059CBAD60AA4A6CA666FE2EAD2D7A3B02269E43F (void);
 extern void Rigidbody_AddForce_mBDBC288D0E266BC1B62E3649B4FCE46E7EA9CCBC (void);
 extern void Rigidbody_AddForce_m7A3EEEED21F986917107CBA6CC0106DCBC212198 (void);
-extern void Rigidbody_AddTorque_m7922F76C73DACF9E1610D72726C01709C14F0937 (void);
 extern void Rigidbody__ctor_mB4E21922228AED3B52D8696D54F5B514F922CB07 (void);
 extern void Rigidbody_get_linearVelocity_Injected_m0230F76BD25355A9762C9C5E32C60BF8249F4F6D (void);
 extern void Rigidbody_set_linearVelocity_Injected_mCAC97A87C8F0FAFA7007C394AF7974DD37073467 (void);
@@ -226,6 +226,7 @@ extern void Rigidbody_get_useGravity_Injected_m14A2D4F534E736295FBA12E2E251CEE0F
 extern void Rigidbody_set_useGravity_Injected_mE1C763DD42795192ABDEF9C9CD758ACA6B91EBBC (void);
 extern void Rigidbody_get_isKinematic_Injected_m14C47E2023F4EE3554769F07DD6917B3C62D2212 (void);
 extern void Rigidbody_set_isKinematic_Injected_m5613C03722F001F12F373B8AAB0C3CFF5512A78D (void);
+extern void Rigidbody_set_constraints_Injected_mA1081EE2C1BEAB06BF087BBAF1981722371B820F (void);
 extern void Rigidbody_get_position_Injected_mD3AC6CDFE76252AAE5F4862BC7D18E0C479DDC8E (void);
 extern void Rigidbody_get_rotation_Injected_m185864060C2B33EDDEDE270E78A6C45F1AAF1FC1 (void);
 extern void Rigidbody_get_interpolation_Injected_m15A698EF148146E9F1FA1644900E9E0E21DD7570 (void);
@@ -236,7 +237,6 @@ extern void Rigidbody_MovePosition_Injected_m1FBFE36CBE00546E08E32E304FEB6EEA5EE
 extern void Rigidbody_MoveRotation_Injected_m45E52DDE97339CE0552EBF4169DFBBC87D3F02D5 (void);
 extern void Rigidbody_IsSleeping_Injected_m87D21D37A3A9290DDB40272DEE0E63312BBA9FB4 (void);
 extern void Rigidbody_AddForce_Injected_m0063728ED4AA2811701ED30CDFC9765816402152 (void);
-extern void Rigidbody_AddTorque_Injected_m53C26367D5511FFDCC214CB10A2DEB920CE55F59 (void);
 extern void SphereCollider_get_center_m122A197607CD350873539A0EEE3BA10E8BE1759E (void);
 extern void SphereCollider_get_radius_m1BB513491906E76A4F71929E3DB72A1542309697 (void);
 extern void SphereCollider_set_radius_m6119FE18C6739B077AB17334B1B53984911017FF (void);
@@ -439,6 +439,7 @@ static Il2CppMethodPointer s_methodPointers[237] =
 	Rigidbody_set_useGravity_m1B1B22E093F9DC92D7BEEBBE6B02642B3B6C4389,
 	Rigidbody_get_isKinematic_mC20906CA5A89983DE06EAC6E3AFC5BC012F90CA1,
 	Rigidbody_set_isKinematic_m6C3FD3EA358DADA3B191F2449CF1C4F8B22695ED,
+	Rigidbody_set_constraints_mE81BF0DAEB980E320538231E092CA4663885A9A3,
 	Rigidbody_get_position_m4ECB79BDBBF8FD1EA572EDB792D3330DDED24691,
 	Rigidbody_get_rotation_m07882A7024FB3F96BA13EC577A96163BBB621AA1,
 	Rigidbody_get_interpolation_mE508FC846FB031C118464637507C004408A32696,
@@ -450,7 +451,6 @@ static Il2CppMethodPointer s_methodPointers[237] =
 	Rigidbody_IsSleeping_m059CBAD60AA4A6CA666FE2EAD2D7A3B02269E43F,
 	Rigidbody_AddForce_mBDBC288D0E266BC1B62E3649B4FCE46E7EA9CCBC,
 	Rigidbody_AddForce_m7A3EEEED21F986917107CBA6CC0106DCBC212198,
-	Rigidbody_AddTorque_m7922F76C73DACF9E1610D72726C01709C14F0937,
 	Rigidbody__ctor_mB4E21922228AED3B52D8696D54F5B514F922CB07,
 	Rigidbody_get_linearVelocity_Injected_m0230F76BD25355A9762C9C5E32C60BF8249F4F6D,
 	Rigidbody_set_linearVelocity_Injected_mCAC97A87C8F0FAFA7007C394AF7974DD37073467,
@@ -465,6 +465,7 @@ static Il2CppMethodPointer s_methodPointers[237] =
 	Rigidbody_set_useGravity_Injected_mE1C763DD42795192ABDEF9C9CD758ACA6B91EBBC,
 	Rigidbody_get_isKinematic_Injected_m14C47E2023F4EE3554769F07DD6917B3C62D2212,
 	Rigidbody_set_isKinematic_Injected_m5613C03722F001F12F373B8AAB0C3CFF5512A78D,
+	Rigidbody_set_constraints_Injected_mA1081EE2C1BEAB06BF087BBAF1981722371B820F,
 	Rigidbody_get_position_Injected_mD3AC6CDFE76252AAE5F4862BC7D18E0C479DDC8E,
 	Rigidbody_get_rotation_Injected_m185864060C2B33EDDEDE270E78A6C45F1AAF1FC1,
 	Rigidbody_get_interpolation_Injected_m15A698EF148146E9F1FA1644900E9E0E21DD7570,
@@ -475,7 +476,6 @@ static Il2CppMethodPointer s_methodPointers[237] =
 	Rigidbody_MoveRotation_Injected_m45E52DDE97339CE0552EBF4169DFBBC87D3F02D5,
 	Rigidbody_IsSleeping_Injected_m87D21D37A3A9290DDB40272DEE0E63312BBA9FB4,
 	Rigidbody_AddForce_Injected_m0063728ED4AA2811701ED30CDFC9765816402152,
-	Rigidbody_AddTorque_Injected_m53C26367D5511FFDCC214CB10A2DEB920CE55F59,
 	SphereCollider_get_center_m122A197607CD350873539A0EEE3BA10E8BE1759E,
 	SphereCollider_get_radius_m1BB513491906E76A4F71929E3DB72A1542309697,
 	SphereCollider_set_radius_m6119FE18C6739B077AB17334B1B53984911017FF,
@@ -752,6 +752,7 @@ static const int32_t s_InvokerIndices[237] =
 	11487,
 	14994,
 	11487,
+	11615,
 	15375,
 	15229,
 	15124,
@@ -763,7 +764,6 @@ static const int32_t s_InvokerIndices[237] =
 	14994,
 	6114,
 	11858,
-	6114,
 	15386,
 	22203,
 	22203,
@@ -778,6 +778,7 @@ static const int32_t s_InvokerIndices[237] =
 	22204,
 	24422,
 	22204,
+	22206,
 	22203,
 	22203,
 	24603,
@@ -787,7 +788,6 @@ static const int32_t s_InvokerIndices[237] =
 	22203,
 	22203,
 	24422,
-	19885,
 	19885,
 	15375,
 	15289,
