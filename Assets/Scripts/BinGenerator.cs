@@ -11,23 +11,30 @@ public class BinGenerator : MonoBehaviour
     [ContextMenu("Generate Sorting Bins")]
     public void GenerateBins()
     {
+        // Find existing root if any
+        Transform existingRoot = transform.Find("SortingBins");
+        if (existingRoot != null) DestroyImmediate(existingRoot.gameObject);
+
         GameObject root = new GameObject("SortingBins");
-        root.transform.position = transform.position; // Place at generator's position
+        root.transform.parent = transform;
+        root.transform.localPosition = Vector3.zero;
 
         // Create Materials (Simple colors)
         Material redMat = CreateMaterial(Color.red, "RedBinMat");
         Material blueMat = CreateMaterial(Color.blue, "BlueBinMat");
 
         // Create Red Bin
-        CreateBin(root, "RedBin", redBinPosition, binSize, redMat);
+        GameObject redBin = CreateBin(root, "RedBin", redBinPosition, binSize, redMat);
+        AddCollectorLogic(redBin, "RedCube");
 
         // Create Blue Bin
-        CreateBin(root, "BlueBin", blueBinPosition, binSize, blueMat);
+        GameObject blueBin = CreateBin(root, "BlueBin", blueBinPosition, binSize, blueMat);
+        AddCollectorLogic(blueBin, "BlueCube");
         
-        Debug.Log("Bins generated! You can move the 'SortingBins' object to position them perfectly.");
+        Debug.Log("Bins generated with Collector Logic!");
     }
 
-    void CreateBin(GameObject parent, string name, Vector3 localPos, Vector3 size, Material mat)
+    GameObject CreateBin(GameObject parent, string name, Vector3 localPos, Vector3 size, Material mat)
     {
         GameObject bin = new GameObject(name);
         bin.transform.parent = parent.transform;
@@ -48,6 +55,21 @@ public class BinGenerator : MonoBehaviour
         CreatePart(bin, "Wall_Left", new Vector3(-size.x / 2 + t / 2, h / 2, 0), new Vector3(t, h, size.z - 2 * t), mat);
         // Right (X+)
         CreatePart(bin, "Wall_Right", new Vector3(size.x / 2 - t / 2, h / 2, 0), new Vector3(t, h, size.z - 2 * t), mat);
+
+        return bin;
+    }
+
+    void AddCollectorLogic(GameObject bin, string targetCube)
+    {
+        // Add BinCollector script
+        BinCollector collector = bin.AddComponent<BinCollector>();
+        collector.targetCubeName = targetCube;
+
+        // Add Trigger Collider
+        BoxCollider col = bin.AddComponent<BoxCollider>();
+        col.isTrigger = true;
+        col.center = new Vector3(0, binSize.y / 2, 0);
+        col.size = new Vector3(binSize.x * 0.9f, binSize.y * 0.9f, binSize.z * 0.9f);
     }
 
     void CreatePart(GameObject parent, string name, Vector3 localPos, Vector3 scale, Material mat)
@@ -58,6 +80,8 @@ public class BinGenerator : MonoBehaviour
         part.transform.localPosition = localPos;
         part.transform.localScale = scale;
         part.GetComponent<Renderer>().sharedMaterial = mat;
+        DestroyImmediate(part.GetComponent<Collider>()); // Remove default collider
+        part.AddComponent<BoxCollider>(); // Add fresh collider for physics
     }
 
     private Material CreateMaterial(Color color, string name)
