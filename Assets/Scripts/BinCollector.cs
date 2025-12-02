@@ -59,6 +59,10 @@ public class BinCollector : MonoBehaviour
         
         if (correctSound != null) audioSource.PlayOneShot(correctSound);
 
+        // Notify ScoreBoard
+        var scoreBoard = FindObjectOfType<FactoryScoreBoard>();
+        if (scoreBoard != null) scoreBoard.OnCorrectSort();
+
         if (destroyOnCorrect)
         {
             Destroy(cube, 0.5f); // Destroy after short delay
@@ -70,6 +74,10 @@ public class BinCollector : MonoBehaviour
         Debug.Log("WRONG! " + cube.name + " in " + gameObject.name);
 
         if (wrongSound != null) audioSource.PlayOneShot(wrongSound);
+
+        // Notify ScoreBoard
+        var scoreBoard = FindObjectOfType<FactoryScoreBoard>();
+        if (scoreBoard != null) scoreBoard.OnWrongSort();
 
         // Visual Feedback: Turn it black (Burnt)
         Renderer r = cube.GetComponent<Renderer>();
