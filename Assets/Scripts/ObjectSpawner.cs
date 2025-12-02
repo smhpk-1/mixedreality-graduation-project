@@ -109,6 +109,7 @@ namespace ConveyorShift
             }
 
             GameObject primitive = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            primitive.name = isRed ? "RedCube" : "BlueCube"; // Name it for identification
             primitive.transform.SetPositionAndRotation(SpawnRoot.position, SpawnRoot.rotation);
             // Adjusted size for hand interaction (approx 15-20cm) with slight randomness
             primitive.transform.localScale = Vector3.one * Random.Range(0.15f, 0.2f);
