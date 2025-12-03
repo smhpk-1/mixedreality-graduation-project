@@ -63,7 +63,8 @@ namespace ConveyorShift
 
         private void OnDestroy()
         {
-            if (anomalyMovement != null)
+            // Check if the object is still alive before accessing it to prevent MissingReferenceException on quit
+            if (anomalyMovement != null && anomalyMovement.gameObject != null)
             {
                 anomalyMovement.OnAnomalyComplete -= HandleAnomalyComplete;
             }
