@@ -3956,6 +3956,54 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178010978}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &180104711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 180104713}
+  - component: {fileID: 180104712}
+  m_Layer: 0
+  m_Name: FloatingMessManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &180104712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180104711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b40b568754024b599bc8990e72154d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FloatingMessController
+  floatSpeed: 0.5
+  rotationSpeed: 10
+  riseAmount: 1.5
+  noiseScale: 0.5
+--- !u!4 &180104713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180104711}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.97265, y: 3.36599, z: 6.81381}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &198389834
 GameObject:
   m_ObjectHideFlags: 0
@@ -5974,7 +6022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2b4f12964b5458d903e43ea94e7269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConveyorShift.AnomalyMovement
-  targetCamera: {fileID: 0}
+  targetCamera: {fileID: 1857870196}
   travelDuration: 5
   stopDistance: 0.2
   approachCurve:
@@ -26649,7 +26697,9 @@ MonoBehaviour:
   conveyorBelt: {fileID: 2041766299}
   objectSpawner: {fileID: 923048162}
   anomalyMovement: {fileID: 0}
-  workDurationSeconds: 120
+  floatingMessController: {fileID: 180104712}
+  workDurationSeconds: 100
+  daydreamDurationSeconds: 20
   glitchOverlayFadeTime: 2
   blackoutFadeTime: 0.75
   glitchOverlayCanvas: {fileID: 937552601}
@@ -34547,6 +34597,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852059704}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1857870196 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1767192434, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 392246269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1860513597
 GameObject:
   m_ObjectHideFlags: 0
@@ -40302,3 +40357,4 @@ SceneRoots:
   - {fileID: 1440145022}
   - {fileID: 1424827264}
   - {fileID: 1002513578}
+  - {fileID: 180104713}

@@ -60,7 +60,7 @@ public class BinCollector : MonoBehaviour
         if (correctSound != null) audioSource.PlayOneShot(correctSound);
 
         // Notify ScoreBoard
-        var scoreBoard = FindObjectOfType<FactoryScoreBoard>();
+        var scoreBoard = FindFirstObjectByType<FactoryScoreBoard>();
         if (scoreBoard != null) scoreBoard.OnCorrectSort();
 
         if (destroyOnCorrect)
@@ -76,7 +76,7 @@ public class BinCollector : MonoBehaviour
         if (wrongSound != null) audioSource.PlayOneShot(wrongSound);
 
         // Notify ScoreBoard
-        var scoreBoard = FindObjectOfType<FactoryScoreBoard>();
+        var scoreBoard = FindFirstObjectByType<FactoryScoreBoard>();
         if (scoreBoard != null) scoreBoard.OnWrongSort();
 
         // Visual Feedback: Turn it black (Burnt)
