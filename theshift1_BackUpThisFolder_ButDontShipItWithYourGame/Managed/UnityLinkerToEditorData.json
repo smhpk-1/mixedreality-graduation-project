@@ -233,6 +233,14 @@
             "icon": null
           },
           {
+            "name": "LightProbeGroup",
+            "scenes": [
+              "Assets/scene1.unity"
+            ],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
             "name": "LightProbeProxyVolume",
             "scenes": [],
             "dependencyType": 0,
@@ -240,7 +248,9 @@
           },
           {
             "name": "LightProbes",
-            "scenes": [],
+            "scenes": [
+              "Assets/scene1.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
@@ -374,7 +384,9 @@
           },
           {
             "name": "ReflectionProbe",
-            "scenes": [],
+            "scenes": [
+              "Assets/scene1.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
@@ -956,7 +968,9 @@
           },
           {
             "name": "CapsuleCollider",
-            "scenes": [],
+            "scenes": [
+              "Assets/scene1.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
@@ -1382,6 +1396,14 @@
         "dependencies": [
           {
             "name": "Font",
+            "scenes": [
+              "Assets/scene1.unity"
+            ],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
+            "name": "TextMesh",
             "scenes": [
               "Assets/scene1.unity"
             ],
