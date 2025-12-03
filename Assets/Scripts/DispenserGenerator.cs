@@ -17,7 +17,7 @@ public class DispenserGenerator : MonoBehaviour
         if (spawnPoint == null)
         {
             // Try to find the ObjectSpawner's spawn point automatically
-            var spawner = FindObjectOfType<ConveyorShift.ObjectSpawner>();
+            var spawner = FindFirstObjectByType<ConveyorShift.ObjectSpawner>();
             if (spawner != null)
             {
                 spawnPoint = spawner.transform;
