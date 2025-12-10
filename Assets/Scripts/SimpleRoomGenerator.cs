@@ -8,9 +8,9 @@ public class SimpleRoomGenerator : MonoBehaviour
     public float height = 10f;
     
     [Header("Appearance")]
-    public Color wallColor = new Color(0.9f, 0.88f, 0.85f); // Boring Beige
-    public Color floorColor = new Color(0.4f, 0.4f, 0.45f); // Office Concrete/Carpet
-    public Color ceilingColor = new Color(0.95f, 0.95f, 0.95f); // White
+    public Color wallColor = new Color(0.35f, 0.35f, 0.35f); // Dark Factory Grey
+    public Color floorColor = new Color(0.25f, 0.25f, 0.25f); // Darker Floor
+    public Color ceilingColor = new Color(0.8f, 0.8f, 0.8f); // Dim White
 
     [ContextMenu("Generate Boring Office")]
     public void GenerateRoom()
@@ -69,6 +69,17 @@ public class SimpleRoomGenerator : MonoBehaviour
         Material mat = new Material(shader);
         mat.name = name;
         mat.color = color;
+        
+        // Make it rough/matte for a dirty industrial look
+        if (shader.name.Contains("Universal"))
+        {
+            mat.SetFloat("_Smoothness", 0.15f);
+        }
+        else
+        {
+            mat.SetFloat("_Glossiness", 0.15f);
+        }
+        
         return mat;
     }
 }
