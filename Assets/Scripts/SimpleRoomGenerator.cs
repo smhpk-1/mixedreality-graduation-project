@@ -3,9 +3,9 @@ using UnityEngine;
 public class SimpleRoomGenerator : MonoBehaviour
 {
     [Header("Room Settings")]
-    public float width = 10f;
-    public float length = 15f;
-    public float height = 4f;
+    public float width = 16f;
+    public float length = 16f;
+    public float height = 10f;
     
     [Header("Appearance")]
     public Color wallColor = new Color(0.9f, 0.88f, 0.85f); // Boring Beige
