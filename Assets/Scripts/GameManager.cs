@@ -22,11 +22,11 @@ namespace ConveyorShift
         [SerializeField] private ConveyorBelt conveyorBelt;
         [SerializeField] private ObjectSpawner objectSpawner;
         [SerializeField] private AnomalyMovement anomalyMovement;
-        [SerializeField] private FloatingMessController floatingMessController; // Added reference
+        // [SerializeField] private FloatingMessController floatingMessController; // Removed
 
         [Header("Timing")]
-        [SerializeField] private float workDurationSeconds = 100f; // Reduced to 100s
-        [SerializeField] private float daydreamDurationSeconds = 20f; // Added 20s for daydream
+        // [SerializeField] private float workDurationSeconds = 100f; // Removed
+        // [SerializeField] private float daydreamDurationSeconds = 20f; // Removed
         [SerializeField] private float glitchOverlayFadeTime = 2f;
         [SerializeField] private float blackoutFadeTime = 0.75f;
 
@@ -106,24 +106,21 @@ namespace ConveyorShift
             objectSpawner?.StartSpawning();
             anomalyMovement?.ResetAnomaly();
 
-            yield return new WaitForSeconds(workDurationSeconds);
-            SwitchState(GameState.GlitchState);
+            // Removed time-based progression. Game stays in WorkState indefinitely until external trigger.
+            yield return null; 
         }
 
         private IEnumerator GlitchRoutine()
         {
             // Phase 1: The Daydream Begins (Floating Mess)
-            if (floatingMessController != null)
-            {
-                floatingMessController.StartFloating();
-            }
+            // floatingMessController.StartFloating(); // Removed
 
             // Optional: Slow down belt instead of stopping immediately?
             // For now, let's keep the belt running during the daydream for the "Loop" effect
             // conveyorBelt?.StopBelt(); 
             
             // Wait for the daydream duration (20 seconds)
-            yield return new WaitForSeconds(daydreamDurationSeconds);
+            // yield return new WaitForSeconds(daydreamDurationSeconds); // Removed
 
             // Phase 2: The Glitch / End of Scene
             objectSpawner?.StopSpawning();
