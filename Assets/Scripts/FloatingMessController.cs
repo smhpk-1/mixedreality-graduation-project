@@ -9,15 +9,15 @@ public class FloatingMessController : MonoBehaviour
     public float riseAmount = 1.5f; // How high they go
     public float noiseScale = 0.5f; // For random movement
 
-    private bool isFloating = false;
-    private List<Transform> papers = new List<Transform>();
-    private List<Vector3> initialPositions = new List<Vector3>();
-    private List<Vector3> randomOffsets = new List<Vector3>();
+    // private bool isFloating = false; // Removed unused field
+    // private List<Transform> papers = new List<Transform>(); // Removed unused field
+    // private List<Vector3> initialPositions = new List<Vector3>(); // Removed unused field
+    // private List<Vector3> randomOffsets = new List<Vector3>(); // Removed unused field
 
     public void StartFloating()
     {
         // Feature removed as per request. Papers will remain grounded.
-        isFloating = false;
+        // isFloating = false;
     }
 
     void Update()
