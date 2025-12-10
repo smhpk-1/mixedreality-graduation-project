@@ -19,6 +19,10 @@ public class SimpleRoomGenerator : MonoBehaviour
     [ContextMenu("Generate Boring Office")]
     public void GenerateRoom()
     {
+        // FORCE SETTINGS: Override Inspector values to ensure the correct design
+        height = 7f;
+        wallColor = new Color(0.55f, 0.55f, 0.55f); // Cement Grey
+        
         // 1. Cleanup: Find and destroy the old room if it exists
         GameObject existingRoom = GameObject.Find("Generated_Office_Room");
         if (existingRoom != null)
