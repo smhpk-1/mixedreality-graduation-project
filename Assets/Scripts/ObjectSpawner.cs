@@ -29,7 +29,7 @@ namespace ConveyorShift
         private bool isRunning;
         private Coroutine spawnRoutine;
         private int spawnCount = 0; // Counter
-        private const int TARGET_SPAWN_COUNT = 30; // Switch after 30
+        private const int TARGET_SPAWN_COUNT = 15; // Switch after 15
 
         private Transform SpawnRoot => spawnPoint != null ? spawnPoint : transform;
 
