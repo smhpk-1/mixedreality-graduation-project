@@ -202,17 +202,20 @@ public class SimpleRoomGenerator : MonoBehaviour
         fixture.GetComponent<Renderer>().sharedMaterial = lightMat;
 
         // 3. Light Source
-        Light l = lightObj.AddComponent<Light>();
+        GameObject lightSourceObj = new GameObject("LightSource");
+        lightSourceObj.transform.parent = lightObj.transform;
+        // Position light slightly in front of the fixture to cast light into room
+        // Base(0.02) + Fixture(0.15) = 0.17. Light at 0.25 to be safe and clear.
+        lightSourceObj.transform.localPosition = new Vector3(0, 0, 0.25f);
+        lightSourceObj.transform.localRotation = Quaternion.identity;
+
+        Light l = lightSourceObj.AddComponent<Light>();
         l.type = LightType.Point;
         l.range = 40f; // Massive range
         l.intensity = 50.0f; // Extreme intensity
         l.color = new Color(1.0f, 0.6f, 0.0f); // Pure Orange-Yellow
         l.shadows = LightShadows.Hard; // Hard shadows for better depth perception on mobile
         l.renderMode = LightRenderMode.ForcePixel; // Force high quality rendering
-        
-        // Position light slightly in front of the fixture to cast light into room
-        // Base(0.02) + Fixture(0.15) = 0.17. Light at 0.25 to be safe and clear.
-        l.transform.localPosition = new Vector3(0, 0, 0.25f);
     }
 
     private GameObject CreateCube(GameObject parent, string name, Vector3 pos, Vector3 scale, Material mat)
