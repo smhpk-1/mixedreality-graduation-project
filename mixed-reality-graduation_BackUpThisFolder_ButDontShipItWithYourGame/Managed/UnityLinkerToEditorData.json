@@ -76,6 +76,12 @@
             "icon": null
           },
           {
+            "name": "AudioFilter",
+            "scenes": [],
+            "dependencyType": 1,
+            "icon": null
+          },
+          {
             "name": "AudioListener",
             "scenes": [
               "Assets/scene1.unity"
@@ -93,6 +99,12 @@
             "name": "AudioResource",
             "scenes": [],
             "dependencyType": 1,
+            "icon": null
+          },
+          {
+            "name": "AudioReverbFilter",
+            "scenes": [],
+            "dependencyType": 0,
             "icon": null
           },
           {

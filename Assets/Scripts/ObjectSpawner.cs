@@ -155,6 +155,10 @@ namespace ConveyorShift
 
             Material runtimeMaterial = isRed ? redMaterial : blueMaterial;
             ApplyMaterial(primitive, runtimeMaterial, isRed);
+            
+            // Add Collision Sound
+            primitive.AddComponent<CubeCollisionSound>();
+            
             return primitive;
         }
 
