@@ -93,6 +93,18 @@ public class BinGenerator : MonoBehaviour
         Material mat = new Material(shader);
         mat.name = name;
         mat.color = color;
+        
+        // Add depth cues via material properties
+        if (shader.name.Contains("Universal"))
+        {
+            mat.SetFloat("_Smoothness", 0.3f); // Slight gloss to catch highlights
+            mat.SetFloat("_Metallic", 0.1f);   // Slight metallic for industrial look
+        }
+        else
+        {
+            mat.SetFloat("_Glossiness", 0.3f);
+        }
+        
         return mat;
     }
 }
