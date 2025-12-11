@@ -60,8 +60,18 @@ public class OfficeMessGenerator : MonoBehaviour
         // 2. Wall Decorations
         if (walls != null && walls.Count > 0)
         {
-            // Pick one wall for the Notice Board
-            int boardWallIndex = Random.Range(0, walls.Count);
+            // Pick Wall_Back for the Notice Board
+            int boardWallIndex = -1;
+            for (int i = 0; i < walls.Count; i++)
+            {
+                if (walls[i] != null && walls[i].name.Contains("Back"))
+                {
+                    boardWallIndex = i;
+                    break;
+                }
+            }
+            // Fallback to random if not found
+            if (boardWallIndex == -1) boardWallIndex = Random.Range(0, walls.Count);
             
             for (int i = 0; i < walls.Count; i++)
             {
