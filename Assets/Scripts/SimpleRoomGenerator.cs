@@ -36,8 +36,10 @@ public class SimpleRoomGenerator : MonoBehaviour
 
         // FORCE SETTINGS: Override Inspector values
         height = 7f;
-        wallColor = new Color(0.55f, 0.55f, 0.55f); // Cement Grey
-        ceilingColor = new Color(0.65f, 0.65f, 0.65f); // Slightly lighter than walls
+        // Medium Dark Dirty Factory Colors
+        wallColor = new Color(0.5f, 0.52f, 0.48f); // Medium Dirty Concrete
+        ceilingColor = new Color(0.35f, 0.35f, 0.38f); // Dark Grey Industrial Ceiling
+        floorColor = new Color(0.25f, 0.23f, 0.21f); // Dark Worn Floor
         
         // FIX CONVEYOR BELT COLOR
         GameObject conveyor = GameObject.Find("conveyorbelt");
@@ -67,9 +69,12 @@ public class SimpleRoomGenerator : MonoBehaviour
 
         // Create Materials with UNIQUE names to force update
         string suffix = System.DateTime.Now.Ticks.ToString();
-        Material wallMat = CreateMaterial(wallColor, "WallMat_Dark_" + suffix);
-        Material floorMat = CreateMaterial(floorColor, "FloorMat_Dark_" + suffix);
-        Material ceilingMat = CreateMaterial(ceilingColor, "CeilingMat_Dark_" + suffix);
+        // Walls: Rough, matte concrete
+        Material wallMat = CreateMaterial(wallColor, "WallMat_Dark_" + suffix, 0.1f);
+        // Floor: Slightly reflective (polished concrete/epoxy) but dirty
+        Material floorMat = CreateMaterial(floorColor, "FloorMat_Dark_" + suffix, 0.4f);
+        // Ceiling: Very rough, dark
+        Material ceilingMat = CreateMaterial(ceilingColor, "CeilingMat_Dark_" + suffix, 0.0f);
 
         // Floor
         GameObject floor = CreateCube(root, "Floor", new Vector3(0, -0.05f, 0), new Vector3(width, 0.1f, length), floorMat);
@@ -232,7 +237,7 @@ public class SimpleRoomGenerator : MonoBehaviour
         return cube;
     }
 
-    private Material CreateMaterial(Color color, string name)
+    private Material CreateMaterial(Color color, string name, float smoothness = 0.0f)
     {
         // Try to find URP shader, fallback to Standard
         Shader shader = Shader.Find("Universal Render Pipeline/Lit");
@@ -245,12 +250,12 @@ public class SimpleRoomGenerator : MonoBehaviour
         // Make it rough/matte for a dirty industrial look
         if (shader.name.Contains("Universal"))
         {
-            mat.SetFloat("_Smoothness", 0.0f); // No shine
-            mat.SetFloat("_Metallic", 0.0f);
+            mat.SetFloat("_Smoothness", smoothness); 
+            mat.SetFloat("_Metallic", 0.1f); // Slight metallic for industrial feel
         }
         else
         {
-            mat.SetFloat("_Glossiness", 0.0f);
+            mat.SetFloat("_Glossiness", smoothness);
         }
         
         return mat;
