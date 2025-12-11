@@ -20,6 +20,10 @@ public class BinCollector : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+
+        // Generate Procedural Sounds if missing
+        if (wrongSound == null) wrongSound = GenerateBuzzerSound();
+        if (correctSound == null) correctSound = GenerateChimeSound();
         
         // Ensure we have a trigger
         Collider col = GetComponent<Collider>();
@@ -92,5 +96,54 @@ public class BinCollector : MonoBehaviour
                 r.material.color = Color.black; // Fallback
             }
         }
+    }
+
+    // --- Procedural Audio Generation ---
+
+    private AudioClip GenerateBuzzerSound()
+    {
+        // Low frequency Sawtooth wave for a harsh "Wrong" buzzer
+        int sampleRate = 44100;
+        float frequency = 150f;
+        float duration = 0.5f;
+        int sampleCount = (int)(sampleRate * duration);
+        float[] samples = new float[sampleCount];
+
+        for (int i = 0; i < sampleCount; i++)
+        {
+            float t = (float)i / sampleRate * frequency;
+            // Sawtooth: 2 * (t - floor(t + 0.5))
+            samples[i] = 2f * (t - Mathf.Floor(t + 0.5f));
+            
+            // Apply envelope (fade out)
+            samples[i] *= 1f - ((float)i / sampleCount);
+        }
+
+        AudioClip clip = AudioClip.Create("ProcBuzzer", sampleCount, 1, sampleRate, false);
+        clip.SetData(samples, 0);
+        return clip;
+    }
+
+    private AudioClip GenerateChimeSound()
+    {
+        // High frequency Sine wave for a pleasant "Correct" chime
+        int sampleRate = 44100;
+        float frequency = 880f; // A5
+        float duration = 0.3f;
+        int sampleCount = (int)(sampleRate * duration);
+        float[] samples = new float[sampleCount];
+
+        for (int i = 0; i < sampleCount; i++)
+        {
+            float t = (float)i / sampleRate * frequency;
+            samples[i] = Mathf.Sin(2 * Mathf.PI * t);
+            
+            // Apply envelope (fade out)
+            samples[i] *= 1f - ((float)i / sampleCount);
+        }
+
+        AudioClip clip = AudioClip.Create("ProcChime", sampleCount, 1, sampleRate, false);
+        clip.SetData(samples, 0);
+        return clip;
     }
 }
