@@ -11,11 +11,14 @@ namespace ConveyorShift
     /// </summary>
     public class GameManager : MonoBehaviour
     {
+        public static GameManager Instance { get; private set; }
+
         public enum GameState
         {
             WorkState,
             GlitchState,
-            TransitionState
+            TransitionState,
+            EmptyRoomState // New state for the cleared room
         }
 
         [Header("Scene References")]
@@ -23,6 +26,12 @@ namespace ConveyorShift
         [SerializeField] private ObjectSpawner objectSpawner;
         [SerializeField] private AnomalyMovement anomalyMovement;
         // [SerializeField] private FloatingMessController floatingMessController; // Removed
+
+        [Header("Cleanup Targets")]
+        [SerializeField] private GameObject messRoot; // Assign "Generated_Mess"
+        [SerializeField] private GameObject binsRoot; // Assign "SortingBins"
+        [SerializeField] private GameObject conveyorRoot; // Assign "conveyorbelt"
+        [SerializeField] private GameObject dispenserRoot; // Assign "Cube_Dispenser"
 
         [Header("Timing")]
         // [SerializeField] private float workDurationSeconds = 100f; // Removed
@@ -43,6 +52,16 @@ namespace ConveyorShift
 
         private void Awake()
         {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+                return;
+            }
+
             if (glitchOverlayCanvas != null)
             {
                 glitchOverlayCanvas.alpha = 0f;
@@ -75,6 +94,12 @@ namespace ConveyorShift
             SwitchState(GameState.WorkState);
         }
 
+        public void TriggerAnomalyCleanup()
+        {
+            Debug.Log("Anomaly Triggered! Clearing the room...");
+            SwitchState(GameState.EmptyRoomState);
+        }
+
         private void SwitchState(GameState nextState)
         {
             currentState = nextState;
@@ -95,9 +120,46 @@ namespace ConveyorShift
                 case GameState.TransitionState:
                     activeRoutine = StartCoroutine(TransitionRoutine());
                     break;
+                case GameState.EmptyRoomState:
+                    activeRoutine = StartCoroutine(EmptyRoomRoutine());
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        private IEnumerator EmptyRoomRoutine()
+        {
+            // 1. Stop Spawning
+            objectSpawner?.StopSpawning();
+            
+            // 2. Stop Belt
+            conveyorBelt?.StopBelt();
+
+            // 3. Destroy Props
+            if (messRoot == null) messRoot = GameObject.Find("Generated_Mess");
+            if (messRoot != null) Destroy(messRoot);
+
+            if (binsRoot == null) binsRoot = GameObject.Find("SortingBins"); // Adjust name if needed
+            if (binsRoot != null) Destroy(binsRoot);
+
+            if (conveyorRoot == null) conveyorRoot = GameObject.Find("conveyorbelt");
+            if (conveyorRoot != null) Destroy(conveyorRoot);
+
+            if (dispenserRoot == null) dispenserRoot = GameObject.Find("Cube_Dispenser");
+            if (dispenserRoot != null) Destroy(dispenserRoot);
+
+            // 4. Destroy all spawned cubes (Red/Blue/Green)
+            // We can find them by tag or type if they are not parented.
+            // Assuming they have XRGrabInteractable or Rigidbody
+            var interactables = FindObjectsByType<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>(FindObjectsSortMode.None);
+            foreach (var interactable in interactables)
+            {
+                Destroy(interactable.gameObject);
+            }
+
+            Debug.Log("Room Cleared. Only the room geometry remains.");
+            yield return null;
         }
 
         private IEnumerator WorkRoutine()
