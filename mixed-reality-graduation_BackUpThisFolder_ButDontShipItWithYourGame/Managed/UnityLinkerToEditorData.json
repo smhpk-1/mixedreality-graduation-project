@@ -990,9 +990,7 @@
           },
           {
             "name": "MeshCollider",
-            "scenes": [
-              "Assets/scene1.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
@@ -1010,7 +1008,9 @@
           },
           {
             "name": "Rigidbody",
-            "scenes": [],
+            "scenes": [
+              "Assets/scene1.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
