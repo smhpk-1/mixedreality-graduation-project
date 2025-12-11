@@ -19,44 +19,79 @@ public class BinGenerator : MonoBehaviour
         root.transform.parent = transform;
         root.transform.localPosition = Vector3.zero;
 
-        // Create Materials (Simple colors)
-        Material redMat = CreateMaterial(Color.red, "RedBinMat");
-        Material blueMat = CreateMaterial(Color.blue, "BlueBinMat");
+        // Create Materials (Dirty/Industrial colors)
+        // Darker, less saturated Red
+        Material redMat = CreateMaterial(new Color(0.6f, 0.1f, 0.1f), "RedBinMat", 0.1f); 
+        // Darker, less saturated Blue
+        Material blueMat = CreateMaterial(new Color(0.1f, 0.1f, 0.6f), "BlueBinMat", 0.1f);
+        // Dark floor for contrast
+        Material darkMat = CreateMaterial(new Color(0.1f, 0.1f, 0.1f), "BinFloorMat", 0.0f); 
+        // Rusty Metal for Frame
+        Material frameMat = CreateMaterial(new Color(0.25f, 0.2f, 0.2f), "BinFrameMat", 0.2f);
 
         // Create Red Bin
-        GameObject redBin = CreateBin(root, "RedBin", redBinPosition, binSize, redMat);
+        GameObject redBin = CreateBin(root, "RedBin", redBinPosition, binSize, redMat, darkMat, frameMat);
         AddCollectorLogic(redBin, "RedCube");
 
         // Create Blue Bin
-        GameObject blueBin = CreateBin(root, "BlueBin", blueBinPosition, binSize, blueMat);
+        GameObject blueBin = CreateBin(root, "BlueBin", blueBinPosition, binSize, blueMat, darkMat, frameMat);
         AddCollectorLogic(blueBin, "BlueCube");
         
         Debug.Log("Bins generated with Collector Logic!");
     }
 
-    GameObject CreateBin(GameObject parent, string name, Vector3 localPos, Vector3 size, Material mat)
+    GameObject CreateBin(GameObject parent, string name, Vector3 localPos, Vector3 size, Material wallMat, Material floorMat, Material frameMat)
     {
         GameObject bin = new GameObject(name);
         bin.transform.parent = parent.transform;
         bin.transform.localPosition = localPos;
 
-        // Floor
-        CreatePart(bin, "Floor", new Vector3(0, wallThickness / 2, 0), new Vector3(size.x, wallThickness, size.z), mat);
+        // Floor - Use Dark Material for better depth perception
+        CreatePart(bin, "Floor", new Vector3(0, wallThickness / 2, 0), new Vector3(size.x, wallThickness, size.z), floorMat);
 
         // Walls
         float h = size.y;
         float t = wallThickness;
 
         // Front (Z+)
-        CreatePart(bin, "Wall_Front", new Vector3(0, h / 2, size.z / 2 - t / 2), new Vector3(size.x, h, t), mat);
+        CreatePart(bin, "Wall_Front", new Vector3(0, h / 2, size.z / 2 - t / 2), new Vector3(size.x, h, t), wallMat);
         // Back (Z-)
-        CreatePart(bin, "Wall_Back", new Vector3(0, h / 2, -size.z / 2 + t / 2), new Vector3(size.x, h, t), mat);
+        CreatePart(bin, "Wall_Back", new Vector3(0, h / 2, -size.z / 2 + t / 2), new Vector3(size.x, h, t), wallMat);
         // Left (X-)
-        CreatePart(bin, "Wall_Left", new Vector3(-size.x / 2 + t / 2, h / 2, 0), new Vector3(t, h, size.z - 2 * t), mat);
+        CreatePart(bin, "Wall_Left", new Vector3(-size.x / 2 + t / 2, h / 2, 0), new Vector3(t, h, size.z - 2 * t), wallMat);
         // Right (X+)
-        CreatePart(bin, "Wall_Right", new Vector3(size.x / 2 - t / 2, h / 2, 0), new Vector3(t, h, size.z - 2 * t), mat);
+        CreatePart(bin, "Wall_Right", new Vector3(size.x / 2 - t / 2, h / 2, 0), new Vector3(t, h, size.z - 2 * t), wallMat);
+
+        // Frame (Corners and Rim)
+        CreateFrame(bin, size, t, frameMat);
 
         return bin;
+    }
+
+    void CreateFrame(GameObject parent, Vector3 size, float t, Material mat)
+    {
+        float h = size.y;
+        float frameT = t * 1.5f; // Slightly thicker than walls
+
+        // 4 Corner Pillars
+        // FL (Front-Left)
+        CreatePart(parent, "Frame_FL", new Vector3(-size.x/2 + frameT/2, h/2, size.z/2 - frameT/2), new Vector3(frameT, h, frameT), mat);
+        // FR (Front-Right)
+        CreatePart(parent, "Frame_FR", new Vector3(size.x/2 - frameT/2, h/2, size.z/2 - frameT/2), new Vector3(frameT, h, frameT), mat);
+        // BL (Back-Left)
+        CreatePart(parent, "Frame_BL", new Vector3(-size.x/2 + frameT/2, h/2, -size.z/2 + frameT/2), new Vector3(frameT, h, frameT), mat);
+        // BR (Back-Right)
+        CreatePart(parent, "Frame_BR", new Vector3(size.x/2 - frameT/2, h/2, -size.z/2 + frameT/2), new Vector3(frameT, h, frameT), mat);
+
+        // Top Rim
+        // Front
+        CreatePart(parent, "Rim_Front", new Vector3(0, h - frameT/2, size.z/2 - frameT/2), new Vector3(size.x, frameT, frameT), mat);
+        // Back
+        CreatePart(parent, "Rim_Back", new Vector3(0, h - frameT/2, -size.z/2 + frameT/2), new Vector3(size.x, frameT, frameT), mat);
+        // Left
+        CreatePart(parent, "Rim_Left", new Vector3(-size.x/2 + frameT/2, h - frameT/2, 0), new Vector3(frameT, frameT, size.z - 2*frameT), mat);
+        // Right
+        CreatePart(parent, "Rim_Right", new Vector3(size.x/2 - frameT/2, h - frameT/2, 0), new Vector3(frameT, frameT, size.z - 2*frameT), mat);
     }
 
     void AddCollectorLogic(GameObject bin, string targetCube)
@@ -84,7 +119,7 @@ public class BinGenerator : MonoBehaviour
         part.AddComponent<BoxCollider>(); // Add fresh collider for physics
     }
 
-    private Material CreateMaterial(Color color, string name)
+    private Material CreateMaterial(Color color, string name, float smoothness = 0.3f)
     {
         // Try to find URP shader, fallback to Standard
         Shader shader = Shader.Find("Universal Render Pipeline/Lit");
@@ -97,12 +132,12 @@ public class BinGenerator : MonoBehaviour
         // Add depth cues via material properties
         if (shader.name.Contains("Universal"))
         {
-            mat.SetFloat("_Smoothness", 0.3f); // Slight gloss to catch highlights
+            mat.SetFloat("_Smoothness", smoothness); // Adjustable smoothness
             mat.SetFloat("_Metallic", 0.1f);   // Slight metallic for industrial look
         }
         else
         {
-            mat.SetFloat("_Glossiness", 0.3f);
+            mat.SetFloat("_Glossiness", smoothness);
         }
         
         return mat;
