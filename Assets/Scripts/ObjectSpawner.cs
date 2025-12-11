@@ -12,6 +12,7 @@ namespace ConveyorShift
         [SerializeField] private Transform spawnPoint;
         [SerializeField] private GameObject[] redPrefabs;
         [SerializeField] private GameObject[] bluePrefabs;
+        [SerializeField] private GameObject greenAnomalyPrefab; // New Green Cube Prefab
         [SerializeField] private Material redMaterial;
         [SerializeField] private Material blueMaterial;
 
@@ -27,6 +28,8 @@ namespace ConveyorShift
 
         private bool isRunning;
         private Coroutine spawnRoutine;
+        private int spawnCount = 0; // Counter
+        private const int TARGET_SPAWN_COUNT = 30; // Switch after 30
 
         private Transform SpawnRoot => spawnPoint != null ? spawnPoint : transform;
 
@@ -69,9 +72,45 @@ namespace ConveyorShift
         {
             while (isRunning)
             {
-                SpawnObject();
-                float delay = Random.Range(minSpawnDelay, maxSpawnDelay);
-                yield return new WaitForSeconds(delay);
+                if (spawnCount < TARGET_SPAWN_COUNT)
+                {
+                    // Normal Phase: Red/Blue Cubes
+                    SpawnObject();
+                    spawnCount++;
+                    float delay = Random.Range(minSpawnDelay, maxSpawnDelay);
+                    yield return new WaitForSeconds(delay);
+                }
+                else
+                {
+                    // Anomaly Phase: Spawn 3 Green Cubes then STOP
+                    Debug.Log("Target spawn count reached. Spawning Anomalies...");
+                    
+                    for (int i = 0; i < 3; i++)
+                    {
+                        SpawnAnomalyCube();
+                        yield return new WaitForSeconds(1.0f); // Short delay between anomalies
+                    }
+                    
+                    StopSpawning(); // Done.
+                }
+            }
+        }
+
+        private void SpawnAnomalyCube()
+        {
+            if (greenAnomalyPrefab == null)
+            {
+                Debug.LogError("Green Anomaly Prefab is not assigned!");
+                return;
+            }
+
+            GameObject instance = Instantiate(greenAnomalyPrefab, SpawnRoot.position, SpawnRoot.rotation);
+            ConfigureInteractable(instance);
+            
+            // Ensure it has the AnomalyCube script
+            if (instance.GetComponent<AnomalyCube>() == null)
+            {
+                instance.AddComponent<AnomalyCube>();
             }
         }
 
