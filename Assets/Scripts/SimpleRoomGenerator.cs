@@ -207,12 +207,15 @@ public class SimpleRoomGenerator : MonoBehaviour
         // Position light slightly in front of the fixture to cast light into room
         // Base(0.02) + Fixture(0.15) = 0.17. Light at 0.25 to be safe and clear.
         lightSourceObj.transform.localPosition = new Vector3(0, 0, 0.25f);
-        lightSourceObj.transform.localRotation = Quaternion.identity;
+        // Rotate 90 degrees on X to point downwards (Local Z+ becomes Local Y-)
+        lightSourceObj.transform.localRotation = Quaternion.Euler(90, 0, 0);
 
         Light l = lightSourceObj.AddComponent<Light>();
-        l.type = LightType.Point;
-        l.range = 40f; // Massive range
-        l.intensity = 50.0f; // Extreme intensity
+        l.type = LightType.Spot; // Changed to Spot for downward direction
+        l.spotAngle = 110f; // Wide cone
+        l.innerSpotAngle = 60f; // Soft edge
+        l.range = 20f; // Reduced range
+        l.intensity = 4.0f; // Much lower intensity (Dim/Loş)
         l.color = new Color(1.0f, 0.6f, 0.0f); // Pure Orange-Yellow
         l.shadows = LightShadows.Hard; // Hard shadows for better depth perception on mobile
         l.renderMode = LightRenderMode.ForcePixel; // Force high quality rendering
