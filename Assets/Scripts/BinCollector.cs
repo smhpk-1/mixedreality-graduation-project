@@ -25,6 +25,14 @@ public class BinCollector : MonoBehaviour
         if (wrongSound == null) wrongSound = GenerateBuzzerSound();
         if (correctSound == null) correctSound = GenerateChimeSound();
         
+        // Add Reverb for "Container" effect
+        AudioReverbFilter reverb = GetComponent<AudioReverbFilter>();
+        if (reverb == null)
+        {
+            reverb = gameObject.AddComponent<AudioReverbFilter>();
+            reverb.reverbPreset = AudioReverbPreset.StoneCorridor; // Echoey industrial sound
+        }
+
         // Ensure we have a trigger
         Collider col = GetComponent<Collider>();
         if (col == null)
