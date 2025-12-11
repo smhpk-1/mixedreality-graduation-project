@@ -879,8 +879,11 @@ UnityEngine.Light::get_bakingOutput_Injected
 UnityEngine.Light::get_color_Injected
 UnityEngine.Light::set_color_Injected
 UnityEngine.Light::set_intensity_Injected
+UnityEngine.Light::set_range_Injected
+UnityEngine.Light::set_renderMode_Injected
 UnityEngine.Light::set_renderingLayerMask_Injected
 UnityEngine.Light::set_shadows_Injected
+UnityEngine.Light::set_type_Injected
 UnityEngine.Light::get_shadows_Injected
 UnityEngine.Light::get_type_Injected
 UnityEngine.Light::get_shadowResolution_Injected
@@ -966,7 +969,6 @@ UnityEngine.MaterialPropertyBlock::SetVectorImpl_Injected
 UnityEngine.Mathf::GammaToLinearSpace
 UnityEngine.Mathf::HalfToFloat
 UnityEngine.Mathf::LinearToGammaSpace
-UnityEngine.Mathf::PerlinNoise
 UnityEngine.Mathf::FloatToHalf
 UnityEngine.Mathf::CorrelatedColorTemperatureToRGB_Injected
 UnityEngine.Matrix4x4::Inverse3DAffine_Injected
@@ -1463,6 +1465,7 @@ UnityEngine.RenderSettings::get_subtractiveShadowColor_Injected
 UnityEngine.RenderSettings::set_ambientLight_Injected
 UnityEngine.RenderSettings::set_ambientMode
 UnityEngine.RenderSettings::set_fog
+UnityEngine.RenderSettings::set_reflectionIntensity
 UnityEngine.RenderTexture::Create_Injected
 UnityEngine.RenderTexture::get_bindTextureMS_Injected
 UnityEngine.RenderTexture::get_enableShadingRate_Injected
