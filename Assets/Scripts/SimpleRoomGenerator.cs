@@ -19,9 +19,40 @@ public class SimpleRoomGenerator : MonoBehaviour
     [ContextMenu("Generate Boring Office")]
     public void GenerateRoom()
     {
-        // FORCE SETTINGS: Override Inspector values to ensure the correct design
+        // 0. ATMOSPHERE: Find and disable the Main Sun (Directional Light)
+        Light[] allLights = FindObjectsByType<Light>(FindObjectsSortMode.None);
+        foreach (Light l in allLights)
+        {
+            if (l.type == LightType.Directional)
+            {
+                l.gameObject.SetActive(false);
+            }
+        }
+
+        // NEW: Darken Environment Ambient Light to make point lights visible
+        RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
+        RenderSettings.ambientLight = new Color(0.02f, 0.02f, 0.02f); // Pitch black ambient
+        RenderSettings.reflectionIntensity = 0.0f; // No reflections from skybox
+
+        // FORCE SETTINGS: Override Inspector values
         height = 7f;
         wallColor = new Color(0.55f, 0.55f, 0.55f); // Cement Grey
+        ceilingColor = new Color(0.65f, 0.65f, 0.65f); // Slightly lighter than walls
+        
+        // FIX CONVEYOR BELT COLOR
+        GameObject conveyor = GameObject.Find("conveyorbelt");
+        if (conveyor != null)
+        {
+            Renderer[] renderers = conveyor.GetComponentsInChildren<Renderer>();
+            foreach (Renderer r in renderers)
+            {
+                // Create a dark grey material
+                Material beltMat = new Material(Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Standard"));
+                beltMat.color = new Color(0.2f, 0.2f, 0.2f); // Dark Grey
+                beltMat.SetFloat("_Smoothness", 0.1f);
+                r.sharedMaterial = beltMat;
+            }
+        }
         
         // 1. Cleanup: Find and destroy the old room if it exists
         GameObject existingRoom = GameObject.Find("Generated_Office_Room");
@@ -164,18 +195,20 @@ public class SimpleRoomGenerator : MonoBehaviour
         
         // Emissive Material for the "Glass" part
         Material lightMat = new Material(Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Standard"));
-        lightMat.color = new Color(1.0f, 0.95f, 0.8f);
+        lightMat.color = Color.black; // Black when off (contrast)
         lightMat.EnableKeyword("_EMISSION");
-        lightMat.SetColor("_EmissionColor", new Color(1.0f, 0.8f, 0.4f) * 3f); // Brighter emission
+        // Multiplied by 10 for HDR intensity (Bloom effect)
+        lightMat.SetColor("_EmissionColor", new Color(1.0f, 0.7f, 0.0f) * 10f); 
         fixture.GetComponent<Renderer>().sharedMaterial = lightMat;
 
         // 3. Light Source
         Light l = lightObj.AddComponent<Light>();
         l.type = LightType.Point;
-        l.range = 10f; // Slightly reduced range for more dramatic pockets of light
-        l.intensity = 0.8f; // Increased intensity to compensate for wall placement
-        l.color = new Color(1.0f, 0.85f, 0.6f); // Warm industrial yellow
+        l.range = 40f; // Massive range
+        l.intensity = 50.0f; // Extreme intensity to force visibility
+        l.color = new Color(1.0f, 0.6f, 0.0f); // Pure Orange-Yellow
         l.shadows = LightShadows.Soft;
+        l.renderMode = LightRenderMode.ForcePixel; // Force high quality rendering
         
         // Position light slightly in front of the fixture to cast light into room
         // Base(0.02) + Fixture(0.15) = 0.17. Light at 0.25 to be safe and clear.
