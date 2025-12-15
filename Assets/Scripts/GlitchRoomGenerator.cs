@@ -9,7 +9,7 @@ public class GlitchRoomGenerator : MonoBehaviour
     public float wallThickness = 0.2f;
 
     [Header("Appearance")]
-    public Color roomColor = new Color(0.2f, 0.2f, 0.2f); // Dark Grey
+    public Color roomColor = new Color(0.5f, 0.5f, 0.5f); // Lighter Grey for visibility
 
     private void Start()
     {
@@ -27,10 +27,15 @@ public class GlitchRoomGenerator : MonoBehaviour
         root.transform.parent = transform;
         root.transform.localPosition = Vector3.zero;
 
+        // Reset Render Settings (Fix for previous script effects)
+        RenderSettings.fog = false;
+        RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Skybox;
+        
         // Create Material
         Material roomMat = new Material(Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Standard"));
         roomMat.color = roomColor;
-        roomMat.SetFloat("_Smoothness", 0.2f); // Matte finish
+        roomMat.SetFloat("_Smoothness", 0.2f);
+        roomMat.SetFloat("_Cull", (float)UnityEngine.Rendering.CullMode.Off); // Render both sides just in case
 
         float halfWidth = width / 2;
         float halfLength = length / 2;
@@ -73,14 +78,14 @@ public class GlitchRoomGenerator : MonoBehaviour
             new Vector3(wallThickness, height, length), 
             roomMat);
             
-        // Add a light inside so we can see the corners
+        // Add a light inside
         GameObject lightObj = new GameObject("RoomLight");
         lightObj.transform.parent = root.transform;
-        lightObj.transform.localPosition = new Vector3(0, height - 0.5f, 0);
+        lightObj.transform.localPosition = new Vector3(0, height - 1f, 0);
         Light light = lightObj.AddComponent<Light>();
         light.type = LightType.Point;
-        light.range = Mathf.Max(width, length) * 1.5f;
-        light.intensity = 1.0f;
+        light.range = 20f;
+        light.intensity = 2.0f; // Brighter
         light.color = Color.white;
     }
 
