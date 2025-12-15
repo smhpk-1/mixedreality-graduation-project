@@ -96,8 +96,8 @@ namespace ConveyorShift
 
         public void TriggerAnomalyCleanup()
         {
-            Debug.Log("Anomaly Triggered! Clearing the room...");
-            SwitchState(GameState.EmptyRoomState);
+            Debug.Log("Anomaly Triggered! Loading Scene 2...");
+            SceneManager.LoadScene("Scene 2");
         }
 
         private void SwitchState(GameState nextState)
