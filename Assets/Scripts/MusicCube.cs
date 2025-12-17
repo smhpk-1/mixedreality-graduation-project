@@ -73,21 +73,32 @@ namespace MusicSpace
         }
 
         /// <summary>
-        /// Apply the cube color to the material with emission glow
+        /// Apply the cube color to the material
         /// </summary>
         public void ApplyColor()
         {
+            if (meshRenderer == null)
+            {
+                meshRenderer = GetComponent<MeshRenderer>();
+            }
+            
             if (meshRenderer == null) return;
             
+            // Get or create material
             originalMaterial = meshRenderer.material;
+            
+            // Set base color - this works with any shader
+            if (originalMaterial.HasProperty("_Color"))
+            {
+                originalMaterial.SetColor("_Color", cubeColor);
+            }
+            if (originalMaterial.HasProperty("_BaseColor"))
+            {
+                originalMaterial.SetColor("_BaseColor", cubeColor);
+            }
             originalMaterial.color = cubeColor;
             
-            // Add emission for glow effect if shader supports it
-            if (originalMaterial.HasProperty("_EmissionColor"))
-            {
-                originalMaterial.EnableKeyword("_EMISSION");
-                originalMaterial.SetColor("_EmissionColor", cubeColor * 0.5f);
-            }
+            Debug.Log($"Applied color {cubeColor} to {cubeName}");
         }
 
         /// <summary>
@@ -104,14 +115,14 @@ namespace MusicSpace
             if (floating)
             {
                 // Keep cube stationary in the air
-                rb.linearDamping = 10f;
-                rb.angularDamping = 10f;
+                rb.linearDamping = 5f;
+                rb.angularDamping = 5f;
             }
             else
             {
-                // Normal physics when thrown
-                rb.linearDamping = 0.5f;
-                rb.angularDamping = 0.5f;
+                // Normal physics when thrown - low drag for good throwing
+                rb.linearDamping = 0.1f;
+                rb.angularDamping = 0.1f;
             }
         }
 
