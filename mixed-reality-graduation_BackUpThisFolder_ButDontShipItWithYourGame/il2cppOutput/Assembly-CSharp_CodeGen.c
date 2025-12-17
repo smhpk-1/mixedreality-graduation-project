@@ -260,8 +260,7 @@ extern void U3CDestroyAndRespawnU3Ed__30_System_Collections_IEnumerator_Reset_m3
 extern void U3CDestroyAndRespawnU3Ed__30_System_Collections_IEnumerator_get_Current_m897A19362537F20466C1327020EB53BF86E15D23 (void);
 extern void MusicCubeSpawner_Start_mF49B5457EF3FD0BACB9CC31CEC5D79DBD569529E (void);
 extern void MusicCubeSpawner_SpawnAllCubes_m13E997EA15E97EC267A2F5F75CB9B0F3A0A1CFCC (void);
-extern void MusicCubeSpawner_SpawnCube_m5C76432252CE7AADCAE42B0B865B520CCA1D7EA5 (void);
-extern void MusicCubeSpawner_RespawnCube_m51871D5D63AC60F5AB407FDC074A654DC09EF1AA (void);
+extern void MusicCubeSpawner_SpawnBasicCubes_m20B8E0CF2A2537C5B822A291178A2AADF574052C (void);
 extern void MusicCubeSpawner_OnDrawGizmosSelected_m959ED9D80150D8825E2C02A07806A06077C7AF63 (void);
 extern void MusicCubeSpawner__ctor_mEC9406CD3BEAC666C1D1957A4B668344C04C02B1 (void);
 extern void Scene2RoomGenerator_Start_m5A8DD57D2E582DAED007866F8875924390DEF359 (void);
@@ -369,7 +368,7 @@ extern void U3CSpawnLoopU3Ed__21_MoveNext_m712698559422D83F14F91CE5B9A7641686690
 extern void U3CSpawnLoopU3Ed__21_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m148930EE907920DCC2D27239411ED5BF24140CCA (void);
 extern void U3CSpawnLoopU3Ed__21_System_Collections_IEnumerator_Reset_m88A0C95497101449FA6A069E0B2AAA5BF1E8A168 (void);
 extern void U3CSpawnLoopU3Ed__21_System_Collections_IEnumerator_get_Current_mAF6D1BD9A3C4541D8EAEC1943D19DF6B6D3B9CA1 (void);
-static Il2CppMethodPointer s_methodPointers[362] = 
+static Il2CppMethodPointer s_methodPointers[361] = 
 {
 	AnomalyAssetGenerator_GenerateAndAssign_m9E1CD81066195DCD181141E55E59E93EAE40A002,
 	AnomalyAssetGenerator__ctor_m35E92F6E7A0F666B278E6B0A9348221C08EB344F,
@@ -624,8 +623,7 @@ static Il2CppMethodPointer s_methodPointers[362] =
 	U3CDestroyAndRespawnU3Ed__30_System_Collections_IEnumerator_get_Current_m897A19362537F20466C1327020EB53BF86E15D23,
 	MusicCubeSpawner_Start_mF49B5457EF3FD0BACB9CC31CEC5D79DBD569529E,
 	MusicCubeSpawner_SpawnAllCubes_m13E997EA15E97EC267A2F5F75CB9B0F3A0A1CFCC,
-	MusicCubeSpawner_SpawnCube_m5C76432252CE7AADCAE42B0B865B520CCA1D7EA5,
-	MusicCubeSpawner_RespawnCube_m51871D5D63AC60F5AB407FDC074A654DC09EF1AA,
+	MusicCubeSpawner_SpawnBasicCubes_m20B8E0CF2A2537C5B822A291178A2AADF574052C,
 	MusicCubeSpawner_OnDrawGizmosSelected_m959ED9D80150D8825E2C02A07806A06077C7AF63,
 	MusicCubeSpawner__ctor_mEC9406CD3BEAC666C1D1957A4B668344C04C02B1,
 	Scene2RoomGenerator_Start_m5A8DD57D2E582DAED007866F8875924390DEF359,
@@ -745,7 +743,7 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[4] =
 	{ 0x060000BA, TrackedRotation_SetBaseFromVector_m0CAD68507FD5C7AA3C7CAE09720645F033F1D26E_AdjustorThunk },
 	{ 0x060000BB, TrackedRotation_SetTargetFromVector_m42F1586C38A41E0FB628220D326B1572BB8F80D7_AdjustorThunk },
 };
-static const int32_t s_InvokerIndices[362] = 
+static const int32_t s_InvokerIndices[361] = 
 {
 	15401,
 	15401,
@@ -1000,8 +998,7 @@ static const int32_t s_InvokerIndices[362] =
 	15205,
 	15401,
 	15401,
-	5625,
-	11695,
+	15401,
 	15401,
 	15401,
 	15401,
@@ -1114,7 +1111,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	362,
+	361,
 	s_methodPointers,
 	4,
 	s_adjustorThunks,
