@@ -86,11 +86,23 @@
             "icon": null
           },
           {
+            "name": "AudioHighPassFilter",
+            "scenes": [],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
             "name": "AudioListener",
             "scenes": [
               "Assets/Scene 2.unity",
               "Assets/scene1.unity"
             ],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
+            "name": "AudioLowPassFilter",
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
@@ -1496,9 +1508,7 @@
           },
           {
             "name": "CanvasGroup",
-            "scenes": [
-              "Assets/scene1.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
