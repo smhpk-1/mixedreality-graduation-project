@@ -159,56 +159,52 @@ namespace MusicSpace
         {
             isGrabbed = false;
             hasBeenThrown = true;
-            // Gravity stays on after release so cube can be thrown
-            // XR Grab ayarları: daha hızlı fırlatma için velocity scale artırılabilir
-            // (Spawner prefabında ayarlanabilir)
+            // Grab bırakıldığında gerçekçi fizik için Rigidbody ayarları
+            SetFloating(false); // Gravity açık
+            rb.isKinematic = false;
+
+            // XR Grab Interactable velocity aktarımı (daha gerçekçi fırlatma için)
+            if (args is SelectExitEventArgs exitArgs)
+            {
+                // XR Grab Interactable velocity'yi Rigidbody'ye uygula
+                rb.linearVelocity = exitArgs.interactorObject.GetAttachTransform(grabInteractable).GetComponentInParent<Rigidbody>()?.linearVelocity ?? rb.linearVelocity;
+                rb.angularVelocity = exitArgs.interactorObject.GetAttachTransform(grabInteractable).GetComponentInParent<Rigidbody>()?.angularVelocity ?? rb.angularVelocity;
+            }
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            // Only trigger once after being thrown (not while grabbed)
+            // Sadece grab bırakıldıktan sonra ve ilk çarpışmada çalışsın
             if (isGrabbed || hasCollided) return;
 
             float velocity = collision.relativeVelocity.magnitude;
-            
-            // Check velocity threshold
             if (velocity < minVelocityThreshold) return;
 
             hasCollided = true;
 
-            // Check if we hit a reactive wall
+            // Duvara çarptıysa, duvarın rengini küpün rengine anında döndür
             ColorReactiveWall wall = collision.gameObject.GetComponent<ColorReactiveWall>();
             if (wall != null)
             {
                 currentAffectedWall = wall;
                 wall.ChangeColorInstant(cubeColor, 1.5f); // 1.5 saniye sonra eski rengine döner
-
-                // Apply surface-based audio effects
                 ApplySurfaceEffects(wall.surfaceType);
             }
 
-            // Calculate audio parameters based on physics
+            // Gerçekçi fiziksel ses ve efektler
             float normalizedVelocity = Mathf.Clamp01(velocity / maxVelocityForPitch);
-            
-            // Pitch: Higher velocity = higher pitch
             float pitchModifier = 1f + (normalizedVelocity * velocityToPitchInfluence);
             audioSource.pitch = basePitch * pitchModifier;
-            
-            // Volume: Based on impact force
             audioSource.volume = baseVolume * Mathf.Lerp(0.5f, 1f, normalizedVelocity);
 
-            // Play the sound
             if (assignedSound != null)
             {
                 audioSource.clip = assignedSound;
                 audioSource.Play();
-                
-                // Start destruction sequence after sound finishes
                 StartCoroutine(DestroyAfterSound());
             }
             else
             {
-                // No sound assigned, destroy immediately
                 StartCoroutine(DestroyAndRespawn());
             }
         }
