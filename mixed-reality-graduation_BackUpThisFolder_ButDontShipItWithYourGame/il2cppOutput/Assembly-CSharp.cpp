@@ -293,7 +293,6 @@ struct ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6;
 struct OfficeMessGenerator_t327A699A1235EA072A25122C5ACFEFD595B4B8A3;
 struct ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1;
 struct PersistentCallGroup_tB826EDF15DC80F71BCBCD8E410FD959A04C33F25;
-struct PhysicsMaterial_t2949C5AB81E97E3B99B71EAFA5966CB89A9BEB1C;
 struct PointerEventData_t9670F3C7D823CCB738A1604C72A1EB90292396FB;
 struct Random_t79716069EDE67D1D7734F60AE402D0CA3FB6B4C8;
 struct RayAttachModifier_t88195CC1798BFAFE12D5D5944A8B2495041E6818;
@@ -406,6 +405,7 @@ IL2CPP_EXTERN_C RuntimeClass* AudioClipU5BU5D_t916722468F7EDCFA833318C35CD7D4109
 IL2CPP_EXTERN_C RuntimeClass* BindingsGroup_tD5EC90BB10F9D310FE467A7E3A4CAE2E32D0397A_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Color_tD001788D726C3A7F1379BEED0260B9591F440C1F_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* FloatTweenableVariable_t19D1F16FBA79A41A8234F4F6C1D7DB51EAC07D48_il2cpp_TypeInfo_var;
@@ -449,7 +449,6 @@ IL2CPP_EXTERN_C RuntimeClass* UnityAction_1_tAEFA3C1C529F0E1AD7C7C7AFC88822D359E
 IL2CPP_EXTERN_C RuntimeClass* UnityAction_1_tD4A8B5CFDB30ABDE869D801066212B20B4D61D6E_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* UnityAction_t11A1F3B953B365C072A5DCC32677EE1796A962A7_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ValueChangeEvent_tDC3EC514DD9CBF92A2A1BCB2F7323B43F276C790_il2cpp_TypeInfo_var;
-IL2CPP_EXTERN_C RuntimeClass* Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Vector3TweenableVariable_t0DF651B487F89825D0D459293C4A862C62C0EBD5_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2_il2cpp_TypeInfo_var;
@@ -478,6 +477,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteral244072455A25AFE961E21771CE7C2CA3792DA053
 IL2CPP_EXTERN_C String_t* _stringLiteral2514BD7DCCE3D89E5E766A896EB4385F620D0317;
 IL2CPP_EXTERN_C String_t* _stringLiteral2620038B8A71EF21A205CC921576171A3CA9B0F4;
 IL2CPP_EXTERN_C String_t* _stringLiteral27492D6C1E85E2FC6D6A95DD1DAE62BF03BAD8BC;
+IL2CPP_EXTERN_C String_t* _stringLiteral28F34D9BE55E2B7ADE2BFE88F6ED5B014D0FFDD5;
 IL2CPP_EXTERN_C String_t* _stringLiteral29A3AA3189811121878CA7796FBE0EAD235A68A7;
 IL2CPP_EXTERN_C String_t* _stringLiteral316B3DAACE0FE9C3A0D52F678D86321F149CF556;
 IL2CPP_EXTERN_C String_t* _stringLiteral38E488A942E0EFCB96752BA5E01E0A29CB0B8952;
@@ -486,10 +486,14 @@ IL2CPP_EXTERN_C String_t* _stringLiteral3978FDCA6BBB7192616C4B4094D830292141A7B2
 IL2CPP_EXTERN_C String_t* _stringLiteral3BB48568E2AFB2C2EA53483528E03C152C3FA08A;
 IL2CPP_EXTERN_C String_t* _stringLiteral3C48C1AE16652BDF9E562F5C89304A28A0259477;
 IL2CPP_EXTERN_C String_t* _stringLiteral3CC7133DAEA777C9B212172FD3B52B3A6E2349AA;
+IL2CPP_EXTERN_C String_t* _stringLiteral3D93A89666F831FB9324883A9347EA29365E69DF;
 IL2CPP_EXTERN_C String_t* _stringLiteral3E2745B8B59E672845B54B421E6F4FE518E407B2;
 IL2CPP_EXTERN_C String_t* _stringLiteral4269EF0D25F409E82DB7814704F598C7FE9DEE90;
+IL2CPP_EXTERN_C String_t* _stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE;
 IL2CPP_EXTERN_C String_t* _stringLiteral47CCA9A9D5836CB1DA3684832E45F0DDB1C67A88;
 IL2CPP_EXTERN_C String_t* _stringLiteral47CEC5238BCB8D17AD0EA59BFE205750C11B4657;
+IL2CPP_EXTERN_C String_t* _stringLiteral4823B4BD3B2F9A53E90610751D7DE1F78A3D0E70;
+IL2CPP_EXTERN_C String_t* _stringLiteral4915FD2F4076E5B9893871C4531D351041495B77;
 IL2CPP_EXTERN_C String_t* _stringLiteral4A261EB7E7319776625F5A015EA18053797E6890;
 IL2CPP_EXTERN_C String_t* _stringLiteral4B186672538570F10174CD6E78C6E9225E1558BD;
 IL2CPP_EXTERN_C String_t* _stringLiteral4CB77A910392E762A28BEE1905AA92AA28FC2499;
@@ -497,8 +501,8 @@ IL2CPP_EXTERN_C String_t* _stringLiteral4DAB9A84B05C2462B3F63E5534AC08AC7323CC81
 IL2CPP_EXTERN_C String_t* _stringLiteral4DC2501B9739FBA40ED27C10D8737497CF11F328;
 IL2CPP_EXTERN_C String_t* _stringLiteral4E97BBE04039F5FDC1B9F6BF83D7CC0DAFE80877;
 IL2CPP_EXTERN_C String_t* _stringLiteral5010CA4FF13DD185AF4E752CC239A1AE67F52F0D;
+IL2CPP_EXTERN_C String_t* _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379;
 IL2CPP_EXTERN_C String_t* _stringLiteral525F5C8DBE02A4413AF96F338A4166104DA95AE4;
-IL2CPP_EXTERN_C String_t* _stringLiteral55BF3C49F52EF5A63F8554DD703761F5759D6F89;
 IL2CPP_EXTERN_C String_t* _stringLiteral566436EFF88846B83831A8DA02D28E54C520CCAF;
 IL2CPP_EXTERN_C String_t* _stringLiteral578C276F10F41663C6A55C2DBFA63F7EACD672EA;
 IL2CPP_EXTERN_C String_t* _stringLiteral5A8F11565ADAFE65C1BA7024AF820946D543E5F2;
@@ -543,6 +547,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteral9C61FD671133FF102D0B789C0791C9F49EBF9FC2
 IL2CPP_EXTERN_C String_t* _stringLiteral9D3D33F27A188A9BE16188D1320DF01773E1E025;
 IL2CPP_EXTERN_C String_t* _stringLiteralA1C7C8CDC2CBA87E190D691C0F40020A4F1D3F11;
 IL2CPP_EXTERN_C String_t* _stringLiteralA2A3DF99788A73C2F0FE7267B988915F72D2C1F1;
+IL2CPP_EXTERN_C String_t* _stringLiteralA3DFDD1C75685F4BD136ACAF08E535626B718D2C;
 IL2CPP_EXTERN_C String_t* _stringLiteralA9103E1230DE232AF78C03EDBFF04FC46DF4E1AC;
 IL2CPP_EXTERN_C String_t* _stringLiteralAA925DD449F1A15FF6F0EB360BF45137C8F71F20;
 IL2CPP_EXTERN_C String_t* _stringLiteralAB3448E21FA53C63C06270903A13B17D02935BE0;
@@ -1695,10 +1700,6 @@ struct FontWeight_tA2585C0A73B70D31CE71E7843149098A5E16BC80
 {
 	int32_t ___value__;
 };
-struct ForceMode_t603F3ECB085E4FDD30C91273A469047EA64F4459 
-{
-	int32_t ___value__;
-};
 struct GlyphRenderMode_tE7FB60827750662A45E89D168932FE2D8AEB5281 
 {
 	int32_t ___value__;
@@ -1907,10 +1908,6 @@ struct ReflectionProbeMode_t12F6F00CFD705CCF8E7B74D71E47AEA99FF9C211
 	int32_t ___value__;
 };
 struct ReflectionProbeRefreshMode_tB0E2E262AF4202160FD065066BB6575EAF8911FC 
-{
-	int32_t ___value__;
-};
-struct RigidbodyConstraints_tE93C9173FB4F24EF4D38166A288214D28D8E85C8 
 {
 	int32_t ___value__;
 };
@@ -2251,9 +2248,6 @@ struct Navigation_t4D2E201D65749CF4E104E8AC1232CF1D6F14795C_marshaled_com
 	Selectable_t3251808068A17B8E92FB33590A4C2FA66D456712* ___m_SelectOnDown;
 	Selectable_t3251808068A17B8E92FB33590A4C2FA66D456712* ___m_SelectOnLeft;
 	Selectable_t3251808068A17B8E92FB33590A4C2FA66D456712* ___m_SelectOnRight;
-};
-struct PhysicsMaterial_t2949C5AB81E97E3B99B71EAFA5966CB89A9BEB1C  : public Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C
-{
 };
 struct PointerEventData_t9670F3C7D823CCB738A1604C72A1EB90292396FB  : public BaseEventData_tE03A848325C0AE8E76C6CA15FD86395EBF83364F
 {
@@ -2971,17 +2965,6 @@ struct ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E  : public Mon
 	bool ___isTransitioning;
 	Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* ___colorCoroutine;
 };
-struct ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
-{
-	float ___targetSpeed;
-	float ___acceleration;
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___localDirection;
-	Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* ___beltRenderer;
-	float ___textureScrollSpeed;
-	bool ___isActive;
-	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___beltMaterial;
-	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___currentOffset;
-};
 struct CubeCollisionSound_tD924DCF0275C48FBB83C49625FE5116CF837A300  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
 	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___audioSource;
@@ -3091,15 +3074,13 @@ struct MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A  : public MonoBehavio
 };
 struct MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
-	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___xrOrigin;
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___spawnOffsetFromPlayer;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___spawnCenter;
 	float ___cubeSpacing;
 	float ___cubeSize;
-	ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* ___cubeColors;
-	StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* ___cubeNames;
 	AudioClipU5BU5D_t916722468F7EDCFA833318C35CD7D41097D75D31* ___cubeSounds;
 	float ___cubeMass;
-	float ___cubeAngularDrag;
+	ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* ___cubeColors;
+	StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* ___cubeNames;
 	List_1_t6F2A202B9B00EAB390C876DEA68E48D1F5F240C6* ___spawnedCubes;
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___cubeContainer;
 };
@@ -5275,7 +5256,6 @@ inline MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* Object_FindFi
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_RespawnCube_m51871D5D63AC60F5AB407FDC074A654DC09EF1AA (MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* __this, MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* ___0_cube, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ResetCube_m458FD9787941F5D32BE76B9A1F53F6AF6CDFF57A (MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_SpawnAllCubes_m13E997EA15E97EC267A2F5F75CB9B0F3A0A1CFCC (MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* __this, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Transform_TransformDirection_m9BE1261DF2D48B7A4A27D31EE24D2D97F89E7757 (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_direction, const RuntimeMethod* method) ;
 inline Enumerator_tD44A43BD276581B4ABF1A29F2A3C6EF775FF8D40 List_1_GetEnumerator_m30D0D712DEA9ED14FAA5610993DCE626AC84FCAB (List_1_t6F2A202B9B00EAB390C876DEA68E48D1F5F240C6* __this, const RuntimeMethod* method)
 {
 	return ((  Enumerator_tD44A43BD276581B4ABF1A29F2A3C6EF775FF8D40 (*) (List_1_t6F2A202B9B00EAB390C876DEA68E48D1F5F240C6*, const RuntimeMethod*))List_1_GetEnumerator_mD8294A7FA2BEB1929487127D476F8EC1CDC23BFC_gshared)(__this, method);
@@ -5296,29 +5276,35 @@ inline void List_1_Clear_mAD7D8FD45DCC7515FDB9D90C4866CB99E7FBD0DB_inline (List_
 {
 	((  void (*) (List_1_t6F2A202B9B00EAB390C876DEA68E48D1F5F240C6*, const RuntimeMethod*))List_1_Clear_m16C1F2C61FED5955F10EB36BC1CB2DF34B128994_gshared_inline)(__this, method);
 }
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 MusicCubeSpawner_GetSpawnCenter_m4F2387462FD074EC6ECB5B8003990E2E6FB1C280 (MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_SpawnCube_m5C76432252CE7AADCAE42B0B865B520CCA1D7EA5 (MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* __this, int32_t ___0_index, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_position, const RuntimeMethod* method) ;
 inline MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* GameObject_GetComponent_TisMeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE_m7FF948365C38BC39333D82B235A7C4EAD219960D (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method)
 {
 	return ((  MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* (*) (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*, const RuntimeMethod*))GameObject_GetComponent_TisRuntimeObject_m6EAED4AA356F0F48288F67899E5958792395563B_gshared)(__this, method);
 }
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Shader_tADC867D36B7876EE22427FAA2CE485105F4EE692* Material_get_shader_m8B0C11AE6F2AD7DE30AF52D3195EB716F7A71983 (Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1 (String_t* ___0_a, String_t* ___1_b, const RuntimeMethod* method) ;
 inline Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* GameObject_AddComponent_TisRigidbody_t268697F5A994213ED97393309870968BC1C7393C_m03A761629A3F71B0248F1B26EF612F592B757093 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method)
 {
 	return ((  Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* (*) (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*, const RuntimeMethod*))GameObject_AddComponent_TisRuntimeObject_m69B93700FACCF372F5753371C6E8FB780800B824_gshared)(__this, method);
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody_set_mass_mC7F886DEDB57C742A16F8B6B779F69AFE164CA4B (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, float ___0_value, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody_set_isKinematic_m6C3FD3EA358DADA3B191F2449CF1C4F8B22695ED (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, bool ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody_set_interpolation_mC7D39114A7AC6ED0AB2B40FECA4E2ED3C1D7603C (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, int32_t ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody_set_collisionDetectionMode_m70A22E9878027BF6D3D7E851A43A8E32B8E02343 (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, int32_t ___0_value, const RuntimeMethod* method) ;
 inline XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* GameObject_AddComponent_TisXRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B_mCAA85B78B14B3E0BB825C92803CC5AA40D50A283 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method)
 {
 	return ((  XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* (*) (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*, const RuntimeMethod*))GameObject_AddComponent_TisRuntimeObject_m69B93700FACCF372F5753371C6E8FB780800B824_gshared)(__this, method);
 }
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRGrabInteractable_set_movementType_m3BE09F3CCEF6BC9655F3A811E0FB195E410CA03C (XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* __this, int32_t ___0_value, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRGrabInteractable_set_throwOnDetach_mFE16597F775A78F44E5BCA41F5DA789D22097E10_inline (XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* __this, bool ___0_value, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRGrabInteractable_set_throwSmoothingDuration_mBF983A59510887DFA6BE0E8A03373914C1E646D3_inline (XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* __this, float ___0_value, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRGrabInteractable_set_throwVelocityScale_mF5BD8EA796542BB4EA4F479FEB95A341B127DA63_inline (XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* __this, float ___0_value, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRGrabInteractable_set_throwAngularVelocityScale_mB8C0822B882065C5A8068786A813B8EA086570E9_inline (XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* __this, float ___0_value, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRGrabInteractable_set_useDynamicAttach_m70D5BCBC6225C9DE1B875084A3B0A8CFE95368A3_inline (XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* __this, bool ___0_value, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRGrabInteractable_set_movementType_m3BE09F3CCEF6BC9655F3A811E0FB195E410CA03C (XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* __this, int32_t ___0_value, const RuntimeMethod* method) ;
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRGrabInteractable_set_matchAttachPosition_m23703B3D7E10B6C3A09F74858EF77418014A17D0_inline (XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* __this, bool ___0_value, const RuntimeMethod* method) ;
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRGrabInteractable_set_matchAttachRotation_mAFF86386B636F1E97F7C3AE8436AD2D434963EF8_inline (XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* __this, bool ___0_value, const RuntimeMethod* method) ;
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRGrabInteractable_set_snapToColliderVolume_mECC2F1C7003684D4FB199364F34314310C3ED7C9_inline (XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* __this, bool ___0_value, const RuntimeMethod* method) ;
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRGrabInteractable_set_retainTransformParent_m50CC2C444D9992F89325494B86848975CC6B4A61_inline (XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* __this, bool ___0_value, const RuntimeMethod* method) ;
 inline MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* GameObject_AddComponent_TisMusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A_m387A41D5E9CE78CAF21F735F3AE745EFAB070041 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method)
 {
 	return ((  MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* (*) (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*, const RuntimeMethod*))GameObject_AddComponent_TisRuntimeObject_m69B93700FACCF372F5753371C6E8FB780800B824_gshared)(__this, method);
@@ -5327,7 +5313,7 @@ inline void List_1_Add_m42222C0182D8B83F3AC9AB52321BBDF232C09466_inline (List_1_
 {
 	((  void (*) (List_1_t6F2A202B9B00EAB390C876DEA68E48D1F5F240C6*, MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A*, const RuntimeMethod*))List_1_Add_mEBCF994CC3814631017F46A387B1A192ED6C85C7_gshared_inline)(__this, ___0_item, method);
 }
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Gizmos_DrawSphere_mC7B2862BBDB3141A63B83F0F1E56E30101D4F472 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_center, float ___1_radius, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Gizmos_DrawCube_m4417EAEA479EF4AD52445810D840BA8FCBC6EF3F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_center, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_size, const RuntimeMethod* method) ;
 inline void List_1__ctor_m306EF0C2469F5EF6BB5EDD87A50CFB00D66035CF (List_1_t6F2A202B9B00EAB390C876DEA68E48D1F5F240C6* __this, const RuntimeMethod* method)
 {
 	((  void (*) (List_1_t6F2A202B9B00EAB390C876DEA68E48D1F5F240C6*, const RuntimeMethod*))List_1__ctor_m7F078BB342729BDF11327FD89D7872265328F690_gshared)(__this, method);
@@ -5349,6 +5335,7 @@ inline Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3* Object_FindFirstObjectBy
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_CreatePointLight_m35ACEB4378CF9913081E751443B4C961D92A7EC5 (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, String_t* ___0_name, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_position, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___2_color, float ___3_range, float ___4_intensity, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F Color_get_yellow_m66637FA14383E8D74F24AE256B577CE1D55D469F_inline (const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_DrawSurfaceLabel_m8513499E06F82B4D3F2FB866807F7BFDBEEACBE1 (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_pos, String_t* ___1_label, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Gizmos_DrawSphere_mC7B2862BBDB3141A63B83F0F1E56E30101D4F472 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_center, float ___1_radius, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR GameManager_tD2A141CDC4D8B352B55DC10F337F83AAF44B9035* GameManager_get_Instance_m6F2B3DEACCE829015C9ACA4C3B1E3C3EE761A258_inline (const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_TriggerAnomalyCleanup_m941EDCF6BB6BDFDBB28F57287D4C6E6766B0EB87 (GameManager_tD2A141CDC4D8B352B55DC10F337F83AAF44B9035* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Delegate_t* Delegate_Combine_m1F725AEF318BE6F0426863490691A6F4606E7D00 (Delegate_t* ___0_a, Delegate_t* ___1_b, const RuntimeMethod* method) ;
@@ -5370,13 +5357,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 Quaternion_LookRotation_mFB02EDC8F733774DFAC3BEA4B4BB265A228F8307 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_forward, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_upwards, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 Quaternion_Slerp_m0A9969F500E7716EA4F6BC4E7D5464372D8E9E15 (Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___0_a, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___1_b, float ___2_t, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Action_Invoke_m7126A54DACA72B845424072887B5F3A51FC3808E_inline (Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* __this, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Collider_set_sharedMaterial_mA67DC663BEEBE9315F3B91A0B74B31D33579CD7D (Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* __this, PhysicsMaterial_t2949C5AB81E97E3B99B71EAFA5966CB89A9BEB1C* ___0_value, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_set_mainTextureOffset_m87C139F275814719F9A10709C34E2132DFEB7A12 (Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___0_value, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B (Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* __this, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody_set_constraints_mE81BF0DAEB980E320538231E092CA4663885A9A3 (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, int32_t ___0_value, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Rigidbody_get_linearVelocity_m367F5415641E5FB968440A91BAE2FCB8CAEA2C8C (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody_AddForce_mBDBC288D0E266BC1B62E3649B4FCE46E7EA9CCBC (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_force, int32_t ___1_mode, const RuntimeMethod* method) ;
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 Vector2_get_zero_m32506C40EC2EE7D5D4410BF40D3EE683A3D5F32C_inline (const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Color__ctor_m3786F0D6E510D9CFA544523A955870BD2A514C8C_inline (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F* __this, float ___0_r, float ___1_g, float ___2_b, float ___3_a, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 Quaternion_Internal_FromEulerRad_m66D4475341F53949471E6870FB5C5E4A5E9BA93E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_euler, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Bounds_get_extents_mFE6DC407FCE2341BE2C750CB554055D211281D25_inline (Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3* __this, const RuntimeMethod* method) ;
@@ -18443,9 +18423,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ApplyColor_mACD9FF04C6A8591E18
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Color_tD001788D726C3A7F1379BEED0260B9591F440C1F_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Component_GetComponent_TisMeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE_m0EDA0079FA3617687C4A28623B79A37D618D9CFB_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral72D498F039FD562896966E064E8315EA0BCE68C5);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral28F34D9BE55E2B7ADE2BFE88F6ED5B014D0FFDD5);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379);
 		s_Il2CppMethodInitialized = true;
 	}
 	{
@@ -18456,55 +18440,98 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ApplyColor_mACD9FF04C6A8591E18
 		L_1 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
 		if (!L_1)
 		{
-			goto IL_000f;
+			goto IL_001a;
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:80>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:82>
+		MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* L_2;
+		L_2 = Component_GetComponent_TisMeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE_m0EDA0079FA3617687C4A28623B79A37D618D9CFB(__this, Component_GetComponent_TisMeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE_m0EDA0079FA3617687C4A28623B79A37D618D9CFB_RuntimeMethod_var);
+		__this->___meshRenderer = L_2;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___meshRenderer), (void*)L_2);
+	}
+
+IL_001a:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:85>
+		MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* L_3 = __this->___meshRenderer;
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_4;
+		L_4 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_3, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_4)
+		{
+			goto IL_0029;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:85>
 		return;
 	}
 
-IL_000f:
+IL_0029:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:82>
-		MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* L_2 = __this->___meshRenderer;
-		NullCheck(L_2);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_3;
-		L_3 = Renderer_get_material_m5BA2A00816C4CC66580D4B2E409CF10718C15656(L_2, NULL);
-		__this->___originalMaterial = L_3;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___originalMaterial), (void*)L_3);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:83>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_4 = __this->___originalMaterial;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_5 = __this->___cubeColor;
-		NullCheck(L_4);
-		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(L_4, L_5, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:86>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_6 = __this->___originalMaterial;
-		NullCheck(L_6);
-		bool L_7;
-		L_7 = Material_HasProperty_mC09A83B44E368A217F606DD4954FA080CC03EC6C(L_6, _stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466, NULL);
-		if (!L_7)
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:88>
+		MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* L_5 = __this->___meshRenderer;
+		NullCheck(L_5);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_6;
+		L_6 = Renderer_get_material_m5BA2A00816C4CC66580D4B2E409CF10718C15656(L_5, NULL);
+		__this->___originalMaterial = L_6;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___originalMaterial), (void*)L_6);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:91>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_7 = __this->___originalMaterial;
+		NullCheck(L_7);
+		bool L_8;
+		L_8 = Material_HasProperty_mC09A83B44E368A217F606DD4954FA080CC03EC6C(L_7, _stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE, NULL);
+		if (!L_8)
 		{
-			goto IL_0073;
+			goto IL_0062;
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:88>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_8 = __this->___originalMaterial;
-		NullCheck(L_8);
-		Material_EnableKeyword_mE8523EF6CF694284DF976D47ADEDE9363A1174AC(L_8, _stringLiteral72D498F039FD562896966E064E8315EA0BCE68C5, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:89>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:93>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_9 = __this->___originalMaterial;
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_10 = __this->___cubeColor;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_11;
-		L_11 = Color_op_Multiply_m379B20A820266ACF82A21425B9CAE8DCD773CFBB_inline(L_10, (0.5f), NULL);
 		NullCheck(L_9);
-		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_9, _stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466, L_11, NULL);
+		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_9, _stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE, L_10, NULL);
 	}
 
-IL_0073:
+IL_0062:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:91>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:95>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_11 = __this->___originalMaterial;
+		NullCheck(L_11);
+		bool L_12;
+		L_12 = Material_HasProperty_mC09A83B44E368A217F606DD4954FA080CC03EC6C(L_11, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, NULL);
+		if (!L_12)
+		{
+			goto IL_008a;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:97>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_13 = __this->___originalMaterial;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_14 = __this->___cubeColor;
+		NullCheck(L_13);
+		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_13, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, L_14, NULL);
+	}
+
+IL_008a:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:99>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_15 = __this->___originalMaterial;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_16 = __this->___cubeColor;
+		NullCheck(L_15);
+		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(L_15, L_16, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:101>
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_17 = __this->___cubeColor;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_18 = L_17;
+		RuntimeObject* L_19 = Box(Color_tD001788D726C3A7F1379BEED0260B9591F440C1F_il2cpp_TypeInfo_var, &L_18);
+		String_t* L_20 = __this->___cubeName;
+		String_t* L_21;
+		L_21 = String_Format_mFB7DA489BD99F4670881FF50EC017BFB0A5C0987(_stringLiteral28F34D9BE55E2B7ADE2BFE88F6ED5B014D0FFDD5, L_19, L_20, NULL);
+		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
+		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(L_21, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:102>
 		return;
 	}
 }
@@ -18518,7 +18545,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_SetFloating_m7015A0BA1736DEA9E
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:98>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:109>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_0 = __this->___rb;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -18529,30 +18556,30 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_SetFloating_m7015A0BA1736DEA9E
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:98>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:109>
 		return;
 	}
 
 IL_000f:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:100>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:111>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_2 = __this->___rb;
 		bool L_3 = ___0_floating;
 		NullCheck(L_2);
 		Rigidbody_set_useGravity_m1B1B22E093F9DC92D7BEEBBE6B02642B3B6C4389(L_2, (bool)((((int32_t)L_3) == ((int32_t)0))? 1 : 0), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:101>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:112>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_4 = __this->___rb;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_5;
 		L_5 = Vector3_get_zero_m0C1249C3F25B1C70EAD3CC8B31259975A457AE39_inline(NULL);
 		NullCheck(L_4);
 		Rigidbody_set_linearVelocity_m29AE03D5FC079EAD4202FCF72E2AEBDC19363985(L_4, L_5, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:102>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:113>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_6 = __this->___rb;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_7;
 		L_7 = Vector3_get_zero_m0C1249C3F25B1C70EAD3CC8B31259975A457AE39_inline(NULL);
 		NullCheck(L_6);
 		Rigidbody_set_angularVelocity_m23266B4E52BF0D2E65CC984AC73CC40B8D4A27E0(L_6, L_7, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:104>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:115>
 		bool L_8 = ___0_floating;
 		if (!L_8)
 		{
@@ -18560,28 +18587,28 @@ IL_000f:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:107>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:118>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_9 = __this->___rb;
 		NullCheck(L_9);
-		Rigidbody_set_linearDamping_m42BB8ADA5D26250A11256502D08BDC2DAB980242(L_9, (10.0f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:108>
+		Rigidbody_set_linearDamping_m42BB8ADA5D26250A11256502D08BDC2DAB980242(L_9, (5.0f), NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:119>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_10 = __this->___rb;
 		NullCheck(L_10);
-		Rigidbody_set_angularDamping_m2763171B779080FC724173D87C34015ABED51671(L_10, (10.0f), NULL);
+		Rigidbody_set_angularDamping_m2763171B779080FC724173D87C34015ABED51671(L_10, (5.0f), NULL);
 		return;
 	}
 
 IL_0062:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:113>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:124>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_11 = __this->___rb;
 		NullCheck(L_11);
-		Rigidbody_set_linearDamping_m42BB8ADA5D26250A11256502D08BDC2DAB980242(L_11, (0.5f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:114>
+		Rigidbody_set_linearDamping_m42BB8ADA5D26250A11256502D08BDC2DAB980242(L_11, (0.100000001f), NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:125>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_12 = __this->___rb;
 		NullCheck(L_12);
-		Rigidbody_set_angularDamping_m2763171B779080FC724173D87C34015ABED51671(L_12, (0.5f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:116>
+		Rigidbody_set_angularDamping_m2763171B779080FC724173D87C34015ABED51671(L_12, (0.100000001f), NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:127>
 		return;
 	}
 }
@@ -18600,7 +18627,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnEnable_mC2F5AC5A55BF4861DE24
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:120>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:131>
 		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_0 = __this->___grabInteractable;
 		NullCheck(L_0);
 		SelectEnterEvent_tBA2614C8C25D8794D5804C4F66195D74E64FC5D0* L_1;
@@ -18609,7 +18636,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnEnable_mC2F5AC5A55BF4861DE24
 		UnityAction_1__ctor_mEE39E1A87376378311B4931978E8E07E589E9A24(L_2, __this, (intptr_t)((void*)MusicCube_OnGrab_mBB16B68503BCB74D01D333164C8894EBB65A804C_RuntimeMethod_var), NULL);
 		NullCheck(L_1);
 		UnityEvent_1_AddListener_mAE71681FB0832FD7DBA813E5ADDBA574EA32EED2(L_1, L_2, UnityEvent_1_AddListener_mAE71681FB0832FD7DBA813E5ADDBA574EA32EED2_RuntimeMethod_var);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:121>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:132>
 		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_3 = __this->___grabInteractable;
 		NullCheck(L_3);
 		SelectExitEvent_t15DC0A39F9657BA9E6BAE6250D8D64C9671201F6* L_4;
@@ -18618,7 +18645,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnEnable_mC2F5AC5A55BF4861DE24
 		UnityAction_1__ctor_mD74501F5FCCC37863163D5E7155B6C8B9B366C40(L_5, __this, (intptr_t)((void*)MusicCube_OnRelease_m50D2A4F653AE561A668582DF7A470E333D2E3435_RuntimeMethod_var), NULL);
 		NullCheck(L_4);
 		UnityEvent_1_AddListener_mB662756036996A6B6F83F6492CE9E26797AF9602(L_4, L_5, UnityEvent_1_AddListener_mB662756036996A6B6F83F6492CE9E26797AF9602_RuntimeMethod_var);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:122>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:133>
 		return;
 	}
 }
@@ -18637,7 +18664,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnDisable_mAE6FA568C7F3F3917F5
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:126>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:137>
 		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_0 = __this->___grabInteractable;
 		NullCheck(L_0);
 		SelectEnterEvent_tBA2614C8C25D8794D5804C4F66195D74E64FC5D0* L_1;
@@ -18646,7 +18673,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnDisable_mAE6FA568C7F3F3917F5
 		UnityAction_1__ctor_mEE39E1A87376378311B4931978E8E07E589E9A24(L_2, __this, (intptr_t)((void*)MusicCube_OnGrab_mBB16B68503BCB74D01D333164C8894EBB65A804C_RuntimeMethod_var), NULL);
 		NullCheck(L_1);
 		UnityEvent_1_RemoveListener_m1008B118B379B498B23E13BB88779719C22EB9EB(L_1, L_2, UnityEvent_1_RemoveListener_m1008B118B379B498B23E13BB88779719C22EB9EB_RuntimeMethod_var);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:127>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:138>
 		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_3 = __this->___grabInteractable;
 		NullCheck(L_3);
 		SelectExitEvent_t15DC0A39F9657BA9E6BAE6250D8D64C9671201F6* L_4;
@@ -18655,7 +18682,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnDisable_mAE6FA568C7F3F3917F5
 		UnityAction_1__ctor_mD74501F5FCCC37863163D5E7155B6C8B9B366C40(L_5, __this, (intptr_t)((void*)MusicCube_OnRelease_m50D2A4F653AE561A668582DF7A470E333D2E3435_RuntimeMethod_var), NULL);
 		NullCheck(L_4);
 		UnityEvent_1_RemoveListener_m4353C3D43531002B6FBE7556246DB0A261672F9B(L_4, L_5, UnityEvent_1_RemoveListener_m4353C3D43531002B6FBE7556246DB0A261672F9B_RuntimeMethod_var);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:128>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:139>
 		return;
 	}
 }
@@ -18669,15 +18696,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnGrab_mBB16B68503BCB74D01D333
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:132>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:143>
 		__this->___isGrabbed = (bool)1;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:133>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:144>
 		__this->___hasCollided = (bool)0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:134>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:145>
 		__this->___hasBeenThrown = (bool)0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:137>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:148>
 		MusicCube_SetFloating_m7015A0BA1736DEA9E94F12764C17FA9C79A066EE(__this, (bool)0, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:140>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:151>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_0 = __this->___currentAffectedWall;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -18688,18 +18715,18 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnGrab_mBB16B68503BCB74D01D333
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:142>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:153>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_2 = __this->___currentAffectedWall;
 		NullCheck(L_2);
 		ColorReactiveWall_ResetColor_m0E14A88EBD217F7C92B58D32699D34B49D96B8BE(L_2, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:143>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:154>
 		__this->___currentAffectedWall = (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E*)NULL;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___currentAffectedWall), (void*)(ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E*)NULL);
 	}
 
 IL_003c:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:145>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:156>
 		return;
 	}
 }
@@ -18707,11 +18734,11 @@ IL_003c:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnRelease_m50D2A4F653AE561A668582DF7A470E333D2E3435 (MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* __this, SelectExitEventArgs_t56125CE0360D37AC0B50EB6066B5AB5957EF559A* ___0_args, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:149>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:160>
 		__this->___isGrabbed = (bool)0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:150>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:161>
 		__this->___hasBeenThrown = (bool)1;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:153>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:164>
 		return;
 	}
 }
@@ -18732,7 +18759,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnCollisionEnter_m4564679A0BBF
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_4;
 	memset((&V_4), 0, sizeof(V_4));
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:158>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:169>
 		bool L_0 = __this->___isGrabbed;
 		if (L_0)
 		{
@@ -18749,13 +18776,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnCollisionEnter_m4564679A0BBF
 
 IL_0010:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:158>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:169>
 		return;
 	}
 
 IL_0011:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:160>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:171>
 		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_2 = ___0_collision;
 		NullCheck(L_2);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_3;
@@ -18764,7 +18791,7 @@ IL_0011:
 		float L_4;
 		L_4 = Vector3_get_magnitude_mF0D6017E90B345F1F52D1CC564C640F1A847AF2D_inline((&V_4), NULL);
 		V_0 = L_4;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:163>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:174>
 		float L_5 = V_0;
 		float L_6 = __this->___minVelocityThreshold;
 		if ((!(((float)L_5) < ((float)L_6))))
@@ -18773,15 +18800,15 @@ IL_0011:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:163>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:174>
 		return;
 	}
 
 IL_002b:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:165>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:176>
 		__this->___hasCollided = (bool)1;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:168>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:179>
 		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_7 = ___0_collision;
 		NullCheck(L_7);
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_8;
@@ -18790,7 +18817,7 @@ IL_002b:
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_9;
 		L_9 = GameObject_GetComponent_TisColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E_m6F89870BD7C9AAC5339EF91F26D3D9B7F3B44173(L_8, GameObject_GetComponent_TisColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E_m6F89870BD7C9AAC5339EF91F26D3D9B7F3B44173_RuntimeMethod_var);
 		V_1 = L_9;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:169>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:180>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_10 = V_1;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_11;
@@ -18801,16 +18828,16 @@ IL_002b:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:171>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:182>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_12 = V_1;
 		__this->___currentAffectedWall = L_12;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___currentAffectedWall), (void*)L_12);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:172>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:183>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_13 = V_1;
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_14 = __this->___cubeColor;
 		NullCheck(L_13);
 		ColorReactiveWall_ChangeColor_mE4BAB0780020553AE67ED5507E1BEAFD27B0400B(L_13, L_14, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:175>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:186>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_15 = V_1;
 		NullCheck(L_15);
 		int32_t L_16 = L_15->___surfaceType;
@@ -18819,23 +18846,23 @@ IL_002b:
 
 IL_0066:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:179>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:190>
 		float L_17 = V_0;
 		float L_18 = __this->___maxVelocityForPitch;
 		float L_19;
 		L_19 = Mathf_Clamp01_mA7E048DBDA832D399A581BE4D6DED9FA44CE0F14_inline(((float)(L_17/L_18)), NULL);
 		V_2 = L_19;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:182>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:193>
 		float L_20 = V_2;
 		float L_21 = __this->___velocityToPitchInfluence;
 		V_3 = ((float)il2cpp_codegen_add((1.0f), ((float)il2cpp_codegen_multiply(L_20, L_21))));
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:183>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:194>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_22 = __this->___audioSource;
 		float L_23 = __this->___basePitch;
 		float L_24 = V_3;
 		NullCheck(L_22);
 		AudioSource_set_pitch_mD14631FC99BF38AAFB356D9C45546BC16CF9E811(L_22, ((float)il2cpp_codegen_multiply(L_23, L_24)), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:186>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:197>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_25 = __this->___audioSource;
 		float L_26 = __this->___baseVolume;
 		float L_27 = V_2;
@@ -18843,7 +18870,7 @@ IL_0066:
 		L_28 = Mathf_Lerp_m47EF2FFB7647BD0A1FDC26DC03E28B19812139B5_inline((0.5f), (1.0f), L_27, NULL);
 		NullCheck(L_25);
 		AudioSource_set_volume_mD902BBDBBDE0E3C148609BF3C05096148E90F2C0(L_25, ((float)il2cpp_codegen_multiply(L_26, L_28)), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:189>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:200>
 		AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* L_29 = __this->___assignedSound;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_30;
@@ -18854,16 +18881,16 @@ IL_0066:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:191>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:202>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_31 = __this->___audioSource;
 		AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* L_32 = __this->___assignedSound;
 		NullCheck(L_31);
 		AudioSource_set_clip_mFF441895E274286C88D9C75ED5CA1B1B39528D70(L_31, L_32, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:192>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:203>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_33 = __this->___audioSource;
 		NullCheck(L_33);
 		AudioSource_Play_m95DF07111C61D0E0F00257A00384D31531D590C3(L_33, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:195>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:206>
 		RuntimeObject* L_34;
 		L_34 = MusicCube_DestroyAfterSound_m1B51B5E13F8A3F0DD2372F54705A9345ADD0A944(__this, NULL);
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_35;
@@ -18873,12 +18900,12 @@ IL_0066:
 
 IL_00f0:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:200>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:211>
 		RuntimeObject* L_36;
 		L_36 = MusicCube_DestroyAndRespawn_mED6A5E93CA25C6E2B71D38D19E413707C2444521(__this, NULL);
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_37;
 		L_37 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_36, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:202>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:213>
 		return;
 	}
 }
@@ -18901,11 +18928,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ApplySurfaceEffects_mF691A6A36
 	AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* V_1 = NULL;
 	AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* V_2 = NULL;
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:207>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:218>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_0;
 		L_0 = Component_GetComponent_TisAudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA_mCDAC0998DF5D3E32C23EC62382FB89DE47452BE0(__this, Component_GetComponent_TisAudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA_mCDAC0998DF5D3E32C23EC62382FB89DE47452BE0_RuntimeMethod_var);
 		V_0 = L_0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:208>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:219>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_1 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_2;
@@ -18916,7 +18943,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ApplySurfaceEffects_mF691A6A36
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:210>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:221>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_3;
 		L_3 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(__this, NULL);
 		NullCheck(L_3);
@@ -18927,11 +18954,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ApplySurfaceEffects_mF691A6A36
 
 IL_001c:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:214>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:225>
 		AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* L_5;
 		L_5 = Component_GetComponent_TisAudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0_m9F8683A8B36A02FD32E3B8345B770A2A35B5E235(__this, Component_GetComponent_TisAudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0_m9F8683A8B36A02FD32E3B8345B770A2A35B5E235_RuntimeMethod_var);
 		V_1 = L_5;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:215>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:226>
 		AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* L_6 = V_1;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_7;
@@ -18942,7 +18969,7 @@ IL_001c:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:217>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:228>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_8;
 		L_8 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(__this, NULL);
 		NullCheck(L_8);
@@ -18953,15 +18980,15 @@ IL_001c:
 
 IL_0038:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:219>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:230>
 		AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* L_10 = V_1;
 		NullCheck(L_10);
 		AudioLowPassFilter_set_cutoffFrequency_m593B7A476225759056C6DACCEBF92016FEE7B050(L_10, (22000.0f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:222>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:233>
 		AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* L_11;
 		L_11 = Component_GetComponent_TisAudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718_mC420EB1F9C8B83D80E71433667A23379B343D8FA(__this, Component_GetComponent_TisAudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718_mC420EB1F9C8B83D80E71433667A23379B343D8FA_RuntimeMethod_var);
 		V_2 = L_11;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:223>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:234>
 		AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* L_12 = V_2;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_13;
@@ -18972,7 +18999,7 @@ IL_0038:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:225>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:236>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_14;
 		L_14 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(__this, NULL);
 		NullCheck(L_14);
@@ -18983,7 +19010,7 @@ IL_0038:
 
 IL_005f:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:227>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:238>
 		AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* L_16 = V_2;
 		NullCheck(L_16);
 		AudioHighPassFilter_set_cutoffFrequency_mBD5636A124C598DC0B54B8338FF834F422DD676C(L_16, (10.0f), NULL);
@@ -19018,15 +19045,15 @@ IL_005f:
 
 IL_0085:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:233>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:244>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_18 = V_0;
 		NullCheck(L_18);
 		AudioReverbFilter_set_reverbPreset_mF0D458E66A09909A3363CB82045D324A15D0A35C(L_18, ((int32_t)13), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:234>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:245>
 		AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* L_19 = V_2;
 		NullCheck(L_19);
 		AudioHighPassFilter_set_cutoffFrequency_mBD5636A124C598DC0B54B8338FF834F422DD676C(L_19, (200.0f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:235>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:246>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_20 = __this->___audioSource;
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_21 = L_20;
 		NullCheck(L_21);
@@ -19034,31 +19061,31 @@ IL_0085:
 		L_22 = AudioSource_get_pitch_mB1B0B8A52400B5C798BF1E644FE1C2FFA20A9863(L_21, NULL);
 		NullCheck(L_21);
 		AudioSource_set_pitch_mD14631FC99BF38AAFB356D9C45546BC16CF9E811(L_21, ((float)il2cpp_codegen_multiply(L_22, (1.10000002f))), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:236>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:247>
 		return;
 	}
 
 IL_00b0:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:240>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:251>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_23 = V_0;
 		NullCheck(L_23);
 		AudioReverbFilter_set_reverbPreset_mF0D458E66A09909A3363CB82045D324A15D0A35C(L_23, ((int32_t)14), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:241>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:252>
 		return;
 	}
 
 IL_00b9:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:245>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:256>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_24 = V_0;
 		NullCheck(L_24);
 		AudioReverbFilter_set_reverbPreset_mF0D458E66A09909A3363CB82045D324A15D0A35C(L_24, 3, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:246>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:257>
 		AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* L_25 = V_1;
 		NullCheck(L_25);
 		AudioLowPassFilter_set_cutoffFrequency_m593B7A476225759056C6DACCEBF92016FEE7B050(L_25, (8000.0f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:247>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:258>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_26 = __this->___audioSource;
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_27 = L_26;
 		NullCheck(L_27);
@@ -19066,21 +19093,21 @@ IL_00b9:
 		L_28 = AudioSource_get_pitch_mB1B0B8A52400B5C798BF1E644FE1C2FFA20A9863(L_27, NULL);
 		NullCheck(L_27);
 		AudioSource_set_pitch_mD14631FC99BF38AAFB356D9C45546BC16CF9E811(L_27, ((float)il2cpp_codegen_multiply(L_28, (0.949999988f))), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:248>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:259>
 		return;
 	}
 
 IL_00e3:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:252>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:263>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_29 = V_0;
 		NullCheck(L_29);
 		AudioReverbFilter_set_reverbPreset_mF0D458E66A09909A3363CB82045D324A15D0A35C(L_29, 4, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:253>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:264>
 		AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* L_30 = V_2;
 		NullCheck(L_30);
 		AudioHighPassFilter_set_cutoffFrequency_mBD5636A124C598DC0B54B8338FF834F422DD676C(L_30, (500.0f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:254>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:265>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_31 = __this->___audioSource;
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_32 = L_31;
 		NullCheck(L_32);
@@ -19088,21 +19115,21 @@ IL_00e3:
 		L_33 = AudioSource_get_pitch_mB1B0B8A52400B5C798BF1E644FE1C2FFA20A9863(L_32, NULL);
 		NullCheck(L_32);
 		AudioSource_set_pitch_mD14631FC99BF38AAFB356D9C45546BC16CF9E811(L_32, ((float)il2cpp_codegen_multiply(L_33, (1.20000005f))), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:255>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:266>
 		return;
 	}
 
 IL_010d:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:259>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:270>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_34 = V_0;
 		NullCheck(L_34);
 		AudioReverbFilter_set_reverbPreset_mF0D458E66A09909A3363CB82045D324A15D0A35C(L_34, ((int32_t)9), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:260>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:271>
 		AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* L_35 = V_1;
 		NullCheck(L_35);
 		AudioLowPassFilter_set_cutoffFrequency_m593B7A476225759056C6DACCEBF92016FEE7B050(L_35, (5000.0f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:261>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:272>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_36 = __this->___audioSource;
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_37 = L_36;
 		NullCheck(L_37);
@@ -19110,7 +19137,7 @@ IL_010d:
 		L_38 = AudioSource_get_pitch_mB1B0B8A52400B5C798BF1E644FE1C2FFA20A9863(L_37, NULL);
 		NullCheck(L_37);
 		AudioSource_set_pitch_mD14631FC99BF38AAFB356D9C45546BC16CF9E811(L_37, ((float)il2cpp_codegen_multiply(L_38, (0.850000024f))), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:264>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:275>
 		return;
 	}
 }
@@ -19168,32 +19195,32 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ResetCube_m458FD9787941F5D32BE
 	AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* V_1 = NULL;
 	AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* V_2 = NULL;
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:299>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:310>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0;
 		L_0 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_1 = __this->___spawnPosition;
 		NullCheck(L_0);
 		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_0, L_1, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:300>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:311>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_2;
 		L_2 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_3;
 		L_3 = Quaternion_get_identity_m7E701AE095ED10FD5EA0B50ABCFDE2EEFF2173A5_inline(NULL);
 		NullCheck(L_2);
 		Transform_set_rotation_m61340DE74726CF0F9946743A727C4D444397331D(L_2, L_3, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:303>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:314>
 		__this->___hasCollided = (bool)0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:304>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:315>
 		__this->___isGrabbed = (bool)0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:305>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:316>
 		__this->___hasBeenThrown = (bool)0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:308>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:319>
 		MusicCube_SetFloating_m7015A0BA1736DEA9E94F12764C17FA9C79A066EE(__this, (bool)1, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:311>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:322>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_4;
 		L_4 = Component_GetComponent_TisAudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA_mCDAC0998DF5D3E32C23EC62382FB89DE47452BE0(__this, Component_GetComponent_TisAudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA_mCDAC0998DF5D3E32C23EC62382FB89DE47452BE0_RuntimeMethod_var);
 		V_0 = L_4;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:312>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:323>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_5 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_6;
@@ -19204,7 +19231,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ResetCube_m458FD9787941F5D32BE
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:312>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:323>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_7 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		Object_Destroy_mE97D0A766419A81296E8D4E5C23D01D3FE91ACBB(L_7, NULL);
@@ -19212,11 +19239,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ResetCube_m458FD9787941F5D32BE
 
 IL_0053:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:314>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:325>
 		AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* L_8;
 		L_8 = Component_GetComponent_TisAudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0_m9F8683A8B36A02FD32E3B8345B770A2A35B5E235(__this, Component_GetComponent_TisAudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0_m9F8683A8B36A02FD32E3B8345B770A2A35B5E235_RuntimeMethod_var);
 		V_1 = L_8;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:315>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:326>
 		AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* L_9 = V_1;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_10;
@@ -19227,7 +19254,7 @@ IL_0053:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:315>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:326>
 		AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* L_11 = V_1;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		Object_Destroy_mE97D0A766419A81296E8D4E5C23D01D3FE91ACBB(L_11, NULL);
@@ -19235,11 +19262,11 @@ IL_0053:
 
 IL_0069:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:317>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:328>
 		AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* L_12;
 		L_12 = Component_GetComponent_TisAudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718_mC420EB1F9C8B83D80E71433667A23379B343D8FA(__this, Component_GetComponent_TisAudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718_mC420EB1F9C8B83D80E71433667A23379B343D8FA_RuntimeMethod_var);
 		V_2 = L_12;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:318>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:329>
 		AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* L_13 = V_2;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_14;
@@ -19250,7 +19277,7 @@ IL_0069:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:318>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:329>
 		AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* L_15 = V_2;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		Object_Destroy_mE97D0A766419A81296E8D4E5C23D01D3FE91ACBB(L_15, NULL);
@@ -19258,13 +19285,13 @@ IL_0069:
 
 IL_007f:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:321>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:332>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_16 = __this->___audioSource;
 		NullCheck(L_16);
 		AudioSource_Stop_m318F17F17A147C77FF6E0A5A7A6BE057DB90F537(L_16, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:324>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:335>
 		MusicCube_ApplyColor_mACD9FF04C6A8591E181C795A6701CAC7FDF48529(__this, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:325>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:336>
 		return;
 	}
 }
@@ -19366,7 +19393,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CDestroyAfterSoundU3Ed__29_MoveNext_m1
 IL_0022:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:269>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:280>
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_3 = V_1;
 		NullCheck(L_3);
 		AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* L_4 = L_3->___assignedSound;
@@ -19384,7 +19411,7 @@ IL_0022:
 IL_0048:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:271>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:282>
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_7 = V_1;
 		NullCheck(L_7);
 		RuntimeObject* L_8;
@@ -19398,7 +19425,7 @@ IL_0048:
 IL_0064:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:272>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:283>
 		return (bool)0;
 	}
 }
@@ -19491,7 +19518,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CDestroyAndRespawnU3Ed__30_MoveNext_m7
 IL_0017:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:277>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:288>
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_4 = V_1;
 		NullCheck(L_4);
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_5 = L_4->___currentAffectedWall;
@@ -19504,13 +19531,13 @@ IL_0017:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:279>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:290>
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_7 = V_1;
 		NullCheck(L_7);
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_8 = L_7->___currentAffectedWall;
 		NullCheck(L_8);
 		ColorReactiveWall_ResetColor_m0E14A88EBD217F7C92B58D32699D34B49D96B8BE(L_8, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:280>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:291>
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_9 = V_1;
 		NullCheck(L_9);
 		L_9->___currentAffectedWall = (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E*)NULL;
@@ -19519,12 +19546,12 @@ IL_0017:
 
 IL_003e:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:284>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:295>
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* L_10;
 		L_10 = Object_FindFirstObjectByType_TisMusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41_mDC77427B34B783B959FBE0AFAAB62F8CFBB735D0(Object_FindFirstObjectByType_TisMusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41_mDC77427B34B783B959FBE0AFAAB62F8CFBB735D0_RuntimeMethod_var);
 		V_2 = L_10;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:285>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:296>
 		MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* L_11 = V_2;
 		bool L_12;
 		L_12 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_11, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
@@ -19534,7 +19561,7 @@ IL_003e:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:287>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:298>
 		MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* L_13 = V_2;
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_14 = V_1;
 		NullCheck(L_13);
@@ -19543,7 +19570,7 @@ IL_003e:
 
 IL_0054:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:290>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:301>
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_15 = V_1;
 		NullCheck(L_15);
 		float L_16 = L_15->___respawnDelay;
@@ -19558,11 +19585,11 @@ IL_0054:
 IL_006e:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:293>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:304>
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_18 = V_1;
 		NullCheck(L_18);
 		MusicCube_ResetCube_m458FD9787941F5D32BE76B9A1F53F6AF6CDFF57A(L_18, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:294>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:305>
 		return (bool)0;
 	}
 }
@@ -19606,14 +19633,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_Start_mF49B5457EF3FD0BA
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GameObject_t76FEDD663AB33C991A9C9A23129337651094216F_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral55BF3C49F52EF5A63F8554DD703761F5759D6F89);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral8D40A007A36DD8FC4468A8EBA7FE2AD5029F01EC);
 		s_Il2CppMethodInitialized = true;
 	}
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* V_0 = NULL;
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:53>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:50>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_0 = (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*)il2cpp_codegen_object_new(GameObject_t76FEDD663AB33C991A9C9A23129337651094216F_il2cpp_TypeInfo_var);
 		GameObject__ctor_m37D512B05D292F954792225E6C6EEE95293A9B88(L_0, _stringLiteral8D40A007A36DD8FC4468A8EBA7FE2AD5029F01EC, NULL);
 		NullCheck(L_0);
@@ -19621,134 +19645,55 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_Start_mF49B5457EF3FD0BA
 		L_1 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_0, NULL);
 		__this->___cubeContainer = L_1;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___cubeContainer), (void*)L_1);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:54>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:51>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_2 = __this->___cubeContainer;
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_3;
 		L_3 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
 		NullCheck(L_2);
 		Transform_set_parent_m9BD5E563B539DD5BEC342736B03F97B38A243234(L_2, L_3, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:55>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:52>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_4 = __this->___cubeContainer;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_5;
 		L_5 = Vector3_get_zero_m0C1249C3F25B1C70EAD3CC8B31259975A457AE39_inline(NULL);
 		NullCheck(L_4);
 		Transform_set_localPosition_mDE1C997F7D79C0885210B7732B4BA50EE7D73134(L_4, L_5, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:58>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_6 = __this->___xrOrigin;
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_7;
-		L_7 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_6, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_7)
-		{
-			goto IL_0064;
-		}
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:60>
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_8;
-		L_8 = GameObject_Find_m7A669B4EEC2617AB82F6E3FF007CDCD9F21DB300(_stringLiteral55BF3C49F52EF5A63F8554DD703761F5759D6F89, NULL);
-		V_0 = L_8;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:61>
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_9 = V_0;
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_10;
-		L_10 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_9, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_10)
-		{
-			goto IL_0064;
-		}
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:63>
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_11 = V_0;
-		NullCheck(L_11);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_12;
-		L_12 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_11, NULL);
-		__this->___xrOrigin = L_12;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___xrOrigin), (void*)L_12);
-	}
-
-IL_0064:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:67>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:54>
 		MusicCubeSpawner_SpawnAllCubes_m13E997EA15E97EC267A2F5F75CB9B0F3A0A1CFCC(__this, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:68>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:55>
 		return;
 	}
 }
 // Method Definition Index: 79511
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 MusicCubeSpawner_GetSpawnCenter_m4F2387462FD074EC6ECB5B8003990E2E6FB1C280 (MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* __this, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:75>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = __this->___xrOrigin;
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_1;
-		L_1 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_1)
-		{
-			goto IL_0030;
-		}
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:78>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_2 = __this->___xrOrigin;
-		NullCheck(L_2);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_3;
-		L_3 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_2, NULL);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_4 = __this->___xrOrigin;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_5 = __this->___spawnOffsetFromPlayer;
-		NullCheck(L_4);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_6;
-		L_6 = Transform_TransformDirection_m9BE1261DF2D48B7A4A27D31EE24D2D97F89E7757(L_4, L_5, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_7;
-		L_7 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_3, L_6, NULL);
-		return L_7;
-	}
-
-IL_0030:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:83>
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_8 = __this->___spawnOffsetFromPlayer;
-		return L_8;
-	}
-}
-// Method Definition Index: 79512
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_SpawnAllCubes_m13E997EA15E97EC267A2F5F75CB9B0F3A0A1CFCC (MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Enumerator_Dispose_m1FF211806F609459D6D49A3F2BCADEECFDA7F4FB_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Enumerator_MoveNext_mF249BC641C12D048AA955EF2094E74E6DB107988_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Enumerator_get_Current_mBC3B95D42FB06D92821027E5BCAD6F645A8A361D_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_Clear_mAD7D8FD45DCC7515FDB9D90C4866CB99E7FBD0DB_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_GetEnumerator_m30D0D712DEA9ED14FAA5610993DCE626AC84FCAB_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4915FD2F4076E5B9893871C4531D351041495B77);
 		s_Il2CppMethodInitialized = true;
 	}
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
+	Enumerator_tD44A43BD276581B4ABF1A29F2A3C6EF775FF8D40 V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	Enumerator_tD44A43BD276581B4ABF1A29F2A3C6EF775FF8D40 V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* V_2 = NULL;
-	int32_t V_3 = 0;
-	float V_4 = 0.0f;
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_5;
-	memset((&V_5), 0, sizeof(V_5));
+	MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* V_1 = NULL;
+	int32_t V_2 = 0;
+	float V_3 = 0.0f;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_4;
+	memset((&V_4), 0, sizeof(V_4));
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:91>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:61>
 		List_1_t6F2A202B9B00EAB390C876DEA68E48D1F5F240C6* L_0 = __this->___spawnedCubes;
 		NullCheck(L_0);
 		Enumerator_tD44A43BD276581B4ABF1A29F2A3C6EF775FF8D40 L_1;
 		L_1 = List_1_GetEnumerator_m30D0D712DEA9ED14FAA5610993DCE626AC84FCAB(L_0, List_1_GetEnumerator_m30D0D712DEA9ED14FAA5610993DCE626AC84FCAB_RuntimeMethod_var);
-		V_1 = L_1;
+		V_0 = L_1;
 	}
 	{
 		auto __finallyBlock = il2cpp::utils::Finally([&]
@@ -19756,7 +19701,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_SpawnAllCubes_m13E997EA
 
 FINALLY_0035:
 			{
-				Enumerator_Dispose_m1FF211806F609459D6D49A3F2BCADEECFDA7F4FB((&V_1), Enumerator_Dispose_m1FF211806F609459D6D49A3F2BCADEECFDA7F4FB_RuntimeMethod_var);
+				Enumerator_Dispose_m1FF211806F609459D6D49A3F2BCADEECFDA7F4FB((&V_0), Enumerator_Dispose_m1FF211806F609459D6D49A3F2BCADEECFDA7F4FB_RuntimeMethod_var);
 				return;
 			}
 		});
@@ -19768,12 +19713,12 @@ FINALLY_0035:
 
 IL_000e_1:
 			{
-				//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:91>
+				//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:61>
 				MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_2;
-				L_2 = Enumerator_get_Current_mBC3B95D42FB06D92821027E5BCAD6F645A8A361D_inline((&V_1), Enumerator_get_Current_mBC3B95D42FB06D92821027E5BCAD6F645A8A361D_RuntimeMethod_var);
-				V_2 = L_2;
-				//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:93>
-				MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_3 = V_2;
+				L_2 = Enumerator_get_Current_mBC3B95D42FB06D92821027E5BCAD6F645A8A361D_inline((&V_0), Enumerator_get_Current_mBC3B95D42FB06D92821027E5BCAD6F645A8A361D_RuntimeMethod_var);
+				V_1 = L_2;
+				//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:63>
+				MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_3 = V_1;
 				il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 				bool L_4;
 				L_4 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_3, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
@@ -19783,8 +19728,8 @@ IL_000e_1:
 				}
 			}
 			{
-				//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:95>
-				MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_5 = V_2;
+				//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:65>
+				MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_5 = V_1;
 				NullCheck(L_5);
 				GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_6;
 				L_6 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(L_5, NULL);
@@ -19794,9 +19739,9 @@ IL_000e_1:
 
 IL_002a_1:
 			{
-				//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:91>
+				//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:61>
 				bool L_7;
-				L_7 = Enumerator_MoveNext_mF249BC641C12D048AA955EF2094E74E6DB107988((&V_1), Enumerator_MoveNext_mF249BC641C12D048AA955EF2094E74E6DB107988_RuntimeMethod_var);
+				L_7 = Enumerator_MoveNext_mF249BC641C12D048AA955EF2094E74E6DB107988((&V_0), Enumerator_MoveNext_mF249BC641C12D048AA955EF2094E74E6DB107988_RuntimeMethod_var);
 				if (L_7)
 				{
 					goto IL_000e_1;
@@ -19814,58 +19759,62 @@ IL_002a_1:
 
 IL_0043:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:98>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:68>
 		List_1_t6F2A202B9B00EAB390C876DEA68E48D1F5F240C6* L_8 = __this->___spawnedCubes;
 		NullCheck(L_8);
 		List_1_Clear_mAD7D8FD45DCC7515FDB9D90C4866CB99E7FBD0DB_inline(L_8, List_1_Clear_mAD7D8FD45DCC7515FDB9D90C4866CB99E7FBD0DB_RuntimeMethod_var);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:100>
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_9;
-		L_9 = MusicCubeSpawner_GetSpawnCenter_m4F2387462FD074EC6ECB5B8003990E2E6FB1C280(__this, NULL);
-		V_0 = L_9;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:103>
-		V_3 = 0;
-		goto IL_008c;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:71>
+		V_2 = 0;
+		goto IL_0088;
 	}
 
-IL_0059:
+IL_0052:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:106>
-		int32_t L_10 = V_3;
-		float L_11 = __this->___cubeSpacing;
-		V_4 = ((float)il2cpp_codegen_multiply(((float)((int32_t)il2cpp_codegen_subtract(L_10, 2))), L_11));
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:107>
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_12 = V_0;
-		float L_13 = V_4;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:73>
+		int32_t L_9 = V_2;
+		float L_10 = __this->___cubeSpacing;
+		V_3 = ((float)il2cpp_codegen_multiply(((float)((int32_t)il2cpp_codegen_subtract(L_9, 2))), L_10));
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:74>
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_11 = __this->___spawnCenter;
+		float L_12 = V_3;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_13;
+		memset((&L_13), 0, sizeof(L_13));
+		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&L_13), L_12, (0.0f), (0.0f), NULL);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_14;
-		memset((&L_14), 0, sizeof(L_14));
-		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&L_14), L_13, (0.0f), (0.0f), NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_15;
-		L_15 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_12, L_14, NULL);
-		V_5 = L_15;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:108>
-		int32_t L_16 = V_3;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_17 = V_5;
-		MusicCubeSpawner_SpawnCube_m5C76432252CE7AADCAE42B0B865B520CCA1D7EA5(__this, L_16, L_17, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:103>
-		int32_t L_18 = V_3;
-		V_3 = ((int32_t)il2cpp_codegen_add(L_18, 1));
+		L_14 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_11, L_13, NULL);
+		V_4 = L_14;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:75>
+		int32_t L_15 = V_2;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_16 = V_4;
+		MusicCubeSpawner_SpawnCube_m5C76432252CE7AADCAE42B0B865B520CCA1D7EA5(__this, L_15, L_16, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:71>
+		int32_t L_17 = V_2;
+		V_2 = ((int32_t)il2cpp_codegen_add(L_17, 1));
 	}
 
-IL_008c:
+IL_0088:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:103>
-		int32_t L_19 = V_3;
-		if ((((int32_t)L_19) < ((int32_t)5)))
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:71>
+		int32_t L_18 = V_2;
+		if ((((int32_t)L_18) < ((int32_t)5)))
 		{
-			goto IL_0059;
+			goto IL_0052;
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:110>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:78>
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_19 = __this->___spawnCenter;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_20 = L_19;
+		RuntimeObject* L_21 = Box(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2_il2cpp_TypeInfo_var, &L_20);
+		String_t* L_22;
+		L_22 = String_Format_mA8DBB4C2516B9723C5A41E6CB1E2FAF4BBE96DD8(_stringLiteral4915FD2F4076E5B9893871C4531D351041495B77, L_21, NULL);
+		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
+		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(L_22, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:79>
 		return;
 	}
 }
-// Method Definition Index: 79513
+// Method Definition Index: 79512
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_SpawnCube_m5C76432252CE7AADCAE42B0B865B520CCA1D7EA5 (MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* __this, int32_t ___0_index, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_position, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -19877,20 +19826,24 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_SpawnCube_m5C76432252CE
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GameObject_AddComponent_TisXRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B_mCAA85B78B14B3E0BB825C92803CC5AA40D50A283_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GameObject_GetComponent_TisMeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE_m7FF948365C38BC39333D82B235A7C4EAD219960D_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_Add_m42222C0182D8B83F3AC9AB52321BBDF232C09466_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral72D498F039FD562896966E064E8315EA0BCE68C5);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral3D93A89666F831FB9324883A9347EA29365E69DF);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4823B4BD3B2F9A53E90610751D7DE1F78A3D0E70);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralA3DFDD1C75685F4BD136ACAF08E535626B718D2C);
 		s_Il2CppMethodInitialized = true;
 	}
 	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* V_0 = NULL;
 	MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* V_1 = NULL;
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* G_B2_0 = NULL;
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* G_B1_0 = NULL;
+	MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* G_B2_0 = NULL;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* G_B2_1 = NULL;
+	MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* G_B1_0 = NULL;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* G_B1_1 = NULL;
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:115>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:84>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_0;
 		L_0 = GameObject_CreatePrimitive_m13C0A691E679A83DD595913200A1DD9A906EB47B(3, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:116>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:85>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_1 = L_0;
 		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_2 = __this->___cubeNames;
 		int32_t L_3 = ___0_index;
@@ -19899,7 +19852,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_SpawnCube_m5C76432252CE
 		String_t* L_5 = (L_2)->GetAt(static_cast<il2cpp_array_size_t>(L_4));
 		NullCheck(L_1);
 		Object_set_name_mC79E6DC8FFD72479C90F0C4CC7F42A0FEAF5AE47(L_1, L_5, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:117>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:86>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_6 = L_1;
 		NullCheck(L_6);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_7;
@@ -19907,7 +19860,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_SpawnCube_m5C76432252CE
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_8 = __this->___cubeContainer;
 		NullCheck(L_7);
 		Transform_set_parent_m9BD5E563B539DD5BEC342736B03F97B38A243234(L_7, L_8, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:118>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:87>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_9 = L_6;
 		NullCheck(L_9);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_10;
@@ -19915,7 +19868,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_SpawnCube_m5C76432252CE
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_11 = ___1_position;
 		NullCheck(L_10);
 		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_10, L_11, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:119>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:88>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_12 = L_9;
 		NullCheck(L_12);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_13;
@@ -19927,205 +19880,240 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_SpawnCube_m5C76432252CE
 		L_16 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_14, L_15, NULL);
 		NullCheck(L_13);
 		Transform_set_localScale_mBA79E811BAF6C47B80FF76414C12B47B3CD03633(L_13, L_16, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:122>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:91>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_17 = L_12;
 		NullCheck(L_17);
 		MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* L_18;
 		L_18 = GameObject_GetComponent_TisMeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE_m7FF948365C38BC39333D82B235A7C4EAD219960D(L_17, GameObject_GetComponent_TisMeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE_m7FF948365C38BC39333D82B235A7C4EAD219960D_RuntimeMethod_var);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:123>
-		NullCheck(L_18);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_19;
-		L_19 = Renderer_get_material_m5BA2A00816C4CC66580D4B2E409CF10718C15656(L_18, NULL);
-		V_0 = L_19;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:124>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_20 = V_0;
-		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_21 = __this->___cubeColors;
-		int32_t L_22 = ___0_index;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:92>
+		Shader_tADC867D36B7876EE22427FAA2CE485105F4EE692* L_19;
+		L_19 = Shader_Find_m183AA54F78320212DDEC811592F98456898A41C5(_stringLiteral4823B4BD3B2F9A53E90610751D7DE1F78A3D0E70, NULL);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_20 = (Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3*)il2cpp_codegen_object_new(Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3_il2cpp_TypeInfo_var);
+		Material__ctor_m7FDF47105D66D19591BE505A0C42B0F90D88C9BF(L_20, L_19, NULL);
+		V_0 = L_20;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:93>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_21 = V_0;
 		NullCheck(L_21);
-		int32_t L_23 = L_22;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_24 = (L_21)->GetAt(static_cast<il2cpp_array_size_t>(L_23));
-		NullCheck(L_20);
-		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(L_20, L_24, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:127>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_25 = V_0;
-		NullCheck(L_25);
-		bool L_26;
-		L_26 = Material_HasProperty_mC09A83B44E368A217F606DD4954FA080CC03EC6C(L_25, _stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466, NULL);
-		if (!L_26)
+		Shader_tADC867D36B7876EE22427FAA2CE485105F4EE692* L_22;
+		L_22 = Material_get_shader_m8B0C11AE6F2AD7DE30AF52D3195EB716F7A71983(L_21, NULL);
+		NullCheck(L_22);
+		String_t* L_23;
+		L_23 = Object_get_name_mAC2F6B897CF1303BA4249B4CB55271AFACBB6392(L_22, NULL);
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteralA3DFDD1C75685F4BD136ACAF08E535626B718D2C, NULL);
+		if (!L_24)
 		{
-			G_B2_0 = L_17;
-			goto IL_00a3;
+			G_B2_0 = L_18;
+			G_B2_1 = L_17;
+			goto IL_0089;
 		}
-		G_B1_0 = L_17;
+		G_B1_0 = L_18;
+		G_B1_1 = L_17;
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:129>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_27 = V_0;
-		NullCheck(L_27);
-		Material_EnableKeyword_mE8523EF6CF694284DF976D47ADEDE9363A1174AC(L_27, _stringLiteral72D498F039FD562896966E064E8315EA0BCE68C5, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:130>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_28 = V_0;
-		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_29 = __this->___cubeColors;
-		int32_t L_30 = ___0_index;
-		NullCheck(L_29);
-		int32_t L_31 = L_30;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_32 = (L_29)->GetAt(static_cast<il2cpp_array_size_t>(L_31));
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_33;
-		L_33 = Color_op_Multiply_m379B20A820266ACF82A21425B9CAE8DCD773CFBB_inline(L_32, (0.5f), NULL);
-		NullCheck(L_28);
-		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_28, _stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466, L_33, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:96>
+		Shader_tADC867D36B7876EE22427FAA2CE485105F4EE692* L_25;
+		L_25 = Shader_Find_m183AA54F78320212DDEC811592F98456898A41C5(_stringLiteral3D93A89666F831FB9324883A9347EA29365E69DF, NULL);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_26 = (Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3*)il2cpp_codegen_object_new(Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3_il2cpp_TypeInfo_var);
+		Material__ctor_m7FDF47105D66D19591BE505A0C42B0F90D88C9BF(L_26, L_25, NULL);
+		V_0 = L_26;
 		G_B2_0 = G_B1_0;
+		G_B2_1 = G_B1_1;
 	}
 
-IL_00a3:
+IL_0089:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:134>
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_34 = G_B2_0;
-		NullCheck(L_34);
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_35;
-		L_35 = GameObject_AddComponent_TisRigidbody_t268697F5A994213ED97393309870968BC1C7393C_m03A761629A3F71B0248F1B26EF612F592B757093(L_34, GameObject_AddComponent_TisRigidbody_t268697F5A994213ED97393309870968BC1C7393C_m03A761629A3F71B0248F1B26EF612F592B757093_RuntimeMethod_var);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:135>
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_36 = L_35;
-		float L_37 = __this->___cubeMass;
-		NullCheck(L_36);
-		Rigidbody_set_mass_mC7F886DEDB57C742A16F8B6B779F69AFE164CA4B(L_36, L_37, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:136>
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_38 = L_36;
-		float L_39 = __this->___cubeAngularDrag;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:98>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_27 = V_0;
+		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_28 = __this->___cubeColors;
+		int32_t L_29 = ___0_index;
+		NullCheck(L_28);
+		int32_t L_30 = L_29;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_31 = (L_28)->GetAt(static_cast<il2cpp_array_size_t>(L_30));
+		NullCheck(L_27);
+		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(L_27, L_31, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:99>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_32 = V_0;
+		NullCheck(G_B2_0);
+		Renderer_set_material_m21E88977071E0A914D62F3D9CFF0193B3117C45A(G_B2_0, L_32, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:102>
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_33 = G_B2_1;
+		NullCheck(L_33);
+		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_34;
+		L_34 = GameObject_AddComponent_TisRigidbody_t268697F5A994213ED97393309870968BC1C7393C_m03A761629A3F71B0248F1B26EF612F592B757093(L_33, GameObject_AddComponent_TisRigidbody_t268697F5A994213ED97393309870968BC1C7393C_m03A761629A3F71B0248F1B26EF612F592B757093_RuntimeMethod_var);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:103>
+		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_35 = L_34;
+		float L_36 = __this->___cubeMass;
+		NullCheck(L_35);
+		Rigidbody_set_mass_mC7F886DEDB57C742A16F8B6B779F69AFE164CA4B(L_35, L_36, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:104>
+		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_37 = L_35;
+		NullCheck(L_37);
+		Rigidbody_set_useGravity_m1B1B22E093F9DC92D7BEEBBE6B02642B3B6C4389(L_37, (bool)0, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:105>
+		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_38 = L_37;
 		NullCheck(L_38);
-		Rigidbody_set_angularDamping_m2763171B779080FC724173D87C34015ABED51671(L_38, L_39, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:137>
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_40 = L_38;
+		Rigidbody_set_isKinematic_m6C3FD3EA358DADA3B191F2449CF1C4F8B22695ED(L_38, (bool)0, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:106>
+		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_39 = L_38;
+		NullCheck(L_39);
+		Rigidbody_set_interpolation_mC7D39114A7AC6ED0AB2B40FECA4E2ED3C1D7603C(L_39, 1, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:107>
+		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_40 = L_39;
 		NullCheck(L_40);
-		Rigidbody_set_linearDamping_m42BB8ADA5D26250A11256502D08BDC2DAB980242(L_40, (10.0f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:138>
+		Rigidbody_set_collisionDetectionMode_m70A22E9878027BF6D3D7E851A43A8E32B8E02343(L_40, 2, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:108>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_41 = L_40;
 		NullCheck(L_41);
-		Rigidbody_set_interpolation_mC7D39114A7AC6ED0AB2B40FECA4E2ED3C1D7603C(L_41, 1, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:139>
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_42 = L_41;
+		Rigidbody_set_linearDamping_m42BB8ADA5D26250A11256502D08BDC2DAB980242(L_41, (5.0f), NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:109>
+		NullCheck(L_41);
+		Rigidbody_set_angularDamping_m2763171B779080FC724173D87C34015ABED51671(L_41, (5.0f), NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:112>
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_42 = L_33;
 		NullCheck(L_42);
-		Rigidbody_set_collisionDetectionMode_m70A22E9878027BF6D3D7E851A43A8E32B8E02343(L_42, 1, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:140>
-		NullCheck(L_42);
-		Rigidbody_set_useGravity_m1B1B22E093F9DC92D7BEEBBE6B02642B3B6C4389(L_42, (bool)0, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:143>
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_43 = L_34;
-		NullCheck(L_43);
-		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_44;
-		L_44 = GameObject_AddComponent_TisXRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B_mCAA85B78B14B3E0BB825C92803CC5AA40D50A283(L_43, GameObject_AddComponent_TisXRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B_mCAA85B78B14B3E0BB825C92803CC5AA40D50A283_RuntimeMethod_var);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:144>
+		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_43;
+		L_43 = GameObject_AddComponent_TisXRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B_mCAA85B78B14B3E0BB825C92803CC5AA40D50A283(L_42, GameObject_AddComponent_TisXRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B_mCAA85B78B14B3E0BB825C92803CC5AA40D50A283_RuntimeMethod_var);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:113>
+		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_44 = L_43;
+		NullCheck(L_44);
+		XRGrabInteractable_set_movementType_m3BE09F3CCEF6BC9655F3A811E0FB195E410CA03C(L_44, 0, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:114>
 		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_45 = L_44;
 		NullCheck(L_45);
 		XRGrabInteractable_set_throwOnDetach_mFE16597F775A78F44E5BCA41F5DA789D22097E10_inline(L_45, (bool)1, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:145>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:115>
 		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_46 = L_45;
 		NullCheck(L_46);
-		XRGrabInteractable_set_throwSmoothingDuration_mBF983A59510887DFA6BE0E8A03373914C1E646D3_inline(L_46, (0.100000001f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:146>
+		XRGrabInteractable_set_throwSmoothingDuration_mBF983A59510887DFA6BE0E8A03373914C1E646D3_inline(L_46, (0.25f), NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:116>
 		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_47 = L_46;
 		NullCheck(L_47);
 		XRGrabInteractable_set_throwVelocityScale_mF5BD8EA796542BB4EA4F479FEB95A341B127DA63_inline(L_47, (1.5f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:147>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:117>
 		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_48 = L_47;
 		NullCheck(L_48);
 		XRGrabInteractable_set_throwAngularVelocityScale_mB8C0822B882065C5A8068786A813B8EA086570E9_inline(L_48, (1.0f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:148>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:118>
 		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_49 = L_48;
 		NullCheck(L_49);
 		XRGrabInteractable_set_useDynamicAttach_m70D5BCBC6225C9DE1B875084A3B0A8CFE95368A3_inline(L_49, (bool)1, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:149>
-		NullCheck(L_49);
-		XRGrabInteractable_set_movementType_m3BE09F3CCEF6BC9655F3A811E0FB195E410CA03C(L_49, 0, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:152>
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_50 = L_43;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:119>
+		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_50 = L_49;
 		NullCheck(L_50);
-		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_51;
-		L_51 = GameObject_AddComponent_TisAudioSource_t871AC2272F896738252F04EE949AEF5B241D3299_m0E8EFDB9B3D8DF1ADE10C56D3168A9C1BA19BF14(L_50, GameObject_AddComponent_TisAudioSource_t871AC2272F896738252F04EE949AEF5B241D3299_m0E8EFDB9B3D8DF1ADE10C56D3168A9C1BA19BF14_RuntimeMethod_var);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:153>
-		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_52 = L_51;
+		XRGrabInteractable_set_matchAttachPosition_m23703B3D7E10B6C3A09F74858EF77418014A17D0_inline(L_50, (bool)1, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:120>
+		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_51 = L_50;
+		NullCheck(L_51);
+		XRGrabInteractable_set_matchAttachRotation_mAFF86386B636F1E97F7C3AE8436AD2D434963EF8_inline(L_51, (bool)1, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:121>
+		XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* L_52 = L_51;
 		NullCheck(L_52);
-		AudioSource_set_playOnAwake_m7EACC6ECEF12D7BA86A4E5A53603F1C8F9E11949(L_52, (bool)0, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:154>
+		XRGrabInteractable_set_snapToColliderVolume_mECC2F1C7003684D4FB199364F34314310C3ED7C9_inline(L_52, (bool)0, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:122>
 		NullCheck(L_52);
-		AudioSource_set_spatialBlend_mCEE7A3E87A8C146E048B2CA3413FDC7BDB7BE001(L_52, (1.0f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:157>
-		NullCheck(L_50);
-		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_53;
-		L_53 = GameObject_AddComponent_TisMusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A_m387A41D5E9CE78CAF21F735F3AE745EFAB070041(L_50, GameObject_AddComponent_TisMusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A_m387A41D5E9CE78CAF21F735F3AE745EFAB070041_RuntimeMethod_var);
-		V_1 = L_53;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:158>
-		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_54 = V_1;
-		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_55 = __this->___cubeColors;
-		int32_t L_56 = ___0_index;
+		XRGrabInteractable_set_retainTransformParent_m50CC2C444D9992F89325494B86848975CC6B4A61_inline(L_52, (bool)1, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:125>
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_53 = L_42;
+		NullCheck(L_53);
+		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_54;
+		L_54 = GameObject_AddComponent_TisAudioSource_t871AC2272F896738252F04EE949AEF5B241D3299_m0E8EFDB9B3D8DF1ADE10C56D3168A9C1BA19BF14(L_53, GameObject_AddComponent_TisAudioSource_t871AC2272F896738252F04EE949AEF5B241D3299_m0E8EFDB9B3D8DF1ADE10C56D3168A9C1BA19BF14_RuntimeMethod_var);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:126>
+		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_55 = L_54;
 		NullCheck(L_55);
-		int32_t L_57 = L_56;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_58 = (L_55)->GetAt(static_cast<il2cpp_array_size_t>(L_57));
-		NullCheck(L_54);
-		L_54->___cubeColor = L_58;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:159>
+		AudioSource_set_playOnAwake_m7EACC6ECEF12D7BA86A4E5A53603F1C8F9E11949(L_55, (bool)0, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:127>
+		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_56 = L_55;
+		NullCheck(L_56);
+		AudioSource_set_spatialBlend_mCEE7A3E87A8C146E048B2CA3413FDC7BDB7BE001(L_56, (1.0f), NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:128>
+		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_57 = L_56;
+		NullCheck(L_57);
+		AudioSource_set_minDistance_m6CBE3A60C03C0F179192FBDD62095B2E9D717690(L_57, (0.5f), NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:129>
+		NullCheck(L_57);
+		AudioSource_set_maxDistance_m4BF310D54761500A77A6C4841A0BBDBD09225813(L_57, (15.0f), NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:132>
+		NullCheck(L_53);
+		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_58;
+		L_58 = GameObject_AddComponent_TisMusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A_m387A41D5E9CE78CAF21F735F3AE745EFAB070041(L_53, GameObject_AddComponent_TisMusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A_m387A41D5E9CE78CAF21F735F3AE745EFAB070041_RuntimeMethod_var);
+		V_1 = L_58;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:133>
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_59 = V_1;
-		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_60 = __this->___cubeNames;
+		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_60 = __this->___cubeColors;
 		int32_t L_61 = ___0_index;
 		NullCheck(L_60);
 		int32_t L_62 = L_61;
-		String_t* L_63 = (L_60)->GetAt(static_cast<il2cpp_array_size_t>(L_62));
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_63 = (L_60)->GetAt(static_cast<il2cpp_array_size_t>(L_62));
 		NullCheck(L_59);
-		L_59->___cubeName = L_63;
-		Il2CppCodeGenWriteBarrier((void**)(&L_59->___cubeName), (void*)L_63);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:160>
+		L_59->___cubeColor = L_63;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:134>
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_64 = V_1;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_65 = ___1_position;
-		NullCheck(L_64);
-		L_64->___spawnPosition = L_65;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:163>
+		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_65 = __this->___cubeNames;
 		int32_t L_66 = ___0_index;
-		AudioClipU5BU5D_t916722468F7EDCFA833318C35CD7D41097D75D31* L_67 = __this->___cubeSounds;
-		NullCheck(L_67);
-		if ((((int32_t)L_66) >= ((int32_t)((int32_t)(((RuntimeArray*)L_67)->max_length)))))
+		NullCheck(L_65);
+		int32_t L_67 = L_66;
+		String_t* L_68 = (L_65)->GetAt(static_cast<il2cpp_array_size_t>(L_67));
+		NullCheck(L_64);
+		L_64->___cubeName = L_68;
+		Il2CppCodeGenWriteBarrier((void**)(&L_64->___cubeName), (void*)L_68);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:135>
+		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_69 = V_1;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_70 = ___1_position;
+		NullCheck(L_69);
+		L_69->___spawnPosition = L_70;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:138>
+		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_71 = V_1;
+		NullCheck(L_71);
+		MusicCube_ApplyColor_mACD9FF04C6A8591E181C795A6701CAC7FDF48529(L_71, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:141>
+		int32_t L_72 = ___0_index;
+		AudioClipU5BU5D_t916722468F7EDCFA833318C35CD7D41097D75D31* L_73 = __this->___cubeSounds;
+		NullCheck(L_73);
+		if ((((int32_t)L_72) >= ((int32_t)((int32_t)(((RuntimeArray*)L_73)->max_length)))))
 		{
-			goto IL_0188;
+			goto IL_01c4;
 		}
 	}
 	{
-		AudioClipU5BU5D_t916722468F7EDCFA833318C35CD7D41097D75D31* L_68 = __this->___cubeSounds;
-		int32_t L_69 = ___0_index;
-		NullCheck(L_68);
-		int32_t L_70 = L_69;
-		AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* L_71 = (L_68)->GetAt(static_cast<il2cpp_array_size_t>(L_70));
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_72;
-		L_72 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_71, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_72)
-		{
-			goto IL_0188;
-		}
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:165>
-		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_73 = V_1;
 		AudioClipU5BU5D_t916722468F7EDCFA833318C35CD7D41097D75D31* L_74 = __this->___cubeSounds;
 		int32_t L_75 = ___0_index;
 		NullCheck(L_74);
 		int32_t L_76 = L_75;
 		AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* L_77 = (L_74)->GetAt(static_cast<il2cpp_array_size_t>(L_76));
-		NullCheck(L_73);
-		L_73->___assignedSound = L_77;
-		Il2CppCodeGenWriteBarrier((void**)(&L_73->___assignedSound), (void*)L_77);
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_78;
+		L_78 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_77, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_78)
+		{
+			goto IL_01c4;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:143>
+		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_79 = V_1;
+		AudioClipU5BU5D_t916722468F7EDCFA833318C35CD7D41097D75D31* L_80 = __this->___cubeSounds;
+		int32_t L_81 = ___0_index;
+		NullCheck(L_80);
+		int32_t L_82 = L_81;
+		AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* L_83 = (L_80)->GetAt(static_cast<il2cpp_array_size_t>(L_82));
+		NullCheck(L_79);
+		L_79->___assignedSound = L_83;
+		Il2CppCodeGenWriteBarrier((void**)(&L_79->___assignedSound), (void*)L_83);
 	}
 
-IL_0188:
+IL_01c4:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:168>
-		List_1_t6F2A202B9B00EAB390C876DEA68E48D1F5F240C6* L_78 = __this->___spawnedCubes;
-		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_79 = V_1;
-		NullCheck(L_78);
-		List_1_Add_m42222C0182D8B83F3AC9AB52321BBDF232C09466_inline(L_78, L_79, List_1_Add_m42222C0182D8B83F3AC9AB52321BBDF232C09466_RuntimeMethod_var);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:169>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:146>
+		List_1_t6F2A202B9B00EAB390C876DEA68E48D1F5F240C6* L_84 = __this->___spawnedCubes;
+		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_85 = V_1;
+		NullCheck(L_84);
+		List_1_Add_m42222C0182D8B83F3AC9AB52321BBDF232C09466_inline(L_84, L_85, List_1_Add_m42222C0182D8B83F3AC9AB52321BBDF232C09466_RuntimeMethod_var);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:147>
 		return;
 	}
 }
-// Method Definition Index: 79514
+// Method Definition Index: 79513
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_RespawnCube_m51871D5D63AC60F5AB407FDC074A654DC09EF1AA (MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* __this, MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* ___0_cube, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -20137,7 +20125,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_RespawnCube_m51871D5D63
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:174>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:151>
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_0 = ___0_cube;
 		NullCheck(L_0);
 		String_t* L_1 = L_0->___cubeName;
@@ -20150,75 +20138,65 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_RespawnCube_m51871D5D63
 		L_6 = String_Format_mFB7DA489BD99F4670881FF50EC017BFB0A5C0987(_stringLiteral078C1ACD0DECFF841508607C72D4FFD162055EB0, L_1, L_5, NULL);
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(L_6, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:175>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:152>
+		return;
+	}
+}
+// Method Definition Index: 79514
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_OnDrawGizmosSelected_m959ED9D80150D8825E2C02A07806A06077C7AF63 (MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* __this, const RuntimeMethod* method) 
+{
+	int32_t V_0 = 0;
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:157>
+		V_0 = 0;
+		goto IL_0053;
+	}
+
+IL_0004:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:159>
+		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_0 = __this->___cubeColors;
+		int32_t L_1 = V_0;
+		NullCheck(L_0);
+		int32_t L_2 = L_1;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_3 = (L_0)->GetAt(static_cast<il2cpp_array_size_t>(L_2));
+		Gizmos_set_color_m53927A2741937484180B20B55F7F20F8F60C5797(L_3, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:160>
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_4 = __this->___spawnCenter;
+		int32_t L_5 = V_0;
+		float L_6 = __this->___cubeSpacing;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_7;
+		memset((&L_7), 0, sizeof(L_7));
+		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&L_7), ((float)il2cpp_codegen_multiply(((float)((int32_t)il2cpp_codegen_subtract(L_5, 2))), L_6)), (0.0f), (0.0f), NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_8;
+		L_8 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_4, L_7, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:161>
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_9;
+		L_9 = Vector3_get_one_mC9B289F1E15C42C597180C9FE6FB492495B51D02_inline(NULL);
+		float L_10 = __this->___cubeSize;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_11;
+		L_11 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_9, L_10, NULL);
+		Gizmos_DrawCube_m4417EAEA479EF4AD52445810D840BA8FCBC6EF3F(L_8, L_11, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:157>
+		int32_t L_12 = V_0;
+		V_0 = ((int32_t)il2cpp_codegen_add(L_12, 1));
+	}
+
+IL_0053:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:157>
+		int32_t L_13 = V_0;
+		if ((((int32_t)L_13) < ((int32_t)5)))
+		{
+			goto IL_0004;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:163>
 		return;
 	}
 }
 // Method Definition Index: 79515
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_OnDrawGizmosSelected_m959ED9D80150D8825E2C02A07806A06077C7AF63 (MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* __this, const RuntimeMethod* method) 
-{
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	int32_t V_1 = 0;
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:180>
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_0;
-		L_0 = MusicCubeSpawner_GetSpawnCenter_m4F2387462FD074EC6ECB5B8003990E2E6FB1C280(__this, NULL);
-		V_0 = L_0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:182>
-		V_1 = 0;
-		goto IL_0067;
-	}
-
-IL_000b:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:184>
-		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_1 = __this->___cubeColors;
-		int32_t L_2 = V_1;
-		NullCheck(L_1);
-		int32_t L_3 = L_2;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_4 = (L_1)->GetAt(static_cast<il2cpp_array_size_t>(L_3));
-		Gizmos_set_color_m53927A2741937484180B20B55F7F20F8F60C5797(L_4, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:185>
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_5 = V_0;
-		int32_t L_6 = V_1;
-		float L_7 = __this->___cubeSpacing;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_8;
-		memset((&L_8), 0, sizeof(L_8));
-		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&L_8), ((float)il2cpp_codegen_multiply(((float)((int32_t)il2cpp_codegen_subtract(L_6, 2))), L_7)), (0.0f), (0.0f), NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_9;
-		L_9 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_5, L_8, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:186>
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_10 = L_9;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_11;
-		L_11 = Vector3_get_one_mC9B289F1E15C42C597180C9FE6FB492495B51D02_inline(NULL);
-		float L_12 = __this->___cubeSize;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_13;
-		L_13 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_11, L_12, NULL);
-		Gizmos_DrawWireCube_m343533B3955A2D04A8638280D0EF537274A1FD8B(L_10, L_13, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:187>
-		float L_14 = __this->___cubeSize;
-		Gizmos_DrawSphere_mC7B2862BBDB3141A63B83F0F1E56E30101D4F472(L_10, ((float)il2cpp_codegen_multiply(L_14, (0.300000012f))), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:182>
-		int32_t L_15 = V_1;
-		V_1 = ((int32_t)il2cpp_codegen_add(L_15, 1));
-	}
-
-IL_0067:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:182>
-		int32_t L_16 = V_1;
-		if ((((int32_t)L_16) < ((int32_t)5)))
-		{
-			goto IL_000b;
-		}
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:189>
-		return;
-	}
-}
-// Method Definition Index: 79516
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner__ctor_mEC9406CD3BEAC666C1D1957A4B668344C04C02B1 (MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -20237,91 +20215,89 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner__ctor_mEC9406CD3BEAC666
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:16>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:15>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_0;
 		memset((&L_0), 0, sizeof(L_0));
-		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&L_0), (0.0f), (1.0f), (0.600000024f), NULL);
-		__this->___spawnOffsetFromPlayer = L_0;
+		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&L_0), (0.0f), (1.20000005f), (1.5f), NULL);
+		__this->___spawnCenter = L_0;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:16>
+		__this->___cubeSpacing = (0.25f);
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:17>
-		__this->___cubeSpacing = (0.300000012f);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:18>
-		__this->___cubeSize = (0.119999997f);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:21>
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:22>
+		__this->___cubeSize = (0.100000001f);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:20>
+		AudioClipU5BU5D_t916722468F7EDCFA833318C35CD7D41097D75D31* L_1 = (AudioClipU5BU5D_t916722468F7EDCFA833318C35CD7D41097D75D31*)(AudioClipU5BU5D_t916722468F7EDCFA833318C35CD7D41097D75D31*)SZArrayNew(AudioClipU5BU5D_t916722468F7EDCFA833318C35CD7D41097D75D31_il2cpp_TypeInfo_var, (uint32_t)5);
+		__this->___cubeSounds = L_1;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___cubeSounds), (void*)L_1);
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:23>
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:24>
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:25>
+		__this->___cubeMass = (0.300000012f);
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:26>
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:27>
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:28>
-		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_1 = (ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389*)(ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389*)SZArrayNew(ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389_il2cpp_TypeInfo_var, (uint32_t)5);
-		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_2 = L_1;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_3;
-		memset((&L_3), 0, sizeof(L_3));
-		Color__ctor_mCD6889CDE39F18704CD6EA8E2EFBFA48BA3E13B0_inline((&L_3), (1.0f), (0.200000003f), (0.200000003f), NULL);
-		NullCheck(L_2);
-		(L_2)->SetAt(static_cast<il2cpp_array_size_t>(0), (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F)L_3);
-		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_4 = L_2;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_5;
-		memset((&L_5), 0, sizeof(L_5));
-		Color__ctor_mCD6889CDE39F18704CD6EA8E2EFBFA48BA3E13B0_inline((&L_5), (0.200000003f), (0.600000024f), (1.0f), NULL);
-		NullCheck(L_4);
-		(L_4)->SetAt(static_cast<il2cpp_array_size_t>(1), (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F)L_5);
-		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_6 = L_4;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_7;
-		memset((&L_7), 0, sizeof(L_7));
-		Color__ctor_mCD6889CDE39F18704CD6EA8E2EFBFA48BA3E13B0_inline((&L_7), (0.200000003f), (1.0f), (0.400000006f), NULL);
-		NullCheck(L_6);
-		(L_6)->SetAt(static_cast<il2cpp_array_size_t>(2), (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F)L_7);
-		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_8 = L_6;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_9;
-		memset((&L_9), 0, sizeof(L_9));
-		Color__ctor_mCD6889CDE39F18704CD6EA8E2EFBFA48BA3E13B0_inline((&L_9), (1.0f), (0.899999976f), (0.200000003f), NULL);
-		NullCheck(L_8);
-		(L_8)->SetAt(static_cast<il2cpp_array_size_t>(3), (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F)L_9);
-		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_10 = L_8;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_11;
-		memset((&L_11), 0, sizeof(L_11));
-		Color__ctor_mCD6889CDE39F18704CD6EA8E2EFBFA48BA3E13B0_inline((&L_11), (0.800000012f), (0.300000012f), (1.0f), NULL);
-		NullCheck(L_10);
-		(L_10)->SetAt(static_cast<il2cpp_array_size_t>(4), (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F)L_11);
-		__this->___cubeColors = L_10;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___cubeColors), (void*)L_10);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:29>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:30>
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:31>
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:32>
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:33>
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:34>
+		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_2 = (ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389*)(ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389*)SZArrayNew(ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389_il2cpp_TypeInfo_var, (uint32_t)5);
+		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_3 = L_2;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_4;
+		memset((&L_4), 0, sizeof(L_4));
+		Color__ctor_mCD6889CDE39F18704CD6EA8E2EFBFA48BA3E13B0_inline((&L_4), (1.0f), (0.100000001f), (0.100000001f), NULL);
+		NullCheck(L_3);
+		(L_3)->SetAt(static_cast<il2cpp_array_size_t>(0), (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F)L_4);
+		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_5 = L_3;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		Color__ctor_mCD6889CDE39F18704CD6EA8E2EFBFA48BA3E13B0_inline((&L_6), (0.100000001f), (0.400000006f), (1.0f), NULL);
+		NullCheck(L_5);
+		(L_5)->SetAt(static_cast<il2cpp_array_size_t>(1), (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F)L_6);
+		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_7 = L_5;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_8;
+		memset((&L_8), 0, sizeof(L_8));
+		Color__ctor_mCD6889CDE39F18704CD6EA8E2EFBFA48BA3E13B0_inline((&L_8), (0.100000001f), (1.0f), (0.300000012f), NULL);
+		NullCheck(L_7);
+		(L_7)->SetAt(static_cast<il2cpp_array_size_t>(2), (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F)L_8);
+		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_9 = L_7;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_10;
+		memset((&L_10), 0, sizeof(L_10));
+		Color__ctor_mCD6889CDE39F18704CD6EA8E2EFBFA48BA3E13B0_inline((&L_10), (1.0f), (0.949999988f), (0.100000001f), NULL);
+		NullCheck(L_9);
+		(L_9)->SetAt(static_cast<il2cpp_array_size_t>(3), (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F)L_10);
+		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_11 = L_9;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_12;
+		memset((&L_12), 0, sizeof(L_12));
+		Color__ctor_mCD6889CDE39F18704CD6EA8E2EFBFA48BA3E13B0_inline((&L_12), (0.800000012f), (0.100000001f), (1.0f), NULL);
+		NullCheck(L_11);
+		(L_11)->SetAt(static_cast<il2cpp_array_size_t>(4), (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F)L_12);
+		__this->___cubeColors = L_11;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___cubeColors), (void*)L_11);
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:35>
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:36>
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:37>
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:38>
-		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_12 = (StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248*)(StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248*)SZArrayNew(StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248_il2cpp_TypeInfo_var, (uint32_t)5);
-		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_13 = L_12;
-		NullCheck(L_13);
-		(L_13)->SetAt(static_cast<il2cpp_array_size_t>(0), (String_t*)_stringLiteralE3970568DA951523718362F35D4C133F15974D8D);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:39>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:40>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:41>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:42>
+		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_13 = (StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248*)(StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248*)SZArrayNew(StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248_il2cpp_TypeInfo_var, (uint32_t)5);
 		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_14 = L_13;
 		NullCheck(L_14);
-		(L_14)->SetAt(static_cast<il2cpp_array_size_t>(1), (String_t*)_stringLiteralFF416A569D12AA18FA21D862C01682F3C4409C47);
+		(L_14)->SetAt(static_cast<il2cpp_array_size_t>(0), (String_t*)_stringLiteralE3970568DA951523718362F35D4C133F15974D8D);
 		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_15 = L_14;
 		NullCheck(L_15);
-		(L_15)->SetAt(static_cast<il2cpp_array_size_t>(2), (String_t*)_stringLiteral38E488A942E0EFCB96752BA5E01E0A29CB0B8952);
+		(L_15)->SetAt(static_cast<il2cpp_array_size_t>(1), (String_t*)_stringLiteralFF416A569D12AA18FA21D862C01682F3C4409C47);
 		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_16 = L_15;
 		NullCheck(L_16);
-		(L_16)->SetAt(static_cast<il2cpp_array_size_t>(3), (String_t*)_stringLiteral1F6541389421AC71AE60FB2658DE08C79ED4D46C);
+		(L_16)->SetAt(static_cast<il2cpp_array_size_t>(2), (String_t*)_stringLiteral38E488A942E0EFCB96752BA5E01E0A29CB0B8952);
 		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_17 = L_16;
 		NullCheck(L_17);
-		(L_17)->SetAt(static_cast<il2cpp_array_size_t>(4), (String_t*)_stringLiteral1C7C704A35412D60E643B974446176F381B6B939);
-		__this->___cubeNames = L_17;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___cubeNames), (void*)L_17);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:41>
-		AudioClipU5BU5D_t916722468F7EDCFA833318C35CD7D41097D75D31* L_18 = (AudioClipU5BU5D_t916722468F7EDCFA833318C35CD7D41097D75D31*)(AudioClipU5BU5D_t916722468F7EDCFA833318C35CD7D41097D75D31*)SZArrayNew(AudioClipU5BU5D_t916722468F7EDCFA833318C35CD7D41097D75D31_il2cpp_TypeInfo_var, (uint32_t)5);
-		__this->___cubeSounds = L_18;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___cubeSounds), (void*)L_18);
+		(L_17)->SetAt(static_cast<il2cpp_array_size_t>(3), (String_t*)_stringLiteral1F6541389421AC71AE60FB2658DE08C79ED4D46C);
+		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_18 = L_17;
+		NullCheck(L_18);
+		(L_18)->SetAt(static_cast<il2cpp_array_size_t>(4), (String_t*)_stringLiteral1C7C704A35412D60E643B974446176F381B6B939);
+		__this->___cubeNames = L_18;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___cubeNames), (void*)L_18);
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:44>
-		__this->___cubeMass = (0.5f);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:45>
-		__this->___cubeAngularDrag = (0.5f);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCubeSpawner.cs:47>
 		List_1_t6F2A202B9B00EAB390C876DEA68E48D1F5F240C6* L_19 = (List_1_t6F2A202B9B00EAB390C876DEA68E48D1F5F240C6*)il2cpp_codegen_object_new(List_1_t6F2A202B9B00EAB390C876DEA68E48D1F5F240C6_il2cpp_TypeInfo_var);
 		List_1__ctor_m306EF0C2469F5EF6BB5EDD87A50CFB00D66035CF(L_19, List_1__ctor_m306EF0C2469F5EF6BB5EDD87A50CFB00D66035CF_RuntimeMethod_var);
 		__this->___spawnedCubes = L_19;
@@ -20338,7 +20314,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner__ctor_mEC9406CD3BEAC666
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79517
+// Method Definition Index: 79516
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_Start_m5A8DD57D2E582DAED007866F8875924390DEF359 (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -20350,7 +20326,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_Start_m5A8DD57D2E582
 		return;
 	}
 }
-// Method Definition Index: 79518
+// Method Definition Index: 79517
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_GenerateRoom_m82466FF9B611A0D253A615622E72C61205792E9D (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -20547,7 +20523,7 @@ IL_0025:
 		return;
 	}
 }
-// Method Definition Index: 79519
+// Method Definition Index: 79518
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_CreateWall_m63C07357FCCA70EB4CCC524A906C270437273515 (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, String_t* ___0_name, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_position, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___2_scale, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___3_color, int32_t ___4_surfaceType, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -20671,7 +20647,7 @@ IL_0054:
 		return;
 	}
 }
-// Method Definition Index: 79520
+// Method Definition Index: 79519
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_CreateCeiling_m979E9150FED9B0008FE93A57390D0BDC59B83A3C (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, String_t* ___0_name, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_position, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___2_scale, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -20774,7 +20750,7 @@ IL_0054:
 		return;
 	}
 }
-// Method Definition Index: 79521
+// Method Definition Index: 79520
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Scene2RoomGenerator_GetSmoothnessForSurface_m5935DE37E372595A380F4531F22CA6B7CC380514 (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, int32_t ___0_type, const RuntimeMethod* method) 
 {
 	{
@@ -20843,7 +20819,7 @@ IL_003a:
 		return (0.5f);
 	}
 }
-// Method Definition Index: 79522
+// Method Definition Index: 79521
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_SetupLighting_m50028345333EFAD09F7E6CDE69D5C169CB94CF7F (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -20946,7 +20922,7 @@ IL_00aa:
 		return;
 	}
 }
-// Method Definition Index: 79523
+// Method Definition Index: 79522
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_CreatePointLight_m35ACEB4378CF9913081E751443B4C961D92A7EC5 (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, String_t* ___0_name, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_position, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___2_color, float ___3_range, float ___4_intensity, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21007,7 +20983,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_CreatePointLight_m35
 		return;
 	}
 }
-// Method Definition Index: 79524
+// Method Definition Index: 79523
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_OnDrawGizmosSelected_mDE637A1CCF2A7644144D8009A226704F34137C51 (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21086,7 +21062,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_OnDrawGizmosSelected
 		return;
 	}
 }
-// Method Definition Index: 79525
+// Method Definition Index: 79524
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_DrawSurfaceLabel_m8513499E06F82B4D3F2FB866807F7BFDBEEACBE1 (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_pos, String_t* ___1_label, const RuntimeMethod* method) 
 {
 	{
@@ -21097,7 +21073,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_DrawSurfaceLabel_m85
 		return;
 	}
 }
-// Method Definition Index: 79526
+// Method Definition Index: 79525
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator__ctor_m4F5587AF6A955F9E7BFF631F5FA1EF39735B894F (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21153,7 +21129,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator__ctor_m4F5587AF6A955
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79527
+// Method Definition Index: 79526
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube_Awake_m0057D4FFF72EAE18EBD3021B4D139E10319CB83E (AnomalyCube_t4B37462565B6CE7EA22962F8420E0371238CA388* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21172,7 +21148,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube_Awake_m0057D4FFF72EAE18EBD30
 		return;
 	}
 }
-// Method Definition Index: 79528
+// Method Definition Index: 79527
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube_OnEnable_m178CEB77E7FF433606FC4B63B1636AE6A48EFE2C (AnomalyCube_t4B37462565B6CE7EA22962F8420E0371238CA388* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21197,7 +21173,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube_OnEnable_m178CEB77E7FF433606
 		return;
 	}
 }
-// Method Definition Index: 79529
+// Method Definition Index: 79528
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube_OnDisable_mB747412EDF70CF598B30E0E3E3C5B6BA171F28F8 (AnomalyCube_t4B37462565B6CE7EA22962F8420E0371238CA388* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21222,7 +21198,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube_OnDisable_mB747412EDF70CF598
 		return;
 	}
 }
-// Method Definition Index: 79530
+// Method Definition Index: 79529
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube_OnGrab_mC836F148C2FEA8402047A5B6F1B5D14A23BE16AF (AnomalyCube_t4B37462565B6CE7EA22962F8420E0371238CA388* __this, SelectEnterEventArgs_t9220B1E6A9BB5A847C0476949ACE0182430BB938* ___0_args, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21261,7 +21237,7 @@ IL_0009:
 		return;
 	}
 }
-// Method Definition Index: 79531
+// Method Definition Index: 79530
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube__ctor_m2710D8794DD99992451E49C51A91B860C1802C27 (AnomalyCube_t4B37462565B6CE7EA22962F8420E0371238CA388* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21277,7 +21253,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube__ctor_m2710D8794DD99992451E4
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79532
+// Method Definition Index: 79531
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_add_OnAnomalyComplete_mC09217C598E312766FCCB642AC9B6B5A4380DB1B (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___0_value, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21320,7 +21296,7 @@ IL_0007:
 		return;
 	}
 }
-// Method Definition Index: 79533
+// Method Definition Index: 79532
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_remove_OnAnomalyComplete_mE5E0AEF3B8BF6140C9F1FB85661BF02B91A40CC1 (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___0_value, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21363,7 +21339,7 @@ IL_0007:
 		return;
 	}
 }
-// Method Definition Index: 79534
+// Method Definition Index: 79533
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_Awake_mAC0557FA1CE8EB65807DB5B64272B607F244DB34 (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21392,7 +21368,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_Awake_mAC0557FA1CE8EB658
 		return;
 	}
 }
-// Method Definition Index: 79535
+// Method Definition Index: 79534
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_CacheInitialTransform_m8AC85C91C004833B71264D7988272E42EBBB5533 (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21414,7 +21390,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_CacheInitialTransform_m8
 		return;
 	}
 }
-// Method Definition Index: 79536
+// Method Definition Index: 79535
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_ResetAnomaly_m6FA963D71770CCDDCDB94FB8DAD8B49E7FDAD593 (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21438,7 +21414,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_ResetAnomaly_m6FA963D717
 		return;
 	}
 }
-// Method Definition Index: 79537
+// Method Definition Index: 79536
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_RevealAnomaly_m019EFB358D7F85136A102DD32B8F4E10EF0EF8BF (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21490,7 +21466,7 @@ IL_003e:
 		return;
 	}
 }
-// Method Definition Index: 79538
+// Method Definition Index: 79537
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_BeginApproach_mCF4196E71F6A9EBEEE7561A4DC5F81995AA596D8 (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21507,7 +21483,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_BeginApproach_mCF4196E71
 		return;
 	}
 }
-// Method Definition Index: 79539
+// Method Definition Index: 79538
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* AnomalyMovement_MoveTowardCamera_m8037FF20B90F3655EB843671FDD7C252CD17D8FF (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21526,7 +21502,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* AnomalyMovement_MoveTowardCame
 		return L_1;
 	}
 }
-// Method Definition Index: 79540
+// Method Definition Index: 79539
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* AnomalyMovement_ResolveCameraTarget_m15693855FEA1B260B667489006EC84C5E4EC550A (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21582,7 +21558,7 @@ IL_0026:
 		return L_7;
 	}
 }
-// Method Definition Index: 79541
+// Method Definition Index: 79540
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_StopMovement_mF5FE6A9DA60FD3DC65586AA100E06FA84FF654C2 (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21608,7 +21584,7 @@ IL_001b:
 		return;
 	}
 }
-// Method Definition Index: 79542
+// Method Definition Index: 79541
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_EnsureIntangible_m6165C32F3B3474A0D133C5D377CE0304BD4ACFF0 (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21660,7 +21636,7 @@ IL_0034:
 		return;
 	}
 }
-// Method Definition Index: 79543
+// Method Definition Index: 79542
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement__ctor_m6E1C4038C9855029261D00AEF4E92B578A162F8F (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21685,7 +21661,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement__ctor_m6E1C4038C98550292
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79544
+// Method Definition Index: 79543
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CMoveTowardCameraU3Ed__18__ctor_m73737D5C8681209C03A3500B555D8FD14C0C0A43 (U3CMoveTowardCameraU3Ed__18_t32EBCC37016ED136518B616EBCC8C6ECBBC0D740* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -21695,14 +21671,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CMoveTowardCameraU3Ed__18__ctor_m73737
 		return;
 	}
 }
-// Method Definition Index: 79545
+// Method Definition Index: 79544
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CMoveTowardCameraU3Ed__18_System_IDisposable_Dispose_m8C49A74CF37979A34AB08CF8FF520776B02986DA (U3CMoveTowardCameraU3Ed__18_t32EBCC37016ED136518B616EBCC8C6ECBBC0D740* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 79546
+// Method Definition Index: 79545
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CMoveTowardCameraU3Ed__18_MoveNext_m31A7D243C5EED3A05F73C0FA6028BDCDCC890341 (U3CMoveTowardCameraU3Ed__18_t32EBCC37016ED136518B616EBCC8C6ECBBC0D740* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21925,7 +21901,7 @@ IL_0176:
 		return (bool)0;
 	}
 }
-// Method Definition Index: 79547
+// Method Definition Index: 79546
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CMoveTowardCameraU3Ed__18_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mEBDAA13C8A186EEDD9C8FB8B1CA38D75DB9B398B (U3CMoveTowardCameraU3Ed__18_t32EBCC37016ED136518B616EBCC8C6ECBBC0D740* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21933,7 +21909,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CMoveTowardCameraU3Ed__18_Sy
 		return L_0;
 	}
 }
-// Method Definition Index: 79548
+// Method Definition Index: 79547
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CMoveTowardCameraU3Ed__18_System_Collections_IEnumerator_Reset_mB932ACFDBB0E74D7E0C102EF59659CFEA5AA82F4 (U3CMoveTowardCameraU3Ed__18_t32EBCC37016ED136518B616EBCC8C6ECBBC0D740* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21942,431 +21918,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CMoveTowardCameraU3Ed__18_System_Colle
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CMoveTowardCameraU3Ed__18_System_Collections_IEnumerator_Reset_mB932ACFDBB0E74D7E0C102EF59659CFEA5AA82F4_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 79549
+// Method Definition Index: 79548
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CMoveTowardCameraU3Ed__18_System_Collections_IEnumerator_get_Current_m44C87C4431826B75478F785BF26CE96723DBB9CD (U3CMoveTowardCameraU3Ed__18_t32EBCC37016ED136518B616EBCC8C6ECBBC0D740* __this, const RuntimeMethod* method) 
 {
 	{
 		RuntimeObject* L_0 = __this->___U3CU3E2__current;
 		return L_0;
-	}
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// Method Definition Index: 79550
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_Awake_m045650FB3D9CA5FE6C1343792AD927BAF4B26737 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:25>
-		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_0 = __this->___beltRenderer;
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_1;
-		L_1 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_1)
-		{
-			goto IL_001f;
-		}
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:27>
-		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_2 = __this->___beltRenderer;
-		NullCheck(L_2);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_3;
-		L_3 = Renderer_get_material_m5BA2A00816C4CC66580D4B2E409CF10718C15656(L_2, NULL);
-		__this->___beltMaterial = L_3;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___beltMaterial), (void*)L_3);
-	}
-
-IL_001f:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:29>
-		return;
-	}
-}
-// Method Definition Index: 79551
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_Reset_mD810EF6EE1AF12756A7BC8CB9CD8154E03C410A6 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Component_GetComponent_TisCollider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76_m820398EDBF1D3766C3166A0C323A127662A29A14_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:33>
-		Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* L_0;
-		L_0 = Component_GetComponent_TisCollider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76_m820398EDBF1D3766C3166A0C323A127662A29A14(__this, Component_GetComponent_TisCollider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76_m820398EDBF1D3766C3166A0C323A127662A29A14_RuntimeMethod_var);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:34>
-		Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* L_1 = L_0;
-		NullCheck(L_1);
-		Collider_set_sharedMaterial_mA67DC663BEEBE9315F3B91A0B74B31D33579CD7D(L_1, (PhysicsMaterial_t2949C5AB81E97E3B99B71EAFA5966CB89A9BEB1C*)NULL, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:35>
-		NullCheck(L_1);
-		Collider_set_isTrigger_mFCD22F3EB5E28C97863956AB725D53F7F4B7CA78(L_1, (bool)0, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:36>
-		return;
-	}
-}
-// Method Definition Index: 79552
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_Update_m361F269EF2D85237A4A2C8501637CCCFADA975B7 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:40>
-		bool L_0 = __this->___isActive;
-		if (!L_0)
-		{
-			goto IL_0016;
-		}
-	}
-	{
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_1 = __this->___beltMaterial;
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_2;
-		L_2 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_1, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_2)
-		{
-			goto IL_0017;
-		}
-	}
-
-IL_0016:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:42>
-		return;
-	}
-
-IL_0017:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:46>
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* L_3 = (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7*)(&__this->___currentOffset);
-		float* L_4 = (float*)(&L_3->___y);
-		float* L_5 = L_4;
-		float L_6 = *((float*)L_5);
-		float L_7 = __this->___textureScrollSpeed;
-		float L_8;
-		L_8 = Time_get_deltaTime_mC3195000401F0FD167DD2F948FD2BC58330D0865(NULL);
-		*((float*)L_5) = (float)((float)il2cpp_codegen_add(L_6, ((float)il2cpp_codegen_multiply(L_7, L_8))));
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:49>
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* L_9 = (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7*)(&__this->___currentOffset);
-		float L_10 = L_9->___y;
-		if ((!(((float)L_10) > ((float)(1.0f)))))
-		{
-			goto IL_0058;
-		}
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:51>
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* L_11 = (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7*)(&__this->___currentOffset);
-		float* L_12 = (float*)(&L_11->___y);
-		float* L_13 = L_12;
-		float L_14 = *((float*)L_13);
-		*((float*)L_13) = (float)((float)il2cpp_codegen_subtract(L_14, (1.0f)));
-	}
-
-IL_0058:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:54>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_15 = __this->___beltMaterial;
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_16 = __this->___currentOffset;
-		NullCheck(L_15);
-		Material_set_mainTextureOffset_m87C139F275814719F9A10709C34E2132DFEB7A12(L_15, L_16, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:55>
-		return;
-	}
-}
-// Method Definition Index: 79553
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_OnDrawGizmosSelected_m6BB48476AE3B7271C0AA67F95BF0B603CF3D6E41 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
-{
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:59>
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_0;
-		L_0 = Color_get_yellow_m66637FA14383E8D74F24AE256B577CE1D55D469F_inline(NULL);
-		Gizmos_set_color_m53927A2741937484180B20B55F7F20F8F60C5797(L_0, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:60>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_1;
-		L_1 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_2 = __this->___localDirection;
-		NullCheck(L_1);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_3;
-		L_3 = Transform_TransformDirection_m9BE1261DF2D48B7A4A27D31EE24D2D97F89E7757(L_1, L_2, NULL);
-		V_1 = L_3;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_4;
-		L_4 = Vector3_get_normalized_m736BBF65D5CDA7A18414370D15B4DFCC1E466F07_inline((&V_1), NULL);
-		V_0 = L_4;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:61>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_5;
-		L_5 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
-		NullCheck(L_5);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_6;
-		L_6 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_5, NULL);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_7;
-		L_7 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
-		NullCheck(L_7);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_8;
-		L_8 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_7, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_9 = V_0;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_10;
-		L_10 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_9, (2.0f), NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_11;
-		L_11 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_8, L_10, NULL);
-		Gizmos_DrawLine_mB139054F55D615637A39A3127AADB16043387F8A(L_6, L_11, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:62>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_12;
-		L_12 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
-		NullCheck(L_12);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_13;
-		L_13 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_12, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_14 = V_0;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_15;
-		L_15 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_14, (2.0f), NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_16;
-		L_16 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_13, L_15, NULL);
-		Gizmos_DrawSphere_mC7B2862BBDB3141A63B83F0F1E56E30101D4F472(L_16, (0.100000001f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:63>
-		return;
-	}
-}
-// Method Definition Index: 79554
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_OnCollisionStay_m7219F69A4F0E7666A017B27989A2712E829914D8 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* ___0_collision, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_2;
-	memset((&V_2), 0, sizeof(V_2));
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:67>
-		bool L_0 = __this->___isActive;
-		if (!L_0)
-		{
-			goto IL_0016;
-		}
-	}
-	{
-		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_1 = ___0_collision;
-		NullCheck(L_1);
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_2;
-		L_2 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_1, NULL);
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_3;
-		L_3 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_2, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_3)
-		{
-			goto IL_0017;
-		}
-	}
-
-IL_0016:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:69>
-		return;
-	}
-
-IL_0017:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:73>
-		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_4 = ___0_collision;
-		NullCheck(L_4);
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_5;
-		L_5 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_4, NULL);
-		NullCheck(L_5);
-		Rigidbody_set_constraints_mE81BF0DAEB980E320538231E092CA4663885A9A3(L_5, ((int32_t)112), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:74>
-		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_6 = ___0_collision;
-		NullCheck(L_6);
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_7;
-		L_7 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_6, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_8;
-		L_8 = Vector3_get_zero_m0C1249C3F25B1C70EAD3CC8B31259975A457AE39_inline(NULL);
-		NullCheck(L_7);
-		Rigidbody_set_angularVelocity_m23266B4E52BF0D2E65CC984AC73CC40B8D4A27E0(L_7, L_8, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:77>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_9;
-		L_9 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_10 = __this->___localDirection;
-		NullCheck(L_9);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_11;
-		L_11 = Transform_TransformDirection_m9BE1261DF2D48B7A4A27D31EE24D2D97F89E7757(L_9, L_10, NULL);
-		V_2 = L_11;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_12;
-		L_12 = Vector3_get_normalized_m736BBF65D5CDA7A18414370D15B4DFCC1E466F07_inline((&V_2), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:78>
-		float L_13 = __this->___targetSpeed;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_14;
-		L_14 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_12, L_13, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:81>
-		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_15 = ___0_collision;
-		NullCheck(L_15);
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_16;
-		L_16 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_15, NULL);
-		NullCheck(L_16);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_17;
-		L_17 = Rigidbody_get_linearVelocity_m367F5415641E5FB968440A91BAE2FCB8CAEA2C8C(L_16, NULL);
-		V_0 = L_17;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:84>
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_18 = V_0;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_19;
-		L_19 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_14, L_18, NULL);
-		V_1 = L_19;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:85>
-		(&V_1)->___y = (0.0f);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:88>
-		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_20 = ___0_collision;
-		NullCheck(L_20);
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_21;
-		L_21 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_20, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_22 = V_1;
-		float L_23 = __this->___acceleration;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_24;
-		L_24 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_22, L_23, NULL);
-		NullCheck(L_21);
-		Rigidbody_AddForce_mBDBC288D0E266BC1B62E3649B4FCE46E7EA9CCBC(L_21, L_24, 5, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:89>
-		return;
-	}
-}
-// Method Definition Index: 79555
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_OnCollisionExit_mEBA65AED1F47BE975DE3E75F8228A0390DE75176 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* ___0_collision, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:93>
-		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_0 = ___0_collision;
-		NullCheck(L_0);
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_1;
-		L_1 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_0, NULL);
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_2;
-		L_2 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_1, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_2)
-		{
-			goto IL_001a;
-		}
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:96>
-		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_3 = ___0_collision;
-		NullCheck(L_3);
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_4;
-		L_4 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_3, NULL);
-		NullCheck(L_4);
-		Rigidbody_set_constraints_mE81BF0DAEB980E320538231E092CA4663885A9A3(L_4, 0, NULL);
-	}
-
-IL_001a:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:98>
-		return;
-	}
-}
-// Method Definition Index: 79556
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_StartBelt_m560FF9A830786B85C9AB5CB315808D3DB92E6632 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
-{
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:102>
-		__this->___isActive = (bool)1;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:103>
-		return;
-	}
-}
-// Method Definition Index: 79557
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_StopBelt_mF54CF55DF66BB52C6259B82BE8F16E0E0C62B235 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
-{
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:107>
-		__this->___isActive = (bool)0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:108>
-		return;
-	}
-}
-// Method Definition Index: 79558
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_OnDestroy_m6924C52EBF5550D45FFD896E8D66168E1EF97B53 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:113>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_0 = __this->___beltMaterial;
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_1;
-		L_1 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_1)
-		{
-			goto IL_0019;
-		}
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:115>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_2 = __this->___beltMaterial;
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		Object_Destroy_mE97D0A766419A81296E8D4E5C23D01D3FE91ACBB(L_2, NULL);
-	}
-
-IL_0019:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:117>
-		return;
-	}
-}
-// Method Definition Index: 79559
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt__ctor_mA329AF3599AF5F8BED289B13A20A87D77CDCD584 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
-{
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:12>
-		__this->___targetSpeed = (1.5f);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:13>
-		__this->___acceleration = (15.0f);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:14>
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_0;
-		L_0 = Vector3_get_forward_mAA55A7034304DF8B2152EAD49AE779FC4CA2EB4A_inline(NULL);
-		__this->___localDirection = L_0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:16>
-		__this->___textureScrollSpeed = (2.0f);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:18>
-		__this->___isActive = (bool)1;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:20>
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_1;
-		L_1 = Vector2_get_zero_m32506C40EC2EE7D5D4410BF40D3EE683A3D5F32C_inline(NULL);
-		__this->___currentOffset = L_1;
-		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
-		return;
 	}
 }
 #ifdef __clang__
@@ -23179,7 +22736,7 @@ IL_002d:
 		return L_12;
 	}
 }
-// Method Definition Index: 82171
+// Method Definition Index: 82170
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool SubsystemWithProvider_get_running_m6BF31FC3BDA38C56C0F60FEA37767A4151B22C44_inline (SubsystemWithProvider_tC72E35EE2D413A4B0635B058154BABF265F31242* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23729,6 +23286,46 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRGrabInteractable_set_useDy
 		return;
 	}
 }
+// Method Definition Index: 25966
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRGrabInteractable_set_matchAttachPosition_m23703B3D7E10B6C3A09F74858EF77418014A17D0_inline (XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* __this, bool ___0_value, const RuntimeMethod* method) 
+{
+	{
+		//<source_info:./Library/PackageCache/com.unity.xr.interaction.toolkit@7faefd988174/Runtime/Interaction/Interactables/XRGrabInteractable.cs:148>
+		bool L_0 = ___0_value;
+		__this->___m_MatchAttachPosition = L_0;
+		return;
+	}
+}
+// Method Definition Index: 25968
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRGrabInteractable_set_matchAttachRotation_mAFF86386B636F1E97F7C3AE8436AD2D434963EF8_inline (XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* __this, bool ___0_value, const RuntimeMethod* method) 
+{
+	{
+		//<source_info:./Library/PackageCache/com.unity.xr.interaction.toolkit@7faefd988174/Runtime/Interaction/Interactables/XRGrabInteractable.cs:167>
+		bool L_0 = ___0_value;
+		__this->___m_MatchAttachRotation = L_0;
+		return;
+	}
+}
+// Method Definition Index: 25970
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRGrabInteractable_set_snapToColliderVolume_mECC2F1C7003684D4FB199364F34314310C3ED7C9_inline (XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* __this, bool ___0_value, const RuntimeMethod* method) 
+{
+	{
+		//<source_info:./Library/PackageCache/com.unity.xr.interaction.toolkit@7faefd988174/Runtime/Interaction/Interactables/XRGrabInteractable.cs:182>
+		bool L_0 = ___0_value;
+		__this->___m_SnapToColliderVolume = L_0;
+		return;
+	}
+}
+// Method Definition Index: 26024
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRGrabInteractable_set_retainTransformParent_m50CC2C444D9992F89325494B86848975CC6B4A61_inline (XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* __this, bool ___0_value, const RuntimeMethod* method) 
+{
+	{
+		//<source_info:./Library/PackageCache/com.unity.xr.interaction.toolkit@7faefd988174/Runtime/Interaction/Interactables/XRGrabInteractable.cs:612>
+		bool L_0 = ___0_value;
+		__this->___m_RetainTransformParent = L_0;
+		return;
+	}
+}
 // Method Definition Index: 45398
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F Color_get_yellow_m66637FA14383E8D74F24AE256B577CE1D55D469F_inline (const RuntimeMethod* method) 
 {
@@ -23739,7 +23336,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED02
 		return L_0;
 	}
 }
-// Method Definition Index: 79560
+// Method Definition Index: 79559
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR GameManager_tD2A141CDC4D8B352B55DC10F337F83AAF44B9035* GameManager_get_Instance_m6F2B3DEACCE829015C9ACA4C3B1E3C3EE761A258_inline (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -23840,29 +23437,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Action_Invoke_m7126A54DACA72
 {
 	typedef void (*FunctionPointerType) (RuntimeObject*, const RuntimeMethod*);
 	((FunctionPointerType)__this->___invoke_impl)((Il2CppObject*)__this->___method_code, reinterpret_cast<RuntimeMethod*>(__this->___method));
-}
-// Method Definition Index: 45684
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 Vector2_get_zero_m32506C40EC2EE7D5D4410BF40D3EE683A3D5F32C_inline (const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	{
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_0 = ((Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7_StaticFields*)il2cpp_codegen_static_fields_for(Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7_il2cpp_TypeInfo_var))->___zeroVector;
-		V_0 = L_0;
-		goto IL_0009;
-	}
-
-IL_0009:
-	{
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_1 = V_0;
-		return L_1;
-	}
 }
 // Method Definition Index: 9068
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, const RuntimeMethod* method) 
