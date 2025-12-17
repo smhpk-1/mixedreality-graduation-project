@@ -17,6 +17,7 @@ namespace MusicSpace
     /// </summary>
     public class ColorReactiveWall : MonoBehaviour
     {
+        private Coroutine revertCoroutine;
         [Header("Surface Properties")]
         public SurfaceType surfaceType = SurfaceType.Concrete;
         
@@ -48,6 +49,7 @@ namespace MusicSpace
         }
 
         public void ChangeColor(Color newColor)
+            // Eski metot, anlık değişim için ChangeColorInstant kullanılacak
         {
             if (material == null) return;
 
@@ -78,15 +80,45 @@ namespace MusicSpace
             {
                 StopCoroutine(colorCoroutine);
             }
-
+            if (revertCoroutine != null)
+            {
+                StopCoroutine(revertCoroutine);
+                revertCoroutine = null;
+            }
+            // Rengi ve emisyonu eski haline getir
             targetColor = originalColor;
             colorCoroutine = StartCoroutine(TransitionColor(originalColor));
-
-            // Reset emission
             if (useEmission)
             {
                 material.SetColor("_EmissionColor", Color.black);
             }
+        }
+
+        /// <summary>
+        /// Duvara anında renk uygula ve belirli bir süre sonra eski rengine döndür
+        /// </summary>
+        public void ChangeColorInstant(Color newColor, float revertDelay = 1.5f)
+        {
+            if (material == null) return;
+            // Hemen uygula
+            material.color = newColor * colorIntensity;
+            if (useEmission)
+            {
+                material.EnableKeyword("_EMISSION");
+                material.SetColor("_EmissionColor", newColor * emissionIntensity);
+            }
+            // Eski rengine dönmek için coroutine başlat
+            if (revertCoroutine != null)
+            {
+                StopCoroutine(revertCoroutine);
+            }
+            revertCoroutine = StartCoroutine(RevertAfterDelay(revertDelay));
+        }
+
+        private IEnumerator RevertAfterDelay(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            ResetColor();
         }
 
         private IEnumerator TransitionColor(Color target)

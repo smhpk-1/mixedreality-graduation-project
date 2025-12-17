@@ -120,9 +120,9 @@ namespace MusicSpace
             }
             else
             {
-                // Normal physics when thrown - low drag for good throwing
-                rb.linearDamping = 0.1f;
-                rb.angularDamping = 0.1f;
+                // Realistic physics for VR throwing
+                rb.linearDamping = 0.01f; // Daha hızlı ve uzun fırlatma
+                rb.angularDamping = 0.01f;
             }
         }
 
@@ -159,8 +159,9 @@ namespace MusicSpace
         {
             isGrabbed = false;
             hasBeenThrown = true;
-            
             // Gravity stays on after release so cube can be thrown
+            // XR Grab ayarları: daha hızlı fırlatma için velocity scale artırılabilir
+            // (Spawner prefabında ayarlanabilir)
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -180,7 +181,7 @@ namespace MusicSpace
             if (wall != null)
             {
                 currentAffectedWall = wall;
-                wall.ChangeColor(cubeColor);
+                wall.ChangeColorInstant(cubeColor, 1.5f); // 1.5 saniye sonra eski rengine döner
 
                 // Apply surface-based audio effects
                 ApplySurfaceEffects(wall.surfaceType);
