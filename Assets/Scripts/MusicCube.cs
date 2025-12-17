@@ -291,13 +291,6 @@ namespace MusicSpace
                 currentAffectedWall = null;
             }
 
-            // Notify spawner to respawn this cube type
-            MusicCubeSpawner spawner = FindFirstObjectByType<MusicCubeSpawner>();
-            if (spawner != null)
-            {
-                spawner.RespawnCube(this);
-            }
-
             yield return new WaitForSeconds(respawnDelay);
             
             // Reset and reposition instead of destroying

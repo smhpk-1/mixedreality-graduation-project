@@ -5,160 +5,146 @@ using System.Collections.Generic;
 namespace MusicSpace
 {
     /// <summary>
-    /// Spawns and manages the 5 music cubes in Scene 2.
-    /// Simple and reliable version for Quest 3S.
+    /// Spawns music cubes from prefabs at fixed world positions.
+    /// Prefab-based approach for reliable Quest deployment.
     /// </summary>
     public class MusicCubeSpawner : MonoBehaviour
     {
-        [Header("Spawn Settings")]
-        [Tooltip("Fixed world position where cubes spawn")]
-        public Vector3 spawnCenter = new Vector3(0, 1.2f, 1.5f);
-        public float cubeSpacing = 0.25f;
-        public float cubeSize = 0.1f;
+        [Header("Prefab (Create in Unity Editor)")]
+        [Tooltip("Drag your cube prefab here")]
+        public GameObject cubePrefab;
 
-        [Header("Audio Clips (Assign Your Sounds Here)")]
+        [Header("Spawn Settings")]
+        [Tooltip("Fixed world position - NOT attached to player")]
+        public Vector3 spawnCenter = new Vector3(0, 1.2f, 2f);
+        public float cubeSpacing = 0.2f;
+
+        [Header("Audio Clips")]
         public AudioClip[] cubeSounds = new AudioClip[5];
 
-        [Header("Physics")]
-        public float cubeMass = 0.3f;
-
-        // Fixed colors - bright and saturated
+        // Colors for the 5 cubes
         private readonly Color[] cubeColors = new Color[]
         {
-            new Color(1f, 0.1f, 0.1f),    // Bright Red
-            new Color(0.1f, 0.4f, 1f),    // Bright Blue
-            new Color(0.1f, 1f, 0.3f),    // Bright Green
-            new Color(1f, 0.95f, 0.1f),   // Bright Yellow
-            new Color(0.8f, 0.1f, 1f)     // Bright Purple
+            Color.red,
+            Color.blue,
+            Color.green,
+            Color.yellow,
+            new Color(0.8f, 0.2f, 0.8f) // Purple
         };
 
         private readonly string[] cubeNames = new string[]
         {
-            "RedCube",
-            "BlueCube", 
-            "GreenCube",
-            "YellowCube",
-            "PurpleCube"
+            "RedCube", "BlueCube", "GreenCube", "YellowCube", "PurpleCube"
         };
 
-        private List<MusicCube> spawnedCubes = new List<MusicCube>();
-        private Transform cubeContainer;
+        private List<GameObject> spawnedCubes = new List<GameObject>();
 
         private void Start()
         {
-            // Create container for organization
-            cubeContainer = new GameObject("MusicCubes").transform;
-            cubeContainer.parent = transform;
-            cubeContainer.localPosition = Vector3.zero;
-
-            SpawnAllCubes();
+            // Wait a frame to ensure scene is loaded
+            Invoke(nameof(SpawnAllCubes), 0.1f);
         }
 
         [ContextMenu("Spawn All Cubes")]
         public void SpawnAllCubes()
         {
-            // Clear existing cubes
+            // Clear existing
             foreach (var cube in spawnedCubes)
             {
-                if (cube != null)
-                {
-                    Destroy(cube.gameObject);
-                }
+                if (cube != null) Destroy(cube);
             }
             spawnedCubes.Clear();
 
-            // Spawn 5 cubes in a row at fixed position
+            // Check if prefab exists
+            if (cubePrefab == null)
+            {
+                Debug.LogError("MusicCubeSpawner: No prefab assigned! Creating basic cubes...");
+                SpawnBasicCubes();
+                return;
+            }
+
+            // Spawn from prefab
             for (int i = 0; i < 5; i++)
             {
-                float xOffset = (i - 2) * cubeSpacing;
-                Vector3 position = spawnCenter + new Vector3(xOffset, 0, 0);
-                SpawnCube(i, position);
+                Vector3 pos = spawnCenter + new Vector3((i - 2) * cubeSpacing, 0, 0);
+                GameObject cube = Instantiate(cubePrefab, pos, Quaternion.identity);
+                cube.name = cubeNames[i];
+                
+                // Set color on renderer
+                Renderer rend = cube.GetComponent<Renderer>();
+                if (rend != null)
+                {
+                    rend.material.color = cubeColors[i];
+                }
+
+                // Setup MusicCube component
+                MusicCube mc = cube.GetComponent<MusicCube>();
+                if (mc != null)
+                {
+                    mc.cubeColor = cubeColors[i];
+                    mc.cubeName = cubeNames[i];
+                    mc.spawnPosition = pos;
+                    if (i < cubeSounds.Length) mc.assignedSound = cubeSounds[i];
+                }
+
+                spawnedCubes.Add(cube);
             }
-            
-            Debug.Log($"Spawned 5 music cubes at {spawnCenter}");
+
+            Debug.Log($"Spawned 5 cubes at world position {spawnCenter}");
         }
 
-        private void SpawnCube(int index, Vector3 position)
+        /// <summary>
+        /// Fallback: Create basic cubes without prefab
+        /// </summary>
+        private void SpawnBasicCubes()
         {
-            // Create cube
-            GameObject cubeObj = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            cubeObj.name = cubeNames[index];
-            cubeObj.transform.parent = cubeContainer;
-            cubeObj.transform.position = position;
-            cubeObj.transform.localScale = Vector3.one * cubeSize;
-
-            // Create a simple unlit colored material (works on all platforms)
-            MeshRenderer renderer = cubeObj.GetComponent<MeshRenderer>();
-            Material mat = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
-            if (mat.shader.name == "Hidden/InternalErrorShader")
+            for (int i = 0; i < 5; i++)
             {
-                // Fallback if URP not found
-                mat = new Material(Shader.Find("Unlit/Color"));
+                Vector3 pos = spawnCenter + new Vector3((i - 2) * cubeSpacing, 0, 0);
+                
+                // Create cube
+                GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                cube.name = cubeNames[i];
+                cube.transform.position = pos;
+                cube.transform.localScale = Vector3.one * 0.1f;
+
+                // Set color directly on the default material
+                Renderer rend = cube.GetComponent<Renderer>();
+                rend.material.color = cubeColors[i];
+
+                // Add rigidbody - floating
+                Rigidbody rb = cube.AddComponent<Rigidbody>();
+                rb.useGravity = false;
+                rb.mass = 0.5f;
+                rb.linearDamping = 3f;
+                rb.angularDamping = 3f;
+
+                // Add XR Grab
+                XRGrabInteractable grab = cube.AddComponent<XRGrabInteractable>();
+                grab.throwOnDetach = true;
+                grab.movementType = XRBaseInteractable.MovementType.VelocityTracking;
+
+                // Add audio
+                cube.AddComponent<AudioSource>();
+
+                // Add MusicCube
+                MusicCube mc = cube.AddComponent<MusicCube>();
+                mc.cubeColor = cubeColors[i];
+                mc.cubeName = cubeNames[i];
+                mc.spawnPosition = pos;
+                if (i < cubeSounds.Length) mc.assignedSound = cubeSounds[i];
+
+                spawnedCubes.Add(cube);
             }
-            mat.color = cubeColors[index];
-            renderer.material = mat;
-
-            // Add Rigidbody - NO GRAVITY (floating)
-            Rigidbody rb = cubeObj.AddComponent<Rigidbody>();
-            rb.mass = cubeMass;
-            rb.useGravity = false;
-            rb.isKinematic = false;
-            rb.interpolation = RigidbodyInterpolation.Interpolate;
-            rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-            rb.linearDamping = 5f;
-            rb.angularDamping = 5f;
-
-            // Add XR Grab Interactable - Quest optimized settings
-            XRGrabInteractable grab = cubeObj.AddComponent<XRGrabInteractable>();
-            grab.movementType = XRBaseInteractable.MovementType.VelocityTracking;
-            grab.throwOnDetach = true;
-            grab.throwSmoothingDuration = 0.25f;
-            grab.throwVelocityScale = 1.5f;
-            grab.throwAngularVelocityScale = 1.0f;
-            grab.useDynamicAttach = true;
-            grab.matchAttachPosition = true;
-            grab.matchAttachRotation = true;
-            grab.snapToColliderVolume = false;
-            grab.retainTransformParent = true;
-
-            // Add AudioSource
-            AudioSource audioSource = cubeObj.AddComponent<AudioSource>();
-            audioSource.playOnAwake = false;
-            audioSource.spatialBlend = 1f;
-            audioSource.minDistance = 0.5f;
-            audioSource.maxDistance = 15f;
-
-            // Add MusicCube script LAST (after all components)
-            MusicCube musicCube = cubeObj.AddComponent<MusicCube>();
-            musicCube.cubeColor = cubeColors[index];
-            musicCube.cubeName = cubeNames[index];
-            musicCube.spawnPosition = position;
-            
-            // Force apply color immediately
-            musicCube.ApplyColor();
-
-            // Assign sound if available
-            if (index < cubeSounds.Length && cubeSounds[index] != null)
-            {
-                musicCube.assignedSound = cubeSounds[index];
-            }
-
-            spawnedCubes.Add(musicCube);
         }
 
-        public void RespawnCube(MusicCube cube)
-        {
-            Debug.Log($"Respawning {cube.cubeName} at {cube.spawnPosition}");
-        }
-
-        // Editor visualization
         private void OnDrawGizmosSelected()
         {
             for (int i = 0; i < 5; i++)
             {
                 Gizmos.color = cubeColors[i];
                 Vector3 pos = spawnCenter + new Vector3((i - 2) * cubeSpacing, 0, 0);
-                Gizmos.DrawCube(pos, Vector3.one * cubeSize);
+                Gizmos.DrawWireCube(pos, Vector3.one * 0.1f);
             }
         }
     }
