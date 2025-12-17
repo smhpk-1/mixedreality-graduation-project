@@ -291,7 +291,6 @@ struct ObjectSpawner_t95A481D494645E6F47F6F4EE6BC314200D791AD6;
 struct OfficeMessGenerator_t327A699A1235EA072A25122C5ACFEFD595B4B8A3;
 struct ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1;
 struct PersistentCallGroup_tB826EDF15DC80F71BCBCD8E410FD959A04C33F25;
-struct PhysicsMaterial_t2949C5AB81E97E3B99B71EAFA5966CB89A9BEB1C;
 struct PointerEventData_t9670F3C7D823CCB738A1604C72A1EB90292396FB;
 struct Random_t79716069EDE67D1D7734F60AE402D0CA3FB6B4C8;
 struct RayAttachModifier_t88195CC1798BFAFE12D5D5944A8B2495041E6818;
@@ -377,7 +376,8 @@ struct PCMSetPositionCallback_t8D7135A2FB40647CAEC93F5254AD59E18DEB6072;
 struct U3CEndDelayU3Ed__12_t92A53E7D999E45108A7FDF7BCDB9359191100FE3;
 struct U3CStartDelayU3Ed__11_t30E319CCBE7D23E7026D92241D11DD660006B052;
 struct CameraCallback_t844E527BFE37BC0495E7F67993E43C07642DA9DD;
-struct U3CTransitionColorU3Ed__14_t84CFC1D43563071560CBB09F0D4BB48809D06740;
+struct U3CRevertAfterDelayU3Ed__16_t6BB2A67B5DD725CE9CF61DC6AF624D246FC30D4B;
+struct U3CTransitionColorU3Ed__17_tA39E844756345CD5EDA920AE625424B8A80854BE;
 struct CullStateChangedEvent_t6073CD0D951EC1256BF74B8F9107D68FC89B99B8;
 struct U3CDestroyAfterSoundU3Ed__29_tBFD5F8451A01F97D864CE289DC73D10E09A35B25;
 struct U3CDestroyAndRespawnU3Ed__30_tB1AC239B099FCB6A1E2A6DA59E17373379508E2B;
@@ -440,15 +440,15 @@ IL2CPP_EXTERN_C RuntimeClass* U3CDestroyAndRespawnU3Ed__30_tB1AC239B099FCB6A1E2A
 IL2CPP_EXTERN_C RuntimeClass* U3CEndDelayU3Ed__12_t92A53E7D999E45108A7FDF7BCDB9359191100FE3_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CHideSliderAfterSecondsU3Ed__18_t1F61E8A886E4021E0F4D6B5A76F797BF234188C3_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CMoveTowardCameraU3Ed__18_t32EBCC37016ED136518B616EBCC8C6ECBBC0D740_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* U3CRevertAfterDelayU3Ed__16_t6BB2A67B5DD725CE9CF61DC6AF624D246FC30D4B_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CStartDelayU3Ed__11_t30E319CCBE7D23E7026D92241D11DD660006B052_il2cpp_TypeInfo_var;
-IL2CPP_EXTERN_C RuntimeClass* U3CTransitionColorU3Ed__14_t84CFC1D43563071560CBB09F0D4BB48809D06740_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* U3CTransitionColorU3Ed__17_tA39E844756345CD5EDA920AE625424B8A80854BE_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* UnityAction_1_t6D7C8D94300AACA6B0CFB2228AA5572CFBF0531B_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* UnityAction_1_t8EC357AF4FBD2A0C4A575C4BBD0B3A81029E43A9_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* UnityAction_1_tAEFA3C1C529F0E1AD7C7C7AFC88822D359E7AC90_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* UnityAction_1_tD4A8B5CFDB30ABDE869D801066212B20B4D61D6E_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* UnityAction_t11A1F3B953B365C072A5DCC32677EE1796A962A7_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ValueChangeEvent_tDC3EC514DD9CBF92A2A1BCB2F7323B43F276C790_il2cpp_TypeInfo_var;
-IL2CPP_EXTERN_C RuntimeClass* Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Vector3TweenableVariable_t0DF651B487F89825D0D459293C4A862C62C0EBD5_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2_il2cpp_TypeInfo_var;
@@ -677,8 +677,9 @@ IL2CPP_EXTERN_C const RuntimeMethod* U3CDestroyAndRespawnU3Ed__30_System_Collect
 IL2CPP_EXTERN_C const RuntimeMethod* U3CEndDelayU3Ed__12_System_Collections_IEnumerator_Reset_mEE8DB6E6C9FE8F483A6C4D244AD85C52BA1A50F4_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3CHideSliderAfterSecondsU3Ed__18_System_Collections_IEnumerator_Reset_m794091AF7D9CBEB40E940C1AD4F32258A79AFA81_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3CMoveTowardCameraU3Ed__18_System_Collections_IEnumerator_Reset_mB932ACFDBB0E74D7E0C102EF59659CFEA5AA82F4_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* U3CRevertAfterDelayU3Ed__16_System_Collections_IEnumerator_Reset_m0F0F699775F103B7673442E30A1EC45031790A6B_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3CStartDelayU3Ed__11_System_Collections_IEnumerator_Reset_mBBF8CBD341002CA190DE75AC4864E0CC1D55D2BD_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* U3CTransitionColorU3Ed__14_System_Collections_IEnumerator_Reset_mB0E2F1E3149287189CD2DB2E121FECF5D3C70F79_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* U3CTransitionColorU3Ed__17_System_Collections_IEnumerator_Reset_m93FE702F4D8D2D14B2879D0741631497B543FEC3_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* UnityEvent_1_AddListener_m44E396BC4484BD75427FDD8CBE0B533CCAD8C1EC_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* UnityEvent_1_AddListener_mAE71681FB0832FD7DBA813E5ADDBA574EA32EED2_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* UnityEvent_1_AddListener_mB662756036996A6B6F83F6492CE9E26797AF9602_RuntimeMethod_var;
@@ -832,6 +833,13 @@ struct U3CStartDelayU3Ed__11_t30E319CCBE7D23E7026D92241D11DD660006B052  : public
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
 	Callout_t77190B04DFF0BAEAB37B7015FEA730514DE0E372* ___U3CU3E4__this;
+};
+struct U3CRevertAfterDelayU3Ed__16_t6BB2A67B5DD725CE9CF61DC6AF624D246FC30D4B  : public RuntimeObject
+{
+	int32_t ___U3CU3E1__state;
+	RuntimeObject* ___U3CU3E2__current;
+	float ___delay;
+	ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* ___U3CU3E4__this;
 };
 struct U3CDestroyAfterSoundU3Ed__29_tBFD5F8451A01F97D864CE289DC73D10E09A35B25  : public RuntimeObject
 {
@@ -1701,10 +1709,6 @@ struct FontWeight_tA2585C0A73B70D31CE71E7843149098A5E16BC80
 {
 	int32_t ___value__;
 };
-struct ForceMode_t603F3ECB085E4FDD30C91273A469047EA64F4459 
-{
-	int32_t ___value__;
-};
 struct GlyphRenderMode_tE7FB60827750662A45E89D168932FE2D8AEB5281 
 {
 	int32_t ___value__;
@@ -1916,10 +1920,6 @@ struct ReflectionProbeRefreshMode_tB0E2E262AF4202160FD065066BB6575EAF8911FC
 {
 	int32_t ___value__;
 };
-struct RigidbodyConstraints_tE93C9173FB4F24EF4D38166A288214D28D8E85C8 
-{
-	int32_t ___value__;
-};
 struct RigidbodyInterpolation_tE2BE80352B0D72DB26B81EFD5A0845DEFEE994F8 
 {
 	int32_t ___value__;
@@ -2033,7 +2033,7 @@ struct UpdateType_tDBF977C5FAC5330429C3A5613766F42C8FF1C1D6
 {
 	int32_t ___value__;
 };
-struct U3CTransitionColorU3Ed__14_t84CFC1D43563071560CBB09F0D4BB48809D06740  : public RuntimeObject
+struct U3CTransitionColorU3Ed__17_tA39E844756345CD5EDA920AE625424B8A80854BE  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -2257,9 +2257,6 @@ struct Navigation_t4D2E201D65749CF4E104E8AC1232CF1D6F14795C_marshaled_com
 	Selectable_t3251808068A17B8E92FB33590A4C2FA66D456712* ___m_SelectOnDown;
 	Selectable_t3251808068A17B8E92FB33590A4C2FA66D456712* ___m_SelectOnLeft;
 	Selectable_t3251808068A17B8E92FB33590A4C2FA66D456712* ___m_SelectOnRight;
-};
-struct PhysicsMaterial_t2949C5AB81E97E3B99B71EAFA5966CB89A9BEB1C  : public Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C
-{
 };
 struct PointerEventData_t9670F3C7D823CCB738A1604C72A1EB90292396FB  : public BaseEventData_tE03A848325C0AE8E76C6CA15FD86395EBF83364F
 {
@@ -2965,6 +2962,7 @@ struct CalloutGazeController_t968951EF07E856BE01FEC52D878133D40F195204  : public
 };
 struct ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
+	Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* ___revertCoroutine;
 	int32_t ___surfaceType;
 	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___originalColor;
 	float ___colorTransitionSpeed;
@@ -2976,17 +2974,6 @@ struct ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E  : public Mon
 	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___targetColor;
 	bool ___isTransitioning;
 	Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* ___colorCoroutine;
-};
-struct ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
-{
-	float ___targetSpeed;
-	float ___acceleration;
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___localDirection;
-	Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* ___beltRenderer;
-	float ___textureScrollSpeed;
-	bool ___isActive;
-	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___beltMaterial;
-	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___currentOffset;
 };
 struct CubeCollisionSound_tD924DCF0275C48FBB83C49625FE5116CF837A300  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -5209,11 +5196,14 @@ inline MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* Component_GetComp
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F Material_get_color_mA4B7D4B96200D9D8B4F36BF19957E9DA81071DBB (Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ColorReactiveWall_TransitionColor_mF74F34D56EB583EBF2471AE9AF35CAD834E00700 (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* __this, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___0_target, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CTransitionColorU3Ed__14__ctor_m8CAC8EAD28668DBB1BF1A1DCDE6EC7A6045CC6FA (U3CTransitionColorU3Ed__14_t84CFC1D43563071560CBB09F0D4BB48809D06740* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ColorReactiveWall_RevertAfterDelay_m47494E43E4843BF1ED982775DCA2A819E2D8C549 (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* __this, float ___0_delay, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CRevertAfterDelayU3Ed__16__ctor_m38C6EF6C67CB697B86B801EF072D5B0943AE022B (U3CRevertAfterDelayU3Ed__16_t6BB2A67B5DD725CE9CF61DC6AF624D246FC30D4B* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CTransitionColorU3Ed__17__ctor_m8B11EB3549BE8F8F5071E331281E5CAB2E4BDA69 (U3CTransitionColorU3Ed__17_tA39E844756345CD5EDA920AE625424B8A80854BE* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ColorReactiveWall_GetSurfaceGizmoColor_m800377C91521FE20C84344EBE8BA01D548766C81 (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Gizmos_DrawWireCube_m343533B3955A2D04A8638280D0EF537274A1FD8B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_center, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_size, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F Color_get_cyan_m182A29E7475C0A98ACC03E1CF5252BAB83F0BA31_inline (const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F Color_get_gray_m6D01087E0F20F34718EBA5B213853B4BB49F1DEF (const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_ResetColor_m0E14A88EBD217F7C92B58D32699D34B49D96B8BE (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* __this, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F Color_Lerp_mE79F87889843ECDC188E4CB5B5E1F1B2256E5EBE_inline (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___0_a, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___1_b, float ___2_t, const RuntimeMethod* method) ;
 inline Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* Component_GetComponent_TisRigidbody_t268697F5A994213ED97393309870968BC1C7393C_m4B5CAD64B52D153BEA96432633CA9A45FA523DD8 (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, const RuntimeMethod* method)
 {
@@ -5233,13 +5223,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody_set_linearVelocity_m29AE03D5FC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody_set_angularVelocity_m23266B4E52BF0D2E65CC984AC73CC40B8D4A27E0 (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody_set_linearDamping_m42BB8ADA5D26250A11256502D08BDC2DAB980242 (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, float ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody_set_angularDamping_m2763171B779080FC724173D87C34015ABED51671 (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, float ___0_value, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_ResetColor_m0E14A88EBD217F7C92B58D32699D34B49D96B8BE (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* Collision_get_gameObject_m846FADBCA43E1849D3FE4D5EA44C02D055A70B3E (Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* __this, const RuntimeMethod* method) ;
 inline ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* GameObject_GetComponent_TisColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E_m6F89870BD7C9AAC5339EF91F26D3D9B7F3B44173 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method)
 {
 	return ((  ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* (*) (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*, const RuntimeMethod*))GameObject_GetComponent_TisRuntimeObject_m6EAED4AA356F0F48288F67899E5958792395563B_gshared)(__this, method);
 }
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_ChangeColor_mE4BAB0780020553AE67ED5507E1BEAFD27B0400B (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* __this, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___0_newColor, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_ChangeColorInstant_m69CBF71E6D7AF801DCA117A5BB1609D47C82EFED (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* __this, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___0_newColor, float ___1_revertDelay, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ApplySurfaceEffects_mF691A6A36E056E9FD7A2DAC9934BE7DD88142B20 (MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* __this, int32_t ___0_surfaceType, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AudioSource_set_volume_mD902BBDBBDE0E3C148609BF3C05096148E90F2C0 (AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* __this, float ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AudioSource_set_clip_mFF441895E274286C88D9C75ED5CA1B1B39528D70 (AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* __this, AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___0_value, const RuntimeMethod* method) ;
@@ -5372,14 +5361,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 Quaternion_LookRotation_mFB02EDC8F733774DFAC3BEA4B4BB265A228F8307 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_forward, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_upwards, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 Quaternion_Slerp_m0A9969F500E7716EA4F6BC4E7D5464372D8E9E15 (Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___0_a, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___1_b, float ___2_t, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Action_Invoke_m7126A54DACA72B845424072887B5F3A51FC3808E_inline (Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* __this, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Collider_set_sharedMaterial_mA67DC663BEEBE9315F3B91A0B74B31D33579CD7D (Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* __this, PhysicsMaterial_t2949C5AB81E97E3B99B71EAFA5966CB89A9BEB1C* ___0_value, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_set_mainTextureOffset_m87C139F275814719F9A10709C34E2132DFEB7A12 (Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___0_value, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Transform_TransformDirection_m9BE1261DF2D48B7A4A27D31EE24D2D97F89E7757 (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_direction, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B (Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* __this, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody_set_constraints_mE81BF0DAEB980E320538231E092CA4663885A9A3 (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, int32_t ___0_value, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Rigidbody_get_linearVelocity_m367F5415641E5FB968440A91BAE2FCB8CAEA2C8C (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody_AddForce_mBDBC288D0E266BC1B62E3649B4FCE46E7EA9CCBC (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_force, int32_t ___1_mode, const RuntimeMethod* method) ;
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 Vector2_get_zero_m32506C40EC2EE7D5D4410BF40D3EE683A3D5F32C_inline (const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Color__ctor_m3786F0D6E510D9CFA544523A955870BD2A514C8C_inline (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F* __this, float ___0_r, float ___1_g, float ___2_b, float ___3_a, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 Quaternion_Internal_FromEulerRad_m66D4475341F53949471E6870FB5C5E4A5E9BA93E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_euler, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Bounds_get_extents_mFE6DC407FCE2341BE2C750CB554055D211281D25_inline (Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3* __this, const RuntimeMethod* method) ;
@@ -17833,12 +17814,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_Awake_m6F93D95EFBF2351
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:40>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:41>
 		MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* L_0;
 		L_0 = Component_GetComponent_TisMeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE_m0EDA0079FA3617687C4A28623B79A37D618D9CFB(__this, Component_GetComponent_TisMeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE_m0EDA0079FA3617687C4A28623B79A37D618D9CFB_RuntimeMethod_var);
 		__this->___meshRenderer = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___meshRenderer), (void*)L_0);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:41>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:42>
 		MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* L_1 = __this->___meshRenderer;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_2;
@@ -17849,27 +17830,27 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_Awake_m6F93D95EFBF2351
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:44>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:45>
 		MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* L_3 = __this->___meshRenderer;
 		NullCheck(L_3);
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_4;
 		L_4 = Renderer_get_material_m5BA2A00816C4CC66580D4B2E409CF10718C15656(L_3, NULL);
 		__this->___material = L_4;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___material), (void*)L_4);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:45>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:46>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_5 = __this->___material;
 		NullCheck(L_5);
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_6;
 		L_6 = Material_get_color_mA4B7D4B96200D9D8B4F36BF19957E9DA81071DBB(L_5, NULL);
 		__this->___originalColor = L_6;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:46>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:47>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_7 = __this->___originalColor;
 		__this->___targetColor = L_7;
 	}
 
 IL_0048:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:48>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:49>
 		return;
 	}
 }
@@ -17885,7 +17866,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_ChangeColor_mE4BAB0780
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:52>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:54>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_0 = __this->___material;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -17896,13 +17877,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_ChangeColor_mE4BAB0780
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:52>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:54>
 		return;
 	}
 
 IL_000f:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:55>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:57>
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_2 = __this->___colorCoroutine;
 		if (!L_2)
 		{
@@ -17910,20 +17891,20 @@ IL_000f:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:57>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:59>
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_3 = __this->___colorCoroutine;
 		MonoBehaviour_StopCoroutine_mB0FC91BE84203BD8E360B3FBAE5B958B4C5ED22A(__this, L_3, NULL);
 	}
 
 IL_0023:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:61>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:63>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_4 = ___0_newColor;
 		float L_5 = __this->___colorIntensity;
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_6;
 		L_6 = Color_op_Multiply_m379B20A820266ACF82A21425B9CAE8DCD773CFBB_inline(L_4, L_5, NULL);
 		__this->___targetColor = L_6;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:62>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:64>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_7 = __this->___targetColor;
 		RuntimeObject* L_8;
 		L_8 = ColorReactiveWall_TransitionColor_mF74F34D56EB583EBF2471AE9AF35CAD834E00700(__this, L_7, NULL);
@@ -17931,7 +17912,7 @@ IL_0023:
 		L_9 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_8, NULL);
 		__this->___colorCoroutine = L_9;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___colorCoroutine), (void*)L_9);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:65>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:67>
 		bool L_10 = __this->___useEmission;
 		if (!L_10)
 		{
@@ -17939,11 +17920,11 @@ IL_0023:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:67>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:69>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_11 = __this->___material;
 		NullCheck(L_11);
 		Material_EnableKeyword_mE8523EF6CF694284DF976D47ADEDE9363A1174AC(L_11, _stringLiteral72D498F039FD562896966E064E8315EA0BCE68C5, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:68>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:70>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_12 = __this->___material;
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_13 = ___0_newColor;
 		float L_14 = __this->___emissionIntensity;
@@ -17955,7 +17936,7 @@ IL_0023:
 
 IL_0081:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:70>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:72>
 		return;
 	}
 }
@@ -17970,7 +17951,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_ResetColor_m0E14A88EBD
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:74>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:76>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_0 = __this->___material;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -17981,13 +17962,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_ResetColor_m0E14A88EBD
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:74>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:76>
 		return;
 	}
 
 IL_000f:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:77>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:79>
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_2 = __this->___colorCoroutine;
 		if (!L_2)
 		{
@@ -17995,78 +17976,207 @@ IL_000f:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:79>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:81>
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_3 = __this->___colorCoroutine;
 		MonoBehaviour_StopCoroutine_mB0FC91BE84203BD8E360B3FBAE5B958B4C5ED22A(__this, L_3, NULL);
 	}
 
 IL_0023:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:82>
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_4 = __this->___originalColor;
-		__this->___targetColor = L_4;
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:83>
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_5 = __this->___originalColor;
-		RuntimeObject* L_6;
-		L_6 = ColorReactiveWall_TransitionColor_mF74F34D56EB583EBF2471AE9AF35CAD834E00700(__this, L_5, NULL);
-		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_7;
-		L_7 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_6, NULL);
-		__this->___colorCoroutine = L_7;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___colorCoroutine), (void*)L_7);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:86>
-		bool L_8 = __this->___useEmission;
-		if (!L_8)
+		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_4 = __this->___revertCoroutine;
+		if (!L_4)
 		{
-			goto IL_0064;
+			goto IL_003e;
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:88>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_9 = __this->___material;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_10;
-		L_10 = Color_get_black_mB50217951591A045844C61E7FF31EEE3FEF16737_inline(NULL);
-		NullCheck(L_9);
-		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_9, _stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466, L_10, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:85>
+		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_5 = __this->___revertCoroutine;
+		MonoBehaviour_StopCoroutine_mB0FC91BE84203BD8E360B3FBAE5B958B4C5ED22A(__this, L_5, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:86>
+		__this->___revertCoroutine = (Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B*)NULL;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___revertCoroutine), (void*)(Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B*)NULL);
 	}
 
-IL_0064:
+IL_003e:
 	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:89>
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_6 = __this->___originalColor;
+		__this->___targetColor = L_6;
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:90>
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_7 = __this->___originalColor;
+		RuntimeObject* L_8;
+		L_8 = ColorReactiveWall_TransitionColor_mF74F34D56EB583EBF2471AE9AF35CAD834E00700(__this, L_7, NULL);
+		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_9;
+		L_9 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_8, NULL);
+		__this->___colorCoroutine = L_9;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___colorCoroutine), (void*)L_9);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:91>
+		bool L_10 = __this->___useEmission;
+		if (!L_10)
+		{
+			goto IL_007f;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:93>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_11 = __this->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_12;
+		L_12 = Color_get_black_mB50217951591A045844C61E7FF31EEE3FEF16737_inline(NULL);
+		NullCheck(L_11);
+		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_11, _stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466, L_12, NULL);
+	}
+
+IL_007f:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:95>
 		return;
 	}
 }
 // Method Definition Index: 79474
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_ChangeColorInstant_m69CBF71E6D7AF801DCA117A5BB1609D47C82EFED (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* __this, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___0_newColor, float ___1_revertDelay, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral72D498F039FD562896966E064E8315EA0BCE68C5);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:102>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_0 = __this->___material;
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_1;
+		L_1 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_1)
+		{
+			goto IL_000f;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:102>
+		return;
+	}
+
+IL_000f:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:104>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_2 = __this->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_3 = ___0_newColor;
+		float L_4 = __this->___colorIntensity;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_5;
+		L_5 = Color_op_Multiply_m379B20A820266ACF82A21425B9CAE8DCD773CFBB_inline(L_3, L_4, NULL);
+		NullCheck(L_2);
+		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(L_2, L_5, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:105>
+		bool L_6 = __this->___useEmission;
+		if (!L_6)
+		{
+			goto IL_005a;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:107>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_7 = __this->___material;
+		NullCheck(L_7);
+		Material_EnableKeyword_mE8523EF6CF694284DF976D47ADEDE9363A1174AC(L_7, _stringLiteral72D498F039FD562896966E064E8315EA0BCE68C5, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:108>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_8 = __this->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_9 = ___0_newColor;
+		float L_10 = __this->___emissionIntensity;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_11;
+		L_11 = Color_op_Multiply_m379B20A820266ACF82A21425B9CAE8DCD773CFBB_inline(L_9, L_10, NULL);
+		NullCheck(L_8);
+		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_8, _stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466, L_11, NULL);
+	}
+
+IL_005a:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:111>
+		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_12 = __this->___revertCoroutine;
+		if (!L_12)
+		{
+			goto IL_006e;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:113>
+		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_13 = __this->___revertCoroutine;
+		MonoBehaviour_StopCoroutine_mB0FC91BE84203BD8E360B3FBAE5B958B4C5ED22A(__this, L_13, NULL);
+	}
+
+IL_006e:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:115>
+		float L_14 = ___1_revertDelay;
+		RuntimeObject* L_15;
+		L_15 = ColorReactiveWall_RevertAfterDelay_m47494E43E4843BF1ED982775DCA2A819E2D8C549(__this, L_14, NULL);
+		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_16;
+		L_16 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_15, NULL);
+		__this->___revertCoroutine = L_16;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___revertCoroutine), (void*)L_16);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:116>
+		return;
+	}
+}
+// Method Definition Index: 79475
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ColorReactiveWall_RevertAfterDelay_m47494E43E4843BF1ED982775DCA2A819E2D8C549 (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* __this, float ___0_delay, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CRevertAfterDelayU3Ed__16_t6BB2A67B5DD725CE9CF61DC6AF624D246FC30D4B_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		U3CRevertAfterDelayU3Ed__16_t6BB2A67B5DD725CE9CF61DC6AF624D246FC30D4B* L_0 = (U3CRevertAfterDelayU3Ed__16_t6BB2A67B5DD725CE9CF61DC6AF624D246FC30D4B*)il2cpp_codegen_object_new(U3CRevertAfterDelayU3Ed__16_t6BB2A67B5DD725CE9CF61DC6AF624D246FC30D4B_il2cpp_TypeInfo_var);
+		U3CRevertAfterDelayU3Ed__16__ctor_m38C6EF6C67CB697B86B801EF072D5B0943AE022B(L_0, 0, NULL);
+		U3CRevertAfterDelayU3Ed__16_t6BB2A67B5DD725CE9CF61DC6AF624D246FC30D4B* L_1 = L_0;
+		NullCheck(L_1);
+		L_1->___U3CU3E4__this = __this;
+		Il2CppCodeGenWriteBarrier((void**)(&L_1->___U3CU3E4__this), (void*)__this);
+		U3CRevertAfterDelayU3Ed__16_t6BB2A67B5DD725CE9CF61DC6AF624D246FC30D4B* L_2 = L_1;
+		float L_3 = ___0_delay;
+		NullCheck(L_2);
+		L_2->___delay = L_3;
+		return L_2;
+	}
+}
+// Method Definition Index: 79476
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ColorReactiveWall_TransitionColor_mF74F34D56EB583EBF2471AE9AF35CAD834E00700 (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* __this, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___0_target, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CTransitionColorU3Ed__14_t84CFC1D43563071560CBB09F0D4BB48809D06740_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CTransitionColorU3Ed__17_tA39E844756345CD5EDA920AE625424B8A80854BE_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		U3CTransitionColorU3Ed__14_t84CFC1D43563071560CBB09F0D4BB48809D06740* L_0 = (U3CTransitionColorU3Ed__14_t84CFC1D43563071560CBB09F0D4BB48809D06740*)il2cpp_codegen_object_new(U3CTransitionColorU3Ed__14_t84CFC1D43563071560CBB09F0D4BB48809D06740_il2cpp_TypeInfo_var);
-		U3CTransitionColorU3Ed__14__ctor_m8CAC8EAD28668DBB1BF1A1DCDE6EC7A6045CC6FA(L_0, 0, NULL);
-		U3CTransitionColorU3Ed__14_t84CFC1D43563071560CBB09F0D4BB48809D06740* L_1 = L_0;
+		U3CTransitionColorU3Ed__17_tA39E844756345CD5EDA920AE625424B8A80854BE* L_0 = (U3CTransitionColorU3Ed__17_tA39E844756345CD5EDA920AE625424B8A80854BE*)il2cpp_codegen_object_new(U3CTransitionColorU3Ed__17_tA39E844756345CD5EDA920AE625424B8A80854BE_il2cpp_TypeInfo_var);
+		U3CTransitionColorU3Ed__17__ctor_m8B11EB3549BE8F8F5071E331281E5CAB2E4BDA69(L_0, 0, NULL);
+		U3CTransitionColorU3Ed__17_tA39E844756345CD5EDA920AE625424B8A80854BE* L_1 = L_0;
 		NullCheck(L_1);
 		L_1->___U3CU3E4__this = __this;
 		Il2CppCodeGenWriteBarrier((void**)(&L_1->___U3CU3E4__this), (void*)__this);
-		U3CTransitionColorU3Ed__14_t84CFC1D43563071560CBB09F0D4BB48809D06740* L_2 = L_1;
+		U3CTransitionColorU3Ed__17_tA39E844756345CD5EDA920AE625424B8A80854BE* L_2 = L_1;
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_3 = ___0_target;
 		NullCheck(L_2);
 		L_2->___target = L_3;
 		return L_2;
 	}
 }
-// Method Definition Index: 79475
+// Method Definition Index: 79477
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_OnDrawGizmosSelected_m14DC6A4A20B3F2A781253B49AA719372674591E2 (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:114>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:146>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_0;
 		L_0 = ColorReactiveWall_GetSurfaceGizmoColor_m800377C91521FE20C84344EBE8BA01D548766C81(__this, NULL);
 		Gizmos_set_color_m53927A2741937484180B20B55F7F20F8F60C5797(L_0, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:115>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:147>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_1;
 		L_1 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
 		NullCheck(L_1);
@@ -18080,16 +18190,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_OnDrawGizmosSelected_m
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_5;
 		L_5 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_4, (1.00999999f), NULL);
 		Gizmos_DrawWireCube_m343533B3955A2D04A8638280D0EF537274A1FD8B(L_2, L_5, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:116>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:148>
 		return;
 	}
 }
-// Method Definition Index: 79476
+// Method Definition Index: 79478
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ColorReactiveWall_GetSurfaceGizmoColor_m800377C91521FE20C84344EBE8BA01D548766C81 (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* __this, const RuntimeMethod* method) 
 {
 	int32_t V_0 = 0;
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:120>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:152>
 		int32_t L_0 = __this->___surfaceType;
 		V_0 = L_0;
 		int32_t L_1 = V_0;
@@ -18123,7 +18233,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C
 
 IL_0023:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:122>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:154>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_2;
 		L_2 = Color_get_cyan_m182A29E7475C0A98ACC03E1CF5252BAB83F0BA31_inline(NULL);
 		return L_2;
@@ -18131,7 +18241,7 @@ IL_0023:
 
 IL_0029:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:123>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:155>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_3;
 		L_3 = Color_get_gray_m6D01087E0F20F34718EBA5B213853B4BB49F1DEF(NULL);
 		return L_3;
@@ -18139,7 +18249,7 @@ IL_0029:
 
 IL_002f:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:124>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:156>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_4;
 		memset((&L_4), 0, sizeof(L_4));
 		Color__ctor_mCD6889CDE39F18704CD6EA8E2EFBFA48BA3E13B0_inline((&L_4), (0.600000024f), (0.300000012f), (0.100000001f), NULL);
@@ -18148,7 +18258,7 @@ IL_002f:
 
 IL_0044:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:125>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:157>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_5;
 		L_5 = Color_get_white_m068F5AF879B0FCA584E3693F762EA41BB65532C6_inline(NULL);
 		return L_5;
@@ -18156,7 +18266,7 @@ IL_0044:
 
 IL_004a:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:126>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:158>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_6;
 		memset((&L_6), 0, sizeof(L_6));
 		Color__ctor_mCD6889CDE39F18704CD6EA8E2EFBFA48BA3E13B0_inline((&L_6), (0.400000006f), (0.400000006f), (0.349999994f), NULL);
@@ -18165,29 +18275,29 @@ IL_004a:
 
 IL_005f:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:127>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:159>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_7;
 		L_7 = Color_get_white_m068F5AF879B0FCA584E3693F762EA41BB65532C6_inline(NULL);
 		return L_7;
 	}
 }
-// Method Definition Index: 79477
+// Method Definition Index: 79479
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall__ctor_mE97452B807D683D34375455ACA18D69F472B77D8 (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:21>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:22>
 		__this->___surfaceType = 1;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:24>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:25>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_0;
 		L_0 = Color_get_gray_m6D01087E0F20F34718EBA5B213853B4BB49F1DEF(NULL);
 		__this->___originalColor = L_0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:25>
-		__this->___colorTransitionSpeed = (5.0f);
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:26>
+		__this->___colorTransitionSpeed = (5.0f);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:27>
 		__this->___colorIntensity = (1.5f);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:29>
-		__this->___useEmission = (bool)1;
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:30>
+		__this->___useEmission = (bool)1;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:31>
 		__this->___emissionIntensity = (0.800000012f);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
@@ -18201,8 +18311,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall__ctor_mE97452B807D683D
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79478
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CTransitionColorU3Ed__14__ctor_m8CAC8EAD28668DBB1BF1A1DCDE6EC7A6045CC6FA (U3CTransitionColorU3Ed__14_t84CFC1D43563071560CBB09F0D4BB48809D06740* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
+// Method Definition Index: 79480
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CRevertAfterDelayU3Ed__16__ctor_m38C6EF6C67CB697B86B801EF072D5B0943AE022B (U3CRevertAfterDelayU3Ed__16_t6BB2A67B5DD725CE9CF61DC6AF624D246FC30D4B* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
 		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2(__this, NULL);
@@ -18211,15 +18321,122 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CTransitionColorU3Ed__14__ctor_m8CAC8E
 		return;
 	}
 }
-// Method Definition Index: 79479
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CTransitionColorU3Ed__14_System_IDisposable_Dispose_mC48080E7EA6B27BA7BBED37832CE44615420F08F (U3CTransitionColorU3Ed__14_t84CFC1D43563071560CBB09F0D4BB48809D06740* __this, const RuntimeMethod* method) 
+// Method Definition Index: 79481
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CRevertAfterDelayU3Ed__16_System_IDisposable_Dispose_m715DB05436B1B5CBAE360B3C9088A8EED494A12E (U3CRevertAfterDelayU3Ed__16_t6BB2A67B5DD725CE9CF61DC6AF624D246FC30D4B* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 79480
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CTransitionColorU3Ed__14_MoveNext_m4AE868C06AED1346BC34BF5F248EAE95330ADBFB (U3CTransitionColorU3Ed__14_t84CFC1D43563071560CBB09F0D4BB48809D06740* __this, const RuntimeMethod* method) 
+// Method Definition Index: 79482
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CRevertAfterDelayU3Ed__16_MoveNext_mA497369DDDFF833CAD0A25E1C3C4D18167B47022 (U3CRevertAfterDelayU3Ed__16_t6BB2A67B5DD725CE9CF61DC6AF624D246FC30D4B* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	int32_t V_0 = 0;
+	ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* V_1 = NULL;
+	{
+		int32_t L_0 = __this->___U3CU3E1__state;
+		V_0 = L_0;
+		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_1 = __this->___U3CU3E4__this;
+		V_1 = L_1;
+		int32_t L_2 = V_0;
+		if (!L_2)
+		{
+			goto IL_0017;
+		}
+	}
+	{
+		int32_t L_3 = V_0;
+		if ((((int32_t)L_3) == ((int32_t)1)))
+		{
+			goto IL_0038;
+		}
+	}
+	{
+		return (bool)0;
+	}
+
+IL_0017:
+	{
+		__this->___U3CU3E1__state = (-1);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:120>
+		float L_4 = __this->___delay;
+		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_5 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
+		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_5, L_4, NULL);
+		__this->___U3CU3E2__current = L_5;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CU3E2__current), (void*)L_5);
+		__this->___U3CU3E1__state = 1;
+		return (bool)1;
+	}
+
+IL_0038:
+	{
+		__this->___U3CU3E1__state = (-1);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:121>
+		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_6 = V_1;
+		NullCheck(L_6);
+		ColorReactiveWall_ResetColor_m0E14A88EBD217F7C92B58D32699D34B49D96B8BE(L_6, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:122>
+		return (bool)0;
+	}
+}
+// Method Definition Index: 79483
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CRevertAfterDelayU3Ed__16_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mC89C8682338E9EFD47566779BEA574193675E14E (U3CRevertAfterDelayU3Ed__16_t6BB2A67B5DD725CE9CF61DC6AF624D246FC30D4B* __this, const RuntimeMethod* method) 
+{
+	{
+		RuntimeObject* L_0 = __this->___U3CU3E2__current;
+		return L_0;
+	}
+}
+// Method Definition Index: 79484
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CRevertAfterDelayU3Ed__16_System_Collections_IEnumerator_Reset_m0F0F699775F103B7673442E30A1EC45031790A6B (U3CRevertAfterDelayU3Ed__16_t6BB2A67B5DD725CE9CF61DC6AF624D246FC30D4B* __this, const RuntimeMethod* method) 
+{
+	{
+		NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A* L_0 = (NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A_il2cpp_TypeInfo_var)));
+		NotSupportedException__ctor_m1398D0CDE19B36AA3DE9392879738C1EA2439CDF(L_0, NULL);
+		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CRevertAfterDelayU3Ed__16_System_Collections_IEnumerator_Reset_m0F0F699775F103B7673442E30A1EC45031790A6B_RuntimeMethod_var)));
+	}
+}
+// Method Definition Index: 79485
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CRevertAfterDelayU3Ed__16_System_Collections_IEnumerator_get_Current_m2C5EBDD6CB1C910A112EDF55C0AB90904886A6F2 (U3CRevertAfterDelayU3Ed__16_t6BB2A67B5DD725CE9CF61DC6AF624D246FC30D4B* __this, const RuntimeMethod* method) 
+{
+	{
+		RuntimeObject* L_0 = __this->___U3CU3E2__current;
+		return L_0;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// Method Definition Index: 79486
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CTransitionColorU3Ed__17__ctor_m8B11EB3549BE8F8F5071E331281E5CAB2E4BDA69 (U3CTransitionColorU3Ed__17_tA39E844756345CD5EDA920AE625424B8A80854BE* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
+{
+	{
+		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2(__this, NULL);
+		int32_t L_0 = ___0_U3CU3E1__state;
+		__this->___U3CU3E1__state = L_0;
+		return;
+	}
+}
+// Method Definition Index: 79487
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CTransitionColorU3Ed__17_System_IDisposable_Dispose_mED04E429CD9D13906342763D7EEB00FBD5CD8EC3 (U3CTransitionColorU3Ed__17_tA39E844756345CD5EDA920AE625424B8A80854BE* __this, const RuntimeMethod* method) 
+{
+	{
+		return;
+	}
+}
+// Method Definition Index: 79488
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CTransitionColorU3Ed__17_MoveNext_mA15FB63D1419E2842D37CB636EBB64701AB5545F (U3CTransitionColorU3Ed__17_tA39E844756345CD5EDA920AE625424B8A80854BE* __this, const RuntimeMethod* method) 
 {
 	int32_t V_0 = 0;
 	ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* V_1 = NULL;
@@ -18249,11 +18466,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CTransitionColorU3Ed__14_MoveNext_m4AE
 IL_001a:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:94>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:126>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_4 = V_1;
 		NullCheck(L_4);
 		L_4->___isTransitioning = (bool)1;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:95>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:127>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_5 = V_1;
 		NullCheck(L_5);
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_6 = L_5->___material;
@@ -18261,9 +18478,9 @@ IL_001a:
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_7;
 		L_7 = Material_get_color_mA4B7D4B96200D9D8B4F36BF19957E9DA81071DBB(L_6, NULL);
 		__this->___U3CstartColorU3E5__2 = L_7;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:96>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:128>
 		__this->___U3CelapsedU3E5__3 = (0.0f);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:97>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:129>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_8 = V_1;
 		NullCheck(L_8);
 		float L_9 = L_8->___colorTransitionSpeed;
@@ -18273,16 +18490,16 @@ IL_001a:
 
 IL_0058:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:101>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:133>
 		float L_10 = __this->___U3CelapsedU3E5__3;
 		float L_11;
 		L_11 = Time_get_deltaTime_mC3195000401F0FD167DD2F948FD2BC58330D0865(NULL);
 		__this->___U3CelapsedU3E5__3 = ((float)il2cpp_codegen_add(L_10, L_11));
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:102>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:134>
 		float L_12 = __this->___U3CelapsedU3E5__3;
 		float L_13 = __this->___U3CdurationU3E5__4;
 		V_2 = ((float)(L_12/L_13));
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:103>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:135>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_14 = V_1;
 		NullCheck(L_14);
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_15 = L_14->___material;
@@ -18293,7 +18510,7 @@ IL_0058:
 		L_19 = Color_Lerp_mE79F87889843ECDC188E4CB5B5E1F1B2256E5EBE_inline(L_16, L_17, L_18, NULL);
 		NullCheck(L_15);
 		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(L_15, L_19, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:104>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:136>
 		__this->___U3CU3E2__current = NULL;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CU3E2__current), (void*)NULL);
 		__this->___U3CU3E1__state = 1;
@@ -18307,7 +18524,7 @@ IL_00a5:
 
 IL_00ac:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:99>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:131>
 		float L_20 = __this->___U3CelapsedU3E5__3;
 		float L_21 = __this->___U3CdurationU3E5__4;
 		if ((((float)L_20) < ((float)L_21)))
@@ -18316,40 +18533,40 @@ IL_00ac:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:107>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:139>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_22 = V_1;
 		NullCheck(L_22);
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_23 = L_22->___material;
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_24 = __this->___target;
 		NullCheck(L_23);
 		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(L_23, L_24, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:108>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:140>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_25 = V_1;
 		NullCheck(L_25);
 		L_25->___isTransitioning = (bool)0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:109>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:141>
 		return (bool)0;
 	}
 }
-// Method Definition Index: 79481
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CTransitionColorU3Ed__14_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m3B38252A6D040EF6AD4B8D1EB53C31B4B981661F (U3CTransitionColorU3Ed__14_t84CFC1D43563071560CBB09F0D4BB48809D06740* __this, const RuntimeMethod* method) 
+// Method Definition Index: 79489
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CTransitionColorU3Ed__17_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mD92D91DA65ECFAC1762312D35597FD4BAA50FA2C (U3CTransitionColorU3Ed__17_tA39E844756345CD5EDA920AE625424B8A80854BE* __this, const RuntimeMethod* method) 
 {
 	{
 		RuntimeObject* L_0 = __this->___U3CU3E2__current;
 		return L_0;
 	}
 }
-// Method Definition Index: 79482
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CTransitionColorU3Ed__14_System_Collections_IEnumerator_Reset_mB0E2F1E3149287189CD2DB2E121FECF5D3C70F79 (U3CTransitionColorU3Ed__14_t84CFC1D43563071560CBB09F0D4BB48809D06740* __this, const RuntimeMethod* method) 
+// Method Definition Index: 79490
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CTransitionColorU3Ed__17_System_Collections_IEnumerator_Reset_m93FE702F4D8D2D14B2879D0741631497B543FEC3 (U3CTransitionColorU3Ed__17_tA39E844756345CD5EDA920AE625424B8A80854BE* __this, const RuntimeMethod* method) 
 {
 	{
 		NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A* L_0 = (NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A_il2cpp_TypeInfo_var)));
 		NotSupportedException__ctor_m1398D0CDE19B36AA3DE9392879738C1EA2439CDF(L_0, NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CTransitionColorU3Ed__14_System_Collections_IEnumerator_Reset_mB0E2F1E3149287189CD2DB2E121FECF5D3C70F79_RuntimeMethod_var)));
+		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CTransitionColorU3Ed__17_System_Collections_IEnumerator_Reset_m93FE702F4D8D2D14B2879D0741631497B543FEC3_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 79483
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CTransitionColorU3Ed__14_System_Collections_IEnumerator_get_Current_mA567359FC01B42A04A98B33A1D70C25DC1218788 (U3CTransitionColorU3Ed__14_t84CFC1D43563071560CBB09F0D4BB48809D06740* __this, const RuntimeMethod* method) 
+// Method Definition Index: 79491
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CTransitionColorU3Ed__17_System_Collections_IEnumerator_get_Current_mDC915AB156A0CE451BB4379D9780ECC7F257453A (U3CTransitionColorU3Ed__17_tA39E844756345CD5EDA920AE625424B8A80854BE* __this, const RuntimeMethod* method) 
 {
 	{
 		RuntimeObject* L_0 = __this->___U3CU3E2__current;
@@ -18364,7 +18581,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CTransitionColorU3Ed__14_Sys
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79484
+// Method Definition Index: 79492
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_Awake_m8579F9A2C65D0A6AC5F5F99F50D7EB1840378FCB (MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -18430,7 +18647,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_Awake_m8579F9A2C65D0A6AC5F5F99
 		return;
 	}
 }
-// Method Definition Index: 79485
+// Method Definition Index: 79493
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_Start_m0E7593D4B4F2377855F82737C203ACDCBC1DCA1F (MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -18440,7 +18657,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_Start_m0E7593D4B4F2377855F8273
 		return;
 	}
 }
-// Method Definition Index: 79486
+// Method Definition Index: 79494
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ApplyColor_mACD9FF04C6A8591E181C795A6701CAC7FDF48529 (MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -18558,7 +18775,7 @@ IL_008a:
 		return;
 	}
 }
-// Method Definition Index: 79487
+// Method Definition Index: 79495
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_SetFloating_m7015A0BA1736DEA9E94F12764C17FA9C79A066EE (MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* __this, bool ___0_floating, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -18626,16 +18843,16 @@ IL_0062:
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:124>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_11 = __this->___rb;
 		NullCheck(L_11);
-		Rigidbody_set_linearDamping_m42BB8ADA5D26250A11256502D08BDC2DAB980242(L_11, (0.100000001f), NULL);
+		Rigidbody_set_linearDamping_m42BB8ADA5D26250A11256502D08BDC2DAB980242(L_11, (0.00999999978f), NULL);
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:125>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_12 = __this->___rb;
 		NullCheck(L_12);
-		Rigidbody_set_angularDamping_m2763171B779080FC724173D87C34015ABED51671(L_12, (0.100000001f), NULL);
+		Rigidbody_set_angularDamping_m2763171B779080FC724173D87C34015ABED51671(L_12, (0.00999999978f), NULL);
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:127>
 		return;
 	}
 }
-// Method Definition Index: 79488
+// Method Definition Index: 79496
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnEnable_mC2F5AC5A55BF4861DE24A85CC1D1A438145F00C1 (MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -18672,7 +18889,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnEnable_mC2F5AC5A55BF4861DE24
 		return;
 	}
 }
-// Method Definition Index: 79489
+// Method Definition Index: 79497
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnDisable_mAE6FA568C7F3F3917F5F6B879EC230A88EFF2299 (MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -18709,7 +18926,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnDisable_mAE6FA568C7F3F3917F5
 		return;
 	}
 }
-// Method Definition Index: 79490
+// Method Definition Index: 79498
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnGrab_mBB16B68503BCB74D01D333164C8894EBB65A804C (MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* __this, SelectEnterEventArgs_t9220B1E6A9BB5A847C0476949ACE0182430BB938* ___0_args, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -18753,7 +18970,7 @@ IL_003c:
 		return;
 	}
 }
-// Method Definition Index: 79491
+// Method Definition Index: 79499
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnRelease_m50D2A4F653AE561A668582DF7A470E333D2E3435 (MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* __this, SelectExitEventArgs_t56125CE0360D37AC0B50EB6066B5AB5957EF559A* ___0_args, const RuntimeMethod* method) 
 {
 	{
@@ -18761,11 +18978,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnRelease_m50D2A4F653AE561A668
 		__this->___isGrabbed = (bool)0;
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:161>
 		__this->___hasBeenThrown = (bool)1;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:164>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:165>
 		return;
 	}
 }
-// Method Definition Index: 79492
+// Method Definition Index: 79500
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnCollisionEnter_m4564679A0BBFAB74084DBC742A7915F5B202461E (MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* __this, Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* ___0_collision, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -18782,7 +18999,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnCollisionEnter_m4564679A0BBF
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_4;
 	memset((&V_4), 0, sizeof(V_4));
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:169>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:170>
 		bool L_0 = __this->___isGrabbed;
 		if (L_0)
 		{
@@ -18799,13 +19016,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_OnCollisionEnter_m4564679A0BBF
 
 IL_0010:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:169>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:170>
 		return;
 	}
 
 IL_0011:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:171>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:172>
 		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_2 = ___0_collision;
 		NullCheck(L_2);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_3;
@@ -18814,7 +19031,7 @@ IL_0011:
 		float L_4;
 		L_4 = Vector3_get_magnitude_mF0D6017E90B345F1F52D1CC564C640F1A847AF2D_inline((&V_4), NULL);
 		V_0 = L_4;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:174>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:175>
 		float L_5 = V_0;
 		float L_6 = __this->___minVelocityThreshold;
 		if ((!(((float)L_5) < ((float)L_6))))
@@ -18823,15 +19040,15 @@ IL_0011:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:174>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:175>
 		return;
 	}
 
 IL_002b:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:176>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:177>
 		__this->___hasCollided = (bool)1;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:179>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:180>
 		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_7 = ___0_collision;
 		NullCheck(L_7);
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_8;
@@ -18840,52 +19057,52 @@ IL_002b:
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_9;
 		L_9 = GameObject_GetComponent_TisColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E_m6F89870BD7C9AAC5339EF91F26D3D9B7F3B44173(L_8, GameObject_GetComponent_TisColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E_m6F89870BD7C9AAC5339EF91F26D3D9B7F3B44173_RuntimeMethod_var);
 		V_1 = L_9;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:180>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:181>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_10 = V_1;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_11;
 		L_11 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_10, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
 		if (!L_11)
 		{
-			goto IL_0066;
+			goto IL_006b;
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:182>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:183>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_12 = V_1;
 		__this->___currentAffectedWall = L_12;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___currentAffectedWall), (void*)L_12);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:183>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:184>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_13 = V_1;
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_14 = __this->___cubeColor;
 		NullCheck(L_13);
-		ColorReactiveWall_ChangeColor_mE4BAB0780020553AE67ED5507E1BEAFD27B0400B(L_13, L_14, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:186>
+		ColorReactiveWall_ChangeColorInstant_m69CBF71E6D7AF801DCA117A5BB1609D47C82EFED(L_13, L_14, (1.5f), NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:187>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_15 = V_1;
 		NullCheck(L_15);
 		int32_t L_16 = L_15->___surfaceType;
 		MusicCube_ApplySurfaceEffects_mF691A6A36E056E9FD7A2DAC9934BE7DD88142B20(__this, L_16, NULL);
 	}
 
-IL_0066:
+IL_006b:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:190>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:191>
 		float L_17 = V_0;
 		float L_18 = __this->___maxVelocityForPitch;
 		float L_19;
 		L_19 = Mathf_Clamp01_mA7E048DBDA832D399A581BE4D6DED9FA44CE0F14_inline(((float)(L_17/L_18)), NULL);
 		V_2 = L_19;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:193>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:194>
 		float L_20 = V_2;
 		float L_21 = __this->___velocityToPitchInfluence;
 		V_3 = ((float)il2cpp_codegen_add((1.0f), ((float)il2cpp_codegen_multiply(L_20, L_21))));
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:194>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:195>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_22 = __this->___audioSource;
 		float L_23 = __this->___basePitch;
 		float L_24 = V_3;
 		NullCheck(L_22);
 		AudioSource_set_pitch_mD14631FC99BF38AAFB356D9C45546BC16CF9E811(L_22, ((float)il2cpp_codegen_multiply(L_23, L_24)), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:197>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:198>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_25 = __this->___audioSource;
 		float L_26 = __this->___baseVolume;
 		float L_27 = V_2;
@@ -18893,27 +19110,27 @@ IL_0066:
 		L_28 = Mathf_Lerp_m47EF2FFB7647BD0A1FDC26DC03E28B19812139B5_inline((0.5f), (1.0f), L_27, NULL);
 		NullCheck(L_25);
 		AudioSource_set_volume_mD902BBDBBDE0E3C148609BF3C05096148E90F2C0(L_25, ((float)il2cpp_codegen_multiply(L_26, L_28)), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:200>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:201>
 		AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* L_29 = __this->___assignedSound;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_30;
 		L_30 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_29, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
 		if (!L_30)
 		{
-			goto IL_00f0;
+			goto IL_00f5;
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:202>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:203>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_31 = __this->___audioSource;
 		AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* L_32 = __this->___assignedSound;
 		NullCheck(L_31);
 		AudioSource_set_clip_mFF441895E274286C88D9C75ED5CA1B1B39528D70(L_31, L_32, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:203>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:204>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_33 = __this->___audioSource;
 		NullCheck(L_33);
 		AudioSource_Play_m95DF07111C61D0E0F00257A00384D31531D590C3(L_33, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:206>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:207>
 		RuntimeObject* L_34;
 		L_34 = MusicCube_DestroyAfterSound_m1B51B5E13F8A3F0DD2372F54705A9345ADD0A944(__this, NULL);
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_35;
@@ -18921,18 +19138,18 @@ IL_0066:
 		return;
 	}
 
-IL_00f0:
+IL_00f5:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:211>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:212>
 		RuntimeObject* L_36;
 		L_36 = MusicCube_DestroyAndRespawn_mED6A5E93CA25C6E2B71D38D19E413707C2444521(__this, NULL);
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_37;
 		L_37 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_36, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:213>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:214>
 		return;
 	}
 }
-// Method Definition Index: 79493
+// Method Definition Index: 79501
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ApplySurfaceEffects_mF691A6A36E056E9FD7A2DAC9934BE7DD88142B20 (MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* __this, int32_t ___0_surfaceType, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -18951,11 +19168,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ApplySurfaceEffects_mF691A6A36
 	AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* V_1 = NULL;
 	AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* V_2 = NULL;
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:218>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:219>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_0;
 		L_0 = Component_GetComponent_TisAudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA_mCDAC0998DF5D3E32C23EC62382FB89DE47452BE0(__this, Component_GetComponent_TisAudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA_mCDAC0998DF5D3E32C23EC62382FB89DE47452BE0_RuntimeMethod_var);
 		V_0 = L_0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:219>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:220>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_1 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_2;
@@ -18966,7 +19183,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ApplySurfaceEffects_mF691A6A36
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:221>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:222>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_3;
 		L_3 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(__this, NULL);
 		NullCheck(L_3);
@@ -18977,11 +19194,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ApplySurfaceEffects_mF691A6A36
 
 IL_001c:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:225>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:226>
 		AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* L_5;
 		L_5 = Component_GetComponent_TisAudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0_m9F8683A8B36A02FD32E3B8345B770A2A35B5E235(__this, Component_GetComponent_TisAudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0_m9F8683A8B36A02FD32E3B8345B770A2A35B5E235_RuntimeMethod_var);
 		V_1 = L_5;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:226>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:227>
 		AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* L_6 = V_1;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_7;
@@ -18992,7 +19209,7 @@ IL_001c:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:228>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:229>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_8;
 		L_8 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(__this, NULL);
 		NullCheck(L_8);
@@ -19003,15 +19220,15 @@ IL_001c:
 
 IL_0038:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:230>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:231>
 		AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* L_10 = V_1;
 		NullCheck(L_10);
 		AudioLowPassFilter_set_cutoffFrequency_m593B7A476225759056C6DACCEBF92016FEE7B050(L_10, (22000.0f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:233>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:234>
 		AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* L_11;
 		L_11 = Component_GetComponent_TisAudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718_mC420EB1F9C8B83D80E71433667A23379B343D8FA(__this, Component_GetComponent_TisAudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718_mC420EB1F9C8B83D80E71433667A23379B343D8FA_RuntimeMethod_var);
 		V_2 = L_11;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:234>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:235>
 		AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* L_12 = V_2;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_13;
@@ -19022,7 +19239,7 @@ IL_0038:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:236>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:237>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_14;
 		L_14 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(__this, NULL);
 		NullCheck(L_14);
@@ -19033,7 +19250,7 @@ IL_0038:
 
 IL_005f:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:238>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:239>
 		AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* L_16 = V_2;
 		NullCheck(L_16);
 		AudioHighPassFilter_set_cutoffFrequency_mBD5636A124C598DC0B54B8338FF834F422DD676C(L_16, (10.0f), NULL);
@@ -19068,15 +19285,15 @@ IL_005f:
 
 IL_0085:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:244>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:245>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_18 = V_0;
 		NullCheck(L_18);
 		AudioReverbFilter_set_reverbPreset_mF0D458E66A09909A3363CB82045D324A15D0A35C(L_18, ((int32_t)13), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:245>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:246>
 		AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* L_19 = V_2;
 		NullCheck(L_19);
 		AudioHighPassFilter_set_cutoffFrequency_mBD5636A124C598DC0B54B8338FF834F422DD676C(L_19, (200.0f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:246>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:247>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_20 = __this->___audioSource;
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_21 = L_20;
 		NullCheck(L_21);
@@ -19084,31 +19301,31 @@ IL_0085:
 		L_22 = AudioSource_get_pitch_mB1B0B8A52400B5C798BF1E644FE1C2FFA20A9863(L_21, NULL);
 		NullCheck(L_21);
 		AudioSource_set_pitch_mD14631FC99BF38AAFB356D9C45546BC16CF9E811(L_21, ((float)il2cpp_codegen_multiply(L_22, (1.10000002f))), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:247>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:248>
 		return;
 	}
 
 IL_00b0:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:251>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:252>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_23 = V_0;
 		NullCheck(L_23);
 		AudioReverbFilter_set_reverbPreset_mF0D458E66A09909A3363CB82045D324A15D0A35C(L_23, ((int32_t)14), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:252>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:253>
 		return;
 	}
 
 IL_00b9:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:256>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:257>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_24 = V_0;
 		NullCheck(L_24);
 		AudioReverbFilter_set_reverbPreset_mF0D458E66A09909A3363CB82045D324A15D0A35C(L_24, 3, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:257>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:258>
 		AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* L_25 = V_1;
 		NullCheck(L_25);
 		AudioLowPassFilter_set_cutoffFrequency_m593B7A476225759056C6DACCEBF92016FEE7B050(L_25, (8000.0f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:258>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:259>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_26 = __this->___audioSource;
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_27 = L_26;
 		NullCheck(L_27);
@@ -19116,21 +19333,21 @@ IL_00b9:
 		L_28 = AudioSource_get_pitch_mB1B0B8A52400B5C798BF1E644FE1C2FFA20A9863(L_27, NULL);
 		NullCheck(L_27);
 		AudioSource_set_pitch_mD14631FC99BF38AAFB356D9C45546BC16CF9E811(L_27, ((float)il2cpp_codegen_multiply(L_28, (0.949999988f))), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:259>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:260>
 		return;
 	}
 
 IL_00e3:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:263>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:264>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_29 = V_0;
 		NullCheck(L_29);
 		AudioReverbFilter_set_reverbPreset_mF0D458E66A09909A3363CB82045D324A15D0A35C(L_29, 4, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:264>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:265>
 		AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* L_30 = V_2;
 		NullCheck(L_30);
 		AudioHighPassFilter_set_cutoffFrequency_mBD5636A124C598DC0B54B8338FF834F422DD676C(L_30, (500.0f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:265>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:266>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_31 = __this->___audioSource;
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_32 = L_31;
 		NullCheck(L_32);
@@ -19138,21 +19355,21 @@ IL_00e3:
 		L_33 = AudioSource_get_pitch_mB1B0B8A52400B5C798BF1E644FE1C2FFA20A9863(L_32, NULL);
 		NullCheck(L_32);
 		AudioSource_set_pitch_mD14631FC99BF38AAFB356D9C45546BC16CF9E811(L_32, ((float)il2cpp_codegen_multiply(L_33, (1.20000005f))), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:266>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:267>
 		return;
 	}
 
 IL_010d:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:270>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:271>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_34 = V_0;
 		NullCheck(L_34);
 		AudioReverbFilter_set_reverbPreset_mF0D458E66A09909A3363CB82045D324A15D0A35C(L_34, ((int32_t)9), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:271>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:272>
 		AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* L_35 = V_1;
 		NullCheck(L_35);
 		AudioLowPassFilter_set_cutoffFrequency_m593B7A476225759056C6DACCEBF92016FEE7B050(L_35, (5000.0f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:272>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:273>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_36 = __this->___audioSource;
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_37 = L_36;
 		NullCheck(L_37);
@@ -19160,11 +19377,11 @@ IL_010d:
 		L_38 = AudioSource_get_pitch_mB1B0B8A52400B5C798BF1E644FE1C2FFA20A9863(L_37, NULL);
 		NullCheck(L_37);
 		AudioSource_set_pitch_mD14631FC99BF38AAFB356D9C45546BC16CF9E811(L_37, ((float)il2cpp_codegen_multiply(L_38, (0.850000024f))), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:275>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:276>
 		return;
 	}
 }
-// Method Definition Index: 79494
+// Method Definition Index: 79502
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* MusicCube_DestroyAfterSound_m1B51B5E13F8A3F0DD2372F54705A9345ADD0A944 (MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -19183,7 +19400,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* MusicCube_DestroyAfterSound_m1
 		return L_1;
 	}
 }
-// Method Definition Index: 79495
+// Method Definition Index: 79503
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* MusicCube_DestroyAndRespawn_mED6A5E93CA25C6E2B71D38D19E413707C2444521 (MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -19202,7 +19419,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* MusicCube_DestroyAndRespawn_mE
 		return L_1;
 	}
 }
-// Method Definition Index: 79496
+// Method Definition Index: 79504
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ResetCube_m458FD9787941F5D32BE76B9A1F53F6AF6CDFF57A (MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -19218,32 +19435,32 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ResetCube_m458FD9787941F5D32BE
 	AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* V_1 = NULL;
 	AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* V_2 = NULL;
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:303>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:304>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0;
 		L_0 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_1 = __this->___spawnPosition;
 		NullCheck(L_0);
 		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_0, L_1, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:304>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:305>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_2;
 		L_2 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_3;
 		L_3 = Quaternion_get_identity_m7E701AE095ED10FD5EA0B50ABCFDE2EEFF2173A5_inline(NULL);
 		NullCheck(L_2);
 		Transform_set_rotation_m61340DE74726CF0F9946743A727C4D444397331D(L_2, L_3, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:307>
-		__this->___hasCollided = (bool)0;
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:308>
-		__this->___isGrabbed = (bool)0;
+		__this->___hasCollided = (bool)0;
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:309>
+		__this->___isGrabbed = (bool)0;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:310>
 		__this->___hasBeenThrown = (bool)0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:312>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:313>
 		MusicCube_SetFloating_m7015A0BA1736DEA9E94F12764C17FA9C79A066EE(__this, (bool)1, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:315>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:316>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_4;
 		L_4 = Component_GetComponent_TisAudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA_mCDAC0998DF5D3E32C23EC62382FB89DE47452BE0(__this, Component_GetComponent_TisAudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA_mCDAC0998DF5D3E32C23EC62382FB89DE47452BE0_RuntimeMethod_var);
 		V_0 = L_4;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:316>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:317>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_5 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_6;
@@ -19254,7 +19471,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ResetCube_m458FD9787941F5D32BE
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:316>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:317>
 		AudioReverbFilter_tEECC3DC7F610088FFB4484962F0356AB6E26EDEA* L_7 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		Object_Destroy_mE97D0A766419A81296E8D4E5C23D01D3FE91ACBB(L_7, NULL);
@@ -19262,11 +19479,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube_ResetCube_m458FD9787941F5D32BE
 
 IL_0053:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:318>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:319>
 		AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* L_8;
 		L_8 = Component_GetComponent_TisAudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0_m9F8683A8B36A02FD32E3B8345B770A2A35B5E235(__this, Component_GetComponent_TisAudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0_m9F8683A8B36A02FD32E3B8345B770A2A35B5E235_RuntimeMethod_var);
 		V_1 = L_8;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:319>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:320>
 		AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* L_9 = V_1;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_10;
@@ -19277,7 +19494,7 @@ IL_0053:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:319>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:320>
 		AudioLowPassFilter_tB32626505D7322A99E2F35C81584960BAC42C2C0* L_11 = V_1;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		Object_Destroy_mE97D0A766419A81296E8D4E5C23D01D3FE91ACBB(L_11, NULL);
@@ -19285,11 +19502,11 @@ IL_0053:
 
 IL_0069:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:321>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:322>
 		AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* L_12;
 		L_12 = Component_GetComponent_TisAudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718_mC420EB1F9C8B83D80E71433667A23379B343D8FA(__this, Component_GetComponent_TisAudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718_mC420EB1F9C8B83D80E71433667A23379B343D8FA_RuntimeMethod_var);
 		V_2 = L_12;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:322>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:323>
 		AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* L_13 = V_2;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_14;
@@ -19300,7 +19517,7 @@ IL_0069:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:322>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:323>
 		AudioHighPassFilter_tC553FD08CC1A23D836BF86BA3070256FB8006718* L_15 = V_2;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		Object_Destroy_mE97D0A766419A81296E8D4E5C23D01D3FE91ACBB(L_15, NULL);
@@ -19308,17 +19525,17 @@ IL_0069:
 
 IL_007f:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:325>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:326>
 		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_16 = __this->___audioSource;
 		NullCheck(L_16);
 		AudioSource_Stop_m318F17F17A147C77FF6E0A5A7A6BE057DB90F537(L_16, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:328>
-		MusicCube_ApplyColor_mACD9FF04C6A8591E181C795A6701CAC7FDF48529(__this, NULL);
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:329>
+		MusicCube_ApplyColor_mACD9FF04C6A8591E181C795A6701CAC7FDF48529(__this, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:330>
 		return;
 	}
 }
-// Method Definition Index: 79497
+// Method Definition Index: 79505
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube__ctor_mE02317FEF2BFA03F79D230F6F29BDB0B6ACD6C41 (MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -19359,7 +19576,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCube__ctor_mE02317FEF2BFA03F79D230F
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79498
+// Method Definition Index: 79506
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDestroyAfterSoundU3Ed__29__ctor_m2BECE78BA696B83A45B5B5CC8C6DD4E0F82923D3 (U3CDestroyAfterSoundU3Ed__29_tBFD5F8451A01F97D864CE289DC73D10E09A35B25* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -19369,14 +19586,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDestroyAfterSoundU3Ed__29__ctor_m2BEC
 		return;
 	}
 }
-// Method Definition Index: 79499
+// Method Definition Index: 79507
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDestroyAfterSoundU3Ed__29_System_IDisposable_Dispose_m05D864B84592A4EDE989ECB0679445D404370AF3 (U3CDestroyAfterSoundU3Ed__29_tBFD5F8451A01F97D864CE289DC73D10E09A35B25* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 79500
+// Method Definition Index: 79508
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CDestroyAfterSoundU3Ed__29_MoveNext_m1C20C1F8C4D0B888520A08AC1A5FE38850226BD0 (U3CDestroyAfterSoundU3Ed__29_tBFD5F8451A01F97D864CE289DC73D10E09A35B25* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -19416,7 +19633,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CDestroyAfterSoundU3Ed__29_MoveNext_m1
 IL_0022:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:280>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:281>
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_3 = V_1;
 		NullCheck(L_3);
 		AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* L_4 = L_3->___assignedSound;
@@ -19434,7 +19651,7 @@ IL_0022:
 IL_0048:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:282>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:283>
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_7 = V_1;
 		NullCheck(L_7);
 		RuntimeObject* L_8;
@@ -19448,11 +19665,11 @@ IL_0048:
 IL_0064:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:283>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:284>
 		return (bool)0;
 	}
 }
-// Method Definition Index: 79501
+// Method Definition Index: 79509
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDestroyAfterSoundU3Ed__29_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m35DB2651F4E593737EE2FC802181BE6A10F46287 (U3CDestroyAfterSoundU3Ed__29_tBFD5F8451A01F97D864CE289DC73D10E09A35B25* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19460,7 +19677,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDestroyAfterSoundU3Ed__29_S
 		return L_0;
 	}
 }
-// Method Definition Index: 79502
+// Method Definition Index: 79510
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDestroyAfterSoundU3Ed__29_System_Collections_IEnumerator_Reset_m7C0C7A99B7F7D42E456550FF46874C0747150B18 (U3CDestroyAfterSoundU3Ed__29_tBFD5F8451A01F97D864CE289DC73D10E09A35B25* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19469,7 +19686,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDestroyAfterSoundU3Ed__29_System_Coll
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CDestroyAfterSoundU3Ed__29_System_Collections_IEnumerator_Reset_m7C0C7A99B7F7D42E456550FF46874C0747150B18_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 79503
+// Method Definition Index: 79511
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDestroyAfterSoundU3Ed__29_System_Collections_IEnumerator_get_Current_m4B05EB96909F3EF20F65186420AD793C45F9913F (U3CDestroyAfterSoundU3Ed__29_tBFD5F8451A01F97D864CE289DC73D10E09A35B25* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19485,7 +19702,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDestroyAfterSoundU3Ed__29_S
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79504
+// Method Definition Index: 79512
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDestroyAndRespawnU3Ed__30__ctor_m92F2501E77255CCDBF023EC1F3F4DC674AB6BD64 (U3CDestroyAndRespawnU3Ed__30_tB1AC239B099FCB6A1E2A6DA59E17373379508E2B* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -19495,14 +19712,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDestroyAndRespawnU3Ed__30__ctor_m92F2
 		return;
 	}
 }
-// Method Definition Index: 79505
+// Method Definition Index: 79513
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDestroyAndRespawnU3Ed__30_System_IDisposable_Dispose_mEDAC7E59B3A1084A57FEA652072EC44B70C023F0 (U3CDestroyAndRespawnU3Ed__30_tB1AC239B099FCB6A1E2A6DA59E17373379508E2B* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 79506
+// Method Definition Index: 79514
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CDestroyAndRespawnU3Ed__30_MoveNext_m7AF41FEDD20EB425B980ACBF71A9F60F120D0176 (U3CDestroyAndRespawnU3Ed__30_tB1AC239B099FCB6A1E2A6DA59E17373379508E2B* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -19539,7 +19756,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CDestroyAndRespawnU3Ed__30_MoveNext_m7
 IL_0017:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:288>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:289>
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_4 = V_1;
 		NullCheck(L_4);
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_5 = L_4->___currentAffectedWall;
@@ -19552,13 +19769,13 @@ IL_0017:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:290>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:291>
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_7 = V_1;
 		NullCheck(L_7);
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_8 = L_7->___currentAffectedWall;
 		NullCheck(L_8);
 		ColorReactiveWall_ResetColor_m0E14A88EBD217F7C92B58D32699D34B49D96B8BE(L_8, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:291>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:292>
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_9 = V_1;
 		NullCheck(L_9);
 		L_9->___currentAffectedWall = (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E*)NULL;
@@ -19567,7 +19784,7 @@ IL_0017:
 
 IL_003e:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:294>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:295>
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_10 = V_1;
 		NullCheck(L_10);
 		float L_11 = L_10->___respawnDelay;
@@ -19582,15 +19799,15 @@ IL_003e:
 IL_0058:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:297>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:298>
 		MusicCube_t4D392BBCB9ECD89B97EA472B4205EC5EB0513D3A* L_13 = V_1;
 		NullCheck(L_13);
 		MusicCube_ResetCube_m458FD9787941F5D32BE76B9A1F53F6AF6CDFF57A(L_13, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:298>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/MusicCube.cs:299>
 		return (bool)0;
 	}
 }
-// Method Definition Index: 79507
+// Method Definition Index: 79515
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDestroyAndRespawnU3Ed__30_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m07A6B0056886A4E1053CF00651C1277FD87223D7 (U3CDestroyAndRespawnU3Ed__30_tB1AC239B099FCB6A1E2A6DA59E17373379508E2B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19598,7 +19815,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDestroyAndRespawnU3Ed__30_S
 		return L_0;
 	}
 }
-// Method Definition Index: 79508
+// Method Definition Index: 79516
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDestroyAndRespawnU3Ed__30_System_Collections_IEnumerator_Reset_m389A5E2C962F43BC000E0CFC0CEE63BB2FC2729C (U3CDestroyAndRespawnU3Ed__30_tB1AC239B099FCB6A1E2A6DA59E17373379508E2B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19607,7 +19824,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDestroyAndRespawnU3Ed__30_System_Coll
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CDestroyAndRespawnU3Ed__30_System_Collections_IEnumerator_Reset_m389A5E2C962F43BC000E0CFC0CEE63BB2FC2729C_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 79509
+// Method Definition Index: 79517
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDestroyAndRespawnU3Ed__30_System_Collections_IEnumerator_get_Current_m897A19362537F20466C1327020EB53BF86E15D23 (U3CDestroyAndRespawnU3Ed__30_tB1AC239B099FCB6A1E2A6DA59E17373379508E2B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19623,7 +19840,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDestroyAndRespawnU3Ed__30_S
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79510
+// Method Definition Index: 79518
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_Start_mF49B5457EF3FD0BACB9CC31CEC5D79DBD569529E (MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -19639,7 +19856,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_Start_mF49B5457EF3FD0BA
 		return;
 	}
 }
-// Method Definition Index: 79511
+// Method Definition Index: 79519
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_SpawnAllCubes_m13E997EA15E97EC267A2F5F75CB9B0F3A0A1CFCC (MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -19929,7 +20146,7 @@ IL_014a:
 		return;
 	}
 }
-// Method Definition Index: 79512
+// Method Definition Index: 79520
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_SpawnBasicCubes_m20B8E0CF2A2537C5B822A291178A2AADF574052C (MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -20179,7 +20396,7 @@ IL_0195:
 		return;
 	}
 }
-// Method Definition Index: 79513
+// Method Definition Index: 79521
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner_OnDrawGizmosSelected_m959ED9D80150D8825E2C02A07806A06077C7AF63 (MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* __this, const RuntimeMethod* method) 
 {
 	int32_t V_0 = 0;
@@ -20232,7 +20449,7 @@ IL_0052:
 		return;
 	}
 }
-// Method Definition Index: 79514
+// Method Definition Index: 79522
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner__ctor_mEC9406CD3BEAC666C1D1957A4B668344C04C02B1 (MusicCubeSpawner_t4219625113EDE3170B3EB4A9C354CAA730C70F41* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -20338,7 +20555,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MusicCubeSpawner__ctor_mEC9406CD3BEAC666
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79515
+// Method Definition Index: 79523
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_Start_m5A8DD57D2E582DAED007866F8875924390DEF359 (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -20350,7 +20567,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_Start_m5A8DD57D2E582
 		return;
 	}
 }
-// Method Definition Index: 79516
+// Method Definition Index: 79524
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_GenerateRoom_m82466FF9B611A0D253A615622E72C61205792E9D (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -20547,7 +20764,7 @@ IL_0025:
 		return;
 	}
 }
-// Method Definition Index: 79517
+// Method Definition Index: 79525
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_CreateWall_m63C07357FCCA70EB4CCC524A906C270437273515 (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, String_t* ___0_name, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_position, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___2_scale, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___3_color, int32_t ___4_surfaceType, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -20671,7 +20888,7 @@ IL_0054:
 		return;
 	}
 }
-// Method Definition Index: 79518
+// Method Definition Index: 79526
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_CreateCeiling_m979E9150FED9B0008FE93A57390D0BDC59B83A3C (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, String_t* ___0_name, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_position, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___2_scale, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -20774,7 +20991,7 @@ IL_0054:
 		return;
 	}
 }
-// Method Definition Index: 79519
+// Method Definition Index: 79527
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Scene2RoomGenerator_GetSmoothnessForSurface_m5935DE37E372595A380F4531F22CA6B7CC380514 (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, int32_t ___0_type, const RuntimeMethod* method) 
 {
 	{
@@ -20843,7 +21060,7 @@ IL_003a:
 		return (0.5f);
 	}
 }
-// Method Definition Index: 79520
+// Method Definition Index: 79528
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_SetupLighting_m50028345333EFAD09F7E6CDE69D5C169CB94CF7F (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -20946,7 +21163,7 @@ IL_00aa:
 		return;
 	}
 }
-// Method Definition Index: 79521
+// Method Definition Index: 79529
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_CreatePointLight_m35ACEB4378CF9913081E751443B4C961D92A7EC5 (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, String_t* ___0_name, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_position, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___2_color, float ___3_range, float ___4_intensity, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21007,7 +21224,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_CreatePointLight_m35
 		return;
 	}
 }
-// Method Definition Index: 79522
+// Method Definition Index: 79530
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_OnDrawGizmosSelected_mDE637A1CCF2A7644144D8009A226704F34137C51 (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21086,7 +21303,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_OnDrawGizmosSelected
 		return;
 	}
 }
-// Method Definition Index: 79523
+// Method Definition Index: 79531
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_DrawSurfaceLabel_m8513499E06F82B4D3F2FB866807F7BFDBEEACBE1 (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_pos, String_t* ___1_label, const RuntimeMethod* method) 
 {
 	{
@@ -21097,7 +21314,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator_DrawSurfaceLabel_m85
 		return;
 	}
 }
-// Method Definition Index: 79524
+// Method Definition Index: 79532
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator__ctor_m4F5587AF6A955F9E7BFF631F5FA1EF39735B894F (Scene2RoomGenerator_t5EC1EEB1C3002B04958F791968AE8F81F5E65D0C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21153,7 +21370,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scene2RoomGenerator__ctor_m4F5587AF6A955
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79525
+// Method Definition Index: 79533
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube_Awake_m0057D4FFF72EAE18EBD3021B4D139E10319CB83E (AnomalyCube_t4B37462565B6CE7EA22962F8420E0371238CA388* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21172,7 +21389,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube_Awake_m0057D4FFF72EAE18EBD30
 		return;
 	}
 }
-// Method Definition Index: 79526
+// Method Definition Index: 79534
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube_OnEnable_m178CEB77E7FF433606FC4B63B1636AE6A48EFE2C (AnomalyCube_t4B37462565B6CE7EA22962F8420E0371238CA388* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21197,7 +21414,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube_OnEnable_m178CEB77E7FF433606
 		return;
 	}
 }
-// Method Definition Index: 79527
+// Method Definition Index: 79535
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube_OnDisable_mB747412EDF70CF598B30E0E3E3C5B6BA171F28F8 (AnomalyCube_t4B37462565B6CE7EA22962F8420E0371238CA388* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21222,7 +21439,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube_OnDisable_mB747412EDF70CF598
 		return;
 	}
 }
-// Method Definition Index: 79528
+// Method Definition Index: 79536
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube_OnGrab_mC836F148C2FEA8402047A5B6F1B5D14A23BE16AF (AnomalyCube_t4B37462565B6CE7EA22962F8420E0371238CA388* __this, SelectEnterEventArgs_t9220B1E6A9BB5A847C0476949ACE0182430BB938* ___0_args, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21261,7 +21478,7 @@ IL_0009:
 		return;
 	}
 }
-// Method Definition Index: 79529
+// Method Definition Index: 79537
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube__ctor_m2710D8794DD99992451E49C51A91B860C1802C27 (AnomalyCube_t4B37462565B6CE7EA22962F8420E0371238CA388* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21277,7 +21494,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyCube__ctor_m2710D8794DD99992451E4
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79530
+// Method Definition Index: 79538
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_add_OnAnomalyComplete_mC09217C598E312766FCCB642AC9B6B5A4380DB1B (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___0_value, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21320,7 +21537,7 @@ IL_0007:
 		return;
 	}
 }
-// Method Definition Index: 79531
+// Method Definition Index: 79539
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_remove_OnAnomalyComplete_mE5E0AEF3B8BF6140C9F1FB85661BF02B91A40CC1 (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___0_value, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21363,7 +21580,7 @@ IL_0007:
 		return;
 	}
 }
-// Method Definition Index: 79532
+// Method Definition Index: 79540
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_Awake_mAC0557FA1CE8EB65807DB5B64272B607F244DB34 (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21392,7 +21609,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_Awake_mAC0557FA1CE8EB658
 		return;
 	}
 }
-// Method Definition Index: 79533
+// Method Definition Index: 79541
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_CacheInitialTransform_m8AC85C91C004833B71264D7988272E42EBBB5533 (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21414,7 +21631,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_CacheInitialTransform_m8
 		return;
 	}
 }
-// Method Definition Index: 79534
+// Method Definition Index: 79542
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_ResetAnomaly_m6FA963D71770CCDDCDB94FB8DAD8B49E7FDAD593 (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21438,7 +21655,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_ResetAnomaly_m6FA963D717
 		return;
 	}
 }
-// Method Definition Index: 79535
+// Method Definition Index: 79543
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_RevealAnomaly_m019EFB358D7F85136A102DD32B8F4E10EF0EF8BF (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21490,7 +21707,7 @@ IL_003e:
 		return;
 	}
 }
-// Method Definition Index: 79536
+// Method Definition Index: 79544
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_BeginApproach_mCF4196E71F6A9EBEEE7561A4DC5F81995AA596D8 (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21507,7 +21724,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_BeginApproach_mCF4196E71
 		return;
 	}
 }
-// Method Definition Index: 79537
+// Method Definition Index: 79545
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* AnomalyMovement_MoveTowardCamera_m8037FF20B90F3655EB843671FDD7C252CD17D8FF (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21526,7 +21743,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* AnomalyMovement_MoveTowardCame
 		return L_1;
 	}
 }
-// Method Definition Index: 79538
+// Method Definition Index: 79546
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* AnomalyMovement_ResolveCameraTarget_m15693855FEA1B260B667489006EC84C5E4EC550A (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21582,7 +21799,7 @@ IL_0026:
 		return L_7;
 	}
 }
-// Method Definition Index: 79539
+// Method Definition Index: 79547
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_StopMovement_mF5FE6A9DA60FD3DC65586AA100E06FA84FF654C2 (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21608,7 +21825,7 @@ IL_001b:
 		return;
 	}
 }
-// Method Definition Index: 79540
+// Method Definition Index: 79548
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement_EnsureIntangible_m6165C32F3B3474A0D133C5D377CE0304BD4ACFF0 (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21660,7 +21877,7 @@ IL_0034:
 		return;
 	}
 }
-// Method Definition Index: 79541
+// Method Definition Index: 79549
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement__ctor_m6E1C4038C9855029261D00AEF4E92B578A162F8F (AnomalyMovement_t639C80C9AA27866BAE1EAEC072F7F6E251E2D8A0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21685,7 +21902,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnomalyMovement__ctor_m6E1C4038C98550292
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79542
+// Method Definition Index: 79550
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CMoveTowardCameraU3Ed__18__ctor_m73737D5C8681209C03A3500B555D8FD14C0C0A43 (U3CMoveTowardCameraU3Ed__18_t32EBCC37016ED136518B616EBCC8C6ECBBC0D740* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -21695,14 +21912,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CMoveTowardCameraU3Ed__18__ctor_m73737
 		return;
 	}
 }
-// Method Definition Index: 79543
+// Method Definition Index: 79551
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CMoveTowardCameraU3Ed__18_System_IDisposable_Dispose_m8C49A74CF37979A34AB08CF8FF520776B02986DA (U3CMoveTowardCameraU3Ed__18_t32EBCC37016ED136518B616EBCC8C6ECBBC0D740* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 79544
+// Method Definition Index: 79552
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CMoveTowardCameraU3Ed__18_MoveNext_m31A7D243C5EED3A05F73C0FA6028BDCDCC890341 (U3CMoveTowardCameraU3Ed__18_t32EBCC37016ED136518B616EBCC8C6ECBBC0D740* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -21925,7 +22142,7 @@ IL_0176:
 		return (bool)0;
 	}
 }
-// Method Definition Index: 79545
+// Method Definition Index: 79553
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CMoveTowardCameraU3Ed__18_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mEBDAA13C8A186EEDD9C8FB8B1CA38D75DB9B398B (U3CMoveTowardCameraU3Ed__18_t32EBCC37016ED136518B616EBCC8C6ECBBC0D740* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21933,7 +22150,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CMoveTowardCameraU3Ed__18_Sy
 		return L_0;
 	}
 }
-// Method Definition Index: 79546
+// Method Definition Index: 79554
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CMoveTowardCameraU3Ed__18_System_Collections_IEnumerator_Reset_mB932ACFDBB0E74D7E0C102EF59659CFEA5AA82F4 (U3CMoveTowardCameraU3Ed__18_t32EBCC37016ED136518B616EBCC8C6ECBBC0D740* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21942,431 +22159,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CMoveTowardCameraU3Ed__18_System_Colle
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CMoveTowardCameraU3Ed__18_System_Collections_IEnumerator_Reset_mB932ACFDBB0E74D7E0C102EF59659CFEA5AA82F4_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 79547
+// Method Definition Index: 79555
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CMoveTowardCameraU3Ed__18_System_Collections_IEnumerator_get_Current_m44C87C4431826B75478F785BF26CE96723DBB9CD (U3CMoveTowardCameraU3Ed__18_t32EBCC37016ED136518B616EBCC8C6ECBBC0D740* __this, const RuntimeMethod* method) 
 {
 	{
 		RuntimeObject* L_0 = __this->___U3CU3E2__current;
 		return L_0;
-	}
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// Method Definition Index: 79548
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_Awake_m045650FB3D9CA5FE6C1343792AD927BAF4B26737 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:25>
-		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_0 = __this->___beltRenderer;
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_1;
-		L_1 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_1)
-		{
-			goto IL_001f;
-		}
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:27>
-		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_2 = __this->___beltRenderer;
-		NullCheck(L_2);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_3;
-		L_3 = Renderer_get_material_m5BA2A00816C4CC66580D4B2E409CF10718C15656(L_2, NULL);
-		__this->___beltMaterial = L_3;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___beltMaterial), (void*)L_3);
-	}
-
-IL_001f:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:29>
-		return;
-	}
-}
-// Method Definition Index: 79549
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_Reset_mD810EF6EE1AF12756A7BC8CB9CD8154E03C410A6 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Component_GetComponent_TisCollider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76_m820398EDBF1D3766C3166A0C323A127662A29A14_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:33>
-		Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* L_0;
-		L_0 = Component_GetComponent_TisCollider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76_m820398EDBF1D3766C3166A0C323A127662A29A14(__this, Component_GetComponent_TisCollider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76_m820398EDBF1D3766C3166A0C323A127662A29A14_RuntimeMethod_var);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:34>
-		Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* L_1 = L_0;
-		NullCheck(L_1);
-		Collider_set_sharedMaterial_mA67DC663BEEBE9315F3B91A0B74B31D33579CD7D(L_1, (PhysicsMaterial_t2949C5AB81E97E3B99B71EAFA5966CB89A9BEB1C*)NULL, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:35>
-		NullCheck(L_1);
-		Collider_set_isTrigger_mFCD22F3EB5E28C97863956AB725D53F7F4B7CA78(L_1, (bool)0, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:36>
-		return;
-	}
-}
-// Method Definition Index: 79550
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_Update_m361F269EF2D85237A4A2C8501637CCCFADA975B7 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:40>
-		bool L_0 = __this->___isActive;
-		if (!L_0)
-		{
-			goto IL_0016;
-		}
-	}
-	{
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_1 = __this->___beltMaterial;
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_2;
-		L_2 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_1, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_2)
-		{
-			goto IL_0017;
-		}
-	}
-
-IL_0016:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:42>
-		return;
-	}
-
-IL_0017:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:46>
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* L_3 = (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7*)(&__this->___currentOffset);
-		float* L_4 = (float*)(&L_3->___y);
-		float* L_5 = L_4;
-		float L_6 = *((float*)L_5);
-		float L_7 = __this->___textureScrollSpeed;
-		float L_8;
-		L_8 = Time_get_deltaTime_mC3195000401F0FD167DD2F948FD2BC58330D0865(NULL);
-		*((float*)L_5) = (float)((float)il2cpp_codegen_add(L_6, ((float)il2cpp_codegen_multiply(L_7, L_8))));
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:49>
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* L_9 = (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7*)(&__this->___currentOffset);
-		float L_10 = L_9->___y;
-		if ((!(((float)L_10) > ((float)(1.0f)))))
-		{
-			goto IL_0058;
-		}
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:51>
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* L_11 = (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7*)(&__this->___currentOffset);
-		float* L_12 = (float*)(&L_11->___y);
-		float* L_13 = L_12;
-		float L_14 = *((float*)L_13);
-		*((float*)L_13) = (float)((float)il2cpp_codegen_subtract(L_14, (1.0f)));
-	}
-
-IL_0058:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:54>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_15 = __this->___beltMaterial;
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_16 = __this->___currentOffset;
-		NullCheck(L_15);
-		Material_set_mainTextureOffset_m87C139F275814719F9A10709C34E2132DFEB7A12(L_15, L_16, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:55>
-		return;
-	}
-}
-// Method Definition Index: 79551
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_OnDrawGizmosSelected_m6BB48476AE3B7271C0AA67F95BF0B603CF3D6E41 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
-{
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:59>
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_0;
-		L_0 = Color_get_yellow_m66637FA14383E8D74F24AE256B577CE1D55D469F_inline(NULL);
-		Gizmos_set_color_m53927A2741937484180B20B55F7F20F8F60C5797(L_0, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:60>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_1;
-		L_1 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_2 = __this->___localDirection;
-		NullCheck(L_1);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_3;
-		L_3 = Transform_TransformDirection_m9BE1261DF2D48B7A4A27D31EE24D2D97F89E7757(L_1, L_2, NULL);
-		V_1 = L_3;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_4;
-		L_4 = Vector3_get_normalized_m736BBF65D5CDA7A18414370D15B4DFCC1E466F07_inline((&V_1), NULL);
-		V_0 = L_4;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:61>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_5;
-		L_5 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
-		NullCheck(L_5);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_6;
-		L_6 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_5, NULL);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_7;
-		L_7 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
-		NullCheck(L_7);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_8;
-		L_8 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_7, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_9 = V_0;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_10;
-		L_10 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_9, (2.0f), NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_11;
-		L_11 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_8, L_10, NULL);
-		Gizmos_DrawLine_mB139054F55D615637A39A3127AADB16043387F8A(L_6, L_11, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:62>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_12;
-		L_12 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
-		NullCheck(L_12);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_13;
-		L_13 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_12, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_14 = V_0;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_15;
-		L_15 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_14, (2.0f), NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_16;
-		L_16 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_13, L_15, NULL);
-		Gizmos_DrawSphere_mC7B2862BBDB3141A63B83F0F1E56E30101D4F472(L_16, (0.100000001f), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:63>
-		return;
-	}
-}
-// Method Definition Index: 79552
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_OnCollisionStay_m7219F69A4F0E7666A017B27989A2712E829914D8 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* ___0_collision, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_2;
-	memset((&V_2), 0, sizeof(V_2));
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:67>
-		bool L_0 = __this->___isActive;
-		if (!L_0)
-		{
-			goto IL_0016;
-		}
-	}
-	{
-		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_1 = ___0_collision;
-		NullCheck(L_1);
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_2;
-		L_2 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_1, NULL);
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_3;
-		L_3 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_2, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_3)
-		{
-			goto IL_0017;
-		}
-	}
-
-IL_0016:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:69>
-		return;
-	}
-
-IL_0017:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:73>
-		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_4 = ___0_collision;
-		NullCheck(L_4);
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_5;
-		L_5 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_4, NULL);
-		NullCheck(L_5);
-		Rigidbody_set_constraints_mE81BF0DAEB980E320538231E092CA4663885A9A3(L_5, ((int32_t)112), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:74>
-		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_6 = ___0_collision;
-		NullCheck(L_6);
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_7;
-		L_7 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_6, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_8;
-		L_8 = Vector3_get_zero_m0C1249C3F25B1C70EAD3CC8B31259975A457AE39_inline(NULL);
-		NullCheck(L_7);
-		Rigidbody_set_angularVelocity_m23266B4E52BF0D2E65CC984AC73CC40B8D4A27E0(L_7, L_8, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:77>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_9;
-		L_9 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_10 = __this->___localDirection;
-		NullCheck(L_9);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_11;
-		L_11 = Transform_TransformDirection_m9BE1261DF2D48B7A4A27D31EE24D2D97F89E7757(L_9, L_10, NULL);
-		V_2 = L_11;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_12;
-		L_12 = Vector3_get_normalized_m736BBF65D5CDA7A18414370D15B4DFCC1E466F07_inline((&V_2), NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:78>
-		float L_13 = __this->___targetSpeed;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_14;
-		L_14 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_12, L_13, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:81>
-		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_15 = ___0_collision;
-		NullCheck(L_15);
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_16;
-		L_16 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_15, NULL);
-		NullCheck(L_16);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_17;
-		L_17 = Rigidbody_get_linearVelocity_m367F5415641E5FB968440A91BAE2FCB8CAEA2C8C(L_16, NULL);
-		V_0 = L_17;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:84>
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_18 = V_0;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_19;
-		L_19 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_14, L_18, NULL);
-		V_1 = L_19;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:85>
-		(&V_1)->___y = (0.0f);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:88>
-		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_20 = ___0_collision;
-		NullCheck(L_20);
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_21;
-		L_21 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_20, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_22 = V_1;
-		float L_23 = __this->___acceleration;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_24;
-		L_24 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_22, L_23, NULL);
-		NullCheck(L_21);
-		Rigidbody_AddForce_mBDBC288D0E266BC1B62E3649B4FCE46E7EA9CCBC(L_21, L_24, 5, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:89>
-		return;
-	}
-}
-// Method Definition Index: 79553
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_OnCollisionExit_mEBA65AED1F47BE975DE3E75F8228A0390DE75176 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* ___0_collision, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:93>
-		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_0 = ___0_collision;
-		NullCheck(L_0);
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_1;
-		L_1 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_0, NULL);
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_2;
-		L_2 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_1, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_2)
-		{
-			goto IL_001a;
-		}
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:96>
-		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_3 = ___0_collision;
-		NullCheck(L_3);
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_4;
-		L_4 = Collision_get_rigidbody_mD7A14B9C8AA98352340D2AB0097FC3A424FBB81B(L_3, NULL);
-		NullCheck(L_4);
-		Rigidbody_set_constraints_mE81BF0DAEB980E320538231E092CA4663885A9A3(L_4, 0, NULL);
-	}
-
-IL_001a:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:98>
-		return;
-	}
-}
-// Method Definition Index: 79554
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_StartBelt_m560FF9A830786B85C9AB5CB315808D3DB92E6632 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
-{
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:102>
-		__this->___isActive = (bool)1;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:103>
-		return;
-	}
-}
-// Method Definition Index: 79555
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_StopBelt_mF54CF55DF66BB52C6259B82BE8F16E0E0C62B235 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
-{
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:107>
-		__this->___isActive = (bool)0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:108>
-		return;
-	}
-}
-// Method Definition Index: 79556
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt_OnDestroy_m6924C52EBF5550D45FFD896E8D66168E1EF97B53 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:113>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_0 = __this->___beltMaterial;
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_1;
-		L_1 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_1)
-		{
-			goto IL_0019;
-		}
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:115>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_2 = __this->___beltMaterial;
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		Object_Destroy_mE97D0A766419A81296E8D4E5C23D01D3FE91ACBB(L_2, NULL);
-	}
-
-IL_0019:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:117>
-		return;
-	}
-}
-// Method Definition Index: 79557
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConveyorBelt__ctor_mA329AF3599AF5F8BED289B13A20A87D77CDCD584 (ConveyorBelt_t7DC2EF83A41B207725F80C6ECDAF2524D3B379D6* __this, const RuntimeMethod* method) 
-{
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:12>
-		__this->___targetSpeed = (1.5f);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:13>
-		__this->___acceleration = (15.0f);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:14>
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_0;
-		L_0 = Vector3_get_forward_mAA55A7034304DF8B2152EAD49AE779FC4CA2EB4A_inline(NULL);
-		__this->___localDirection = L_0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:16>
-		__this->___textureScrollSpeed = (2.0f);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:18>
-		__this->___isActive = (bool)1;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ConveyorBelt.cs:20>
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_1;
-		L_1 = Vector2_get_zero_m32506C40EC2EE7D5D4410BF40D3EE683A3D5F32C_inline(NULL);
-		__this->___currentOffset = L_1;
-		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
-		return;
 	}
 }
 #ifdef __clang__
@@ -23179,7 +22977,7 @@ IL_002d:
 		return L_12;
 	}
 }
-// Method Definition Index: 82167
+// Method Definition Index: 82175
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool SubsystemWithProvider_get_running_m6BF31FC3BDA38C56C0F60FEA37767A4151B22C44_inline (SubsystemWithProvider_tC72E35EE2D413A4B0635B058154BABF265F31242* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23709,7 +23507,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED02
 		return L_0;
 	}
 }
-// Method Definition Index: 79558
+// Method Definition Index: 79566
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR GameManager_tD2A141CDC4D8B352B55DC10F337F83AAF44B9035* GameManager_get_Instance_m6F2B3DEACCE829015C9ACA4C3B1E3C3EE761A258_inline (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -23810,29 +23608,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Action_Invoke_m7126A54DACA72
 {
 	typedef void (*FunctionPointerType) (RuntimeObject*, const RuntimeMethod*);
 	((FunctionPointerType)__this->___invoke_impl)((Il2CppObject*)__this->___method_code, reinterpret_cast<RuntimeMethod*>(__this->___method));
-}
-// Method Definition Index: 45684
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 Vector2_get_zero_m32506C40EC2EE7D5D4410BF40D3EE683A3D5F32C_inline (const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	{
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_0 = ((Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7_StaticFields*)il2cpp_codegen_static_fields_for(Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7_il2cpp_TypeInfo_var))->___zeroVector;
-		V_0 = L_0;
-		goto IL_0009;
-	}
-
-IL_0009:
-	{
-		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_1 = V_0;
-		return L_1;
-	}
 }
 // Method Definition Index: 9068
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, const RuntimeMethod* method) 

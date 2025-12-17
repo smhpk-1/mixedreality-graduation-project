@@ -305,6 +305,7 @@ GameObject:
   - component: {fileID: 312156379}
   - component: {fileID: 312156378}
   - component: {fileID: 312156381}
+  - component: {fileID: 312156382}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -418,6 +419,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MusicSpace.ColorReactiveWall
   surfaceType: 4
   originalColor: {r: 0.31764707, g: 0.31764707, b: 0.31764707, a: 1}
+  colorTransitionSpeed: 5
+  colorIntensity: 1.5
+  useEmission: 1
+  emissionIntensity: 0.8
+--- !u!114 &312156382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312156376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edec9a50376fe448880fb8cf744e3962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicSpace.ColorReactiveWall
+  surfaceType: 1
+  originalColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   colorTransitionSpeed: 5
   colorIntensity: 1.5
   useEmission: 1
@@ -546,6 +565,7 @@ GameObject:
   - component: {fileID: 848754158}
   - component: {fileID: 848754157}
   - component: {fileID: 848754160}
+  - component: {fileID: 848754161}
   m_Layer: 0
   m_Name: Wall_Left
   m_TagString: Untagged
@@ -663,6 +683,24 @@ MonoBehaviour:
   colorIntensity: 1.5
   useEmission: 1
   emissionIntensity: 0.8
+--- !u!114 &848754161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848754155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edec9a50376fe448880fb8cf744e3962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicSpace.ColorReactiveWall
+  surfaceType: 1
+  originalColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  colorTransitionSpeed: 5
+  colorIntensity: 1.5
+  useEmission: 1
+  emissionIntensity: 0.8
 --- !u!1 &880265412
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,6 +811,7 @@ GameObject:
   - component: {fileID: 907001532}
   - component: {fileID: 907001531}
   - component: {fileID: 907001534}
+  - component: {fileID: 907001535}
   m_Layer: 0
   m_Name: Wall_Right
   m_TagString: Untagged
@@ -890,6 +929,24 @@ MonoBehaviour:
   colorIntensity: 1.5
   useEmission: 1
   emissionIntensity: 0.8
+--- !u!114 &907001535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907001529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edec9a50376fe448880fb8cf744e3962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicSpace.ColorReactiveWall
+  surfaceType: 1
+  originalColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  colorTransitionSpeed: 5
+  colorIntensity: 1.5
+  useEmission: 1
+  emissionIntensity: 0.8
 --- !u!1 &950876821
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,6 +960,7 @@ GameObject:
   - component: {fileID: 950876824}
   - component: {fileID: 950876823}
   - component: {fileID: 950876826}
+  - component: {fileID: 950876827}
   m_Layer: 0
   m_Name: Wall_Back
   m_TagString: Untagged
@@ -1003,6 +1061,24 @@ MeshFilter:
   m_GameObject: {fileID: 950876821}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &950876826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950876821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edec9a50376fe448880fb8cf744e3962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicSpace.ColorReactiveWall
+  surfaceType: 1
+  originalColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  colorTransitionSpeed: 5
+  colorIntensity: 1.5
+  useEmission: 1
+  emissionIntensity: 0.8
+--- !u!114 &950876827
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1307,6 +1383,7 @@ GameObject:
   - component: {fileID: 1939644754}
   - component: {fileID: 1939644753}
   - component: {fileID: 1939644756}
+  - component: {fileID: 1939644757}
   m_Layer: 0
   m_Name: Wall_Front
   m_TagString: Untagged
@@ -1419,6 +1496,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusicSpace.ColorReactiveWall
   surfaceType: 0
+  originalColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  colorTransitionSpeed: 5
+  colorIntensity: 1.5
+  useEmission: 1
+  emissionIntensity: 0.8
+--- !u!114 &1939644757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939644751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edec9a50376fe448880fb8cf744e3962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicSpace.ColorReactiveWall
+  surfaceType: 1
   originalColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   colorTransitionSpeed: 5
   colorIntensity: 1.5
