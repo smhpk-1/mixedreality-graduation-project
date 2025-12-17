@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 312156380}
   - component: {fileID: 312156379}
   - component: {fileID: 312156378}
+  - component: {fileID: 312156381}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -357,6 +358,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312156376}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &312156381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312156376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edec9a50376fe448880fb8cf744e3962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicSpace.ColorReactiveWall
+  surfaceType: 4
+  originalColor: {r: 0.31764707, g: 0.31764707, b: 0.31764707, a: 1}
+  colorTransitionSpeed: 5
+  colorIntensity: 1.5
+  useEmission: 1
+  emissionIntensity: 0.8
 --- !u!1 &396863082
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +499,7 @@ GameObject:
   - component: {fileID: 848754159}
   - component: {fileID: 848754158}
   - component: {fileID: 848754157}
+  - component: {fileID: 848754160}
   m_Layer: 0
   m_Name: Wall_Left
   m_TagString: Untagged
@@ -579,6 +599,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848754155}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &848754160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848754155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edec9a50376fe448880fb8cf744e3962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicSpace.ColorReactiveWall
+  surfaceType: 2
+  originalColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  colorTransitionSpeed: 5
+  colorIntensity: 1.5
+  useEmission: 1
+  emissionIntensity: 0.8
 --- !u!1 &880265412
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,6 +726,7 @@ GameObject:
   - component: {fileID: 907001533}
   - component: {fileID: 907001532}
   - component: {fileID: 907001531}
+  - component: {fileID: 907001534}
   m_Layer: 0
   m_Name: Wall_Right
   m_TagString: Untagged
@@ -787,6 +826,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907001529}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &907001534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907001529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edec9a50376fe448880fb8cf744e3962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicSpace.ColorReactiveWall
+  surfaceType: 3
+  originalColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  colorTransitionSpeed: 5
+  colorIntensity: 1.5
+  useEmission: 1
+  emissionIntensity: 0.8
 --- !u!1 &950876821
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +856,7 @@ GameObject:
   - component: {fileID: 950876825}
   - component: {fileID: 950876824}
   - component: {fileID: 950876823}
+  - component: {fileID: 950876826}
   m_Layer: 0
   m_Name: Wall_Back
   m_TagString: Untagged
@@ -898,6 +956,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950876821}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &950876826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950876821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edec9a50376fe448880fb8cf744e3962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicSpace.ColorReactiveWall
+  surfaceType: 1
+  originalColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  colorTransitionSpeed: 5
+  colorIntensity: 1.5
+  useEmission: 1
+  emissionIntensity: 0.8
 --- !u!21 &980145792
 Material:
   serializedVersion: 8
@@ -1046,7 +1122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.63
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1119,6 +1195,73 @@ Transform:
   - {fileID: 880265413}
   m_Father: {fileID: 2139139914}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1756041807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1756041809}
+  - component: {fileID: 1756041808}
+  m_Layer: 0
+  m_Name: MusicCubeSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1756041808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756041807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7135e20d1f46a4142be9c9ae3f630307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicSpace.MusicCubeSpawner
+  spawnAreaCenter: {x: 0, y: 1.5, z: 0}
+  cubeSpacing: 0.4
+  cubeSize: 0.15
+  cubeColors:
+  - {r: 1, g: 0.2, b: 0.2, a: 1}
+  - {r: 0.2, g: 0.6, b: 1, a: 1}
+  - {r: 0.2, g: 1, b: 0.4, a: 1}
+  - {r: 1, g: 0.9, b: 0.2, a: 1}
+  - {r: 0.8, g: 0.3, b: 1, a: 1}
+  cubeNames:
+  - RedCube
+  - BlueCube
+  - GreenCube
+  - YellowCube
+  - PurpleCube
+  cubeSounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  cubeMass: 0.5
+  cubeAngularDrag: 0.5
+--- !u!4 &1756041809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756041807}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.387, y: 2.32711, z: 1.061}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1939644751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,6 +1274,7 @@ GameObject:
   - component: {fileID: 1939644755}
   - component: {fileID: 1939644754}
   - component: {fileID: 1939644753}
+  - component: {fileID: 1939644756}
   m_Layer: 0
   m_Name: Wall_Front
   m_TagString: Untagged
@@ -1230,6 +1374,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939644751}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1939644756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939644751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edec9a50376fe448880fb8cf744e3962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicSpace.ColorReactiveWall
+  surfaceType: 0
+  originalColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  colorTransitionSpeed: 5
+  colorIntensity: 1.5
+  useEmission: 1
+  emissionIntensity: 0.8
 --- !u!1 &2137165556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,3 +1481,4 @@ SceneRoots:
   - {fileID: 203844589}
   - {fileID: 2137165557}
   - {fileID: 1066480770}
+  - {fileID: 1756041809}
