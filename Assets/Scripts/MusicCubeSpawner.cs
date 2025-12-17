@@ -108,9 +108,19 @@ namespace MusicSpace
                 cube.transform.position = pos;
                 cube.transform.localScale = Vector3.one * 0.1f;
 
-                // Set color directly on the default material
+                // Create a proper opaque material
                 Renderer rend = cube.GetComponent<Renderer>();
-                rend.material.color = cubeColors[i];
+                Material mat = new Material(Shader.Find("Standard"));
+                mat.SetFloat("_Mode", 0); // Opaque mode
+                mat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+                mat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
+                mat.SetInt("_ZWrite", 1);
+                mat.DisableKeyword("_ALPHATEST_ON");
+                mat.DisableKeyword("_ALPHABLEND_ON");
+                mat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                mat.renderQueue = -1;
+                mat.color = cubeColors[i];
+                rend.material = mat;
 
                 // Add rigidbody - floating
                 Rigidbody rb = cube.AddComponent<Rigidbody>();
