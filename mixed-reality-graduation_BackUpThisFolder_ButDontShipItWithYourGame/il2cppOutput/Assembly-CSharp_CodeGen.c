@@ -44,6 +44,10 @@ extern void FactoryScoreBoard__ctor_m3686756C3DCBD67DA5E7196B278E9211E8B7DA5E (v
 extern void FloatingMessController_StartFloating_mBD94ACD909E7F6B0C932C7D550BEA1191D0FC257 (void);
 extern void FloatingMessController_Update_m2FE39FEF7642F5D365F133A99BF2B4F8D9CD6799 (void);
 extern void FloatingMessController__ctor_m994CB3F9F089D18F228A5F7C3FD8CB05656CC755 (void);
+extern void GlitchRoomGenerator_Start_m8E3D65BD003D4AA423C10D6A909E7FB71B8B51F5 (void);
+extern void GlitchRoomGenerator_GenerateRoom_m3C46438E3143831261011710B6A72BC2A978514F (void);
+extern void GlitchRoomGenerator_CreateWall_m2FCD7E5967CE96FA8286C42231411610AC8D18A6 (void);
+extern void GlitchRoomGenerator__ctor_m3CE855E1630C0E07B7559A78F9475EC7101CAB9D (void);
 extern void LightingOptimizer_OptimizeLighting_mA5BE51A5FC14B4FC279779CEEA97A1E8BE0022FA (void);
 extern void LightingOptimizer__ctor_m9C36ECED429FC12AAABF6DEC64CB8C14F3C399C1 (void);
 extern void OfficeMessGenerator_GenerateMess_mCB087B9A7A2424D7AFDFC8EEC667B526352E9A3D (void);
@@ -310,7 +314,7 @@ extern void U3CSpawnLoopU3Ed__21_MoveNext_m712698559422D83F14F91CE5B9A7641686690
 extern void U3CSpawnLoopU3Ed__21_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m148930EE907920DCC2D27239411ED5BF24140CCA (void);
 extern void U3CSpawnLoopU3Ed__21_System_Collections_IEnumerator_Reset_m88A0C95497101449FA6A069E0B2AAA5BF1E8A168 (void);
 extern void U3CSpawnLoopU3Ed__21_System_Collections_IEnumerator_get_Current_mAF6D1BD9A3C4541D8EAEC1943D19DF6B6D3B9CA1 (void);
-static Il2CppMethodPointer s_methodPointers[303] = 
+static Il2CppMethodPointer s_methodPointers[307] = 
 {
 	AnomalyAssetGenerator_GenerateAndAssign_m9E1CD81066195DCD181141E55E59E93EAE40A002,
 	AnomalyAssetGenerator__ctor_m35E92F6E7A0F666B278E6B0A9348221C08EB344F,
@@ -349,6 +353,10 @@ static Il2CppMethodPointer s_methodPointers[303] =
 	FloatingMessController_StartFloating_mBD94ACD909E7F6B0C932C7D550BEA1191D0FC257,
 	FloatingMessController_Update_m2FE39FEF7642F5D365F133A99BF2B4F8D9CD6799,
 	FloatingMessController__ctor_m994CB3F9F089D18F228A5F7C3FD8CB05656CC755,
+	GlitchRoomGenerator_Start_m8E3D65BD003D4AA423C10D6A909E7FB71B8B51F5,
+	GlitchRoomGenerator_GenerateRoom_m3C46438E3143831261011710B6A72BC2A978514F,
+	GlitchRoomGenerator_CreateWall_m2FCD7E5967CE96FA8286C42231411610AC8D18A6,
+	GlitchRoomGenerator__ctor_m3CE855E1630C0E07B7559A78F9475EC7101CAB9D,
 	LightingOptimizer_OptimizeLighting_mA5BE51A5FC14B4FC279779CEEA97A1E8BE0022FA,
 	LightingOptimizer__ctor_m9C36ECED429FC12AAABF6DEC64CB8C14F3C399C1,
 	OfficeMessGenerator_GenerateMess_mCB087B9A7A2424D7AFDFC8EEC667B526352E9A3D,
@@ -622,12 +630,12 @@ extern void TrackedRotation_SetBaseFromVector_m0CAD68507FD5C7AA3C7CAE09720645F03
 extern void TrackedRotation_SetTargetFromVector_m42F1586C38A41E0FB628220D326B1572BB8F80D7_AdjustorThunk (void);
 static Il2CppTokenAdjustorThunkPair s_adjustorThunks[4] = 
 {
-	{ 0x060000B4, TrackedRotation_get_totalOffset_mC129829FFE6CDD96C8885030BDAEF40D569F06C8_AdjustorThunk },
-	{ 0x060000B5, TrackedRotation_Reset_m54545DE2D01827833956AEC4324C136A0CB72425_AdjustorThunk },
-	{ 0x060000B6, TrackedRotation_SetBaseFromVector_m0CAD68507FD5C7AA3C7CAE09720645F033F1D26E_AdjustorThunk },
-	{ 0x060000B7, TrackedRotation_SetTargetFromVector_m42F1586C38A41E0FB628220D326B1572BB8F80D7_AdjustorThunk },
+	{ 0x060000B8, TrackedRotation_get_totalOffset_mC129829FFE6CDD96C8885030BDAEF40D569F06C8_AdjustorThunk },
+	{ 0x060000B9, TrackedRotation_Reset_m54545DE2D01827833956AEC4324C136A0CB72425_AdjustorThunk },
+	{ 0x060000BA, TrackedRotation_SetBaseFromVector_m0CAD68507FD5C7AA3C7CAE09720645F033F1D26E_AdjustorThunk },
+	{ 0x060000BB, TrackedRotation_SetTargetFromVector_m42F1586C38A41E0FB628220D326B1572BB8F80D7_AdjustorThunk },
 };
-static const int32_t s_InvokerIndices[303] = 
+static const int32_t s_InvokerIndices[307] = 
 {
 	15398,
 	15398,
@@ -668,6 +676,10 @@ static const int32_t s_InvokerIndices[303] =
 	15398,
 	15398,
 	15398,
+	981,
+	15398,
+	15398,
+	15398,
 	15398,
 	5934,
 	2663,
@@ -688,7 +700,7 @@ static const int32_t s_InvokerIndices[303] =
 	15398,
 	1638,
 	15398,
-	26479,
+	26480,
 	15398,
 	15398,
 	15398,
@@ -743,7 +755,7 @@ static const int32_t s_InvokerIndices[303] =
 	15398,
 	15398,
 	15398,
-	24426,
+	24427,
 	15398,
 	15398,
 	11692,
@@ -870,8 +882,8 @@ static const int32_t s_InvokerIndices[303] =
 	15398,
 	15398,
 	15398,
-	26349,
-	25172,
+	26350,
+	25173,
 	15398,
 	15398,
 	15398,
@@ -937,7 +949,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	303,
+	307,
 	s_methodPointers,
 	4,
 	s_adjustorThunks,
