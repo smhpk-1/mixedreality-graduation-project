@@ -24036,7 +24036,7 @@ IL_000a:
 		return L_2;
 	}
 }
-// Method Definition Index: 78974
+// Method Definition Index: 79348
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NativeArrayUtils_EnsureCapacity_TisIl2CppFullySharedGenericStruct_m938B4EB2931FF9C2C46F85B047C222447D732032_gshared (NativeArray_1_tDB8B8DC66CC8E16ED6D9A8C75D2C1AFC80AC1E18* ___0_array, int32_t ___1_capacity, int32_t ___2_allocator, int32_t ___3_options, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
