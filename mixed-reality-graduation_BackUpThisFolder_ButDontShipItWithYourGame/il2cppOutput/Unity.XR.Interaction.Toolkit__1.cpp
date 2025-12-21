@@ -34288,7 +34288,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void XRInteractableUtility_set_al
 		return;
 	}
 }
-// Method Definition Index: 79045
+// Method Definition Index: 79419
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* XROrigin_get_Origin_mCE6A3B327ACE6FAEDCC67A9DC952FEED191C26B6_inline (XROrigin_t5E534A6D886991AF3C1C64127E19A3A510009CFE* __this, const RuntimeMethod* method) 
 {
 	{
@@ -36015,7 +36015,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t FunctionPointer_1_get_Va
 		return L_0;
 	}
 }
-// Method Definition Index: 79145
+// Method Definition Index: 79519
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* HashSetList_1_AsList_m1B1EA824F0DA9FBAD06BEE789F3706C59C66CC7B_gshared_inline (HashSetList_1_tBD050D503D5313B052F0053124E1481EEA35BE09* __this, const RuntimeMethod* method) 
 {
 	{
@@ -36144,7 +36144,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* KeyValuePair_2_get
 		return L_0;
 	}
 }
-// Method Definition Index: 80526
+// Method Definition Index: 80531
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t HashSet_1_get_Count_m41CC85EEB7855CEFA3BC7A32F115387939318ED3_gshared_inline (HashSet_1_t2F33BEB06EEA4A872E2FAF464382422AA39AE885* __this, const RuntimeMethod* method) 
 {
 	{
@@ -36152,7 +36152,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t HashSet_1_get_Count_m41CC
 		return L_0;
 	}
 }
-// Method Definition Index: 80568
+// Method Definition Index: 80573
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* Enumerator_get_Current_m139A176CD271A0532D75BE08DA7831C8C45CE28F_gshared_inline (Enumerator_t72556E98D7DDBE118A973D782D523D15A96461C8* __this, const RuntimeMethod* method) 
 {
 	{
@@ -36177,7 +36177,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Quaternion_tDA59F214EF07D7700B26E
 		return L_0;
 	}
 }
-// Method Definition Index: 79224
+// Method Definition Index: 79598
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 BindableVariableBase_1_get_Value_mDA92236BCE8EC7928399D7271AA97D7B62941EEC_gshared_inline (BindableVariableBase_1_t0B8C3C183E9A64B760FC611EA6858D9BD639E610* __this, const RuntimeMethod* method) 
 {
 	{
