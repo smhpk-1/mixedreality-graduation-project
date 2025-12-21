@@ -27,6 +27,11 @@ extern void CubeCollisionSound_Start_mFBCC8E8D4866EA4FA6A28FEC2917285469B9DBD5 (
 extern void CubeCollisionSound_OnCollisionEnter_m7B63AEB488962B39A9D5B0B87B4189447327AFCE (void);
 extern void CubeCollisionSound_GenerateThudSound_m2377B13CC545B38F92F7F86A0F1978A891D6790F (void);
 extern void CubeCollisionSound__ctor_m14EFF2213A9FAA1D7B97A3E7276D5FCE3A80E73B (void);
+extern void CubeGrabSound_Awake_mC9078F1161F31E29F098D8B98157276B30061CBA (void);
+extern void CubeGrabSound_OnEnable_m6A86AD1CFCC00C529A17183F135A2C441F14C9B2 (void);
+extern void CubeGrabSound_OnDisable_m1D87D60D4A297E38059DA1A07398B2724B28A742 (void);
+extern void CubeGrabSound_OnGrab_m0E3F3484AA4CC1864E0CBCE1B7CA4D16D5683023 (void);
+extern void CubeGrabSound__ctor_mF54D60A2225031140E30DF2BB79AA1D6AC7A8D91 (void);
 extern void DispenserGenerator_GenerateDispenser_m071F15CCED3B7B27E0F0A8DBFCD2C9DD824BCE31 (void);
 extern void DispenserGenerator_CreateWall_mD31D53F1DEF55C6D85AF87044090293B632D81B4 (void);
 extern void DispenserGenerator_CreatePipe_m8B6324EAAA9593C5C8B1E5C1ABAFA906A46DBE48 (void);
@@ -376,7 +381,7 @@ extern void U3CSpawnLoopU3Ed__21_MoveNext_m712698559422D83F14F91CE5B9A7641686690
 extern void U3CSpawnLoopU3Ed__21_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m148930EE907920DCC2D27239411ED5BF24140CCA (void);
 extern void U3CSpawnLoopU3Ed__21_System_Collections_IEnumerator_Reset_m88A0C95497101449FA6A069E0B2AAA5BF1E8A168 (void);
 extern void U3CSpawnLoopU3Ed__21_System_Collections_IEnumerator_get_Current_mAF6D1BD9A3C4541D8EAEC1943D19DF6B6D3B9CA1 (void);
-static Il2CppMethodPointer s_methodPointers[369] = 
+static Il2CppMethodPointer s_methodPointers[374] = 
 {
 	AnomalyAssetGenerator_GenerateAndAssign_m9E1CD81066195DCD181141E55E59E93EAE40A002,
 	AnomalyAssetGenerator__ctor_m35E92F6E7A0F666B278E6B0A9348221C08EB344F,
@@ -398,6 +403,11 @@ static Il2CppMethodPointer s_methodPointers[369] =
 	CubeCollisionSound_OnCollisionEnter_m7B63AEB488962B39A9D5B0B87B4189447327AFCE,
 	CubeCollisionSound_GenerateThudSound_m2377B13CC545B38F92F7F86A0F1978A891D6790F,
 	CubeCollisionSound__ctor_m14EFF2213A9FAA1D7B97A3E7276D5FCE3A80E73B,
+	CubeGrabSound_Awake_mC9078F1161F31E29F098D8B98157276B30061CBA,
+	CubeGrabSound_OnEnable_m6A86AD1CFCC00C529A17183F135A2C441F14C9B2,
+	CubeGrabSound_OnDisable_m1D87D60D4A297E38059DA1A07398B2724B28A742,
+	CubeGrabSound_OnGrab_m0E3F3484AA4CC1864E0CBCE1B7CA4D16D5683023,
+	CubeGrabSound__ctor_mF54D60A2225031140E30DF2BB79AA1D6AC7A8D91,
 	DispenserGenerator_GenerateDispenser_m071F15CCED3B7B27E0F0A8DBFCD2C9DD824BCE31,
 	DispenserGenerator_CreateWall_mD31D53F1DEF55C6D85AF87044090293B632D81B4,
 	DispenserGenerator_CreatePipe_m8B6324EAAA9593C5C8B1E5C1ABAFA906A46DBE48,
@@ -754,12 +764,12 @@ extern void TrackedRotation_SetBaseFromVector_m0CAD68507FD5C7AA3C7CAE09720645F03
 extern void TrackedRotation_SetTargetFromVector_m42F1586C38A41E0FB628220D326B1572BB8F80D7_AdjustorThunk (void);
 static Il2CppTokenAdjustorThunkPair s_adjustorThunks[4] = 
 {
-	{ 0x060000B8, TrackedRotation_get_totalOffset_mC129829FFE6CDD96C8885030BDAEF40D569F06C8_AdjustorThunk },
-	{ 0x060000B9, TrackedRotation_Reset_m54545DE2D01827833956AEC4324C136A0CB72425_AdjustorThunk },
-	{ 0x060000BA, TrackedRotation_SetBaseFromVector_m0CAD68507FD5C7AA3C7CAE09720645F033F1D26E_AdjustorThunk },
-	{ 0x060000BB, TrackedRotation_SetTargetFromVector_m42F1586C38A41E0FB628220D326B1572BB8F80D7_AdjustorThunk },
+	{ 0x060000BD, TrackedRotation_get_totalOffset_mC129829FFE6CDD96C8885030BDAEF40D569F06C8_AdjustorThunk },
+	{ 0x060000BE, TrackedRotation_Reset_m54545DE2D01827833956AEC4324C136A0CB72425_AdjustorThunk },
+	{ 0x060000BF, TrackedRotation_SetBaseFromVector_m0CAD68507FD5C7AA3C7CAE09720645F033F1D26E_AdjustorThunk },
+	{ 0x060000C0, TrackedRotation_SetTargetFromVector_m42F1586C38A41E0FB628220D326B1572BB8F80D7_AdjustorThunk },
 };
-static const int32_t s_InvokerIndices[369] = 
+static const int32_t s_InvokerIndices[374] = 
 {
 	15401,
 	15401,
@@ -780,6 +790,11 @@ static const int32_t s_InvokerIndices[369] =
 	15401,
 	11695,
 	15205,
+	15401,
+	15401,
+	15401,
+	15401,
+	11695,
 	15401,
 	15401,
 	2715,
@@ -1135,7 +1150,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	369,
+	374,
 	s_methodPointers,
 	4,
 	s_adjustorThunks,
