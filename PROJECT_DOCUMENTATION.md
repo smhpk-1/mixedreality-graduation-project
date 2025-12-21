@@ -1,0 +1,125 @@
+# Mixed Reality Graduation Project - VR Project Documentation
+
+## 1. Project Overview (PRD)
+
+### **Vision**
+This project is a mixed reality (MR) experience designed for the Meta Quest 3S, focusing on immersive interaction and spatial computing. The user is placed in a dynamic virtual environment where they can interact with objects and systems using hand tracking and controllers, leveraging the latest XR technologies. The project aims to explore advanced user interaction paradigms, procedural content generation, and real-time feedback in a VR/MR context.
+
+### **Target Platform**
+- **Device:** Meta Quest 3S
+- **OS:** Android
+- **Input:** Hand Tracking / Controllers (XR Interaction Toolkit)
+
+### **Key Features**
+1. **Immersive Environment:**
+   - A detailed, interactive virtual space designed for exploration and interaction.
+   - Realistic lighting, materials, and spatial audio for enhanced immersion.
+
+2. **XR Interaction System:**
+   - Full support for hand tracking and controller-based input using Unity's XR Interaction Toolkit.
+   - Intuitive grab, throw, and manipulation mechanics for virtual objects.
+
+3. **Procedural Content Generation:**
+   - Runtime generation of objects, environments, or challenges to ensure replayability and variety.
+
+4. **Physics-Based Interactions:**
+   - Realistic physics for object movement, collisions, and environmental responses.
+
+5. **Custom Editor Tools:**
+   - In-editor utilities for rapid scene and asset generation, supporting fast iteration and prototyping.
+
+6. **Performance Optimization:**
+   - Efficient asset management, culling, and batching for smooth performance on standalone VR hardware.
+
+---
+
+## 2. Technical Specifications
+
+### **Engine & Tools**
+- **Unity Version:** Unity 6 (6000.2.10f1)
+- **Render Pipeline:** Built-in Render Pipeline (Standard Shaders)
+- **Scripting:** C#
+- **Version Control:** Git (GitHub)
+
+### **Key Packages**
+- **XR Plugin Management:** OpenXR (Meta Quest Support)
+- **XR Interaction Toolkit:** For VR rig and interactions.
+- **Input System:** New Unity Input System (replacing the old Input Manager).
+
+### **Architecture**
+- **Editor Tools:** Custom Editor scripts in `Editor/` for procedural scene and asset generation.
+- **Runtime Scripts:** Modular scripts for object spawning, interaction logic, and physics.
+- **Asset Organization:** Structured `Assets/` folder with subfolders for Materials, Prefabs, Scenes, Scripts, and Resources.
+
+---
+
+## 3. Development Log & Steps Taken
+
+### **Phase 1: Project Setup**
+1. **Repository Initialization:**
+   - Created a new Unity project and initialized a Git repository.
+   - Set up `.gitignore` to exclude build and cache folders.
+2. **XR Configuration:**
+   - Installed OpenXR and XR Interaction Toolkit.
+   - Configured XR Origin and camera rig for Quest 3S compatibility.
+
+### **Phase 2: Environment & Tools**
+3. **Scene Generation:**
+   - Developed procedural scene generation scripts for rapid prototyping.
+   - Implemented custom lighting and material assignment for visual consistency.
+4. **Editor Utilities:**
+   - Created Editor scripts for batch asset creation and placement.
+
+### **Phase 3: Core Mechanics**
+5. **Interaction System:**
+   - Integrated hand tracking and controller input.
+   - Developed grab, throw, and manipulation mechanics for virtual objects.
+6. **Procedural Spawning:**
+   - Implemented runtime object spawning with randomization and constraints.
+7. **Physics Integration:**
+   - Applied Unity physics for realistic object behavior and collision handling.
+
+### **Phase 4: Polish & Optimization**
+8. **Performance Tuning:**
+   - Profiled and optimized scripts and assets for Quest 3S performance.
+   - Reduced draw calls and optimized material usage.
+9. **Visual & Audio Polish:**
+   - Enhanced lighting, post-processing, and spatial audio for immersion.
+
+### **Phase 5: Deployment & Testing**
+10. **Build Configuration:**
+    - Switched build target to Android.
+    - Configured input system and build settings for Quest 3S.
+11. **Testing:**
+    - Deployed APK to device for real-world testing.
+    - Collected feedback and iterated on interaction and performance.
+
+---
+
+## 4. Current Status
+- **Scene:** Core environment and interaction systems are functional in Editor.
+- **Build:** Android build pipeline is configured and tested on Quest 3S.
+- **Next Steps:**
+  - Expand procedural content and interaction variety.
+  - Further optimize for performance and user experience.
+  - Prepare for user testing and feedback collection.
+
+---
+
+## 5. Folder Structure Overview
+- **Assets/**: Main project assets (Materials, Prefabs, Scenes, Scripts, etc.)
+- **Library/**: Unity-generated cache and build data (excluded from version control)
+- **Packages/**: Unity package manifest and lock files
+- **ProjectSettings/**: Unity project settings
+- **UserSettings/**: User-specific settings (not shared)
+
+---
+
+## 6. References & Resources
+- Unity Documentation: https://docs.unity3d.com/
+- XR Interaction Toolkit: https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit
+- Meta Quest Developer: https://developer.oculus.com/
+
+---
+
+*This documentation will be updated as the project progresses. Please refer to this file for the latest technical and design information.*
