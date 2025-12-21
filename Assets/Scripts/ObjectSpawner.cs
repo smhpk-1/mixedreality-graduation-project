@@ -158,6 +158,8 @@ namespace ConveyorShift
             
             // Add Collision Sound
             primitive.AddComponent<CubeCollisionSound>();
+            // Add Grab Audio
+            primitive.AddComponent<CubeGrabAudio>();
             
             return primitive;
         }
