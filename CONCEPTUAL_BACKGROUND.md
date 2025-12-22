@@ -31,21 +31,28 @@ Modern capitalist societies often foster feelings of alienation, monotony, and l
 
 ---
 
-## 4. Surrealism & Boundless Experience
+## 4. Surrealism, Symbolism & Scene 1: The Shift
 
 The project aims to create a **surreal** environment—one that is dreamlike, fluid, and unconstrained by the logic of the real world. This is achieved through:
 - Procedural generation and unpredictable interactions
 - Non-linear, open-ended exploration
 - Audio-visual elements that defy conventional expectations
 
+### Scene 1: The Shift – Conceptual Symbolism
+- **Industrial Monotony:** The dark, oppressive factory represents capitalist alienation and the endless grind of repetitive labor. The player, cast as a worker, is detached from the outside world, with time marked only by a mechanical wall clock.
+- **Routine & Alienation:** The act of sorting red and blue cubes into bins mirrors the monotony and lack of agency in industrial labor. Reports on the walls and the relentless ticking clock reinforce the sense of an endless, inescapable cycle.
+- **The Anomaly:** After 15 cubes, the sudden appearance of a glowing green "Anomaly Cube" disrupts the routine, symbolizing a break from conformity and the possibility of transcendence or awakening.
+- **Surreal Transition:** Touching the anomaly shatters the factory's reality, launching the user into a boundaryless, surreal universe (Scene 2), representing the mind's escape from capitalist constraints through daydreaming.
+
 **Purpose:**
 - To immerse the user in a world where the usual boundaries (physical, social, logical) are suspended
 - To provoke reflection on the nature of reality, agency, and the role of fantasy in coping with or resisting societal pressures
+- To use narrative and symbolism to critique capitalist alienation and celebrate the power of imagination
 
 ---
 
 ## 5. Ongoing Development
-This conceptual background will evolve as the project progresses. Additional theoretical frameworks, references, and design rationales will be added to reflect new insights and directions.
+This conceptual background will evolve as the project progresses. Additional theoretical frameworks, references, and design rationales will be added to reflect new insights and directions, including future scenes and their symbolic meaning.
 
 ---
 
