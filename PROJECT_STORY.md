@@ -11,10 +11,10 @@ This document outlines the narrative structure and interactive story progression
 
 ### Story Beats
 - **The Arrival:** The player awakens at the head of a conveyor belt in a gloomy, claustrophobic factory. The environment is filled with industrial sounds, dim lighting, and a sense of isolation.
-- **The Routine:** Red and blue cubes begin to fall from ceiling pipes (dispensers) onto the conveyor. The player's task is to quickly grab and sort these cubes into the correct color-coded bins.
-- **The Grind:** Reports on the walls and the relentless ticking of the wall clock reinforce the feeling of endless, repetitive labor. The cycle seems unbreakable.
-- **The Anomaly:** After 15 cubes are sorted, the machinery halts. A glowing green "Anomaly Cube" appears on the belt, breaking the monotony and drawing the player's attention.
-- **The Leap:** Touching the anomaly cube causes the factory reality to shatter, triggering a transition to the surreal universe of Scene 2.
++- **The Routine:** Red and blue cubes begin to fall from ceiling pipes (dispensers) onto the conveyor. The player's task is to quickly grab and sort these cubes into the correct color-coded bins. In total, 30 red and blue cubes are spawned and sorted.
++- **The Grind:** Reports on the walls and the relentless ticking of the wall clock reinforce the feeling of endless, repetitive labor. The cycle seems unbreakable.
++- **The Anomaly:** After the 30th cube is sorted, the machinery halts. Three glowing green "Anomaly Cubes" appear on the belt, breaking the monotony and drawing the player's attention.
++- **The Leap:** Touching any of the anomaly cubes causes the factory reality to shatter, triggering a transition to the surreal universe of Scene 2.
 
 ### Interaction
 - Grab and sort cubes using hand tracking or controllers.
