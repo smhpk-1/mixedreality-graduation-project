@@ -41,7 +41,7 @@ The project aims to create a **surreal** environment—one that is dreamlike, fl
 ### Scene 1: The Shift – Conceptual Symbolism
 - **Industrial Monotony:** The dark, oppressive factory represents capitalist alienation and the endless grind of repetitive labor. The player, cast as a worker, is detached from the outside world, with time marked only by a mechanical wall clock.
 - **Routine & Alienation:** The act of sorting red and blue cubes into bins mirrors the monotony and lack of agency in industrial labor. Reports on the walls and the relentless ticking clock reinforce the sense of an endless, inescapable cycle.
-- **The Anomaly:** After 15 cubes, the sudden appearance of a glowing green "Anomaly Cube" disrupts the routine, symbolizing a break from conformity and the possibility of transcendence or awakening.
+- **The Anomaly:** After 30 red and blue cubes, three glowing green "Anomaly Cubes" appear, disrupting the routine and symbolizing a break from conformity and the possibility of transcendence or awakening.
 - **Surreal Transition:** Touching the anomaly shatters the factory's reality, launching the user into a boundaryless, surreal universe (Scene 2), representing the mind's escape from capitalist constraints through daydreaming.
 
 **Purpose:**

@@ -36,7 +36,7 @@ This project is a mixed reality (MR) experience designed for the Meta Quest 3S, 
 ## 1.1 Scene 1: The Shift
 
 **Narrative:**
-"The Shift" is the opening scene, set in a dark, oppressive factory that symbolizes capitalist monotony and alienation. The player, in the role of a worker, awakens at a conveyor belt and must sort red and blue cubes into matching bins. The endless ticking of a wall clock and reports on the walls reinforce the sense of routine and isolation. After 15 cubes, a glowing green "Anomaly Cube" appears, breaking the cycle and triggering a transition to a surreal new world.
+"The Shift" is the opening scene, set in a dark, oppressive factory that symbolizes capitalist monotony and alienation. The player, in the role of a worker, awakens at a conveyor belt and must sort red and blue cubes into matching bins. The endless ticking of a wall clock and reports on the walls reinforce the sense of routine and isolation. After 30 red and blue cubes are sorted, three glowing green "Anomaly Cubes" appear, breaking the cycle and triggering a transition to a surreal new world.
 
 **Key Scripts:**
 - GameManager.cs
