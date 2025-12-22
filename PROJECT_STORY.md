@@ -5,16 +5,29 @@ This document outlines the narrative structure and interactive story progression
 
 ---
 
-## Scene 1: The Sorting Room
-- **Setting:** The user finds themselves in a mysterious, industrial room filled with conveyor belts and colored cubes.
-- **Objective:** The user must separate and sort cubes according to their colors, placing them into the correct containers.
-- **Interaction:**
-  - Grab and move cubes using hand tracking or controllers.
-  - Place cubes into color-coded bins (e.g., red cubes into the red bin, blue cubes into the blue bin).
-- **Audio:**
-  - Each interaction (grabbing, sorting, dropping) triggers unique audio cues, reinforcing the action and providing feedback.
-- **Purpose:**
-  - Introduces the user to the core mechanics and the surreal, rule-driven logic of the world.
+## Scene 1: The Shift
+
+**The Shift** is an industrial prologue representing the monotony and alienation of the capitalist system. The player is cast as a "worker," isolated from the outside world in a dim, oppressive factory where time is tracked only by a mechanical wall clock.
+
+### Story Beats
+- **The Arrival:** The player awakens at the head of a conveyor belt in a gloomy, claustrophobic factory. The environment is filled with industrial sounds, dim lighting, and a sense of isolation.
+- **The Routine:** Red and blue cubes begin to fall from ceiling pipes (dispensers) onto the conveyor. The player's task is to quickly grab and sort these cubes into the correct color-coded bins.
+- **The Grind:** Reports on the walls and the relentless ticking of the wall clock reinforce the feeling of endless, repetitive labor. The cycle seems unbreakable.
+- **The Anomaly:** After 15 cubes are sorted, the machinery halts. A glowing green "Anomaly Cube" appears on the belt, breaking the monotony and drawing the player's attention.
+- **The Leap:** Touching the anomaly cube causes the factory reality to shatter, triggering a transition to the surreal universe of Scene 2.
+
+### Interaction
+- Grab and sort cubes using hand tracking or controllers.
+- Place cubes into the correct bins (red or blue).
+- Interact with the anomaly cube to progress.
+
+### Audio
+- Each action (grabbing, sorting, dropping) triggers unique audio cues.
+- The environment features mechanical ambience, ticking clocks, and a dramatic audio shift when the anomaly appears.
+
+### Purpose
+- Establishes the core mechanics and the oppressive, rule-driven logic of the world.
+- Uses narrative and symbolism to critique capitalist alienation and foreshadow the surreal journey ahead.
 
 ---
 
