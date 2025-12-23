@@ -1048,7 +1048,9 @@
           },
           {
             "name": "MeshCollider",
-            "scenes": [],
+            "scenes": [
+              "Assets/scene1.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
