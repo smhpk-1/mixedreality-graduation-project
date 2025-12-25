@@ -131,7 +131,8 @@
           {
             "name": "AudioSource",
             "scenes": [
-              "Assets/Scene 2.unity"
+              "Assets/Scene 2.unity",
+              "Assets/scene1.unity"
             ],
             "dependencyType": 0,
             "icon": null
