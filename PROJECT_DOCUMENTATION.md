@@ -1,3 +1,7 @@
+## 1.2 Scene 2: The Colorful Playground
+
+**Narrative:**
+Scene 2, oyuncuyu yerin üstünde rastgele dağılmış çok sayıda büyük ve renkli küpün olduğu bir oyun alanına taşır. Tüm küpler sürekli grab edilebilir, fırlatılabilir ve fiziksel olarak sekip yere düşecek şekilde ayarlanmıştır. Her küp, rengine özel bir ses çıkarır (sesler daha sonra eklenecek). Bu sahne, oyuncuya özgürlük, yaratıcılık ve sürreal bir deneyim sunar.
 # Mixed Reality Graduation Project - VR Project Documentation
 
 ## 1. Project Overview (PRD)

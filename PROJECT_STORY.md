@@ -31,17 +31,20 @@ This document outlines the narrative structure and interactive story progression
 
 ---
 
-## Scene 2: The Wall of Transition
-- **Setting:** After completing the sorting task, the user is transported to a new area dominated by a large, imposing wall.
-- **Objective:** The user must throw five cubes at the wall to break it and reveal a passage to the next scene.
+
+## Scene 2: The Colorful Playground
+
+- **Setting:** Oyuncu, yerin üstünde rastgele dağılmış çok sayıda büyük ve renkli küpün olduğu geniş, açık bir alana geçer.
+- **Objective:** Oyuncu istediği zaman istediği küpü grab edebilir, fırlatabilir ve etkileşime girebilir. Her küp, rengine özel bir ses çıkarır (bu sesler daha sonra eklenecek).
 - **Interaction:**
-  - Pick up cubes and throw them at the wall using natural gestures.
-  - The wall visually and audibly reacts to each impact, showing cracks and emitting sound effects.
+  - Tüm küpler sürekli grab edilebilir.
+  - Küpler büyük boyutlu ve fiziksel olarak sekip yere düşecek şekilde ayarlanmıştır.
+  - Oyuncu küpleri istediği gibi fırlatabilir, etrafa dağıtabilir.
 - **Audio:**
-  - Impact sounds and progressive audio cues build tension and anticipation as the wall weakens.
+  - Her küpün rengine özel bir ses efekti vardır (sesler daha sonra eklenecek).
 - **Purpose:**
-  - Symbolizes breaking through boundaries and transitioning to new experiences.
-  - Encourages experimentation and physical engagement.
+  - Sürreal, özgür ve deneysel bir oyun alanı sunmak.
+  - Oyuncuya sürekli etkileşim ve yaratıcılık imkânı vermek.
 
 ---
 
