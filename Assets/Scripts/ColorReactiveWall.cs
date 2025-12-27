@@ -72,7 +72,15 @@ namespace MusicSpace
             {
                 // Create material instance
                 material = meshRenderer.material;
-                originalColor = material.color;
+                // URP: _BaseColor kullan
+                if (material.HasProperty("_BaseColor"))
+                {
+                    originalColor = material.GetColor("_BaseColor");
+                }
+                else
+                {
+                    originalColor = material.color;
+                }
                 targetColor = originalColor;
             }
         }
@@ -88,8 +96,13 @@ namespace MusicSpace
                 StopCoroutine(colorCoroutine);
             }
 
-            // Apply color with intensity boost
+            // URP: _BaseColor kullanarak rengi değiştir
             targetColor = newColor * colorIntensity;
+            if (material.HasProperty("_BaseColor"))
+                material.SetColor("_BaseColor", targetColor);
+            else
+                material.color = targetColor;
+
             colorCoroutine = StartCoroutine(TransitionColor(targetColor));
 
             // Apply emission for glow effect
@@ -116,6 +129,10 @@ namespace MusicSpace
             }
             // Rengi ve emisyonu eski haline getir
             targetColor = originalColor;
+            if (material.HasProperty("_BaseColor"))
+                material.SetColor("_BaseColor", originalColor);
+            else
+                material.color = originalColor;
             colorCoroutine = StartCoroutine(TransitionColor(originalColor));
             if (useEmission)
             {
@@ -130,7 +147,11 @@ namespace MusicSpace
         {
             if (material == null) return;
             // Hemen uygula
-            material.color = newColor * colorIntensity;
+            Color target = newColor * colorIntensity;
+            if (material.HasProperty("_BaseColor"))
+                material.SetColor("_BaseColor", target);
+            else
+                material.color = target;
             if (useEmission)
             {
                 material.EnableKeyword("_EMISSION");
@@ -153,7 +174,7 @@ namespace MusicSpace
         private IEnumerator TransitionColor(Color target)
         {
             isTransitioning = true;
-            Color startColor = material.color;
+            Color startColor = material.HasProperty("_BaseColor") ? material.GetColor("_BaseColor") : material.color;
             float elapsed = 0f;
             float duration = 1f / colorTransitionSpeed;
 
@@ -161,11 +182,18 @@ namespace MusicSpace
             {
                 elapsed += Time.deltaTime;
                 float t = elapsed / duration;
-                material.color = Color.Lerp(startColor, target, t);
+                Color lerped = Color.Lerp(startColor, target, t);
+                if (material.HasProperty("_BaseColor"))
+                    material.SetColor("_BaseColor", lerped);
+                else
+                    material.color = lerped;
                 yield return null;
             }
 
-            material.color = target;
+            if (material.HasProperty("_BaseColor"))
+                material.SetColor("_BaseColor", target);
+            else
+                material.color = target;
             isTransitioning = false;
         }
 
