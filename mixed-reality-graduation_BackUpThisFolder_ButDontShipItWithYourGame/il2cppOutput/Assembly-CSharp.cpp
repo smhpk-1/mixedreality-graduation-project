@@ -585,6 +585,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteralF2C53021FDD4F0670E9C81AC77BA04CB0FFDFD23
 IL2CPP_EXTERN_C String_t* _stringLiteralF2E0FF222521CF7CDADDF8ADEC686E926999CADB;
 IL2CPP_EXTERN_C String_t* _stringLiteralF5308D66D2EDF59941AA2F79EF8E4EABD673E7AC;
 IL2CPP_EXTERN_C String_t* _stringLiteralFACDF59855CD564D957EDD3D39CE3BA96B0E60CE;
+IL2CPP_EXTERN_C String_t* _stringLiteralFC0CA35D704A09571B8BDC40D23E188A6C403134;
 IL2CPP_EXTERN_C String_t* _stringLiteralFD964EB4DA5BAE82770A67F8F541E223B72E1286;
 IL2CPP_EXTERN_C String_t* _stringLiteralFF416A569D12AA18FA21D862C01682F3C4409C47;
 IL2CPP_EXTERN_C const RuntimeMethod* BezierCurve_OnBeforeRender_mAC5F36C0A5EA622C0E30384A7ADE90D72BB535F3_RuntimeMethod_var;
@@ -18470,9 +18471,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_OnCollisionEnter_m1020
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GameObject_GetComponent_TisRenderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF_m026EB44DB6238F13E2AFBECF1FBBE924CB1B040A_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD08387DC2F0400CAF5E896C48C4ABC4A6351B928);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralFC0CA35D704A09571B8BDC40D23E188A6C403134);
 		s_Il2CppMethodInitialized = true;
 	}
 	Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* V_0 = NULL;
@@ -18489,7 +18492,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_OnCollisionEnter_m1020
 		L_2 = GameObject_CompareTag_m6378BE50D009A93D46036F74CC3F7E2ECB0636E5(L_1, _stringLiteralD08387DC2F0400CAF5E896C48C4ABC4A6351B928, NULL);
 		if (!L_2)
 		{
-			goto IL_004d;
+			goto IL_0067;
 		}
 	}
 	{
@@ -18499,40 +18502,52 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_OnCollisionEnter_m1020
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_4;
 		L_4 = Collision_get_gameObject_m846FADBCA43E1849D3FE4D5EA44C02D055A70B3E(L_3, NULL);
 		NullCheck(L_4);
-		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_5;
-		L_5 = GameObject_GetComponent_TisRenderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF_m026EB44DB6238F13E2AFBECF1FBBE924CB1B040A(L_4, GameObject_GetComponent_TisRenderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF_m026EB44DB6238F13E2AFBECF1FBBE924CB1B040A_RuntimeMethod_var);
-		V_0 = L_5;
+		String_t* L_5;
+		L_5 = Object_get_name_mAC2F6B897CF1303BA4249B4CB55271AFACBB6392(L_4, NULL);
+		String_t* L_6;
+		L_6 = String_Concat_m9E3155FB84015C823606188F53B47CB44C444991(_stringLiteralFC0CA35D704A09571B8BDC40D23E188A6C403134, L_5, NULL);
+		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
+		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(L_6, NULL);
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:28>
-		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_6 = V_0;
+		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_7 = ___0_collision;
+		NullCheck(L_7);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_8;
+		L_8 = Collision_get_gameObject_m846FADBCA43E1849D3FE4D5EA44C02D055A70B3E(L_7, NULL);
+		NullCheck(L_8);
+		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_9;
+		L_9 = GameObject_GetComponent_TisRenderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF_m026EB44DB6238F13E2AFBECF1FBBE924CB1B040A(L_8, GameObject_GetComponent_TisRenderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF_m026EB44DB6238F13E2AFBECF1FBBE924CB1B040A_RuntimeMethod_var);
+		V_0 = L_9;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:29>
+		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_10 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_7;
-		L_7 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_6, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_7)
+		bool L_11;
+		L_11 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_10, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_11)
 		{
-			goto IL_004d;
+			goto IL_0067;
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:30>
-		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_8 = V_0;
-		NullCheck(L_8);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_9;
-		L_9 = Renderer_get_material_m5BA2A00816C4CC66580D4B2E409CF10718C15656(L_8, NULL);
-		NullCheck(L_9);
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_10;
-		L_10 = Material_get_color_mA4B7D4B96200D9D8B4F36BF19957E9DA81071DBB(L_9, NULL);
-		V_1 = L_10;
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:31>
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_11 = V_1;
-		ColorReactiveWall_ChangeColorInstant_m69CBF71E6D7AF801DCA117A5BB1609D47C82EFED(__this, L_11, (1.5f), NULL);
+		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_12 = V_0;
+		NullCheck(L_12);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_13;
+		L_13 = Renderer_get_material_m5BA2A00816C4CC66580D4B2E409CF10718C15656(L_12, NULL);
+		NullCheck(L_13);
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_14;
+		L_14 = Material_get_color_mA4B7D4B96200D9D8B4F36BF19957E9DA81071DBB(L_13, NULL);
+		V_1 = L_14;
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:32>
-		int32_t L_12 = __this->___cubesTouching;
-		__this->___cubesTouching = ((int32_t)il2cpp_codegen_add(L_12, 1));
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_15 = V_1;
+		ColorReactiveWall_ChangeColorInstant_m69CBF71E6D7AF801DCA117A5BB1609D47C82EFED(__this, L_15, (1.5f), NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:33>
+		int32_t L_16 = __this->___cubesTouching;
+		__this->___cubesTouching = ((int32_t)il2cpp_codegen_add(L_16, 1));
 	}
 
-IL_004d:
+IL_0067:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:35>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:36>
 		return;
 	}
 }
@@ -18546,7 +18561,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_OnCollisionExit_mAAE50
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:39>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:40>
 		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_0 = ___0_collision;
 		NullCheck(L_0);
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_1;
@@ -18560,12 +18575,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_OnCollisionExit_mAAE50
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:41>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:42>
 		int32_t L_3 = __this->___cubesTouching;
 		int32_t L_4;
 		L_4 = Mathf_Max_m7FA442918DE37E3A00106D1F2E789D65829792B8_inline(0, ((int32_t)il2cpp_codegen_subtract(L_3, 1)), NULL);
 		__this->___cubesTouching = L_4;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:43>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:44>
 		int32_t L_5 = __this->___cubesTouching;
 		if (L_5)
 		{
@@ -18573,13 +18588,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_OnCollisionExit_mAAE50
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:45>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:46>
 		ColorReactiveWall_ResetColor_m0E14A88EBD217F7C92B58D32699D34B49D96B8BE(__this, NULL);
 	}
 
 IL_0034:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:48>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:49>
 		return;
 	}
 }
@@ -18591,41 +18606,42 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_Awake_m6F93D95EFBF2351
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Component_GetComponent_TisMeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE_m0EDA0079FA3617687C4A28623B79A37D618D9CFB_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379);
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:70>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:71>
 		MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* L_0;
 		L_0 = Component_GetComponent_TisMeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE_m0EDA0079FA3617687C4A28623B79A37D618D9CFB(__this, Component_GetComponent_TisMeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE_m0EDA0079FA3617687C4A28623B79A37D618D9CFB_RuntimeMethod_var);
 		__this->___meshRenderer = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___meshRenderer), (void*)L_0);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:71>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:72>
 		MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* L_1 = __this->___meshRenderer;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_2;
 		L_2 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_1, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
 		if (!L_2)
 		{
-			goto IL_0072;
+			goto IL_009f;
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:74>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:75>
 		MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* L_3 = __this->___meshRenderer;
 		NullCheck(L_3);
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_4;
 		L_4 = Renderer_get_material_m5BA2A00816C4CC66580D4B2E409CF10718C15656(L_3, NULL);
 		__this->___material = L_4;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___material), (void*)L_4);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:76>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:77>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_5 = __this->___material;
 		NullCheck(L_5);
 		bool L_6;
 		L_6 = Material_HasProperty_mC09A83B44E368A217F606DD4954FA080CC03EC6C(L_5, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, NULL);
 		if (!L_6)
 		{
-			goto IL_0055;
+			goto IL_0058;
 		}
 	}
 	{
@@ -18635,29 +18651,51 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_Awake_m6F93D95EFBF2351
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_8;
 		L_8 = Material_GetColor_mAC702C70081A597DD2AA2F4627B1A1C65DDF6609(L_7, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, NULL);
 		__this->___originalColor = L_8;
-		goto IL_0066;
+		goto IL_0093;
 	}
 
-IL_0055:
+IL_0058:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:82>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:79>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_9 = __this->___material;
 		NullCheck(L_9);
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_10;
-		L_10 = Material_get_color_mA4B7D4B96200D9D8B4F36BF19957E9DA81071DBB(L_9, NULL);
-		__this->___originalColor = L_10;
+		bool L_10;
+		L_10 = Material_HasProperty_mC09A83B44E368A217F606DD4954FA080CC03EC6C(L_9, _stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE, NULL);
+		if (!L_10)
+		{
+			goto IL_0082;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:80>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_11 = __this->___material;
+		NullCheck(L_11);
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_12;
+		L_12 = Material_GetColor_mAC702C70081A597DD2AA2F4627B1A1C65DDF6609(L_11, _stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE, NULL);
+		__this->___originalColor = L_12;
+		goto IL_0093;
 	}
 
-IL_0066:
+IL_0082:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:84>
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_11 = __this->___originalColor;
-		__this->___targetColor = L_11;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:82>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_13 = __this->___material;
+		NullCheck(L_13);
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_14;
+		L_14 = Material_get_color_mA4B7D4B96200D9D8B4F36BF19957E9DA81071DBB(L_13, NULL);
+		__this->___originalColor = L_14;
 	}
 
-IL_0072:
+IL_0093:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:86>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:83>
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_15 = __this->___originalColor;
+		__this->___targetColor = L_15;
+	}
+
+IL_009f:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:85>
 		return;
 	}
 }
@@ -18668,13 +18706,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_ChangeColor_mE4BAB0780
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral72D498F039FD562896966E064E8315EA0BCE68C5);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466);
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:91>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:90>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_0 = __this->___material;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -18685,13 +18724,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_ChangeColor_mE4BAB0780
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:91>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:90>
 		return;
 	}
 
 IL_000f:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:94>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:93>
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_2 = __this->___colorCoroutine;
 		if (!L_2)
 		{
@@ -18699,20 +18738,20 @@ IL_000f:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:96>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:95>
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_3 = __this->___colorCoroutine;
 		MonoBehaviour_StopCoroutine_mB0FC91BE84203BD8E360B3FBAE5B958B4C5ED22A(__this, L_3, NULL);
 	}
 
 IL_0023:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:100>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:99>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_4 = ___0_newColor;
 		float L_5 = __this->___colorIntensity;
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_6;
 		L_6 = Color_op_Multiply_m379B20A820266ACF82A21425B9CAE8DCD773CFBB_inline(L_4, L_5, NULL);
 		__this->___targetColor = L_6;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:101>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:100>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_7 = __this->___material;
 		NullCheck(L_7);
 		bool L_8;
@@ -18723,58 +18762,79 @@ IL_0023:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:102>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:101>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_9 = __this->___material;
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_10 = __this->___targetColor;
 		NullCheck(L_9);
 		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_9, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, L_10, NULL);
-		goto IL_0070;
+		goto IL_009a;
 	}
 
 IL_005f:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:104>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:102>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_11 = __this->___material;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_12 = __this->___targetColor;
 		NullCheck(L_11);
-		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(L_11, L_12, NULL);
-	}
-
-IL_0070:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:106>
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_13 = __this->___targetColor;
-		RuntimeObject* L_14;
-		L_14 = ColorReactiveWall_TransitionColor_mF74F34D56EB583EBF2471AE9AF35CAD834E00700(__this, L_13, NULL);
-		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_15;
-		L_15 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_14, NULL);
-		__this->___colorCoroutine = L_15;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___colorCoroutine), (void*)L_15);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:109>
-		bool L_16 = __this->___useEmission;
-		if (!L_16)
+		bool L_12;
+		L_12 = Material_HasProperty_mC09A83B44E368A217F606DD4954FA080CC03EC6C(L_11, _stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE, NULL);
+		if (!L_12)
 		{
-			goto IL_00bc;
+			goto IL_0089;
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:111>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_17 = __this->___material;
-		NullCheck(L_17);
-		Material_EnableKeyword_mE8523EF6CF694284DF976D47ADEDE9363A1174AC(L_17, _stringLiteral72D498F039FD562896966E064E8315EA0BCE68C5, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:112>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_18 = __this->___material;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_19 = ___0_newColor;
-		float L_20 = __this->___emissionIntensity;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_21;
-		L_21 = Color_op_Multiply_m379B20A820266ACF82A21425B9CAE8DCD773CFBB_inline(L_19, L_20, NULL);
-		NullCheck(L_18);
-		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_18, _stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466, L_21, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:103>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_13 = __this->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_14 = __this->___targetColor;
+		NullCheck(L_13);
+		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_13, _stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE, L_14, NULL);
+		goto IL_009a;
 	}
 
-IL_00bc:
+IL_0089:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:114>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:105>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_15 = __this->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_16 = __this->___targetColor;
+		NullCheck(L_15);
+		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(L_15, L_16, NULL);
+	}
+
+IL_009a:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:107>
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_17 = __this->___targetColor;
+		RuntimeObject* L_18;
+		L_18 = ColorReactiveWall_TransitionColor_mF74F34D56EB583EBF2471AE9AF35CAD834E00700(__this, L_17, NULL);
+		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_19;
+		L_19 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_18, NULL);
+		__this->___colorCoroutine = L_19;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___colorCoroutine), (void*)L_19);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:110>
+		bool L_20 = __this->___useEmission;
+		if (!L_20)
+		{
+			goto IL_00e6;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:112>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_21 = __this->___material;
+		NullCheck(L_21);
+		Material_EnableKeyword_mE8523EF6CF694284DF976D47ADEDE9363A1174AC(L_21, _stringLiteral72D498F039FD562896966E064E8315EA0BCE68C5, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:113>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_22 = __this->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_23 = ___0_newColor;
+		float L_24 = __this->___emissionIntensity;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_25;
+		L_25 = Color_op_Multiply_m379B20A820266ACF82A21425B9CAE8DCD773CFBB_inline(L_23, L_24, NULL);
+		NullCheck(L_22);
+		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_22, _stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466, L_25, NULL);
+	}
+
+IL_00e6:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:115>
 		return;
 	}
 }
@@ -18785,12 +18845,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_ResetColor_m0E14A88EBD
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466);
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:118>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:119>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_0 = __this->___material;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -18801,13 +18862,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_ResetColor_m0E14A88EBD
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:118>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:119>
 		return;
 	}
 
 IL_000f:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:121>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:122>
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_2 = __this->___colorCoroutine;
 		if (!L_2)
 		{
@@ -18815,14 +18876,14 @@ IL_000f:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:123>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:124>
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_3 = __this->___colorCoroutine;
 		MonoBehaviour_StopCoroutine_mB0FC91BE84203BD8E360B3FBAE5B958B4C5ED22A(__this, L_3, NULL);
 	}
 
 IL_0023:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:125>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:126>
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_4 = __this->___revertCoroutine;
 		if (!L_4)
 		{
@@ -18830,20 +18891,20 @@ IL_0023:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:127>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:128>
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_5 = __this->___revertCoroutine;
 		MonoBehaviour_StopCoroutine_mB0FC91BE84203BD8E360B3FBAE5B958B4C5ED22A(__this, L_5, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:128>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:129>
 		__this->___revertCoroutine = (Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B*)NULL;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___revertCoroutine), (void*)(Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B*)NULL);
 	}
 
 IL_003e:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:131>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:132>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_6 = __this->___originalColor;
 		__this->___targetColor = L_6;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:132>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:133>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_7 = __this->___material;
 		NullCheck(L_7);
 		bool L_8;
@@ -18854,52 +18915,73 @@ IL_003e:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:133>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:134>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_9 = __this->___material;
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_10 = __this->___originalColor;
 		NullCheck(L_9);
 		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_9, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, L_10, NULL);
-		goto IL_0085;
+		goto IL_00af;
 	}
 
 IL_0074:
 	{
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:135>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_11 = __this->___material;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_12 = __this->___originalColor;
 		NullCheck(L_11);
-		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(L_11, L_12, NULL);
-	}
-
-IL_0085:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:136>
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_13 = __this->___originalColor;
-		RuntimeObject* L_14;
-		L_14 = ColorReactiveWall_TransitionColor_mF74F34D56EB583EBF2471AE9AF35CAD834E00700(__this, L_13, NULL);
-		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_15;
-		L_15 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_14, NULL);
-		__this->___colorCoroutine = L_15;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___colorCoroutine), (void*)L_15);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:137>
-		bool L_16 = __this->___useEmission;
-		if (!L_16)
+		bool L_12;
+		L_12 = Material_HasProperty_mC09A83B44E368A217F606DD4954FA080CC03EC6C(L_11, _stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE, NULL);
+		if (!L_12)
 		{
-			goto IL_00ba;
+			goto IL_009e;
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:139>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_17 = __this->___material;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_18;
-		L_18 = Color_get_black_mB50217951591A045844C61E7FF31EEE3FEF16737_inline(NULL);
-		NullCheck(L_17);
-		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_17, _stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466, L_18, NULL);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:136>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_13 = __this->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_14 = __this->___originalColor;
+		NullCheck(L_13);
+		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_13, _stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE, L_14, NULL);
+		goto IL_00af;
 	}
 
-IL_00ba:
+IL_009e:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:141>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:138>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_15 = __this->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_16 = __this->___originalColor;
+		NullCheck(L_15);
+		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(L_15, L_16, NULL);
+	}
+
+IL_00af:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:139>
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_17 = __this->___originalColor;
+		RuntimeObject* L_18;
+		L_18 = ColorReactiveWall_TransitionColor_mF74F34D56EB583EBF2471AE9AF35CAD834E00700(__this, L_17, NULL);
+		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_19;
+		L_19 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_18, NULL);
+		__this->___colorCoroutine = L_19;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___colorCoroutine), (void*)L_19);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:140>
+		bool L_20 = __this->___useEmission;
+		if (!L_20)
+		{
+			goto IL_00e4;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:142>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_21 = __this->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_22;
+		L_22 = Color_get_black_mB50217951591A045844C61E7FF31EEE3FEF16737_inline(NULL);
+		NullCheck(L_21);
+		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_21, _stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466, L_22, NULL);
+	}
+
+IL_00e4:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:144>
 		return;
 	}
 }
@@ -18910,6 +18992,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_ChangeColorInstant_m69
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral72D498F039FD562896966E064E8315EA0BCE68C5);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466);
@@ -18918,7 +19001,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_ChangeColorInstant_m69
 	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F V_0;
 	memset((&V_0), 0, sizeof(V_0));
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:148>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:151>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_0 = __this->___material;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -18929,19 +19012,19 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_ChangeColorInstant_m69
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:148>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:151>
 		return;
 	}
 
 IL_000f:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:150>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:153>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_2 = ___0_newColor;
 		float L_3 = __this->___colorIntensity;
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_4;
 		L_4 = Color_op_Multiply_m379B20A820266ACF82A21425B9CAE8DCD773CFBB_inline(L_2, L_3, NULL);
 		V_0 = L_4;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:151>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:154>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_5 = __this->___material;
 		NullCheck(L_5);
 		bool L_6;
@@ -18952,73 +19035,94 @@ IL_000f:
 		}
 	}
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:152>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:155>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_7 = __this->___material;
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_8 = V_0;
 		NullCheck(L_7);
 		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_7, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, L_8, NULL);
-		goto IL_004d;
+		goto IL_0072;
 	}
 
 IL_0041:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:154>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:156>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_9 = __this->___material;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_10 = V_0;
 		NullCheck(L_9);
-		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(L_9, L_10, NULL);
-	}
-
-IL_004d:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:155>
-		bool L_11 = __this->___useEmission;
-		if (!L_11)
+		bool L_10;
+		L_10 = Material_HasProperty_mC09A83B44E368A217F606DD4954FA080CC03EC6C(L_9, _stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE, NULL);
+		if (!L_10)
 		{
-			goto IL_0081;
+			goto IL_0066;
 		}
 	}
 	{
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:157>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_12 = __this->___material;
-		NullCheck(L_12);
-		Material_EnableKeyword_mE8523EF6CF694284DF976D47ADEDE9363A1174AC(L_12, _stringLiteral72D498F039FD562896966E064E8315EA0BCE68C5, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:158>
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_13 = __this->___material;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_14 = ___0_newColor;
-		float L_15 = __this->___emissionIntensity;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_16;
-		L_16 = Color_op_Multiply_m379B20A820266ACF82A21425B9CAE8DCD773CFBB_inline(L_14, L_15, NULL);
-		NullCheck(L_13);
-		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_13, _stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466, L_16, NULL);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_11 = __this->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_12 = V_0;
+		NullCheck(L_11);
+		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_11, _stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE, L_12, NULL);
+		goto IL_0072;
 	}
 
-IL_0081:
+IL_0066:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:161>
-		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_17 = __this->___revertCoroutine;
-		if (!L_17)
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:159>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_13 = __this->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_14 = V_0;
+		NullCheck(L_13);
+		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(L_13, L_14, NULL);
+	}
+
+IL_0072:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:160>
+		bool L_15 = __this->___useEmission;
+		if (!L_15)
 		{
-			goto IL_0095;
+			goto IL_00a6;
 		}
 	}
 	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:162>
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_16 = __this->___material;
+		NullCheck(L_16);
+		Material_EnableKeyword_mE8523EF6CF694284DF976D47ADEDE9363A1174AC(L_16, _stringLiteral72D498F039FD562896966E064E8315EA0BCE68C5, NULL);
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:163>
-		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_18 = __this->___revertCoroutine;
-		MonoBehaviour_StopCoroutine_mB0FC91BE84203BD8E360B3FBAE5B958B4C5ED22A(__this, L_18, NULL);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_17 = __this->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_18 = ___0_newColor;
+		float L_19 = __this->___emissionIntensity;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_20;
+		L_20 = Color_op_Multiply_m379B20A820266ACF82A21425B9CAE8DCD773CFBB_inline(L_18, L_19, NULL);
+		NullCheck(L_17);
+		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_17, _stringLiteralB92EF51E45166C91E2762DB6C9F27C8BD6EBE466, L_20, NULL);
 	}
 
-IL_0095:
+IL_00a6:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:165>
-		float L_19 = ___1_revertDelay;
-		RuntimeObject* L_20;
-		L_20 = ColorReactiveWall_RevertAfterDelay_m47494E43E4843BF1ED982775DCA2A819E2D8C549(__this, L_19, NULL);
-		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_21;
-		L_21 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_20, NULL);
-		__this->___revertCoroutine = L_21;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___revertCoroutine), (void*)L_21);
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:166>
+		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_21 = __this->___revertCoroutine;
+		if (!L_21)
+		{
+			goto IL_00ba;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:168>
+		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_22 = __this->___revertCoroutine;
+		MonoBehaviour_StopCoroutine_mB0FC91BE84203BD8E360B3FBAE5B958B4C5ED22A(__this, L_22, NULL);
+	}
+
+IL_00ba:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:170>
+		float L_23 = ___1_revertDelay;
+		RuntimeObject* L_24;
+		L_24 = ColorReactiveWall_RevertAfterDelay_m47494E43E4843BF1ED982775DCA2A819E2D8C549(__this, L_23, NULL);
+		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_25;
+		L_25 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_24, NULL);
+		__this->___revertCoroutine = L_25;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___revertCoroutine), (void*)L_25);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:171>
 		return;
 	}
 }
@@ -19072,11 +19176,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ColorReactiveWall_TransitionCo
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_OnDrawGizmosSelected_m14DC6A4A20B3F2A781253B49AA719372674591E2 (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:203>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:213>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_0;
 		L_0 = ColorReactiveWall_GetSurfaceGizmoColor_m800377C91521FE20C84344EBE8BA01D548766C81(__this, NULL);
 		Gizmos_set_color_m53927A2741937484180B20B55F7F20F8F60C5797(L_0, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:204>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:214>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_1;
 		L_1 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
 		NullCheck(L_1);
@@ -19090,7 +19194,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall_OnDrawGizmosSelected_m
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_5;
 		L_5 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_4, (1.00999999f), NULL);
 		Gizmos_DrawWireCube_m343533B3955A2D04A8638280D0EF537274A1FD8B(L_2, L_5, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:205>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:215>
 		return;
 	}
 }
@@ -19099,7 +19203,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C
 {
 	int32_t V_0 = 0;
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:209>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:219>
 		int32_t L_0 = __this->___surfaceType;
 		V_0 = L_0;
 		int32_t L_1 = V_0;
@@ -19133,7 +19237,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C
 
 IL_0023:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:211>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:221>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_2;
 		L_2 = Color_get_cyan_m182A29E7475C0A98ACC03E1CF5252BAB83F0BA31_inline(NULL);
 		return L_2;
@@ -19141,7 +19245,7 @@ IL_0023:
 
 IL_0029:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:212>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:222>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_3;
 		L_3 = Color_get_gray_m6D01087E0F20F34718EBA5B213853B4BB49F1DEF(NULL);
 		return L_3;
@@ -19149,7 +19253,7 @@ IL_0029:
 
 IL_002f:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:213>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:223>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_4;
 		memset((&L_4), 0, sizeof(L_4));
 		Color__ctor_mCD6889CDE39F18704CD6EA8E2EFBFA48BA3E13B0_inline((&L_4), (0.600000024f), (0.300000012f), (0.100000001f), NULL);
@@ -19158,7 +19262,7 @@ IL_002f:
 
 IL_0044:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:214>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:224>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_5;
 		L_5 = Color_get_white_m068F5AF879B0FCA584E3693F762EA41BB65532C6_inline(NULL);
 		return L_5;
@@ -19166,7 +19270,7 @@ IL_0044:
 
 IL_004a:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:215>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:225>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_6;
 		memset((&L_6), 0, sizeof(L_6));
 		Color__ctor_mCD6889CDE39F18704CD6EA8E2EFBFA48BA3E13B0_inline((&L_6), (0.400000006f), (0.400000006f), (0.349999994f), NULL);
@@ -19175,7 +19279,7 @@ IL_004a:
 
 IL_005f:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:216>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:226>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_7;
 		L_7 = Color_get_white_m068F5AF879B0FCA584E3693F762EA41BB65532C6_inline(NULL);
 		return L_7;
@@ -19185,19 +19289,19 @@ IL_005f:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorReactiveWall__ctor_mE97452B807D683D34375455ACA18D69F472B77D8 (ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:51>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:52>
 		__this->___surfaceType = 1;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:54>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:55>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_0;
 		L_0 = Color_get_gray_m6D01087E0F20F34718EBA5B213853B4BB49F1DEF(NULL);
 		__this->___originalColor = L_0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:55>
-		__this->___colorTransitionSpeed = (5.0f);
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:56>
+		__this->___colorTransitionSpeed = (5.0f);
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:57>
 		__this->___colorIntensity = (1.5f);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:59>
-		__this->___useEmission = (bool)1;
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:60>
+		__this->___useEmission = (bool)1;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:61>
 		__this->___emissionIntensity = (0.800000012f);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
@@ -19264,7 +19368,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CRevertAfterDelayU3Ed__19_MoveNext_m05
 IL_0017:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:170>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:175>
 		float L_4 = __this->___delay;
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_5 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_5, L_4, NULL);
@@ -19277,11 +19381,11 @@ IL_0017:
 IL_0038:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:171>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:176>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_6 = V_1;
 		NullCheck(L_6);
 		ColorReactiveWall_ResetColor_m0E14A88EBD217F7C92B58D32699D34B49D96B8BE(L_6, NULL);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:172>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:177>
 		return (bool)0;
 	}
 }
@@ -19341,6 +19445,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CTransitionColorU3Ed__20_MoveNext_m447
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379);
 		s_Il2CppMethodInitialized = true;
 	}
@@ -19349,11 +19454,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CTransitionColorU3Ed__20_MoveNext_m447
 	float V_2 = 0.0f;
 	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F V_3;
 	memset((&V_3), 0, sizeof(V_3));
-	U3CTransitionColorU3Ed__20_tB243AAE23E126B4273CD9DC2E3E4702B79B5DBE0* G_B5_0 = NULL;
+	U3CTransitionColorU3Ed__20_tB243AAE23E126B4273CD9DC2E3E4702B79B5DBE0* G_B7_0 = NULL;
 	U3CTransitionColorU3Ed__20_tB243AAE23E126B4273CD9DC2E3E4702B79B5DBE0* G_B4_0 = NULL;
-	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F G_B6_0;
-	memset((&G_B6_0), 0, sizeof(G_B6_0));
-	U3CTransitionColorU3Ed__20_tB243AAE23E126B4273CD9DC2E3E4702B79B5DBE0* G_B6_1 = NULL;
+	U3CTransitionColorU3Ed__20_tB243AAE23E126B4273CD9DC2E3E4702B79B5DBE0* G_B6_0 = NULL;
+	U3CTransitionColorU3Ed__20_tB243AAE23E126B4273CD9DC2E3E4702B79B5DBE0* G_B5_0 = NULL;
+	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F G_B8_0;
+	memset((&G_B8_0), 0, sizeof(G_B8_0));
+	U3CTransitionColorU3Ed__20_tB243AAE23E126B4273CD9DC2E3E4702B79B5DBE0* G_B8_1 = NULL;
 	{
 		int32_t L_0 = __this->___U3CU3E1__state;
 		V_0 = L_0;
@@ -19369,7 +19476,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CTransitionColorU3Ed__20_MoveNext_m447
 		int32_t L_3 = V_0;
 		if ((((int32_t)L_3) == ((int32_t)1)))
 		{
-			goto IL_00f0;
+			goto IL_013c;
 		}
 	}
 	{
@@ -19379,11 +19486,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CTransitionColorU3Ed__20_MoveNext_m447
 IL_001a:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:176>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:181>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_4 = V_1;
 		NullCheck(L_4);
 		L_4->___isTransitioning = (bool)1;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:177>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:182>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:183>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_5 = V_1;
 		NullCheck(L_5);
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_6 = L_5->___material;
@@ -19392,8 +19500,8 @@ IL_001a:
 		L_7 = Material_HasProperty_mC09A83B44E368A217F606DD4954FA080CC03EC6C(L_6, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, NULL);
 		if (L_7)
 		{
-			G_B5_0 = __this;
-			goto IL_0048;
+			G_B7_0 = __this;
+			goto IL_006c;
 		}
 		G_B4_0 = __this;
 	}
@@ -19402,157 +19510,234 @@ IL_001a:
 		NullCheck(L_8);
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_9 = L_8->___material;
 		NullCheck(L_9);
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_10;
-		L_10 = Material_get_color_mA4B7D4B96200D9D8B4F36BF19957E9DA81071DBB(L_9, NULL);
-		G_B6_0 = L_10;
-		G_B6_1 = G_B4_0;
-		goto IL_0058;
+		bool L_10;
+		L_10 = Material_HasProperty_mC09A83B44E368A217F606DD4954FA080CC03EC6C(L_9, _stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE, NULL);
+		if (L_10)
+		{
+			G_B6_0 = G_B4_0;
+			goto IL_005a;
+		}
+		G_B5_0 = G_B4_0;
 	}
-
-IL_0048:
 	{
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_11 = V_1;
 		NullCheck(L_11);
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_12 = L_11->___material;
 		NullCheck(L_12);
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_13;
-		L_13 = Material_GetColor_mAC702C70081A597DD2AA2F4627B1A1C65DDF6609(L_12, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, NULL);
-		G_B6_0 = L_13;
-		G_B6_1 = G_B5_0;
+		L_13 = Material_get_color_mA4B7D4B96200D9D8B4F36BF19957E9DA81071DBB(L_12, NULL);
+		G_B8_0 = L_13;
+		G_B8_1 = G_B5_0;
+		goto IL_007c;
 	}
 
-IL_0058:
+IL_005a:
 	{
-		NullCheck(G_B6_1);
-		G_B6_1->___U3CstartColorU3E5__2 = G_B6_0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:178>
-		__this->___U3CelapsedU3E5__3 = (0.0f);
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:179>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_14 = V_1;
 		NullCheck(L_14);
-		float L_15 = L_14->___colorTransitionSpeed;
-		__this->___U3CdurationU3E5__4 = ((float)((1.0f)/L_15));
-		goto IL_00f7;
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_15 = L_14->___material;
+		NullCheck(L_15);
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_16;
+		L_16 = Material_GetColor_mAC702C70081A597DD2AA2F4627B1A1C65DDF6609(L_15, _stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE, NULL);
+		G_B8_0 = L_16;
+		G_B8_1 = G_B6_0;
+		goto IL_007c;
+	}
+
+IL_006c:
+	{
+		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_17 = V_1;
+		NullCheck(L_17);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_18 = L_17->___material;
+		NullCheck(L_18);
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_19;
+		L_19 = Material_GetColor_mAC702C70081A597DD2AA2F4627B1A1C65DDF6609(L_18, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, NULL);
+		G_B8_0 = L_19;
+		G_B8_1 = G_B7_0;
 	}
 
 IL_007c:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:183>
-		float L_16 = __this->___U3CelapsedU3E5__3;
-		float L_17;
-		L_17 = Time_get_deltaTime_mC3195000401F0FD167DD2F948FD2BC58330D0865(NULL);
-		__this->___U3CelapsedU3E5__3 = ((float)il2cpp_codegen_add(L_16, L_17));
+		NullCheck(G_B8_1);
+		G_B8_1->___U3CstartColorU3E5__2 = G_B8_0;
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:184>
-		float L_18 = __this->___U3CelapsedU3E5__3;
-		float L_19 = __this->___U3CdurationU3E5__4;
-		V_2 = ((float)(L_18/L_19));
+		__this->___U3CelapsedU3E5__3 = (0.0f);
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:185>
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_20 = __this->___U3CstartColorU3E5__2;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_21 = __this->___target;
-		float L_22 = V_2;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_23;
-		L_23 = Color_Lerp_mE79F87889843ECDC188E4CB5B5E1F1B2256E5EBE_inline(L_20, L_21, L_22, NULL);
-		V_3 = L_23;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:186>
-		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_24 = V_1;
-		NullCheck(L_24);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_25 = L_24->___material;
-		NullCheck(L_25);
-		bool L_26;
-		L_26 = Material_HasProperty_mC09A83B44E368A217F606DD4954FA080CC03EC6C(L_25, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, NULL);
-		if (!L_26)
-		{
-			goto IL_00d4;
-		}
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:187>
-		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_27 = V_1;
-		NullCheck(L_27);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_28 = L_27->___material;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_29 = V_3;
-		NullCheck(L_28);
-		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_28, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, L_29, NULL);
-		goto IL_00e0;
+		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_20 = V_1;
+		NullCheck(L_20);
+		float L_21 = L_20->___colorTransitionSpeed;
+		__this->___U3CdurationU3E5__4 = ((float)((1.0f)/L_21));
+		goto IL_0143;
 	}
 
-IL_00d4:
+IL_00a3:
 	{
 		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:189>
+		float L_22 = __this->___U3CelapsedU3E5__3;
+		float L_23;
+		L_23 = Time_get_deltaTime_mC3195000401F0FD167DD2F948FD2BC58330D0865(NULL);
+		__this->___U3CelapsedU3E5__3 = ((float)il2cpp_codegen_add(L_22, L_23));
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:190>
+		float L_24 = __this->___U3CelapsedU3E5__3;
+		float L_25 = __this->___U3CdurationU3E5__4;
+		V_2 = ((float)(L_24/L_25));
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:191>
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_26 = __this->___U3CstartColorU3E5__2;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_27 = __this->___target;
+		float L_28 = V_2;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_29;
+		L_29 = Color_Lerp_mE79F87889843ECDC188E4CB5B5E1F1B2256E5EBE_inline(L_26, L_27, L_28, NULL);
+		V_3 = L_29;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:192>
 		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_30 = V_1;
 		NullCheck(L_30);
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_31 = L_30->___material;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_32 = V_3;
 		NullCheck(L_31);
-		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(L_31, L_32, NULL);
+		bool L_32;
+		L_32 = Material_HasProperty_mC09A83B44E368A217F606DD4954FA080CC03EC6C(L_31, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, NULL);
+		if (!L_32)
+		{
+			goto IL_00fb;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:193>
+		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_33 = V_1;
+		NullCheck(L_33);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_34 = L_33->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_35 = V_3;
+		NullCheck(L_34);
+		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_34, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, L_35, NULL);
+		goto IL_012c;
 	}
 
-IL_00e0:
+IL_00fb:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:190>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:194>
+		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_36 = V_1;
+		NullCheck(L_36);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_37 = L_36->___material;
+		NullCheck(L_37);
+		bool L_38;
+		L_38 = Material_HasProperty_mC09A83B44E368A217F606DD4954FA080CC03EC6C(L_37, _stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE, NULL);
+		if (!L_38)
+		{
+			goto IL_0120;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:195>
+		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_39 = V_1;
+		NullCheck(L_39);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_40 = L_39->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_41 = V_3;
+		NullCheck(L_40);
+		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_40, _stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE, L_41, NULL);
+		goto IL_012c;
+	}
+
+IL_0120:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:197>
+		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_42 = V_1;
+		NullCheck(L_42);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_43 = L_42->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_44 = V_3;
+		NullCheck(L_43);
+		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(L_43, L_44, NULL);
+	}
+
+IL_012c:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:198>
 		__this->___U3CU3E2__current = NULL;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CU3E2__current), (void*)NULL);
 		__this->___U3CU3E1__state = 1;
 		return (bool)1;
 	}
 
-IL_00f0:
+IL_013c:
 	{
 		__this->___U3CU3E1__state = (-1);
 	}
 
-IL_00f7:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:181>
-		float L_33 = __this->___U3CelapsedU3E5__3;
-		float L_34 = __this->___U3CdurationU3E5__4;
-		if ((((float)L_33) < ((float)L_34)))
-		{
-			goto IL_007c;
-		}
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:193>
-		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_35 = V_1;
-		NullCheck(L_35);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_36 = L_35->___material;
-		NullCheck(L_36);
-		bool L_37;
-		L_37 = Material_HasProperty_mC09A83B44E368A217F606DD4954FA080CC03EC6C(L_36, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, NULL);
-		if (!L_37)
-		{
-			goto IL_0132;
-		}
-	}
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:194>
-		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_38 = V_1;
-		NullCheck(L_38);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_39 = L_38->___material;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_40 = __this->___target;
-		NullCheck(L_39);
-		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_39, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, L_40, NULL);
-		goto IL_0143;
-	}
-
-IL_0132:
-	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:196>
-		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_41 = V_1;
-		NullCheck(L_41);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_42 = L_41->___material;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_43 = __this->___target;
-		NullCheck(L_42);
-		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(L_42, L_43, NULL);
-	}
-
 IL_0143:
 	{
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:197>
-		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_44 = V_1;
-		NullCheck(L_44);
-		L_44->___isTransitioning = (bool)0;
-		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:198>
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:187>
+		float L_45 = __this->___U3CelapsedU3E5__3;
+		float L_46 = __this->___U3CdurationU3E5__4;
+		if ((((float)L_45) < ((float)L_46)))
+		{
+			goto IL_00a3;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:201>
+		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_47 = V_1;
+		NullCheck(L_47);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_48 = L_47->___material;
+		NullCheck(L_48);
+		bool L_49;
+		L_49 = Material_HasProperty_mC09A83B44E368A217F606DD4954FA080CC03EC6C(L_48, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, NULL);
+		if (!L_49)
+		{
+			goto IL_017e;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:202>
+		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_50 = V_1;
+		NullCheck(L_50);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_51 = L_50->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_52 = __this->___target;
+		NullCheck(L_51);
+		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_51, _stringLiteral51282E2AAC09AC6EDBC2C1C237C0183F97FEE379, L_52, NULL);
+		goto IL_01b9;
+	}
+
+IL_017e:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:203>
+		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_53 = V_1;
+		NullCheck(L_53);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_54 = L_53->___material;
+		NullCheck(L_54);
+		bool L_55;
+		L_55 = Material_HasProperty_mC09A83B44E368A217F606DD4954FA080CC03EC6C(L_54, _stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE, NULL);
+		if (!L_55)
+		{
+			goto IL_01a8;
+		}
+	}
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:204>
+		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_56 = V_1;
+		NullCheck(L_56);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_57 = L_56->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_58 = __this->___target;
+		NullCheck(L_57);
+		Material_SetColor_mFAB32FAA44461E46FD707B34184EC080CBB3539F(L_57, _stringLiteral47A3FAF17D89549FD0F0ECA7370B81F7C80DFCDE, L_58, NULL);
+		goto IL_01b9;
+	}
+
+IL_01a8:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:206>
+		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_59 = V_1;
+		NullCheck(L_59);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_60 = L_59->___material;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_61 = __this->___target;
+		NullCheck(L_60);
+		Material_set_color_m5C32DEBB215FF9EE35E7B575297D8C2F29CC2A2D(L_60, L_61, NULL);
+	}
+
+IL_01b9:
+	{
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:207>
+		ColorReactiveWall_t797CF14DABD1C17A72A830A96A4E5839B0622F3E* L_62 = V_1;
+		NullCheck(L_62);
+		L_62->___isTransitioning = (bool)0;
+		//<source_info:/Users/semiha/Projects/mixedreality-graduation-project/Assets/Scripts/ColorReactiveWall.cs:208>
 		return (bool)0;
 	}
 }

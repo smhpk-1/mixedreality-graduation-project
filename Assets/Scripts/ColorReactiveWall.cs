@@ -24,10 +24,19 @@ namespace MusicSpace
             {
                 if (collision.gameObject.CompareTag("Cube"))
                 {
+                    Debug.Log("Çarpışma: " + collision.gameObject.name);
                     var cubeRenderer = collision.gameObject.GetComponent<Renderer>();
                     if (cubeRenderer != null)
                     {
-                        Color cubeColor = cubeRenderer.material.color;
+                        Material cubeMat = cubeRenderer.material;
+                        Color cubeColor;
+                        if (cubeMat.HasProperty("_BaseColor"))
+                            cubeColor = cubeMat.GetColor("_BaseColor");
+                        else if (cubeMat.HasProperty("_Color"))
+                            cubeColor = cubeMat.GetColor("_Color");
+                        else
+                            cubeColor = cubeMat.color;
+                        Debug.Log($"Duvara atanacak renk: {cubeColor}");
                         ChangeColorInstant(cubeColor, 1.5f);
                         cubesTouching++;
                     }
@@ -72,15 +81,13 @@ namespace MusicSpace
             {
                 // Create material instance
                 material = meshRenderer.material;
-                // URP: _BaseColor kullan
+                // URP: _BaseColor veya _Color kullan
                 if (material.HasProperty("_BaseColor"))
-                {
                     originalColor = material.GetColor("_BaseColor");
-                }
+                else if (material.HasProperty("_Color"))
+                    originalColor = material.GetColor("_Color");
                 else
-                {
                     originalColor = material.color;
-                }
                 targetColor = originalColor;
             }
         }
@@ -96,10 +103,12 @@ namespace MusicSpace
                 StopCoroutine(colorCoroutine);
             }
 
-            // URP: _BaseColor kullanarak rengi değiştir
+            // URP: _BaseColor veya _Color kullanarak rengi değiştir
             targetColor = newColor * colorIntensity;
             if (material.HasProperty("_BaseColor"))
                 material.SetColor("_BaseColor", targetColor);
+            else if (material.HasProperty("_Color"))
+                material.SetColor("_Color", targetColor);
             else
                 material.color = targetColor;
 
@@ -131,6 +140,8 @@ namespace MusicSpace
             targetColor = originalColor;
             if (material.HasProperty("_BaseColor"))
                 material.SetColor("_BaseColor", originalColor);
+            else if (material.HasProperty("_Color"))
+                material.SetColor("_Color", originalColor);
             else
                 material.color = originalColor;
             colorCoroutine = StartCoroutine(TransitionColor(originalColor));
@@ -150,6 +161,8 @@ namespace MusicSpace
             Color target = newColor * colorIntensity;
             if (material.HasProperty("_BaseColor"))
                 material.SetColor("_BaseColor", target);
+            else if (material.HasProperty("_Color"))
+                material.SetColor("_Color", target);
             else
                 material.color = target;
             if (useEmission)
@@ -174,7 +187,8 @@ namespace MusicSpace
         private IEnumerator TransitionColor(Color target)
         {
             isTransitioning = true;
-            Color startColor = material.HasProperty("_BaseColor") ? material.GetColor("_BaseColor") : material.color;
+            Color startColor = material.HasProperty("_BaseColor") ? material.GetColor("_BaseColor") :
+                (material.HasProperty("_Color") ? material.GetColor("_Color") : material.color);
             float elapsed = 0f;
             float duration = 1f / colorTransitionSpeed;
 
@@ -185,6 +199,8 @@ namespace MusicSpace
                 Color lerped = Color.Lerp(startColor, target, t);
                 if (material.HasProperty("_BaseColor"))
                     material.SetColor("_BaseColor", lerped);
+                else if (material.HasProperty("_Color"))
+                    material.SetColor("_Color", lerped);
                 else
                     material.color = lerped;
                 yield return null;
@@ -192,6 +208,8 @@ namespace MusicSpace
 
             if (material.HasProperty("_BaseColor"))
                 material.SetColor("_BaseColor", target);
+            else if (material.HasProperty("_Color"))
+                material.SetColor("_Color", target);
             else
                 material.color = target;
             isTransitioning = false;
