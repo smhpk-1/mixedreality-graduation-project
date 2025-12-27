@@ -15,8 +15,37 @@ namespace MusicSpace
     /// <summary>
     /// A wall or floor that changes color when hit by a MusicCube.
     /// </summary>
-    public class ColorReactiveWall : MonoBehaviour
-    {
+        public class ColorReactiveWall : MonoBehaviour
+        {
+            // Küp çarpınca rengi değiştir, ayrılınca geri döndür
+            private int cubesTouching = 0;
+
+            private void OnCollisionEnter(Collision collision)
+            {
+                if (collision.gameObject.CompareTag("Cube"))
+                {
+                    var cubeRenderer = collision.gameObject.GetComponent<Renderer>();
+                    if (cubeRenderer != null)
+                    {
+                        Color cubeColor = cubeRenderer.material.color;
+                        ChangeColorInstant(cubeColor, 1.5f);
+                        cubesTouching++;
+                    }
+                }
+            }
+
+            private void OnCollisionExit(Collision collision)
+            {
+                if (collision.gameObject.CompareTag("Cube"))
+                {
+                    cubesTouching = Mathf.Max(0, cubesTouching - 1);
+                    // Sadece son küp ayrıldığında eski rengine dön
+                    if (cubesTouching == 0)
+                    {
+                        ResetColor();
+                    }
+                }
+            }
         private Coroutine revertCoroutine;
         [Header("Surface Properties")]
         public SurfaceType surfaceType = SurfaceType.Concrete;
