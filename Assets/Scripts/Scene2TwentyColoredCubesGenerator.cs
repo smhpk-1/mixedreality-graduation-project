@@ -62,6 +62,12 @@ public class Scene2TwentyColoredCubesGenerator : MonoBehaviour
                     #endif
                         renderer.material = cubeMaterials[colorIdx];
                 }
+
+                // XR Grab Interactable ekle (grab edilebilirlik için)
+                if (cube.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>() == null)
+                {
+                    cube.AddComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+                }
             }
         }
     }
