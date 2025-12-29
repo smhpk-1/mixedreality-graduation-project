@@ -176,13 +176,16 @@ This project explores the psychological concept of **maladaptive daydreaming** a
 
 ## 👤 Author
 
-**Graduation Project** - Mixed Reality Development
+**Semiha PAKSOY**
+
+📚 **MUS441 - Senior Project I-II**  
+🎓 **2025-2026 Academic Year**
 
 ---
 
 ## 📝 License
 
-This project is developed for educational purposes as part of a graduation project.
+This project is developed for educational purposes as part of the MUS441 Senior Project I-II course requirements.
 
 ---
 
