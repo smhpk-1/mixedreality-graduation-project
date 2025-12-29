@@ -1,7 +1,13 @@
 ## 1.2 Scene 2: The Colorful Playground
 
 **Narrative:**
-Scene 2, oyuncuyu yerin üstünde rastgele dağılmış çok sayıda büyük ve renkli küpün olduğu bir oyun alanına taşır. Tüm küpler sürekli grab edilebilir, fırlatılabilir ve fiziksel olarak sekip yere düşecek şekilde ayarlanmıştır. Her küp, rengine özel bir ses çıkarır (sesler daha sonra eklenecek). Bu sahne, oyuncuya özgürlük, yaratıcılık ve sürreal bir deneyim sunar.
+Scene 2 transports the player to a surreal, open playground featuring 20 large, colorful cubes scattered across the floor. The cubes come in 5 vibrant colors (Red, Blue, Green, Yellow, Purple) with 4 cubes of each color. Players can freely grab and throw these cubes at the reactive walls surrounding the room. When a cube hits a wall, the wall instantly changes to match the cube's color, creating a dynamic, ever-changing environment. This scene represents freedom, creativity, and the boundless imagination of daydreaming—a stark contrast to the oppressive factory of Scene 1.
+
+**Key Scripts:**
+- Scene2TwentyColoredCubesGenerator.cs
+- Scene2RoomGenerator.cs
+- ColorReactiveWall.cs
+- PlaygroundCube.cs
 # Mixed Reality Graduation Project - VR Project Documentation
 
 ## 1. Project Overview (PRD)
