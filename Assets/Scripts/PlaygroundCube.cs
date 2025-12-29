@@ -62,8 +62,6 @@ namespace MusicSpace
             {
                 collisionSound = GenerateCollisionSound();
             }
-            
-            Debug.Log($"PlaygroundCube initialized: {gameObject.name}, color: {cubeColor}");
         }
 
         private void OnEnable()
@@ -95,20 +93,23 @@ namespace MusicSpace
             if (hasHitWall) return;
             
             float velocity = collision.relativeVelocity.magnitude;
+            string hitObjectName = collision.gameObject.name;
             
-            Debug.Log($"PlaygroundCube {gameObject.name} hit {collision.gameObject.name}, velocity: {velocity}");
-            
-            // Check if we hit a reactive wall
+            // Check if we hit a reactive wall - search on object AND parents
             ColorReactiveWall wall = collision.gameObject.GetComponent<ColorReactiveWall>();
+            if (wall == null)
+            {
+                wall = collision.gameObject.GetComponentInParent<ColorReactiveWall>();
+            }
+            
+            // Check if this is a wall by name (Wall_Front, Wall_Back, etc.)
+            bool isWallByName = hitObjectName.StartsWith("Wall_");
+            
             if (wall != null)
             {
-                Debug.Log($"PlaygroundCube {gameObject.name}: Found ColorReactiveWall on {collision.gameObject.name}");
-                
                 if (velocity >= minVelocityForWallChange)
                 {
                     hasHitWall = true;
-                    
-                    Debug.Log($"PlaygroundCube {gameObject.name}: Changing wall color to {cubeColor}");
                     
                     // Change wall color to match this cube (permanent until next hit)
                     wall.ChangeColorInstant(cubeColor, 0f);
@@ -119,9 +120,18 @@ namespace MusicSpace
                     // Respawn cube after delay
                     StartCoroutine(RespawnAfterDelay());
                 }
-                else
+            }
+            else if (isWallByName)
+            {
+                // Wall doesn't have ColorReactiveWall - add it dynamically
+                wall = collision.gameObject.AddComponent<ColorReactiveWall>();
+                
+                if (velocity >= minVelocityForWallChange)
                 {
-                    Debug.Log($"PlaygroundCube {gameObject.name}: Velocity too low ({velocity} < {minVelocityForWallChange})");
+                    hasHitWall = true;
+                    wall.ChangeColorInstant(cubeColor, 0f);
+                    PlayCollisionSound(velocity);
+                    StartCoroutine(RespawnAfterDelay());
                 }
             }
             else if (velocity > 0.3f)
