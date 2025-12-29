@@ -26,7 +26,7 @@ namespace MusicSpace
         [Range(0f, 1f)] public float collisionVolume = 0.8f;
         
         [Header("Physics")]
-        public float minVelocityForWallChange = 1.0f;
+        public float minVelocityForWallChange = 0.5f; // Lowered threshold for easier triggering
 
         private XRGrabInteractable grabInteractable;
         private Rigidbody rb;
@@ -62,6 +62,8 @@ namespace MusicSpace
             {
                 collisionSound = GenerateCollisionSound();
             }
+            
+            Debug.Log($"PlaygroundCube initialized: {gameObject.name}, color: {cubeColor}");
         }
 
         private void OnEnable()
@@ -89,30 +91,43 @@ namespace MusicSpace
 
         private void OnCollisionEnter(Collision collision)
         {
-            // Only process if we've been thrown (not grabbed) and haven't already hit a wall
-            if (isGrabbed || hasHitWall) return;
+            // Allow collision detection even while grabbed for better responsiveness
+            if (hasHitWall) return;
             
             float velocity = collision.relativeVelocity.magnitude;
             
+            Debug.Log($"PlaygroundCube {gameObject.name} hit {collision.gameObject.name}, velocity: {velocity}");
+            
             // Check if we hit a reactive wall
             ColorReactiveWall wall = collision.gameObject.GetComponent<ColorReactiveWall>();
-            if (wall != null && velocity >= minVelocityForWallChange)
+            if (wall != null)
             {
-                hasHitWall = true;
+                Debug.Log($"PlaygroundCube {gameObject.name}: Found ColorReactiveWall on {collision.gameObject.name}");
                 
-                // Change wall color to match this cube
-                wall.ChangeColorInstant(cubeColor, 0f); // 0 = permanent until next hit
-                
-                // Play collision sound with pitch based on velocity
-                PlayCollisionSound(velocity);
-                
-                // Respawn cube after delay
-                StartCoroutine(RespawnAfterDelay());
+                if (velocity >= minVelocityForWallChange)
+                {
+                    hasHitWall = true;
+                    
+                    Debug.Log($"PlaygroundCube {gameObject.name}: Changing wall color to {cubeColor}");
+                    
+                    // Change wall color to match this cube (permanent until next hit)
+                    wall.ChangeColorInstant(cubeColor, 0f);
+                    
+                    // Play collision sound with pitch based on velocity
+                    PlayCollisionSound(velocity);
+                    
+                    // Respawn cube after delay
+                    StartCoroutine(RespawnAfterDelay());
+                }
+                else
+                {
+                    Debug.Log($"PlaygroundCube {gameObject.name}: Velocity too low ({velocity} < {minVelocityForWallChange})");
+                }
             }
-            else if (velocity > 0.5f)
+            else if (velocity > 0.3f)
             {
-                // Play softer sound for non-wall collisions
-                PlayCollisionSound(velocity * 0.5f);
+                // Play softer sound for non-wall collisions (floor, other cubes)
+                PlayCollisionSound(velocity * 0.3f);
             }
         }
 
