@@ -152,12 +152,22 @@ namespace MusicSpace
         }
 
         /// <summary>
-        /// Duvara anında renk uygula ve belirli bir süre sonra eski rengine döndür
+        /// Instantly change wall color. If revertDelay is 0 or negative, color persists until changed again.
         /// </summary>
+        /// <param name="newColor">The new color to apply</param>
+        /// <param name="revertDelay">Time in seconds before reverting. Use 0 for permanent change.</param>
         public void ChangeColorInstant(Color newColor, float revertDelay = 1.5f)
         {
             if (material == null) return;
-            // Hemen uygula
+            
+            // Stop any existing revert coroutine
+            if (revertCoroutine != null)
+            {
+                StopCoroutine(revertCoroutine);
+                revertCoroutine = null;
+            }
+            
+            // Apply color immediately
             Color target = newColor * colorIntensity;
             if (material.HasProperty("_BaseColor"))
                 material.SetColor("_BaseColor", target);
@@ -165,17 +175,20 @@ namespace MusicSpace
                 material.SetColor("_Color", target);
             else
                 material.color = target;
+                
+            // Apply emission for glow effect
             if (useEmission)
             {
                 material.EnableKeyword("_EMISSION");
                 material.SetColor("_EmissionColor", newColor * emissionIntensity);
             }
-            // Eski rengine dönmek için coroutine başlat
-            if (revertCoroutine != null)
+            
+            // Only start revert coroutine if delay is positive
+            // If revertDelay <= 0, color stays until another cube hits
+            if (revertDelay > 0f)
             {
-                StopCoroutine(revertCoroutine);
+                revertCoroutine = StartCoroutine(RevertAfterDelay(revertDelay));
             }
-            revertCoroutine = StartCoroutine(RevertAfterDelay(revertDelay));
         }
 
         private IEnumerator RevertAfterDelay(float delay)

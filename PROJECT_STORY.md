@@ -34,17 +34,39 @@ This document outlines the narrative structure and interactive story progression
 
 ## Scene 2: The Colorful Playground
 
-- **Setting:** Oyuncu, yerin üstünde rastgele dağılmış çok sayıda büyük ve renkli küpün olduğu geniş, açık bir alana geçer.
-- **Objective:** Oyuncu istediği zaman istediği küpü grab edebilir, fırlatabilir ve etkileşime girebilir. Her küp, rengine özel bir ses çıkarır (bu sesler daha sonra eklenecek).
-- **Interaction:**
-  - Tüm küpler sürekli grab edilebilir.
-  - Küpler büyük boyutlu ve fiziksel olarak sekip yere düşecek şekilde ayarlanmıştır.
-  - Oyuncu küpleri istediği gibi fırlatabilir, etrafa dağıtabilir.
-- **Audio:**
-  - Her küpün rengine özel bir ses efekti vardır (sesler daha sonra eklenecek).
-- **Purpose:**
-  - Sürreal, özgür ve deneysel bir oyun alanı sunmak.
-  - Oyuncuya sürekli etkileşim ve yaratıcılık imkânı vermek.
+**The Awakening**
+After touching the Anomaly Cube, the player is transported from the dark factory into a bright, surreal playground—a physical manifestation of the daydreaming mind.
+
+### Setting
+- A spacious room with reactive walls made of different materials (Metal, Concrete, Wood, Glass, Stone floor)
+- 20 large, colorful cubes scattered across the floor in a grid pattern
+- 5 colors: Red, Blue, Green, Yellow, Purple (4 cubes each)
+- Bright, ambient lighting contrasting the factory's darkness
+
+### Objective
+The player is free to explore and interact without rules or quotas. The goal is pure creative expression:
+- Grab any cube using hand tracking or controllers
+- Throw cubes at the surrounding walls
+- Watch as walls transform to match the cube's color
+- Create your own color patterns and compositions
+
+### Interaction
+- **Grab & Throw:** All 20 cubes can be grabbed and thrown with realistic physics
+- **Wall Reaction:** When a cube hits a wall, the wall instantly changes to the cube's color
+- **Color Persistence:** Wall colors persist until hit by another cube
+- **Cube Respawn:** After hitting a wall, cubes respawn at their original position after a short delay
+- **Physics:** Cubes bounce realistically off surfaces before triggering color changes
+
+### Audio
+- Each cube color produces a unique sound when colliding with surfaces
+- Different wall materials (Metal, Wood, Glass, etc.) affect the sound characteristics
+- Ambient soundscape reflecting the surreal, dreamlike atmosphere
+
+### Purpose
+- Represents the freedom and boundlessness of imagination
+- Contrasts the rigid, rule-driven factory of Scene 1
+- Allows players to "paint" their environment through play
+- Symbolizes breaking free from capitalist constraints through creative expression
 
 ---
 
