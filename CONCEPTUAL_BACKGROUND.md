@@ -51,6 +51,31 @@ The project aims to create a **surreal** environment—one that is dreamlike, fl
 
 ---
 
+## 4.1 Scene 2: The Colorful Playground – Conceptual Symbolism
+
+After escaping the factory, the player enters **The Colorful Playground**—a surreal space representing the unbounded imagination of the daydreaming mind.
+
+### Visual Symbolism
+- **20 Colorful Cubes:** Represent the fragments of creativity and imagination suppressed by the factory's monotony. The 5 colors (Red, Blue, Green, Yellow, Purple) symbolize the full spectrum of human emotion and expression.
+- **Reactive Walls:** The walls that change color when struck by cubes represent the malleability of reality within the imagination—unlike the fixed, unchanging walls of the factory.
+- **Different Wall Materials:** Metal, Wood, Glass, Concrete, and Stone surfaces represent the varied textures of memory and experience that shape our inner worlds.
+
+### Interaction Symbolism
+- **Throwing Cubes:** The act of throwing represents creative expression and the release of suppressed energy. Unlike the careful "sorting" in Scene 1, here the player can throw freely without rules or judgment.
+- **Painting Walls with Color:** Each wall hit becomes a canvas, allowing the player to literally reshape their environment—something impossible in the rigid factory world.
+- **No Quotas, No Rules:** The absence of objectives critiques the productivity-obsessed nature of capitalism and celebrates purposeless play.
+
+### Thematic Contrast
+| Scene 1: The Shift | Scene 2: The Playground |
+|-------------------|------------------------|
+| Dark, oppressive | Bright, liberating |
+| Rules and quotas | Freedom and creativity |
+| Sorting (conformity) | Throwing (expression) |
+| Fixed environment | Reactive, changeable |
+| Monotone colors | Vibrant spectrum |
+
+---
+
 ## 5. Ongoing Development
 This conceptual background will evolve as the project progresses. Additional theoretical frameworks, references, and design rationales will be added to reflect new insights and directions, including future scenes and their symbolic meaning.
 
