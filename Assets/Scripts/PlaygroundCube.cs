@@ -8,7 +8,7 @@ namespace MusicSpace
     /// <summary>
     /// A colored cube for Scene 2 that can be grabbed and thrown at reactive walls.
     /// When it collides with a ColorReactiveWall, the wall changes to match this cube's color.
-    /// After collision, the cube respawns at its original position.
+    /// Audio is loaded automatically based on cube color and manipulated by physics.
     /// </summary>
     [RequireComponent(typeof(XRGrabInteractable))]
     [RequireComponent(typeof(Rigidbody))]
@@ -16,17 +16,29 @@ namespace MusicSpace
     {
         [Header("Identity")]
         public Color cubeColor = Color.white;
+        public string colorName = ""; // red, blue, green, yellow, purple
         
         [Header("Spawn Settings")]
         public Vector3 spawnPosition;
         public float respawnDelay = 1.5f;
         
-        [Header("Audio")]
-        public AudioClip collisionSound;
-        [Range(0f, 1f)] public float collisionVolume = 0.8f;
+        [Header("Audio Settings")]
+        public AudioClip collisionSound; // Auto-loaded based on colorName
+        [Range(0f, 1f)] public float baseVolume = 0.8f;
+        
+        [Header("Physics-Based Audio")]
+        [Tooltip("Minimum pitch when velocity is low")]
+        public float minPitch = 0.7f;
+        [Tooltip("Maximum pitch when velocity is high")]
+        public float maxPitch = 1.4f;
+        [Tooltip("Velocity at which max pitch is reached")]
+        public float maxVelocityForPitch = 15f;
+        [Tooltip("Minimum volume multiplier")]
+        public float minVolumeMultiplier = 0.3f;
         
         [Header("Physics")]
-        public float minVelocityForWallChange = 0.5f; // Lowered threshold for easier triggering
+        public float minVelocityForWallChange = 0.5f;
+        public float minVelocityForSound = 0.2f;
 
         private XRGrabInteractable grabInteractable;
         private Rigidbody rb;
@@ -49,12 +61,54 @@ namespace MusicSpace
             audioSource.spatialBlend = 1f; // 3D sound
             audioSource.rolloffMode = AudioRolloffMode.Linear;
             audioSource.minDistance = 1f;
-            audioSource.maxDistance = 15f;
+            audioSource.maxDistance = 20f;
             
             // Store spawn position if not set
             if (spawnPosition == Vector3.zero)
             {
                 spawnPosition = transform.position;
+            }
+            
+            // Auto-detect color name from object name if not set
+            if (string.IsNullOrEmpty(colorName))
+            {
+                colorName = DetectColorFromName();
+            }
+            
+            // Auto-load sound based on color
+            if (collisionSound == null && !string.IsNullOrEmpty(colorName))
+            {
+                LoadSoundForColor();
+            }
+        }
+        
+        /// <summary>
+        /// Detect color name from GameObject name (e.g., "Cube_Red_1" -> "red")
+        /// </summary>
+        private string DetectColorFromName()
+        {
+            string objName = gameObject.name.ToLower();
+            
+            if (objName.Contains("red")) return "red";
+            if (objName.Contains("blue")) return "blue";
+            if (objName.Contains("green")) return "green";
+            if (objName.Contains("yellow")) return "yellow";
+            if (objName.Contains("purple")) return "purple";
+            
+            return "";
+        }
+        
+        /// <summary>
+        /// Load audio clip from Resources based on color name
+        /// </summary>
+        private void LoadSoundForColor()
+        {
+            string path = "scene_2_sound_design/" + colorName.ToLower();
+            collisionSound = Resources.Load<AudioClip>(path);
+            
+            if (collisionSound == null)
+            {
+                Debug.LogWarning($"PlaygroundCube {gameObject.name}: Could not load sound from Resources/{path}");
             }
         }
 
@@ -108,8 +162,8 @@ namespace MusicSpace
                     // Change wall color to match this cube (permanent until next hit)
                     wall.ChangeColorInstant(cubeColor, 0f);
                     
-                    // Play collision sound with pitch based on velocity
-                    PlayCollisionSound(velocity);
+                    // Play collision sound with full intensity for wall hits
+                    PlayCollisionSound(velocity, 1f);
                     
                     // Respawn cube after delay
                     StartCoroutine(RespawnAfterDelay());
@@ -124,25 +178,41 @@ namespace MusicSpace
                 {
                     hasHitWall = true;
                     wall.ChangeColorInstant(cubeColor, 0f);
-                    PlayCollisionSound(velocity);
+                    PlayCollisionSound(velocity, 1f);
                     StartCoroutine(RespawnAfterDelay());
                 }
             }
-            else if (velocity > 0.3f)
+            else if (velocity > minVelocityForSound)
             {
-                // Play softer sound for non-wall collisions (floor, other cubes)
-                PlayCollisionSound(velocity * 0.3f);
+                // Play sound for non-wall collisions (floor, other cubes) with reduced intensity
+                PlayCollisionSound(velocity, 0.5f);
             }
         }
 
-        private void PlayCollisionSound(float velocity)
+        /// <summary>
+        /// Play collision sound with physics-based parameter manipulation
+        /// </summary>
+        /// <param name="velocity">Impact velocity</param>
+        /// <param name="volumeScale">Additional volume scaling (0-1)</param>
+        private void PlayCollisionSound(float velocity, float volumeScale = 1f)
         {
             if (collisionSound == null || audioSource == null) return;
             
-            // Adjust pitch based on velocity (faster = higher pitch)
-            float normalizedVelocity = Mathf.Clamp01(velocity / 10f);
-            audioSource.pitch = Mathf.Lerp(0.8f, 1.3f, normalizedVelocity);
-            audioSource.volume = collisionVolume * Mathf.Lerp(0.5f, 1f, normalizedVelocity);
+            // Normalize velocity for parameter calculation
+            float normalizedVelocity = Mathf.Clamp01(velocity / maxVelocityForPitch);
+            
+            // Physics-based pitch: faster impact = higher pitch
+            float pitch = Mathf.Lerp(minPitch, maxPitch, normalizedVelocity);
+            
+            // Physics-based volume: harder impact = louder
+            float volumeMultiplier = Mathf.Lerp(minVolumeMultiplier, 1f, normalizedVelocity);
+            float finalVolume = baseVolume * volumeMultiplier * volumeScale;
+            
+            // Apply parameters
+            audioSource.pitch = pitch;
+            audioSource.volume = finalVolume;
+            
+            // Play the sound
             audioSource.PlayOneShot(collisionSound);
         }
 
