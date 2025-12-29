@@ -165,6 +165,14 @@ namespace MusicSpace
             PlaygroundCube playgroundCube = cube.AddComponent<PlaygroundCube>();
             playgroundCube.cubeColor = color;
             playgroundCube.spawnPosition = position;
+            
+            // Extract color name from cube name (e.g., "Cube_Red_1" -> "red")
+            string cubeName = name.ToLower();
+            if (cubeName.Contains("red")) playgroundCube.colorName = "red";
+            else if (cubeName.Contains("blue")) playgroundCube.colorName = "blue";
+            else if (cubeName.Contains("green")) playgroundCube.colorName = "green";
+            else if (cubeName.Contains("yellow")) playgroundCube.colorName = "yellow";
+            else if (cubeName.Contains("purple")) playgroundCube.colorName = "purple";
 
             return cube;
         }
