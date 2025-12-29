@@ -956,6 +956,7 @@ MonoBehaviour:
   colorIntensity: 1.5
   useEmission: 1
   emissionIntensity: 0.8
+  minVelocityToTrigger: 0.5
 --- !u!1 &396863082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1998,6 +1999,7 @@ MonoBehaviour:
   colorIntensity: 1.5
   useEmission: 1
   emissionIntensity: 0.8
+  minVelocityToTrigger: 0.5
 --- !u!1 &880265412
 GameObject:
   m_ObjectHideFlags: 0
@@ -2255,6 +2257,7 @@ MonoBehaviour:
   colorIntensity: 1.5
   useEmission: 1
   emissionIntensity: 0.8
+  minVelocityToTrigger: 0.5
 --- !u!1 &923076090
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,6 +2655,7 @@ MonoBehaviour:
   colorIntensity: 1.5
   useEmission: 1
   emissionIntensity: 0.8
+  minVelocityToTrigger: 0.5
 --- !u!21 &980145792
 Material:
   serializedVersion: 8
@@ -5305,18 +5309,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d943b8717494933ad30ab6005bc3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Scene2TwentyColoredCubesGenerator
+  cubesPerColor: 4
+  cubeScale: 0.25
+  spacing: 0.8
+  gridCenter: {x: 0, y: 0.15, z: 0}
   cubeMaterials:
   - {fileID: 2100000, guid: 8cbe0797b6c7d475b95f16f8dfba224c, type: 2}
   - {fileID: 2100000, guid: 287e451893aea4b5ea8fac00c21bfaec, type: 2}
   - {fileID: 2100000, guid: 6e746e8426e934d89a35b1e4e4089549, type: 2}
   - {fileID: 2100000, guid: 15c983952bd3847f1ad6bfcd60f9522f, type: 2}
   - {fileID: 2100000, guid: 71e1b0ca07ed7452f8a43e27e455299c, type: 2}
-  colorNames:
-  - Red
-  - Blue
-  - Green
-  - Yellow
-  - Purple
 --- !u!4 &1649551746
 Transform:
   m_ObjectHideFlags: 0
@@ -6817,6 +6819,7 @@ MonoBehaviour:
   colorIntensity: 1.5
   useEmission: 1
   emissionIntensity: 0.8
+  minVelocityToTrigger: 0.5
 --- !u!1 &2137165556
 GameObject:
   m_ObjectHideFlags: 0

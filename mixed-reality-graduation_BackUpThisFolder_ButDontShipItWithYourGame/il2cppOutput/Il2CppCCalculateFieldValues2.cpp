@@ -819,6 +819,8 @@ struct AnimationTriggers_tA0DC06F89C5280C6DD972F6F4C8A56D7F4F79074;
 struct ArgumentCache_t30F5878E7190B37456E045E039655C33EB27FF1D;
 struct AsnEncodedData_t9341C847F05FA5D9D579173CBB19B4448445C8A8;
 struct AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C;
+struct AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20;
+struct AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299;
 struct Awaitable_t690337FEC1C411606E233EA36A41337B931C23CB;
 struct AxisControl_tD6613A2445A3C2BFA22C77E16CA3201AF72354A7;
 struct AxisEventData_t4AA742BC101B1AA300B16EE7F19E31B91F37A938;
@@ -1082,6 +1084,7 @@ struct XRCommonHandGestures_tB24C5F4CF6285CC0D00E1830EE0D3FEB331CC926;
 struct XREnvironmentProbeSubsystem_t1C339A3A0B8601507D2438158D6632271557CC0B;
 struct XRFaceSubsystem_t93DD9DDD21C06E5A591BB0094512BC8FD8A890D3;
 struct XRFingerShapeConfiguration_t74E8ED67EC341E2DAB1128F6FBDD3664B4998EAA;
+struct XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B;
 struct XRHandJointsUpdatedEventArgs_t23369A3B3D49D837CF21B765B7F0E248F362E31F;
 struct XRHandRelativeOrientation_tED6CB53B17DB9FC245E0DD142F75883E9B52A580;
 struct XRHandShape_t225192C9F2E1371524B2C53C203421368A1C45B0;
@@ -18930,24 +18933,6 @@ struct InstantiationKind_t9B77929786BCA193B4A916F2F25793598CF0DF7D
 {
 	int32_t ___value__;
 };
-struct JNINativeMethod_t92A9F760CD913D55613C0CD5A8CB4CB3F4722F59 
-{
-	String_t* ___name;
-	String_t* ___signature;
-	intptr_t ___fnPtr;
-};
-struct JNINativeMethod_t92A9F760CD913D55613C0CD5A8CB4CB3F4722F59_marshaled_pinvoke
-{
-	char* ___name;
-	char* ___signature;
-	intptr_t ___fnPtr;
-};
-struct JNINativeMethod_t92A9F760CD913D55613C0CD5A8CB4CB3F4722F59_marshaled_com
-{
-	Il2CppChar* ___name;
-	Il2CppChar* ___signature;
-	intptr_t ___fnPtr;
-};
 struct KerningPair_tC8E09DC4C7DA41551F1BCC9DDABF4AE44938D481  : public RuntimeObject
 {
 	uint32_t ___m_FirstGlyph;
@@ -21883,294 +21868,6 @@ struct int4x4_tEF359B46039347312A6AC932AD04CA9CE675AB30
 	int4_tBA77D4945786DE82C3A487B33955EA1004996052 ___c2;
 	int4_tBA77D4945786DE82C3A487B33955EA1004996052 ___c3;
 };
-struct jvalue_t1756CE401EE222450C9AD0B98CB30E213D4A3225 
-{
-	union
-	{
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			bool ___z;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			bool ___z_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			int8_t ___b;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			int8_t ___b_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			Il2CppChar ___c;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			Il2CppChar ___c_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			int16_t ___s;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			int16_t ___s_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			int32_t ___i;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			int32_t ___i_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			int64_t ___j;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			int64_t ___j_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			float ___f;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			float ___f_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			double ___d;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			double ___d_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			intptr_t ___l;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			intptr_t ___l_forAlignmentOnly;
-		};
-	};
-};
-struct jvalue_t1756CE401EE222450C9AD0B98CB30E213D4A3225_marshaled_pinvoke
-{
-	union
-	{
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			int32_t ___z;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			int32_t ___z_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			int8_t ___b;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			int8_t ___b_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			uint8_t ___c;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			uint8_t ___c_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			int16_t ___s;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			int16_t ___s_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			int32_t ___i;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			int32_t ___i_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			int64_t ___j;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			int64_t ___j_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			float ___f;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			float ___f_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			double ___d;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			double ___d_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			intptr_t ___l;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			intptr_t ___l_forAlignmentOnly;
-		};
-	};
-};
-struct jvalue_t1756CE401EE222450C9AD0B98CB30E213D4A3225_marshaled_com
-{
-	union
-	{
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			int32_t ___z;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			int32_t ___z_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			int8_t ___b;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			int8_t ___b_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			uint8_t ___c;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			uint8_t ___c_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			int16_t ___s;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			int16_t ___s_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			int32_t ___i;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			int32_t ___i_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			int64_t ___j;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			int64_t ___j_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			float ___f;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			float ___f_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			double ___d;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			double ___d_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			intptr_t ___l;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			intptr_t ___l_forAlignmentOnly;
-		};
-	};
-};
 struct quaternion_tD6BCBECAF088B9EBAE2345EC8534C7A1A4C910D4 
 {
 	float4_t89D9A294E7A79BD81BFBDD18654508532958555E ___value;
@@ -23065,27 +22762,6 @@ struct TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE
 {
 	intptr_t ___function;
 	intptr_t ___state;
-};
-struct JStringBinding_t9B40246176FCFF5ECDCFADB38CEDA9A027ECAC74 
-{
-	intptr_t ___javaString;
-	intptr_t ___chars;
-	int32_t ___length;
-	bool ___ownsRef;
-};
-struct JStringBinding_t9B40246176FCFF5ECDCFADB38CEDA9A027ECAC74_marshaled_pinvoke
-{
-	intptr_t ___javaString;
-	intptr_t ___chars;
-	int32_t ___length;
-	int32_t ___ownsRef;
-};
-struct JStringBinding_t9B40246176FCFF5ECDCFADB38CEDA9A027ECAC74_marshaled_com
-{
-	intptr_t ___javaString;
-	intptr_t ___chars;
-	int32_t ___length;
-	int32_t ___ownsRef;
 };
 struct AspectMode_tF6129E542D85CDCF51C583861975092B857776F5 
 {
@@ -24494,10 +24170,6 @@ struct AnalyticsEventBase_t4CB926589E315DB970B0140489C698A8D4A40753_marshaled_co
 	int32_t ___eventVersion;
 	Il2CppChar* ___eventPrefix;
 	int32_t ___sendEventOptions;
-};
-struct AndroidJavaException_t26383CDFF7DF5904124FA37E4E46B561FC3698BD  : public Exception_t
-{
-	String_t* ___mJavaStackTrace;
 };
 struct AnimateCrossFadeJob_t4A6EEA489E4EE721D1878717E9FB01FC73C4E90E 
 {
@@ -32761,6 +32433,35 @@ struct AllocateBinsPerBatch_t5239CCD1592A1183C158D7DBFBCB38CFB8A65904_marshaled_
 	int32_t ___debugCounterIndexBase;
 	NativeArray_1_tA833EB7E3E1C9AF82C37976AD964B8D4BAC38B2C ___splitDebugCounters;
 };
+struct BinCollector_t0A40355FCBF8CBDA3B58F69F386CBD8990EAFA65  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+	String_t* ___targetCubeName;
+	bool ___destroyOnCorrect;
+	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___correctSound;
+	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___wrongSound;
+	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___burntMaterial;
+	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___audioSource;
+};
+struct BinGenerator_tB88E23E141E5D9B27826316774310F2DE37E9E6E  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___redBinPosition;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___blueBinPosition;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___binSize;
+	float ___wallThickness;
+};
+struct CubeCollisionSound_tD924DCF0275C48FBB83C49625FE5116CF837A300  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___audioSource;
+	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___thudSound;
+	float ___minVelocity;
+};
+struct CubeGrabAudio_t1611FEFE060FC52A6D5DBB1FE7684A0FF4349EC2  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___blueCubeClip;
+	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___redCubeClip;
+	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___audioSource;
+	XRGrabInteractable_tAE7E2F24377399C9B5159179E4B43EA6AA55531B* ___grabInteractable;
+};
 struct CullingJob_t4206A6B00371EC11303617597A8DA5BFCCF92681 
 {
 	BinningConfig_tBC59E841AEF64C2D71F090BD5E908543358A24A7 ___binningConfig;
@@ -32869,6 +32570,14 @@ struct DisallowSmallMeshCulling_tA1F3C9FD2CB77E0D445108FD463412346117DB67  : pub
 	bool ___m_AppliedRecursively;
 	bool ___m_applyToChildrenRecursively;
 };
+struct DispenserGenerator_t465D977F2C8780D6C540DEADB74B8D16121F5788  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___spawnPoint;
+	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___machineMaterial;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___size;
+	float ___wallThickness;
+	float ___pipeHeight;
+};
 struct DrawCommandOutputPerBatch_t4A45E11E8E7CBD974DA211971082C0ED66445215 
 {
 	BinningConfig_tBC59E841AEF64C2D71F090BD5E908543358A24A7 ___binningConfig;
@@ -32950,6 +32659,11 @@ struct EventTrigger_tAEBFB7A16CA99343EA87722F78884BF8646BAE1B  : public MonoBeha
 };
 struct EyeGazeInteraction_t4EAAB76C8910B2B25C4494294BAEDF8961147158  : public OpenXRInteractionFeature_t643728BC4EB54CC2852F8D9921027BEE62E7682E
 {
+};
+struct FactoryFloorGenerator_t7C278488B3CEED2B0DE6091F878C3D699C3DC766  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___floorSize;
+	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___concreteColor;
 };
 struct HPReverbG2ControllerProfile_t001C99F61F41652CF52F90E587A54A42053E9B04  : public OpenXRInteractionFeature_t643728BC4EB54CC2852F8D9921027BEE62E7682E
 {
@@ -44038,15 +43752,21 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8988[3] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8989[17] = 
 {
 	static_cast<int32_t>(offsetof(TextSelectingUtilities_tD0369D75359211EA5F31B1B5FC9410359A2A4DB7, ___dblClickSnap)),static_cast<int32_t>(offsetof(TextSelectingUtilities_tD0369D75359211EA5F31B1B5FC9410359A2A4DB7, ___iAltCursorPos)),static_cast<int32_t>(offsetof(TextSelectingUtilities_tD0369D75359211EA5F31B1B5FC9410359A2A4DB7, ___hasHorizontalCursorPos)),static_cast<int32_t>(offsetof(TextSelectingUtilities_tD0369D75359211EA5F31B1B5FC9410359A2A4DB7, ___m_bJustSelected)),static_cast<int32_t>(offsetof(TextSelectingUtilities_tD0369D75359211EA5F31B1B5FC9410359A2A4DB7, ___m_MouseDragSelectsWholeWords)),static_cast<int32_t>(offsetof(TextSelectingUtilities_tD0369D75359211EA5F31B1B5FC9410359A2A4DB7, ___m_DblClickInitPosStart)),static_cast<int32_t>(offsetof(TextSelectingUtilities_tD0369D75359211EA5F31B1B5FC9410359A2A4DB7, ___m_DblClickInitPosEnd)),static_cast<int32_t>(offsetof(TextSelectingUtilities_tD0369D75359211EA5F31B1B5FC9410359A2A4DB7, ___textHandle)),0,0,static_cast<int32_t>(offsetof(TextSelectingUtilities_tD0369D75359211EA5F31B1B5FC9410359A2A4DB7, ___m_RevealCursor)),static_cast<int32_t>(offsetof(TextSelectingUtilities_tD0369D75359211EA5F31B1B5FC9410359A2A4DB7, ___m_CursorIndex)),static_cast<int32_t>(offsetof(TextSelectingUtilities_tD0369D75359211EA5F31B1B5FC9410359A2A4DB7, ___m_SelectIndex)),static_cast<int32_t>(offsetof(TextSelectingUtilities_tD0369D75359211EA5F31B1B5FC9410359A2A4DB7_StaticFields, ___s_KeySelectOps)),static_cast<int32_t>(offsetof(TextSelectingUtilities_tD0369D75359211EA5F31B1B5FC9410359A2A4DB7, ___OnCursorIndexChange)),static_cast<int32_t>(offsetof(TextSelectingUtilities_tD0369D75359211EA5F31B1B5FC9410359A2A4DB7, ___OnSelectIndexChange)),static_cast<int32_t>(offsetof(TextSelectingUtilities_tD0369D75359211EA5F31B1B5FC9410359A2A4DB7, ___OnRevealCursorChange)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8992[9] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8993[6] = 
 {
-	static_cast<int32_t>(offsetof(jvalue_t1756CE401EE222450C9AD0B98CB30E213D4A3225, ___z)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(jvalue_t1756CE401EE222450C9AD0B98CB30E213D4A3225, ___b)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(jvalue_t1756CE401EE222450C9AD0B98CB30E213D4A3225, ___c)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(jvalue_t1756CE401EE222450C9AD0B98CB30E213D4A3225, ___s)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(jvalue_t1756CE401EE222450C9AD0B98CB30E213D4A3225, ___i)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(jvalue_t1756CE401EE222450C9AD0B98CB30E213D4A3225, ___j)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(jvalue_t1756CE401EE222450C9AD0B98CB30E213D4A3225, ___f)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(jvalue_t1756CE401EE222450C9AD0B98CB30E213D4A3225, ___d)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(jvalue_t1756CE401EE222450C9AD0B98CB30E213D4A3225, ___l)) + static_cast<int32_t>(sizeof(RuntimeObject)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8993[3] = 
+	static_cast<int32_t>(offsetof(BinCollector_t0A40355FCBF8CBDA3B58F69F386CBD8990EAFA65, ___targetCubeName)),static_cast<int32_t>(offsetof(BinCollector_t0A40355FCBF8CBDA3B58F69F386CBD8990EAFA65, ___destroyOnCorrect)),static_cast<int32_t>(offsetof(BinCollector_t0A40355FCBF8CBDA3B58F69F386CBD8990EAFA65, ___correctSound)),static_cast<int32_t>(offsetof(BinCollector_t0A40355FCBF8CBDA3B58F69F386CBD8990EAFA65, ___wrongSound)),static_cast<int32_t>(offsetof(BinCollector_t0A40355FCBF8CBDA3B58F69F386CBD8990EAFA65, ___burntMaterial)),static_cast<int32_t>(offsetof(BinCollector_t0A40355FCBF8CBDA3B58F69F386CBD8990EAFA65, ___audioSource)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8994[4] = 
 {
-	static_cast<int32_t>(offsetof(JNINativeMethod_t92A9F760CD913D55613C0CD5A8CB4CB3F4722F59, ___name)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(JNINativeMethod_t92A9F760CD913D55613C0CD5A8CB4CB3F4722F59, ___signature)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(JNINativeMethod_t92A9F760CD913D55613C0CD5A8CB4CB3F4722F59, ___fnPtr)) + static_cast<int32_t>(sizeof(RuntimeObject)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8995[4] = 
+	static_cast<int32_t>(offsetof(BinGenerator_tB88E23E141E5D9B27826316774310F2DE37E9E6E, ___redBinPosition)),static_cast<int32_t>(offsetof(BinGenerator_tB88E23E141E5D9B27826316774310F2DE37E9E6E, ___blueBinPosition)),static_cast<int32_t>(offsetof(BinGenerator_tB88E23E141E5D9B27826316774310F2DE37E9E6E, ___binSize)),static_cast<int32_t>(offsetof(BinGenerator_tB88E23E141E5D9B27826316774310F2DE37E9E6E, ___wallThickness)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8995[3] = 
 {
-	static_cast<int32_t>(offsetof(JStringBinding_t9B40246176FCFF5ECDCFADB38CEDA9A027ECAC74, ___javaString)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(JStringBinding_t9B40246176FCFF5ECDCFADB38CEDA9A027ECAC74, ___chars)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(JStringBinding_t9B40246176FCFF5ECDCFADB38CEDA9A027ECAC74, ___length)) + static_cast<int32_t>(sizeof(RuntimeObject)),static_cast<int32_t>(offsetof(JStringBinding_t9B40246176FCFF5ECDCFADB38CEDA9A027ECAC74, ___ownsRef)) + static_cast<int32_t>(sizeof(RuntimeObject)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8999[1] = 
+	static_cast<int32_t>(offsetof(CubeCollisionSound_tD924DCF0275C48FBB83C49625FE5116CF837A300, ___audioSource)),static_cast<int32_t>(offsetof(CubeCollisionSound_tD924DCF0275C48FBB83C49625FE5116CF837A300, ___thudSound)),static_cast<int32_t>(offsetof(CubeCollisionSound_tD924DCF0275C48FBB83C49625FE5116CF837A300, ___minVelocity)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8996[4] = 
 {
-	static_cast<int32_t>(offsetof(AndroidJavaException_t26383CDFF7DF5904124FA37E4E46B561FC3698BD, ___mJavaStackTrace)),};
+	static_cast<int32_t>(offsetof(CubeGrabAudio_t1611FEFE060FC52A6D5DBB1FE7684A0FF4349EC2, ___blueCubeClip)),static_cast<int32_t>(offsetof(CubeGrabAudio_t1611FEFE060FC52A6D5DBB1FE7684A0FF4349EC2, ___redCubeClip)),static_cast<int32_t>(offsetof(CubeGrabAudio_t1611FEFE060FC52A6D5DBB1FE7684A0FF4349EC2, ___audioSource)),static_cast<int32_t>(offsetof(CubeGrabAudio_t1611FEFE060FC52A6D5DBB1FE7684A0FF4349EC2, ___grabInteractable)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8998[5] = 
+{
+	static_cast<int32_t>(offsetof(DispenserGenerator_t465D977F2C8780D6C540DEADB74B8D16121F5788, ___spawnPoint)),static_cast<int32_t>(offsetof(DispenserGenerator_t465D977F2C8780D6C540DEADB74B8D16121F5788, ___machineMaterial)),static_cast<int32_t>(offsetof(DispenserGenerator_t465D977F2C8780D6C540DEADB74B8D16121F5788, ___size)),static_cast<int32_t>(offsetof(DispenserGenerator_t465D977F2C8780D6C540DEADB74B8D16121F5788, ___wallThickness)),static_cast<int32_t>(offsetof(DispenserGenerator_t465D977F2C8780D6C540DEADB74B8D16121F5788, ___pipeHeight)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8999[2] = 
+{
+	static_cast<int32_t>(offsetof(FactoryFloorGenerator_t7C278488B3CEED2B0DE6091F878C3D699C3DC766, ___floorSize)),static_cast<int32_t>(offsetof(FactoryFloorGenerator_t7C278488B3CEED2B0DE6091F878C3D699C3DC766, ___concreteColor)),};
