@@ -13,141 +13,49 @@ namespace MusicSpace
     }
 
     /// <summary>
-    /// A wall or floor that changes color when hit by a MusicCube.
+    /// A wall or floor that changes color when hit by a PlaygroundCube.
+    /// Color changes are triggered by PlaygroundCube.OnCollisionEnter calling ChangeColorInstant().
     /// </summary>
-        public class ColorReactiveWall : MonoBehaviour
-        {
-            // Küp çarpınca rengi değiştir, ayrılınca geri döndür
-            private int cubesTouching = 0;
-
-            private void OnCollisionEnter(Collision collision)
-            {
-                if (collision.gameObject.CompareTag("Cube"))
-                {
-                    Debug.Log("Çarpışma: " + collision.gameObject.name);
-                    var cubeRenderer = collision.gameObject.GetComponent<Renderer>();
-                    if (cubeRenderer != null)
-                    {
-                        Material cubeMat = cubeRenderer.material;
-                        Color cubeColor;
-                        if (cubeMat.HasProperty("_BaseColor"))
-                            cubeColor = cubeMat.GetColor("_BaseColor");
-                        else if (cubeMat.HasProperty("_Color"))
-                            cubeColor = cubeMat.GetColor("_Color");
-                        else
-                            cubeColor = cubeMat.color;
-                        Debug.Log($"Duvara atanacak renk: {cubeColor}");
-                        ChangeColorInstant(cubeColor, 1.5f);
-                        cubesTouching++;
-                    }
-                }
-            }
-
-            private void OnCollisionExit(Collision collision)
-            {
-                if (collision.gameObject.CompareTag("Cube"))
-                {
-                    cubesTouching = Mathf.Max(0, cubesTouching - 1);
-                    // Sadece son küp ayrıldığında eski rengine dön
-                    if (cubesTouching == 0)
-                    {
-                        ResetColor();
-                    }
-                }
-            }
-        private Coroutine revertCoroutine;
+    public class ColorReactiveWall : MonoBehaviour
+    {
         [Header("Surface Properties")]
         public SurfaceType surfaceType = SurfaceType.Concrete;
         
         [Header("Color Settings")]
         public Color originalColor = Color.gray;
         public float colorTransitionSpeed = 5f;
-        public float colorIntensity = 1.5f; // How bright the color becomes
+        public float colorIntensity = 1.2f; // How bright the color becomes
 
         [Header("Visual Feedback")]
         public bool useEmission = true;
-        public float emissionIntensity = 0.8f;
+        public float emissionIntensity = 0.5f;
 
         private MeshRenderer meshRenderer;
         private Material material;
         private Color targetColor;
         private bool isTransitioning = false;
         private Coroutine colorCoroutine;
+        private Coroutine revertCoroutine;
 
         private void Awake()
         {
             meshRenderer = GetComponent<MeshRenderer>();
             if (meshRenderer != null)
             {
-                // Create material instance
+                // Create material instance to avoid affecting other objects
                 material = meshRenderer.material;
-                // URP: _BaseColor veya _Color kullan
+                
+                // Store original color from material
                 if (material.HasProperty("_BaseColor"))
                     originalColor = material.GetColor("_BaseColor");
                 else if (material.HasProperty("_Color"))
                     originalColor = material.GetColor("_Color");
                 else
                     originalColor = material.color;
+                    
                 targetColor = originalColor;
-            }
-        }
-
-        public void ChangeColor(Color newColor)
-            // Eski metot, anlık değişim için ChangeColorInstant kullanılacak
-        {
-            if (material == null) return;
-
-            // Stop any existing transition
-            if (colorCoroutine != null)
-            {
-                StopCoroutine(colorCoroutine);
-            }
-
-            // URP: _BaseColor veya _Color kullanarak rengi değiştir
-            targetColor = newColor * colorIntensity;
-            if (material.HasProperty("_BaseColor"))
-                material.SetColor("_BaseColor", targetColor);
-            else if (material.HasProperty("_Color"))
-                material.SetColor("_Color", targetColor);
-            else
-                material.color = targetColor;
-
-            colorCoroutine = StartCoroutine(TransitionColor(targetColor));
-
-            // Apply emission for glow effect
-            if (useEmission)
-            {
-                material.EnableKeyword("_EMISSION");
-                material.SetColor("_EmissionColor", newColor * emissionIntensity);
-            }
-        }
-
-        public void ResetColor()
-        {
-            if (material == null) return;
-
-            // Stop any existing transition
-            if (colorCoroutine != null)
-            {
-                StopCoroutine(colorCoroutine);
-            }
-            if (revertCoroutine != null)
-            {
-                StopCoroutine(revertCoroutine);
-                revertCoroutine = null;
-            }
-            // Rengi ve emisyonu eski haline getir
-            targetColor = originalColor;
-            if (material.HasProperty("_BaseColor"))
-                material.SetColor("_BaseColor", originalColor);
-            else if (material.HasProperty("_Color"))
-                material.SetColor("_Color", originalColor);
-            else
-                material.color = originalColor;
-            colorCoroutine = StartCoroutine(TransitionColor(originalColor));
-            if (useEmission)
-            {
-                material.SetColor("_EmissionColor", Color.black);
+                
+                Debug.Log($"ColorReactiveWall initialized: {gameObject.name}, original color: {originalColor}");
             }
         }
 
@@ -156,9 +64,13 @@ namespace MusicSpace
         /// </summary>
         /// <param name="newColor">The new color to apply</param>
         /// <param name="revertDelay">Time in seconds before reverting. Use 0 for permanent change.</param>
-        public void ChangeColorInstant(Color newColor, float revertDelay = 1.5f)
+        public void ChangeColorInstant(Color newColor, float revertDelay = 0f)
         {
-            if (material == null) return;
+            if (material == null) 
+            {
+                Debug.LogWarning($"ColorReactiveWall {gameObject.name}: material is null!");
+                return;
+            }
             
             // Stop any existing revert coroutine
             if (revertCoroutine != null)
@@ -167,20 +79,30 @@ namespace MusicSpace
                 revertCoroutine = null;
             }
             
-            // Apply color immediately
+            if (colorCoroutine != null)
+            {
+                StopCoroutine(colorCoroutine);
+                colorCoroutine = null;
+            }
+            
+            // Apply color immediately with intensity boost
             Color target = newColor * colorIntensity;
+            target.a = 1f; // Ensure full opacity
+            
+            Debug.Log($"ColorReactiveWall {gameObject.name}: Changing color to {newColor} (target: {target})");
+            
             if (material.HasProperty("_BaseColor"))
                 material.SetColor("_BaseColor", target);
-            else if (material.HasProperty("_Color"))
+            if (material.HasProperty("_Color"))
                 material.SetColor("_Color", target);
-            else
-                material.color = target;
+            material.color = target;
                 
             // Apply emission for glow effect
             if (useEmission)
             {
                 material.EnableKeyword("_EMISSION");
-                material.SetColor("_EmissionColor", newColor * emissionIntensity);
+                Color emissionColor = newColor * emissionIntensity;
+                material.SetColor("_EmissionColor", emissionColor);
             }
             
             // Only start revert coroutine if delay is positive
@@ -191,41 +113,44 @@ namespace MusicSpace
             }
         }
 
+        /// <summary>
+        /// Reset wall to original color
+        /// </summary>
+        public void ResetColor()
+        {
+            if (material == null) return;
+
+            // Stop any existing coroutines
+            if (colorCoroutine != null)
+            {
+                StopCoroutine(colorCoroutine);
+                colorCoroutine = null;
+            }
+            if (revertCoroutine != null)
+            {
+                StopCoroutine(revertCoroutine);
+                revertCoroutine = null;
+            }
+            
+            // Reset to original color
+            targetColor = originalColor;
+            if (material.HasProperty("_BaseColor"))
+                material.SetColor("_BaseColor", originalColor);
+            if (material.HasProperty("_Color"))
+                material.SetColor("_Color", originalColor);
+            material.color = originalColor;
+            
+            // Disable emission
+            if (useEmission)
+            {
+                material.SetColor("_EmissionColor", Color.black);
+            }
+        }
+
         private IEnumerator RevertAfterDelay(float delay)
         {
             yield return new WaitForSeconds(delay);
             ResetColor();
-        }
-
-        private IEnumerator TransitionColor(Color target)
-        {
-            isTransitioning = true;
-            Color startColor = material.HasProperty("_BaseColor") ? material.GetColor("_BaseColor") :
-                (material.HasProperty("_Color") ? material.GetColor("_Color") : material.color);
-            float elapsed = 0f;
-            float duration = 1f / colorTransitionSpeed;
-
-            while (elapsed < duration)
-            {
-                elapsed += Time.deltaTime;
-                float t = elapsed / duration;
-                Color lerped = Color.Lerp(startColor, target, t);
-                if (material.HasProperty("_BaseColor"))
-                    material.SetColor("_BaseColor", lerped);
-                else if (material.HasProperty("_Color"))
-                    material.SetColor("_Color", lerped);
-                else
-                    material.color = lerped;
-                yield return null;
-            }
-
-            if (material.HasProperty("_BaseColor"))
-                material.SetColor("_BaseColor", target);
-            else if (material.HasProperty("_Color"))
-                material.SetColor("_Color", target);
-            else
-                material.color = target;
-            isTransitioning = false;
         }
 
         // Visual indicator in editor
