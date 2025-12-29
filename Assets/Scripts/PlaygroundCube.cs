@@ -56,12 +56,6 @@ namespace MusicSpace
             {
                 spawnPosition = transform.position;
             }
-            
-            // Generate collision sound if not assigned
-            if (collisionSound == null)
-            {
-                collisionSound = GenerateCollisionSound();
-            }
         }
 
         private void OnEnable()
@@ -174,43 +168,6 @@ namespace MusicSpace
             // Reset state
             hasHitWall = false;
             isGrabbed = false;
-        }
-
-        /// <summary>
-        /// Generate a procedural collision sound based on cube color.
-        /// Different colors produce slightly different tones.
-        /// </summary>
-        private AudioClip GenerateCollisionSound()
-        {
-            int sampleRate = 44100;
-            float duration = 0.15f;
-            int sampleCount = (int)(sampleRate * duration);
-            float[] samples = new float[sampleCount];
-            
-            // Base frequency varies by color hue
-            float hue, sat, val;
-            Color.RGBToHSV(cubeColor, out hue, out sat, out val);
-            float baseFreq = 220f + hue * 440f; // Range: 220Hz - 660Hz
-            
-            for (int i = 0; i < sampleCount; i++)
-            {
-                float t = (float)i / sampleRate;
-                
-                // Combine two sine waves for richer sound
-                float wave1 = Mathf.Sin(2 * Mathf.PI * baseFreq * t);
-                float wave2 = Mathf.Sin(2 * Mathf.PI * baseFreq * 1.5f * t) * 0.5f;
-                
-                samples[i] = (wave1 + wave2) / 1.5f;
-                
-                // Apply quick decay envelope
-                float envelope = 1f - ((float)i / sampleCount);
-                envelope = envelope * envelope; // Exponential decay
-                samples[i] *= envelope;
-            }
-            
-            AudioClip clip = AudioClip.Create("CubeCollision_" + gameObject.name, sampleCount, 1, sampleRate, false);
-            clip.SetData(samples, 0);
-            return clip;
         }
 
 #if UNITY_EDITOR
