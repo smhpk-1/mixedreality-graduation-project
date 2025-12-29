@@ -53,7 +53,21 @@ namespace MusicSpace
                 else
                     originalColor = material.color;
                 
-                Debug.Log($"ColorReactiveWall initialized: {gameObject.name}, original color: {originalColor}");
+            }
+            else
+            {
+                Debug.LogWarning($"ColorReactiveWall {gameObject.name}: No MeshRenderer found!");
+            }
+            
+            // Ensure collider exists for collision detection
+            Collider col = GetComponent<Collider>();
+            if (col == null)
+            {
+                gameObject.AddComponent<BoxCollider>();
+            }
+            else if (col.isTrigger)
+            {
+                col.isTrigger = false;
             }
         }
 
@@ -63,7 +77,7 @@ namespace MusicSpace
             Rigidbody rb = collision.rigidbody;
             if (rb == null) return;
             
-            // Check velocity
+            // Check velocity threshold
             float velocity = collision.relativeVelocity.magnitude;
             if (velocity < minVelocityToTrigger) return;
             
@@ -79,9 +93,24 @@ namespace MusicSpace
             // Ignore very dark colors (probably not a colored cube)
             if (cubeColor.r < 0.1f && cubeColor.g < 0.1f && cubeColor.b < 0.1f) return;
             
-            Debug.Log($"Wall {gameObject.name} hit by {collision.gameObject.name} with color {cubeColor}, velocity: {velocity}");
-            
             // Change wall color to match the cube (permanent until next hit)
+            ChangeColorInstant(cubeColor, 0f);
+        }
+        
+        // Fallback for trigger colliders
+        private void OnTriggerEnter(Collider other)
+        {
+            Rigidbody rb = other.GetComponent<Rigidbody>();
+            if (rb == null) return;
+            
+            Renderer cubeRenderer = other.GetComponent<Renderer>();
+            if (cubeRenderer == null) return;
+            
+            Material cubeMat = cubeRenderer.sharedMaterial ?? cubeRenderer.material;
+            Color cubeColor = GetColorFromMaterial(cubeMat);
+            
+            if (cubeColor.r < 0.1f && cubeColor.g < 0.1f && cubeColor.b < 0.1f) return;
+            
             ChangeColorInstant(cubeColor, 0f);
         }
 
@@ -118,8 +147,6 @@ namespace MusicSpace
             // Apply color immediately with intensity boost
             Color target = newColor * colorIntensity;
             target.a = 1f;
-            
-            Debug.Log($"ColorReactiveWall {gameObject.name}: Changing color to {newColor}");
             
             if (material.HasProperty("_BaseColor"))
                 material.SetColor("_BaseColor", target);
