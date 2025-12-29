@@ -5,6 +5,7 @@ namespace MusicSpace
     /// <summary>
     /// Generates the room for Scene 2 with reactive walls and floor.
     /// Each surface has a different material type for audio effects.
+    /// Walls change color when hit by PlaygroundCubes.
     /// </summary>
     public class Scene2RoomGenerator : MonoBehaviour
     {
@@ -14,15 +15,15 @@ namespace MusicSpace
         public float height = 4f;
         public float wallThickness = 0.2f;
 
-        [Header("Colors")]
-        public Color floorColor = new Color(0.25f, 0.25f, 0.3f);      // Dark stone
-        public Color frontWallColor = new Color(0.5f, 0.55f, 0.6f);   // Metal gray
-        public Color backWallColor = new Color(0.45f, 0.45f, 0.45f);  // Concrete
-        public Color leftWallColor = new Color(0.4f, 0.3f, 0.2f);     // Wood brown
-        public Color rightWallColor = new Color(0.7f, 0.75f, 0.8f);   // Glass white
+        [Header("Wall Colors (Initial)")]
+        public Color floorColor = new Color(0.3f, 0.3f, 0.35f);       // Dark stone
+        public Color frontWallColor = new Color(0.6f, 0.65f, 0.7f);   // Metal gray (lighter)
+        public Color backWallColor = new Color(0.55f, 0.55f, 0.55f);  // Concrete (lighter)
+        public Color leftWallColor = new Color(0.5f, 0.4f, 0.3f);     // Wood brown (lighter)
+        public Color rightWallColor = new Color(0.75f, 0.8f, 0.85f);  // Glass white
 
         [Header("Lighting")]
-        public Color ambientColor = new Color(0.1f, 0.1f, 0.15f);
+        public Color ambientColor = new Color(0.15f, 0.15f, 0.2f);
         public float mainLightIntensity = 1.5f;
 
         private Transform roomRoot;
@@ -38,7 +39,13 @@ namespace MusicSpace
         {
             // Cleanup existing
             Transform existing = transform.Find("Scene2_Room");
-            if (existing != null) DestroyImmediate(existing.gameObject);
+            if (existing != null)
+            {
+                if (Application.isPlaying)
+                    Destroy(existing.gameObject);
+                else
+                    DestroyImmediate(existing.gameObject);
+            }
 
             roomRoot = new GameObject("Scene2_Room").transform;
             roomRoot.parent = transform;
@@ -50,35 +57,35 @@ namespace MusicSpace
 
             // Create surfaces with different types
             // Floor - Stone (deep, bass-heavy)
-            CreateWall("Floor", 
+            CreateReactiveWall("Floor", 
                 new Vector3(0, -wallThickness / 2f, 0),
                 new Vector3(width, wallThickness, length),
                 floorColor,
                 SurfaceType.Stone);
 
             // Front Wall (+Z) - Metal (high reverb, bright)
-            CreateWall("Wall_Front_Metal",
+            CreateReactiveWall("Wall_Front_Metal",
                 new Vector3(0, halfHeight, halfLength + wallThickness / 2f),
                 new Vector3(width, height, wallThickness),
                 frontWallColor,
                 SurfaceType.Metal);
 
             // Back Wall (-Z) - Concrete (medium reverb, neutral)
-            CreateWall("Wall_Back_Concrete",
+            CreateReactiveWall("Wall_Back_Concrete",
                 new Vector3(0, halfHeight, -halfLength - wallThickness / 2f),
                 new Vector3(width, height, wallThickness),
                 backWallColor,
                 SurfaceType.Concrete);
 
             // Left Wall (-X) - Wood (low reverb, warm)
-            CreateWall("Wall_Left_Wood",
+            CreateReactiveWall("Wall_Left_Wood",
                 new Vector3(-halfWidth - wallThickness / 2f, halfHeight, 0),
                 new Vector3(wallThickness, height, length),
                 leftWallColor,
                 SurfaceType.Wood);
 
             // Right Wall (+X) - Glass (sharp, high frequencies)
-            CreateWall("Wall_Right_Glass",
+            CreateReactiveWall("Wall_Right_Glass",
                 new Vector3(halfWidth + wallThickness / 2f, halfHeight, 0),
                 new Vector3(wallThickness, height, length),
                 rightWallColor,
@@ -89,10 +96,10 @@ namespace MusicSpace
                 new Vector3(0, height + wallThickness / 2f, 0),
                 new Vector3(width, wallThickness, length));
 
-            Debug.Log("Scene 2 Room generated with reactive surfaces!");
+            Debug.Log("Scene 2 Room generated with 4 reactive walls + reactive floor!");
         }
 
-        private void CreateWall(string name, Vector3 position, Vector3 scale, Color color, SurfaceType surfaceType)
+        private void CreateReactiveWall(string name, Vector3 position, Vector3 scale, Color color, SurfaceType surfaceType)
         {
             GameObject wall = GameObject.CreatePrimitive(PrimitiveType.Cube);
             wall.name = name;
@@ -100,20 +107,34 @@ namespace MusicSpace
             wall.transform.localPosition = position;
             wall.transform.localScale = scale;
 
-            // Setup material
+            // Setup material - use URP Lit shader
             MeshRenderer renderer = wall.GetComponent<MeshRenderer>();
-            Material mat = new Material(Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Standard"));
+            Shader shader = Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Standard");
+            Material mat = new Material(shader);
+            
+            // Set color on all possible properties
             mat.color = color;
+            if (mat.HasProperty("_BaseColor"))
+                mat.SetColor("_BaseColor", color);
+            if (mat.HasProperty("_Color"))
+                mat.SetColor("_Color", color);
             mat.SetFloat("_Smoothness", GetSmoothnessForSurface(surfaceType));
+            
+            // Enable emission capability
+            mat.EnableKeyword("_EMISSION");
+            mat.SetColor("_EmissionColor", Color.black);
+            
             renderer.material = mat;
 
-            // Add ColorReactiveWall component
+            // Add ColorReactiveWall component - THIS IS THE KEY!
             ColorReactiveWall reactiveWall = wall.AddComponent<ColorReactiveWall>();
             reactiveWall.surfaceType = surfaceType;
             reactiveWall.originalColor = color;
+            reactiveWall.useEmission = true;
+            reactiveWall.colorIntensity = 1.2f;
+            reactiveWall.emissionIntensity = 0.4f;
 
-            // Make it static for physics optimization
-            wall.isStatic = false; // Can't be static if we're changing material
+            Debug.Log($"Created reactive wall: {name} with ColorReactiveWall component");
         }
 
         private void CreateCeiling(string name, Vector3 position, Vector3 scale)
@@ -124,56 +145,54 @@ namespace MusicSpace
             ceiling.transform.localPosition = position;
             ceiling.transform.localScale = scale;
 
-            // Dark ceiling
+            // Dark ceiling - not reactive
             MeshRenderer renderer = ceiling.GetComponent<MeshRenderer>();
-            Material mat = new Material(Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Standard"));
-            mat.color = new Color(0.15f, 0.15f, 0.2f);
+            Shader shader = Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Standard");
+            Material mat = new Material(shader);
+            mat.color = new Color(0.2f, 0.2f, 0.25f);
             renderer.material = mat;
-
-            ceiling.isStatic = true;
         }
 
         private float GetSmoothnessForSurface(SurfaceType type)
         {
             switch (type)
             {
-                case SurfaceType.Metal: return 0.8f;
-                case SurfaceType.Glass: return 0.95f;
+                case SurfaceType.Metal: return 0.7f;
+                case SurfaceType.Glass: return 0.9f;
                 case SurfaceType.Concrete: return 0.2f;
                 case SurfaceType.Wood: return 0.3f;
-                case SurfaceType.Stone: return 0.1f;
+                case SurfaceType.Stone: return 0.15f;
                 default: return 0.5f;
             }
         }
 
         private void SetupLighting()
         {
-            // Set ambient lighting
+            // Set ambient lighting - brighter for Scene 2
             RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
             RenderSettings.ambientLight = ambientColor;
 
-            // Create main light if not exists
-            Light existingLight = FindFirstObjectByType<Light>();
-            if (existingLight == null)
+            // Disable any existing directional lights
+            Light[] existingLights = FindObjectsByType<Light>(FindObjectsSortMode.None);
+            foreach (Light l in existingLights)
             {
-                GameObject lightObj = new GameObject("Main Light");
-                lightObj.transform.parent = roomRoot;
-                lightObj.transform.position = new Vector3(0, height - 0.5f, 0);
-                lightObj.transform.rotation = Quaternion.Euler(50, -30, 0);
-
-                Light light = lightObj.AddComponent<Light>();
-                light.type = LightType.Directional;
-                light.color = Color.white;
-                light.intensity = mainLightIntensity;
-                light.shadows = LightShadows.Soft;
+                if (l.type == LightType.Directional)
+                {
+                    l.intensity = mainLightIntensity;
+                    l.color = Color.white;
+                }
             }
 
-            // Add some point lights for atmosphere
-            CreatePointLight("Light_Center", new Vector3(0, height - 0.5f, 0), new Color(1f, 0.95f, 0.9f), 15f, 0.8f);
+            // Add center point light for atmosphere
+            CreatePointLight("Light_Center", new Vector3(0, height - 0.5f, 0), new Color(1f, 0.98f, 0.95f), 20f, 1.2f);
         }
 
         private void CreatePointLight(string name, Vector3 position, Color color, float range, float intensity)
         {
+            // Check if light already exists
+            Transform existing = roomRoot?.Find(name);
+            if (existing != null) return;
+            
             GameObject lightObj = new GameObject(name);
             lightObj.transform.parent = roomRoot;
             lightObj.transform.position = position;
@@ -197,17 +216,11 @@ namespace MusicSpace
             float halfWidth = width / 2f;
             float halfLength = length / 2f;
 
-            // Arrows indicating surfaces
-            DrawSurfaceLabel(new Vector3(0, 0.1f, 0), "Stone Floor");
-            DrawSurfaceLabel(new Vector3(0, height / 2f, halfLength), "Metal Wall");
-            DrawSurfaceLabel(new Vector3(0, height / 2f, -halfLength), "Concrete Wall");
-            DrawSurfaceLabel(new Vector3(-halfWidth, height / 2f, 0), "Wood Wall");
-            DrawSurfaceLabel(new Vector3(halfWidth, height / 2f, 0), "Glass Wall");
-        }
-
-        private void DrawSurfaceLabel(Vector3 pos, string label)
-        {
-            Gizmos.DrawSphere(pos, 0.1f);
+            Gizmos.DrawSphere(new Vector3(0, 0.1f, 0), 0.1f); // Floor
+            Gizmos.DrawSphere(new Vector3(0, height / 2f, halfLength), 0.1f); // Front
+            Gizmos.DrawSphere(new Vector3(0, height / 2f, -halfLength), 0.1f); // Back
+            Gizmos.DrawSphere(new Vector3(-halfWidth, height / 2f, 0), 0.1f); // Left
+            Gizmos.DrawSphere(new Vector3(halfWidth, height / 2f, 0), 0.1f); // Right
         }
     }
 }
