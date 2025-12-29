@@ -13,8 +13,8 @@ namespace MusicSpace
     }
 
     /// <summary>
-    /// A wall or floor that changes color when hit by a PlaygroundCube.
-    /// Color changes are triggered by PlaygroundCube.OnCollisionEnter calling ChangeColorInstant().
+    /// A wall or floor that changes color when hit by any cube with a Rigidbody.
+    /// Detects collisions and extracts color from the cube's material.
     /// </summary>
     public class ColorReactiveWall : MonoBehaviour
     {
@@ -24,17 +24,17 @@ namespace MusicSpace
         [Header("Color Settings")]
         public Color originalColor = Color.gray;
         public float colorTransitionSpeed = 5f;
-        public float colorIntensity = 1.2f; // How bright the color becomes
+        public float colorIntensity = 1.2f;
 
         [Header("Visual Feedback")]
         public bool useEmission = true;
         public float emissionIntensity = 0.5f;
+        
+        [Header("Collision Settings")]
+        public float minVelocityToTrigger = 0.5f;
 
         private MeshRenderer meshRenderer;
         private Material material;
-        private Color targetColor;
-        private bool isTransitioning = false;
-        private Coroutine colorCoroutine;
         private Coroutine revertCoroutine;
 
         private void Awake()
@@ -52,18 +52,54 @@ namespace MusicSpace
                     originalColor = material.GetColor("_Color");
                 else
                     originalColor = material.color;
-                    
-                targetColor = originalColor;
                 
                 Debug.Log($"ColorReactiveWall initialized: {gameObject.name}, original color: {originalColor}");
             }
         }
 
+        private void OnCollisionEnter(Collision collision)
+        {
+            // Check if the colliding object has a Rigidbody (i.e., it's a thrown object)
+            Rigidbody rb = collision.rigidbody;
+            if (rb == null) return;
+            
+            // Check velocity
+            float velocity = collision.relativeVelocity.magnitude;
+            if (velocity < minVelocityToTrigger) return;
+            
+            // Get color from the cube's renderer
+            Renderer cubeRenderer = collision.gameObject.GetComponent<Renderer>();
+            if (cubeRenderer == null) return;
+            
+            Material cubeMat = cubeRenderer.sharedMaterial;
+            if (cubeMat == null) cubeMat = cubeRenderer.material;
+            
+            Color cubeColor = GetColorFromMaterial(cubeMat);
+            
+            // Ignore very dark colors (probably not a colored cube)
+            if (cubeColor.r < 0.1f && cubeColor.g < 0.1f && cubeColor.b < 0.1f) return;
+            
+            Debug.Log($"Wall {gameObject.name} hit by {collision.gameObject.name} with color {cubeColor}, velocity: {velocity}");
+            
+            // Change wall color to match the cube (permanent until next hit)
+            ChangeColorInstant(cubeColor, 0f);
+        }
+
+        private Color GetColorFromMaterial(Material mat)
+        {
+            if (mat == null) return Color.white;
+            
+            if (mat.HasProperty("_BaseColor"))
+                return mat.GetColor("_BaseColor");
+            else if (mat.HasProperty("_Color"))
+                return mat.GetColor("_Color");
+            else
+                return mat.color;
+        }
+
         /// <summary>
         /// Instantly change wall color. If revertDelay is 0 or negative, color persists until changed again.
         /// </summary>
-        /// <param name="newColor">The new color to apply</param>
-        /// <param name="revertDelay">Time in seconds before reverting. Use 0 for permanent change.</param>
         public void ChangeColorInstant(Color newColor, float revertDelay = 0f)
         {
             if (material == null) 
@@ -79,17 +115,11 @@ namespace MusicSpace
                 revertCoroutine = null;
             }
             
-            if (colorCoroutine != null)
-            {
-                StopCoroutine(colorCoroutine);
-                colorCoroutine = null;
-            }
-            
             // Apply color immediately with intensity boost
             Color target = newColor * colorIntensity;
-            target.a = 1f; // Ensure full opacity
+            target.a = 1f;
             
-            Debug.Log($"ColorReactiveWall {gameObject.name}: Changing color to {newColor} (target: {target})");
+            Debug.Log($"ColorReactiveWall {gameObject.name}: Changing color to {newColor}");
             
             if (material.HasProperty("_BaseColor"))
                 material.SetColor("_BaseColor", target);
@@ -105,8 +135,7 @@ namespace MusicSpace
                 material.SetColor("_EmissionColor", emissionColor);
             }
             
-            // Only start revert coroutine if delay is positive
-            // If revertDelay <= 0, color stays until another cube hits
+            // Only revert if delay is positive
             if (revertDelay > 0f)
             {
                 revertCoroutine = StartCoroutine(RevertAfterDelay(revertDelay));
@@ -120,27 +149,18 @@ namespace MusicSpace
         {
             if (material == null) return;
 
-            // Stop any existing coroutines
-            if (colorCoroutine != null)
-            {
-                StopCoroutine(colorCoroutine);
-                colorCoroutine = null;
-            }
             if (revertCoroutine != null)
             {
                 StopCoroutine(revertCoroutine);
                 revertCoroutine = null;
             }
             
-            // Reset to original color
-            targetColor = originalColor;
             if (material.HasProperty("_BaseColor"))
                 material.SetColor("_BaseColor", originalColor);
             if (material.HasProperty("_Color"))
                 material.SetColor("_Color", originalColor);
             material.color = originalColor;
             
-            // Disable emission
             if (useEmission)
             {
                 material.SetColor("_EmissionColor", Color.black);
@@ -153,7 +173,6 @@ namespace MusicSpace
             ResetColor();
         }
 
-        // Visual indicator in editor
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = GetSurfaceGizmoColor();
