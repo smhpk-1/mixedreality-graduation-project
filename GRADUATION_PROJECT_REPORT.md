@@ -133,7 +133,7 @@ The project successfully implements the complete narrative arc. Users can experi
 The project demonstrates the potential of VR to convey complex psychological and sociological themes. By placing the user physically inside the metaphor, the abstract concepts of "alienation" and "freedom" become tangible, felt experiences. The contrast between the two scenes effectively communicates the relief and joy of the daydreaming state.
 
 ### 7.3 Future Work
-*   **Expanded Narrative:** Introducing intermediate scenes that show the gradual "bleeding" of the daydream world into the factory before the final break.
+*   **Expanded Narrative:** Further developing the narrative depth to enhance the psychological contrast between the two worlds.
 *   **Enhanced Creativity:** Adding tools in the Playground scene for sculpting or gravity manipulation, further empowering the user.
 *   **User Studies:** Conducting formal user testing to measure the emotional impact and interpretability of the experience.
 
