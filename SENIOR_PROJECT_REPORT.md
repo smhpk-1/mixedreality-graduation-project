@@ -39,11 +39,11 @@ How can immersive technology be used to represent abstract psychological concept
 
 ### 3.2 Capitalism, Alienation, and Escapism
 Drawing from Marxist theory, the project explores the concept of **alienation**—the detachment of workers from the products of their labor, from the act of production, and from their own humanity.
-*   **The Factory as Metaphor:** The industrial setting represents the capitalist machine. The user is reduced to a function (sorting cubes), governed by quotas and time. The labor is repetitive, meaningless, and isolating.
-*   **Escapism as Resistance:** The transition to the surreal world symbolizes the mind's refusal to be contained by these rigid structures. It is a rejection of "productive" labor in favor of "unproductive" play.
+*   **The Factory as Metaphor:** The industrial setting represents the capitalist machine. The user is reduced to a function (sorting cubes), governed by rigid quotas and the symbolic presence of time. Time does not operate as a gameplay mechanic, but as an atmospheric tool that reinforces pressure, surveillance, and monotony. The labor is repetitive, meaningless, and isolating.
+*   **Escapism as Resistance:** The transition to the surreal world represents the mind’s attempt to escape rigid and repetitive systems. Instead of continuing a meaningless task, the user enters a space where actions are not judged by productivity, but by freedom and play.
 
 ### 3.3 Surrealism and the Subconscious
-The project adopts a **surrealist** aesthetic to depict the inner world—one that is dreamlike, fluid, and unconstrained by the logic of the real world. By suspending the laws of physics and logic—introducing reactive walls, floating anomalies, and impossible geometries—the experience mirrors the fluid quality of the subconscious mind.
+The project adopts a surrealist aesthetic to represent the inner world. This aesthetic aims to create a dreamlike and fluid experience that partially departs from the rigid logic of the real world. By deliberately stretching physical and visual expectations—through color-reactive walls, anomalous objects, and unconventional interactions—the experience reflects the fluid and ever-changing nature of the subconscious mind.
 
 ---
 
@@ -57,15 +57,13 @@ The experience is structured into two contrasting scenes, representing the duali
 "The Shift" is an industrial prologue representing the monotony and alienation of the capitalist system. The player is cast as a "worker," isolated from the outside world in a dim, oppressive factory where time is tracked only by a mechanical wall clock.
 
 **Mechanics & Interaction**
-*   **The Routine:** Red and blue cubes fall from ceiling pipes (dispensers) onto a conveyor belt. The user must grab and sort them into matching bins using hand tracking or controllers.
-*   **The Quota:** A `FactoryScoreBoard` tracks progress. The user must sort 30 cubes to trigger the next event.
-*   **The Atmosphere:** A `WallClock` ticks relentlessly, and reports on the walls reinforce a sense of surveillance.
-*   **The Anomaly:** After the 30th cube, the machinery halts. Three glowing green "Anomaly Cubes" appear. Touching one triggers a "shattering" effect, symbolizing the dissociation from reality.
+*   **The Routine:** Red and blue cubes are spawned from wall-mounted dispensers and move along a conveyor belt. The user must grab and sort them into matching bins using the Meta Quest 3S controllers.
+*   **The Quota:** The user is tasked with sorting 30 cubes as part of the repetitive routine. After this phase, glowing green anomaly cubes appear. Grabbing one of these anomaly cubes triggers the transition to the second scene.
 
 **Symbolism**
 *   **Industrial Monotony:** The dark, oppressive factory represents capitalist alienation.
 *   **Routine & Alienation:** The act of sorting mirrors the lack of agency in industrial labor.
-*   **The Anomaly:** The glowing green cubes represent a break from conformity and the possibility of transcendence.
+*   **The Anomaly:** The glowing green cubes represent a disruption of the established system. In an environment built around red and blue cubes and their corresponding bins, the appearance of green cubes that cannot be placed into any bin reveals the system’s limitations and suggests the possibility of stepping outside its rules.
 
 **Key Scripts**
 *   `GameManager.cs`, `ObjectSpawner.cs`, `ConveyorBelt.cs`, `BinCollector.cs`, `DispenserGenerator.cs`, `FactoryScoreBoard.cs`, `WallClock.cs`, `AnomalyCube.cs`.
@@ -73,12 +71,12 @@ The experience is structured into two contrasting scenes, representing the duali
 ### 4.2 Scene 2: The Colorful Playground (The Escape)
 
 **Narrative Overview**  
-After escaping the factory, the player enters **The Colorful Playground**—a surreal space representing the unbounded imagination of the daydreaming mind. This scene represents the "Awakening."
+After leaving the factory environment, the player enters The Colorful Playground—a surreal space that reflects the logic of maladaptive daydreaming. This scene presents a recontextualization of familiar objects. The same cube-based interactions are reworked with new meanings and functions: cubes become colorful, playful, and capable of producing sound, allowing the user to engage with them through exploration and play rather than labor.
 
 **Mechanics & Interaction**
 *   **Creative Freedom:** The room contains 20 colorful cubes (Red, Blue, Green, Yellow, Purple) scattered across the floor.
 *   **Reactive Environment:** Throwing a cube at a wall triggers the `ColorReactiveWall` script, painting the wall with that color. This allows the user to reshape their environment dynamically.
-*   **Physics & Play:** Unlike the rigid sorting in Scene 1, here objects bounce, roll, and interact playfully. There are no quotas or rules.
+*   **Physics & Play:** Unlike the rigid sorting mechanics of Scene 1, this scene allows objects to be freely thrown and to react to surfaces through collision. There are no quotas, rules, or predefined goals guiding the interaction.
 
 **Symbolism**
 *   **20 Colorful Cubes:** Represent fragments of creativity suppressed by the factory.
@@ -126,8 +124,8 @@ To ensure replayability and a sense of scale, much of the world is generated pro
 
 #### 5.2.4 Audio Immersion
 *   **Spatial Audio:** Sounds are spatialized to ground the user.
-*   **Procedural Audio:** `CubeCollisionSound.cs` generates procedural impact sounds dynamically modulated by collision velocity, while `CubeGrabAudio.cs` triggers specific audio clips based on the object identity.
-*   **Atmosphere:** `RuntimeAtmosphereController.cs` manages the ambient soundscape.
+*   **Procedural Audio:** Impact sounds are dynamically generated and modulated by collision velocity through `CubeCollisionSound.cs`, while `CubeGrabAudio.cs` provides audio feedback when objects are grabbed.
+*   **Atmosphere:** `RuntimeAtmosphereController.cs` manages the visual atmosphere (lighting, fog) to create the oppressive factory mood.
 
 #### 5.2.5 Optimization
 *   **Lighting:** `LightingOptimizer.cs` manages real-time vs. baked lighting.
@@ -174,9 +172,9 @@ The project successfully implements the complete narrative arc. Users can experi
 The project demonstrates the potential of VR to convey complex psychological and sociological themes. By placing the user physically inside the metaphor, the abstract concepts of "alienation" and "freedom" become tangible, felt experiences. The contrast between the two scenes effectively communicates the relief and joy of the daydreaming state.
 
 ### 7.3 Future Work
-*   **Expanded Narrative:** Introducing intermediate scenes showing the gradual "bleeding" of the daydream world into the factory.
-*   **Enhanced Creativity:** Adding tools in the Playground scene for sculpting or gravity manipulation.
-*   **User Studies:** Conducting formal user testing to measure emotional impact.
+*   **Expanded Narrative:** Further developing the narrative depth to enhance the psychological contrast between the two worlds.
+*   **Enhanced Creativity:** Adding tools in the Playground scene for sculpting or gravity manipulation, further empowering the user.
+*   **User Studies:** Conducting formal user testing to measure the emotional impact and interpretability of the experience.
 
 ---
 
