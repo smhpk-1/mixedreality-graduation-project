@@ -98,8 +98,8 @@ To ensure replayability and a sense of scale, much of the world is generated pro
 #### 5.2.4 Audio Immersion
 Audio is a critical narrative tool.
 *   **Spatial Audio:** Sounds are spatialized to ground the user in the environment.
-*   **Procedural Audio:** `CubeCollisionSound.cs` and `CubeGrabAudio.cs` trigger unique sound effects based on the material type (e.g., plastic hitting metal vs. wood), enhancing the sensory feedback loop.
-*   **Atmosphere:** `RuntimeAtmosphereController.cs` manages the ambient soundscape, shifting from the mechanical drone of the factory to the ethereal tones of the playground.
+*   **Procedural Audio:** `CubeCollisionSound.cs` generates procedural impact sounds dynamically modulated by collision velocity, while `CubeGrabAudio.cs` triggers specific audio clips based on the object identity.
+*   **Atmosphere:** `RuntimeAtmosphereController.cs` manages the visual atmosphere (lighting, fog) to create the oppressive factory mood.
 
 #### 5.2.5 Optimization
 Targeting the Meta Quest 3S requires strict performance management.
