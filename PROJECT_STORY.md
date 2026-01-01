@@ -59,7 +59,7 @@ The player is free to explore and interact without rules or quotas. The goal is 
 
 ### Audio
 - Each cube color produces a unique sound when colliding with surfaces
-- Different wall materials (Metal, Wood, Glass, etc.) affect the sound characteristics
+- Impact sounds are dynamically modulated by collision velocity
 - Ambient soundscape reflecting the surreal, dreamlike atmosphere
 
 ### Purpose
