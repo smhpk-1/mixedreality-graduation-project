@@ -126,7 +126,7 @@ To ensure replayability and a sense of scale, much of the world is generated pro
 
 #### 5.2.4 Audio Immersion
 *   **Spatial Audio:** Sounds are spatialized to ground the user.
-*   **Procedural Audio:** `CubeCollisionSound.cs` and `CubeGrabAudio.cs` trigger unique sound effects based on material type (e.g., plastic hitting metal vs. wood).
+*   **Procedural Audio:** `CubeCollisionSound.cs` generates procedural impact sounds dynamically modulated by collision velocity, while `CubeGrabAudio.cs` triggers specific audio clips based on the object identity.
 *   **Atmosphere:** `RuntimeAtmosphereController.cs` manages the ambient soundscape.
 
 #### 5.2.5 Optimization
