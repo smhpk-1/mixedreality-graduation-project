@@ -1,4 +1,4 @@
-# Graduation Project Report: Mixed Reality Experience
+# Senior Project Report: Mixed Reality Experience
 ## Exploring Maladaptive Daydreaming and Capitalist Alienation through VR
 
 **Author:** Semiha PAKSOY  
@@ -10,14 +10,16 @@
 
 ## 1. Abstract
 
-This graduation project presents a Mixed Reality (MR) experience designed for the Meta Quest 3S, exploring the complex psychological phenomenon of **maladaptive daydreaming** and its relationship to **capitalist alienation**. The project leverages the immersive capabilities of Virtual Reality (VR) to create a bifurcated narrative experience that physically transports the user from a monotonous, oppressive industrial setting to a boundless, surreal playground. By juxtaposing these two distinct environments—"The Shift" and "The Colorful Playground"—the project critiques the rigidity of modern labor systems while celebrating the liberating, albeit isolating, power of human imagination. This report details the conceptual framework, technical implementation, creative process, and the specific design decisions made to translate abstract psychological theories into a tangible, interactive reality.
+This senior project presents a Mixed Reality (MR) experience designed for the Meta Quest 3S, exploring the complex psychological phenomenon of **maladaptive daydreaming** and its relationship to **capitalist alienation**. The project leverages the immersive capabilities of Virtual Reality (VR) to create a bifurcated narrative experience that physically transports the user from a monotonous, oppressive industrial setting to a boundless, surreal playground. By juxtaposing these two distinct environments—"The Shift" and "The Colorful Playground"—the project critiques the rigidity of modern labor systems while celebrating the liberating, albeit isolating, power of human imagination. This report details the conceptual framework, technical implementation, creative process, and the specific design decisions made to translate abstract psychological theories into a tangible, interactive reality.
 
 ---
 
 ## 2. Introduction
 
-### 2.1 Purpose
+### 2.1 Purpose & Vision
 The primary purpose of this project is to utilize Virtual Reality as a medium to simulate and explore the internal experience of maladaptive daydreaming. Unlike traditional media, VR offers a sense of *presence*, allowing users to inhabit the perspective of a worker caught between the crushing weight of external societal constraints and the vivid allure of internal creative freedom.
+
+The vision is to create a dynamic virtual environment where users interact with objects and systems using advanced hand tracking and controllers. The project aims to explore advanced user interaction paradigms, procedural content generation, and real-time feedback in a VR/MR context.
 
 ### 2.2 Motivation
 Modern capitalist societies often foster feelings of alienation and monotony, particularly within industrial or repetitive work environments. For many individuals, daydreaming serves not just as a distraction, but as a critical coping mechanism—a form of psychological resistance to reclaim agency in a world that demands conformity. This project seeks to visualize this psychological escape, using VR technology to blur the lines between "reality" (the factory) and "fantasy" (the playground), making the internal struggle external and visible.
@@ -27,19 +29,21 @@ How can immersive technology be used to represent abstract psychological concept
 
 ---
 
-## 3. Conceptual Framework
+## 3. Conceptual & Theoretical Framework
 
 ### 3.1 Maladaptive Daydreaming
-Maladaptive daydreaming is a psychological concept describing extensive fantasy activity that replaces human interaction or interferes with daily functioning. Individuals often retreat into vivid, elaborate inner worlds to escape stress, trauma, or the mundane nature of reality.
-*   **Relevance to VR:** VR acts as a technological extension of this capacity for immersive fantasy. It provides a controlled space where users can experience the "boundaryless" nature of a daydream, validating the intensity of the experience while highlighting its disconnect from the physical world.
+**Maladaptive daydreaming** is a psychological concept describing extensive fantasy activity that replaces human interaction and/or interferes with academic, interpersonal, or vocational functioning. Individuals experiencing maladaptive daydreaming often become deeply absorbed in vivid, elaborate inner worlds, sometimes as a coping mechanism for stress, trauma, or dissatisfaction with reality.
+
+*   **Key Characteristics:** Intense, immersive, narrative-driven daydreams; difficulty controlling the urge to daydream; use of daydreaming as an escape from real-world problems.
+*   **Relevance to VR:** VR serves as a technological extension of the mind’s capacity for immersive fantasy, providing a controlled, interactive space for users to explore alternate realities. The project leverages this parallel, intentionally blurring the line between healthy escapism and maladaptive detachment.
 
 ### 3.2 Capitalism, Alienation, and Escapism
 Drawing from Marxist theory, the project explores the concept of **alienation**—the detachment of workers from the products of their labor, from the act of production, and from their own humanity.
-*   **The Factory as Metaphor:** The industrial setting represents the capitalist machine. The user is reduced to a function (sorting cubes), governed by quotas (30 cubes) and time (the ticking clock). The labor is repetitive, meaningless, and isolating.
-*   **Escapism as Resistance:** The transition to the surreal world symbolizes the mind's refusal to be contained by these rigid structures. It is a rejection of "productive" labor in favor of "unproductive" play.
+*   **The Factory as Metaphor:** The industrial setting represents the capitalist machine. The user is reduced to a function (sorting cubes), governed by rigid quotas and the symbolic presence of time. Time does not operate as a gameplay mechanic, but as an atmospheric tool that reinforces pressure, surveillance, and monotony. The labor is repetitive, meaningless, and isolating.
+*   **Escapism as Resistance:** The transition to the surreal world represents the mind’s attempt to escape rigid and repetitive systems. Instead of continuing a meaningless task, the user enters a space where actions are not judged by productivity, but by freedom and play.
 
 ### 3.3 Surrealism and the Subconscious
-The project adopts a surrealist aesthetic to depict the inner world. By suspending the laws of physics and logic—introducing reactive walls, floating anomalies, and impossible geometries—the experience mirrors the fluid, dreamlike quality of the subconscious mind. This draws inspiration from the Surrealist Manifesto, aiming to resolve the contradictory conditions of dream and reality into an absolute reality, a *surreality*.
+The project adopts a surrealist aesthetic to represent the inner world. This aesthetic aims to create a dreamlike and fluid experience that partially departs from the rigid logic of the real world. By deliberately stretching physical and visual expectations—through color-reactive walls, anomalous objects, and unconventional interactions—the experience reflects the fluid and ever-changing nature of the subconscious mind.
 
 ---
 
@@ -48,32 +52,58 @@ The project adopts a surrealist aesthetic to depict the inner world. By suspendi
 The experience is structured into two contrasting scenes, representing the duality of the protagonist's mind.
 
 ### 4.1 Scene 1: The Shift (The Reality)
-This scene establishes the baseline of oppression and monotony.
-*   **Setting:** A dark, claustrophobic factory floor. The lighting is dim and industrial.
-*   **Narrative:** The user plays a worker tasked with a meaningless job: sorting red and blue cubes into matching bins on a conveyor belt.
-*   **Mechanics:**
-    *   **The Routine:** Cubes are spawned via `DispenserGenerator` and move along a `ConveyorBelt`. The user must grab and sort them.
-    *   **The Quota:** A `FactoryScoreBoard` tracks progress. The user must sort 30 cubes to trigger the next event.
-    *   **The Atmosphere:** A `WallClock` ticks relentlessly, and reports on the walls reinforce a sense of surveillance.
-*   **The Turning Point:** After the 30th cube, the machinery halts. The `AnomalyAssetGenerator` spawns three glowing green "Anomaly Cubes." These objects defy the factory's color palette and logic. Touching one triggers a "shattering" effect, symbolizing the dissociation from reality.
+
+**Narrative Overview**  
+"The Shift" is an industrial prologue representing the monotony and alienation of the capitalist system. The player is cast as a "worker," isolated from the outside world in a dim, oppressive factory where time is tracked only by a mechanical wall clock.
+
+**Mechanics & Interaction**
+*   **The Routine:** Red and blue cubes are spawned from wall-mounted dispensers and move along a conveyor belt. The user must grab and sort them into matching bins using the Meta Quest 3S controllers.
+*   **The Quota:** The user is tasked with sorting 30 cubes as part of the repetitive routine. After this phase, glowing green anomaly cubes appear. Grabbing one of these anomaly cubes triggers the transition to the second scene.
+
+**Symbolism**
+*   **Industrial Monotony:** The dark, oppressive factory represents capitalist alienation.
+*   **Routine & Alienation:** The act of sorting mirrors the lack of agency in industrial labor.
+*   **The Anomaly:** The glowing green cubes represent a disruption of the established system. In an environment built around red and blue cubes and their corresponding bins, the appearance of green cubes that cannot be placed into any bin reveals the system’s limitations and suggests the possibility of stepping outside its rules.
+
+**Key Scripts**
+*   `GameManager.cs`, `ObjectSpawner.cs`, `ConveyorBelt.cs`, `BinCollector.cs`, `DispenserGenerator.cs`, `FactoryScoreBoard.cs`, `WallClock.cs`, `AnomalyCube.cs`.
 
 ### 4.2 Scene 2: The Colorful Playground (The Escape)
-This scene represents the "Awakening"—a dive into the user's vivid imagination.
-*   **Setting:** A bright, expansive room generated by `Scene2RoomGenerator`. The walls are composed of various materials (Metal, Wood, Glass, Concrete) that react to touch.
-*   **Narrative:** The user is free from rules, quotas, and supervisors. The goal is pure expression.
-*   **Mechanics:**
-    *   **Creative Freedom:** The room contains 20 colorful cubes (Red, Blue, Green, Yellow, Purple) generated by `Scene2TwentyColoredCubesGenerator`.
-    *   **Reactive Environment:** Throwing a cube at a wall triggers the `ColorReactiveWall` script, painting the wall with that color. This allows the user to reshape their environment dynamically.
-    *   **Physics & Play:** Unlike the rigid sorting in Scene 1, here objects bounce, roll, and interact playfully.
-*   **Symbolism:** The absence of objectives critiques the productivity obsession of the factory. The user engages in "purposeless play," which, in this context, is the ultimate act of freedom.
+
+**Narrative Overview**  
+After leaving the factory environment, the player enters The Colorful Playground—a surreal space that reflects the logic of maladaptive daydreaming. This scene presents a recontextualization of familiar objects. The same cube-based interactions are reworked with new meanings and functions: cubes become colorful, playful, and capable of producing sound, allowing the user to engage with them through exploration and play rather than labor.
+
+**Mechanics & Interaction**
+*   **Creative Freedom:** The room contains 20 colorful cubes (Red, Blue, Green, Yellow, Purple) scattered across the floor.
+*   **Reactive Environment:** Throwing a cube at a wall triggers the `ColorReactiveWall` script, painting the wall with that color. This allows the user to reshape their environment dynamically.
+*   **Physics & Play:** Unlike the rigid sorting mechanics of Scene 1, this scene allows objects to be freely thrown and to react to surfaces through collision. There are no quotas, rules, or predefined goals guiding the interaction.
+
+**Symbolism**
+*   **20 Colorful Cubes:** Represent fragments of creativity suppressed by the factory.
+*   **Reactive Walls:** Represent the malleability of reality within the imagination.
+*   **Throwing vs. Sorting:** Throwing represents creative expression and release, contrasting with the careful sorting of Scene 1.
+*   **No Quotas:** The absence of objectives critiques the productivity-obsessed nature of capitalism.
+
+**Thematic Contrast**
+
+| Scene 1: The Shift | Scene 2: The Playground |
+|-------------------|------------------------|
+| Dark, oppressive | Bright, liberating |
+| Rules and quotas | Freedom and creativity |
+| Sorting (conformity) | Throwing (expression) |
+| Fixed environment | Reactive, changeable |
+| Monotone colors | Vibrant spectrum |
+
+**Key Scripts**
+*   `Scene2RoomGenerator.cs`, `Scene2TwentyColoredCubesGenerator.cs`, `ColorReactiveWall.cs`, `PlaygroundCube.cs`.
 
 ---
 
 ## 5. Technical Implementation
 
-### 5.1 Tools & Technologies
+### 5.1 Platform & Tools
+*   **Device:** Meta Quest 3S (Android)
 *   **Engine:** Unity 6 (6000.2.10f1)
-*   **Platform:** Meta Quest 3S (Android)
 *   **Frameworks:** OpenXR, XR Interaction Toolkit, Unity Input System
 *   **Language:** C#
 *   **Version Control:** Git
@@ -81,46 +111,55 @@ This scene represents the "Awakening"—a dive into the user's vivid imagination
 ### 5.2 Key Systems & Architecture
 
 #### 5.2.1 XR Interaction System
-The project utilizes the **XR Interaction Toolkit** for robust hand tracking and controller support.
-*   **Grabbing & Throwing:** Custom configurations on `XRGrabInteractable` allow for precise manipulation of cubes.
-*   **Physics:** Rigidbody physics are tuned for realistic weight and collision response, essential for the "tactile" feel of the factory work and the playground fun.
+The project utilizes the **XR Interaction Toolkit** for robust hand tracking and controller support. Custom configurations on `XRGrabInteractable` allow for precise manipulation of cubes. Physics are tuned for realistic weight and collision response.
 
 #### 5.2.2 Procedural Generation
 To ensure replayability and a sense of scale, much of the world is generated procedurally at runtime.
-*   **Factory Generation:** `FactoryFloorGenerator.cs` and `MachineGenerator.cs` construct the industrial environment, placing conveyor belts and bins dynamically.
-*   **Playground Generation:** `Scene2RoomGenerator.cs` builds the reactive room, while `Scene2TwentyColoredCubesGenerator.cs` handles the distribution of the interactive cubes.
+*   **Factory:** `FactoryFloorGenerator.cs` and `MachineGenerator.cs` construct the industrial environment.
+*   **Playground:** `Scene2RoomGenerator.cs` builds the reactive room, while `Scene2TwentyColoredCubesGenerator.cs` handles the distribution of interactive cubes.
 
 #### 5.2.3 Dynamic Environment Logic
-*   **Reactive Walls:** The `ColorReactiveWall.cs` script detects collisions with specific tags ("Cube") and applies the material color of the colliding object to the wall mesh, creating a persistent "painting" effect.
-*   **The Anomaly:** `AnomalyCube.cs` and `AnomalyMovement.cs` handle the floating, otherworldly behavior of the transition objects, distinguishing them from the physics-bound factory objects.
-*   **Game Management:** A central `GameManager.cs` orchestrates the state flow, tracking the sorting quota and triggering the scene transition.
+*   **Reactive Walls:** The `ColorReactiveWall.cs` script detects collisions and applies the material color of the colliding object to the wall mesh.
+*   **Game Management:** A central `GameManager.cs` orchestrates the state flow, tracking the sorting quota and triggering scene transitions.
 
 #### 5.2.4 Audio Immersion
-Audio is a critical narrative tool.
-*   **Spatial Audio:** Sounds are spatialized to ground the user in the environment.
-*   **Procedural Audio:** `CubeCollisionSound.cs` generates procedural impact sounds dynamically modulated by collision velocity, while `CubeGrabAudio.cs` triggers specific audio clips based on the object identity.
+*   **Spatial Audio:** Sounds are spatialized to ground the user.
+*   **Procedural Audio:** Impact sounds are dynamically generated and modulated by collision velocity through `CubeCollisionSound.cs`, while `CubeGrabAudio.cs` provides audio feedback when objects are grabbed.
 *   **Atmosphere:** `RuntimeAtmosphereController.cs` manages the visual atmosphere (lighting, fog) to create the oppressive factory mood.
 
 #### 5.2.5 Optimization
-Targeting the Meta Quest 3S requires strict performance management.
-*   **Lighting:** `LightingOptimizer.cs` manages real-time vs. baked lighting to maintain high frame rates.
-*   **Asset Management:** Efficient use of prefabs and object pooling (via `ObjectSpawner.cs`) prevents garbage collection spikes during gameplay.
+*   **Lighting:** `LightingOptimizer.cs` manages real-time vs. baked lighting.
+*   **Asset Management:** Efficient use of prefabs and object pooling prevents garbage collection spikes.
+
+### 5.3 Folder Structure
+*   **Assets/**: Main project assets (Materials, Prefabs, Scenes, Scripts, Resources).
+*   **Library/**: Unity-generated cache.
+*   **Packages/**: Unity package manifest.
+*   **ProjectSettings/**: Unity project settings.
 
 ---
 
 ## 6. Development Process
 
-### 6.1 Phase 1: Prototyping & Mechanics
-The initial phase focused on the core XR mechanics: grabbing, throwing, and collision detection. The "sorting" mechanic was built first to establish the baseline interaction.
+### Phase 1: Project Setup & Prototyping
+*   Repository initialization and XR configuration (OpenXR, XR Interaction Toolkit).
+*   Prototyping core XR mechanics: grabbing, throwing, and collision detection.
+*   The "sorting" mechanic was built first to establish the baseline interaction.
 
-### 6.2 Phase 2: Environment & Atmosphere
-Distinct visual identities were developed for the two scenes. The factory used low-poly industrial assets with dark, metallic textures, while the playground utilized high-contrast, vibrant materials.
+### Phase 2: Environment & Tools
+*   Developed procedural scene generation scripts for rapid prototyping.
+*   Created distinct visual identities: low-poly industrial assets for the factory, high-contrast vibrant materials for the playground.
+*   Implemented custom editor tools for batch asset creation.
 
-### 6.3 Phase 3: Scripting & Logic
-The core logic for the "Shift" was implemented. This involved connecting the `BinCollector` logic to the `GameManager` to track the 30-cube quota and trigger the `AnomalyAssetGenerator`.
+### Phase 3: Scripting & Logic
+*   Implemented the core logic for "The Shift," connecting `BinCollector` to `GameManager` to track the 30-cube quota.
+*   Developed the `AnomalyAssetGenerator` and transition logic.
+*   Implemented the reactive wall system for Scene 2.
 
-### 6.4 Phase 4: Polish & Optimization
-The final phase focused on the "feel" of the experience. Haptic feedback was added to interactions, and lighting was baked to ensure smooth performance on the standalone headset.
+### Phase 4: Polish & Optimization
+*   Performance tuning for Quest 3S (profiling, reducing draw calls).
+*   Visual and audio polish: Haptic feedback, spatial audio, and baked lighting.
+*   Deployed APK to device for real-world testing and iteration.
 
 ---
 
