@@ -9,13 +9,14 @@ namespace MusicSpace
     /// <summary>
     /// Generates 20 colored cubes (5 colors x 4 each) for Scene 2.
     /// Cubes can be grabbed and thrown at reactive walls to change their colors.
+    /// When grabbed, cubes play a looping sound based on their color.
     /// </summary>
     public class Scene2TwentyColoredCubesGenerator : MonoBehaviour
     {
         [Header("Cube Settings")]
         public int cubesPerColor = 4;
-        public float cubeScale = 0.25f;
-        public float spacing = 0.8f;
+        public float cubeScale = 0.3f; // Standardized cube size
+        public float spacing = 1.2f;
         
         [Header("Layout")]
         public Vector3 gridCenter = new Vector3(0, 0.15f, 0);
@@ -34,7 +35,98 @@ namespace MusicSpace
 
         private void Start()
         {
-            GenerateCubes();
+            // First, ensure all existing cubes in scene have PlaygroundCube component
+            SetupExistingCubes();
+            
+            // Then generate new cubes if none exist
+            Transform existingCubes = transform.Find("PlaygroundCubes");
+            if (existingCubes == null || existingCubes.childCount == 0)
+            {
+                // Only generate if no cubes exist yet as children
+                // Check if there are already cubes as direct children
+                bool hasDirectChildCubes = false;
+                foreach (Transform child in transform)
+                {
+                    if (child.name.StartsWith("Cube_"))
+                    {
+                        hasDirectChildCubes = true;
+                        break;
+                    }
+                }
+                
+                if (!hasDirectChildCubes)
+                {
+                    GenerateCubes();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Setup existing cubes in the scene with PlaygroundCube component
+        /// </summary>
+        private void SetupExistingCubes()
+        {
+            // Find all cubes that are children of this transform
+            foreach (Transform child in transform)
+            {
+                if (child.name.StartsWith("Cube_"))
+                {
+                    SetupCubeComponent(child.gameObject);
+                }
+            }
+            
+            // Also find cubes tagged as "Cube" in the scene
+            GameObject[] taggedCubes = GameObject.FindGameObjectsWithTag("Cube");
+            foreach (GameObject cube in taggedCubes)
+            {
+                SetupCubeComponent(cube);
+            }
+        }
+        
+        /// <summary>
+        /// Add PlaygroundCube component to an existing cube if missing
+        /// </summary>
+        private void SetupCubeComponent(GameObject cube)
+        {
+            // Skip if already has PlaygroundCube
+            if (cube.GetComponent<PlaygroundCube>() != null) return;
+            
+            // Add PlaygroundCube component
+            PlaygroundCube pc = cube.AddComponent<PlaygroundCube>();
+            pc.spawnPosition = cube.transform.position;
+            
+            // Detect color from name
+            string cubeName = cube.name.ToLower();
+            if (cubeName.Contains("red"))
+            {
+                pc.colorName = "red";
+                pc.cubeColor = defaultColors[0];
+            }
+            else if (cubeName.Contains("blue"))
+            {
+                pc.colorName = "blue";
+                pc.cubeColor = defaultColors[1];
+            }
+            else if (cubeName.Contains("green"))
+            {
+                pc.colorName = "green";
+                pc.cubeColor = defaultColors[2];
+            }
+            else if (cubeName.Contains("yellow"))
+            {
+                pc.colorName = "yellow";
+                pc.cubeColor = defaultColors[3];
+            }
+            else if (cubeName.Contains("purple"))
+            {
+                pc.colorName = "purple";
+                pc.cubeColor = defaultColors[4];
+            }
+            
+            // Make sure cube has proper tag
+            cube.tag = "Cube";
+            
+            Debug.Log($"Setup PlaygroundCube on {cube.name} with color {pc.colorName}");
         }
 
 #if UNITY_EDITOR
