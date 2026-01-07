@@ -65,27 +65,31 @@ namespace MusicSpace
         }
         
         /// <summary>
-        /// Setup all walls, ceiling and floor with ColorReactiveWall component
+        /// Setup all walls and ceiling with ColorReactiveWall component (NOT floor)
         /// </summary>
         private void SetupReactiveSurfaces()
         {
-            // Find all surfaces by name pattern
-            string[] surfaceNames = { "Wall_", "Ceiling", "Floor" };
+            // Find all objects in scene
+            GameObject[] allObjects = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
             
-            foreach (string pattern in surfaceNames)
+            foreach (GameObject obj in allObjects)
             {
-                // Find all objects that match the pattern
-                GameObject[] allObjects = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
-                foreach (GameObject obj in allObjects)
+                string objName = obj.name;
+                
+                // Add to walls (Wall_Front, Wall_Back, etc.)
+                if (objName.StartsWith("Wall_"))
                 {
-                    if (obj.name.StartsWith(pattern) || obj.name == pattern)
-                    {
-                        SetupReactiveSurface(obj);
-                    }
+                    SetupReactiveSurface(obj);
                 }
+                // Add to Ceiling (exact match)
+                else if (objName == "Ceiling")
+                {
+                    SetupReactiveSurface(obj);
+                }
+                // NOTE: Floor is intentionally NOT included
             }
             
-            Debug.Log("Setup reactive surfaces (walls, ceiling, floor) completed");
+            Debug.Log("Setup reactive surfaces (walls, ceiling) completed - Floor excluded");
         }
         
         /// <summary>
@@ -93,18 +97,27 @@ namespace MusicSpace
         /// </summary>
         private void SetupReactiveSurface(GameObject surface)
         {
-            // Skip if already has ColorReactiveWall
-            if (surface.GetComponent<ColorReactiveWall>() != null) return;
+            // Check if already has ColorReactiveWall
+            if (surface.GetComponent<ColorReactiveWall>() != null)
+            {
+                Debug.Log($"[SetupReactiveSurface] {surface.name} already has ColorReactiveWall");
+                return;
+            }
             
             // Make sure it has a MeshRenderer
             MeshRenderer renderer = surface.GetComponent<MeshRenderer>();
-            if (renderer == null) return;
+            if (renderer == null)
+            {
+                Debug.LogWarning($"[SetupReactiveSurface] {surface.name} has no MeshRenderer, skipping");
+                return;
+            }
             
             // Make sure it has a Collider
             Collider col = surface.GetComponent<Collider>();
             if (col == null)
             {
-                surface.AddComponent<BoxCollider>();
+                col = surface.AddComponent<BoxCollider>();
+                Debug.Log($"[SetupReactiveSurface] Added BoxCollider to {surface.name}");
             }
             
             // Add ColorReactiveWall component
@@ -116,16 +129,12 @@ namespace MusicSpace
             {
                 wall.surfaceType = SurfaceType.Concrete;
             }
-            else if (surfaceName.Contains("floor"))
-            {
-                wall.surfaceType = SurfaceType.Stone;
-            }
             else
             {
                 wall.surfaceType = SurfaceType.Metal;
             }
             
-            Debug.Log($"Setup ColorReactiveWall on {surface.name}");
+            Debug.Log($"[SetupReactiveSurface] ✓ Added ColorReactiveWall to {surface.name}");
         }
         
         /// <summary>

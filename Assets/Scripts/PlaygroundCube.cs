@@ -25,8 +25,13 @@ namespace MusicSpace
         
         [Header("Audio Settings")]
         public AudioClip loopSound; // Auto-loaded based on colorName - plays while grabbed
-        [Range(0f, 1f)] public float loopVolume = 0.7f;
-        [Range(0f, 1f)] public float collisionVolume = 1.0f;
+        
+        // ========================================
+        // GLOBAL VOLUME SETTINGS (same for all cubes)
+        // Change these values to adjust all cubes at once
+        // ========================================
+        private const float GLOBAL_LOOP_VOLUME = 0.7f;      // Grab sound volume (0.0 - 1.0)
+        private const float GLOBAL_COLLISION_VOLUME = 1.0f; // Collision sound volume (0.0 - 1.0)
         
         [Header("Physics-Based Audio")]
         [Tooltip("Minimum pitch when velocity is low")]
@@ -66,7 +71,7 @@ namespace MusicSpace
             loopAudioSource.rolloffMode = AudioRolloffMode.Linear;
             loopAudioSource.minDistance = 1f;
             loopAudioSource.maxDistance = 15f;
-            loopAudioSource.volume = loopVolume;
+            loopAudioSource.volume = GLOBAL_LOOP_VOLUME;
             
             // Setup collision audio source (for one-shot collision sounds)
             collisionAudioSource = gameObject.AddComponent<AudioSource>();
@@ -168,8 +173,9 @@ namespace MusicSpace
         {
             isGrabbed = false;
             
-            // Stop the looping sound when released
-            StopLoopSound();
+            // Don't stop immediately - let the sound finish its current playback
+            // Just disable looping so it plays to the end then stops
+            LetSoundFinish();
         }
         
         /// <summary>
@@ -180,14 +186,27 @@ namespace MusicSpace
             if (loopAudioSource != null && loopSound != null)
             {
                 loopAudioSource.clip = loopSound;
-                loopAudioSource.volume = loopVolume;
+                loopAudioSource.volume = GLOBAL_LOOP_VOLUME;
                 loopAudioSource.pitch = 1f;
+                loopAudioSource.loop = true; // Enable looping while grabbed
                 loopAudioSource.Play();
             }
         }
         
         /// <summary>
-        /// Stop the looping sound
+        /// Let the sound finish playing (disable loop, don't stop immediately)
+        /// </summary>
+        private void LetSoundFinish()
+        {
+            if (loopAudioSource != null && loopAudioSource.isPlaying)
+            {
+                // Just disable looping - the sound will play to the end then stop naturally
+                loopAudioSource.loop = false;
+            }
+        }
+        
+        /// <summary>
+        /// Stop the looping sound immediately
         /// </summary>
         private void StopLoopSound()
         {
@@ -275,7 +294,7 @@ namespace MusicSpace
             
             // Physics-based volume: harder impact = louder
             float volumeMultiplier = Mathf.Lerp(minVolumeMultiplier, 1f, normalizedVelocity);
-            float finalVolume = collisionVolume * volumeMultiplier * volumeScale;
+            float finalVolume = GLOBAL_COLLISION_VOLUME * volumeMultiplier * volumeScale;
             
             // Apply parameters
             collisionAudioSource.pitch = pitch;
