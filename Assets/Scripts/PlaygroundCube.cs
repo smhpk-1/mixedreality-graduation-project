@@ -44,8 +44,8 @@ namespace MusicSpace
         public float minVolumeMultiplier = 0.4f;
         
         [Header("Physics")]
-        public float minVelocityForWallChange = 0.5f;
-        public float minVelocityForSound = 0.2f;
+        public float minVelocityForWallChange = 0.3f; // Lowered for easier triggering
+        public float minVelocityForSound = 0.1f;
 
         private XRGrabInteractable grabInteractable;
         private Rigidbody rb;
@@ -222,7 +222,7 @@ namespace MusicSpace
             if (hasHitWall) return;
             
             float velocity = collision.relativeVelocity.magnitude;
-            string hitObjectName = collision.gameObject.name;
+            string hitObjectName = collision.gameObject.name.ToLower();
             
             // Check if we hit a reactive wall - search on object AND parents
             ColorReactiveWall wall = collision.gameObject.GetComponent<ColorReactiveWall>();
@@ -231,44 +231,31 @@ namespace MusicSpace
                 wall = collision.gameObject.GetComponentInParent<ColorReactiveWall>();
             }
             
-            // Check if this is a wall by name (Wall_Front, Wall_Back, etc.)
-            bool isWallByName = hitObjectName.StartsWith("Wall_");
+            // Check if this is a reactive surface by name (wall, ceiling)
+            bool isReactiveSurface = hitObjectName.Contains("wall") || hitObjectName.Contains("ceiling");
             
-            if (wall != null)
+            // If it's a reactive surface but doesn't have the component, add it
+            if (wall == null && isReactiveSurface)
             {
-                if (velocity >= minVelocityForWallChange)
-                {
-                    hasHitWall = true;
-                    
-                    // Stop the loop sound when hitting wall
-                    StopLoopSound();
-                    
-                    // Change wall color to match this cube (permanent until next hit)
-                    wall.ChangeColorInstant(cubeColor, 0f);
-                    
-                    // Play collision sound with full intensity for wall hits
-                    PlayCollisionSound(velocity, 1f);
-                    
-                    // Respawn cube after delay
-                    StartCoroutine(RespawnAfterDelay());
-                }
-            }
-            else if (isWallByName)
-            {
-                // Wall doesn't have ColorReactiveWall - add it dynamically
                 wall = collision.gameObject.AddComponent<ColorReactiveWall>();
+            }
+            
+            // Process collision with reactive wall
+            if (wall != null && velocity >= minVelocityForWallChange)
+            {
+                hasHitWall = true;
                 
-                if (velocity >= minVelocityForWallChange)
-                {
-                    hasHitWall = true;
-                    
-                    // Stop the loop sound when hitting wall
-                    StopLoopSound();
-                    
-                    wall.ChangeColorInstant(cubeColor, 0f);
-                    PlayCollisionSound(velocity, 1f);
-                    StartCoroutine(RespawnAfterDelay());
-                }
+                // Stop the loop sound when hitting wall
+                StopLoopSound();
+                
+                // Change wall color to match this cube (permanent until next hit)
+                wall.ChangeColorInstant(cubeColor, 0f);
+                
+                // Play collision sound with full intensity for wall hits
+                PlayCollisionSound(velocity, 1f);
+                
+                // Respawn cube after delay
+                StartCoroutine(RespawnAfterDelay());
             }
             else if (velocity > minVelocityForSound)
             {
