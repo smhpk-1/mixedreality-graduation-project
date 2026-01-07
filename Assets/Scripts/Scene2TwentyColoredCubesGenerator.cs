@@ -35,7 +35,10 @@ namespace MusicSpace
 
         private void Start()
         {
-            // First, ensure all existing cubes in scene have PlaygroundCube component
+            // First, setup all reactive surfaces (walls, ceiling, floor)
+            SetupReactiveSurfaces();
+            
+            // Then, ensure all existing cubes in scene have PlaygroundCube component
             SetupExistingCubes();
             
             // Then generate new cubes if none exist
@@ -59,6 +62,70 @@ namespace MusicSpace
                     GenerateCubes();
                 }
             }
+        }
+        
+        /// <summary>
+        /// Setup all walls, ceiling and floor with ColorReactiveWall component
+        /// </summary>
+        private void SetupReactiveSurfaces()
+        {
+            // Find all surfaces by name pattern
+            string[] surfaceNames = { "Wall_", "Ceiling", "Floor" };
+            
+            foreach (string pattern in surfaceNames)
+            {
+                // Find all objects that match the pattern
+                GameObject[] allObjects = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
+                foreach (GameObject obj in allObjects)
+                {
+                    if (obj.name.StartsWith(pattern) || obj.name == pattern)
+                    {
+                        SetupReactiveSurface(obj);
+                    }
+                }
+            }
+            
+            Debug.Log("Setup reactive surfaces (walls, ceiling, floor) completed");
+        }
+        
+        /// <summary>
+        /// Add ColorReactiveWall component to a surface if missing
+        /// </summary>
+        private void SetupReactiveSurface(GameObject surface)
+        {
+            // Skip if already has ColorReactiveWall
+            if (surface.GetComponent<ColorReactiveWall>() != null) return;
+            
+            // Make sure it has a MeshRenderer
+            MeshRenderer renderer = surface.GetComponent<MeshRenderer>();
+            if (renderer == null) return;
+            
+            // Make sure it has a Collider
+            Collider col = surface.GetComponent<Collider>();
+            if (col == null)
+            {
+                surface.AddComponent<BoxCollider>();
+            }
+            
+            // Add ColorReactiveWall component
+            ColorReactiveWall wall = surface.AddComponent<ColorReactiveWall>();
+            
+            // Set surface type based on name
+            string surfaceName = surface.name.ToLower();
+            if (surfaceName.Contains("ceiling"))
+            {
+                wall.surfaceType = SurfaceType.Concrete;
+            }
+            else if (surfaceName.Contains("floor"))
+            {
+                wall.surfaceType = SurfaceType.Stone;
+            }
+            else
+            {
+                wall.surfaceType = SurfaceType.Metal;
+            }
+            
+            Debug.Log($"Setup ColorReactiveWall on {surface.name}");
         }
         
         /// <summary>
