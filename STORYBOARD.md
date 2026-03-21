@@ -45,3 +45,13 @@
 **Visual:** The scene concludes with a general view of the room, which has been completely transformed. The once dark and minimal space is now a chaotic, beautiful mosaic of colors. Walls are splashed with various colors, standing as a testament to the user's creative expression.
 **Action:** The user stands in the center of their creation. They realize they can create their own musical composition and perform in real-time using these colorful cubes that emit different sounds.
 **Audio:** The audio is entirely up to the player's decision. By using the cubes—each assigned a different synth tone—the player creates their own unique soundscape, celebrating the freedom of the playground.
+
+### Step 5: The Breakthrough
+**Visual:** As the user continues to play, they realize that throwing multiple cubes at the same wall causes that wall to slowly rumble. After 10 consecutive hits, the wall collapses and sinks into the ground, triggering the transition to the next space.
+**Action:** The user focuses their playful throws on a single wall to break it down and progress.
+**Audio:** A crumbling, heavy stone-grinding sound plays as the wall sinks, fading out the energetic playground sounds and leading into the transition.
+
+---
+
+## Scene 3: [Title Pending]
+(To be defined in future updates as the user transitions from the colorful playground into the next experience.)
