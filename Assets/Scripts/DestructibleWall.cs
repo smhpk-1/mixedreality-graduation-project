@@ -12,7 +12,7 @@ namespace MusicSpace
     public class DestructibleWall : MonoBehaviour
     {
         [Header("Destruction Settings")]
-        public int requiredHits = 10;
+        public int requiredHits = 3;
         public string nextSceneName = "Scene 3";
         
         [Header("Feedback Settings")]
