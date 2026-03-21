@@ -1004,10 +1004,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 3e2a6d40-7c2d-473a-821e-1aaf36a53b50
+  cloudProjectId: ec70512b-582c-4c51-9beb-11712adf4b24
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: My project 2025-11-27_00-22-51
+  projectName: mixedreality-graduation-project
   organizationId: semosh23
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
