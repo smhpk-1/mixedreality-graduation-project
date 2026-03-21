@@ -51,7 +51,6 @@ namespace MusicSpace
         private Rigidbody rb;
         private AudioSource loopAudioSource;    // For looping grab sound
         private AudioSource collisionAudioSource; // For collision one-shots
-        private bool isGrabbed = false;
         private bool hasHitWall = false;
 
         private void Awake()
@@ -162,7 +161,6 @@ namespace MusicSpace
 
         private void OnGrab(SelectEnterEventArgs args)
         {
-            isGrabbed = true;
             hasHitWall = false;
             
             // Start playing the looping sound when grabbed
@@ -171,8 +169,6 @@ namespace MusicSpace
 
         private void OnRelease(SelectExitEventArgs args)
         {
-            isGrabbed = false;
-            
             // Don't stop immediately - let the sound finish its current playback
             // Just disable looping so it plays to the end then stops
             LetSoundFinish();
@@ -322,7 +318,6 @@ namespace MusicSpace
             
             // Reset state
             hasHitWall = false;
-            isGrabbed = false;
         }
 
 #if UNITY_EDITOR
