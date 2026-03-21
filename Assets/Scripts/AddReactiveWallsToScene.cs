@@ -112,6 +112,15 @@ namespace MusicSpace
             reactive.colorIntensity = 1.2f;
             reactive.emissionIntensity = 0.4f;
             
+            // Add DestructibleWall to vertical walls (not floors)
+            string objNameLower = obj.name.ToLower();
+            if (!objNameLower.Contains("floor") && obj.GetComponent<DestructibleWall>() == null)
+            {
+                DestructibleWall destWall = obj.AddComponent<DestructibleWall>();
+                destWall.requiredHits = 3;
+                destWall.nextSceneName = "Scene 3";
+            }
+            
             Debug.Log($"Added ColorReactiveWall to: {obj.name} (Surface: {reactive.surfaceType})");
         }
 
