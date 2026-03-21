@@ -134,6 +134,15 @@ namespace MusicSpace
             reactiveWall.colorIntensity = 1.2f;
             reactiveWall.emissionIntensity = 0.4f;
 
+            // Add DestructibleWall to vertical walls (not Floor)
+            if (name != "Floor")
+            {
+                DestructibleWall destWall = wall.AddComponent<DestructibleWall>();
+                destWall.requiredHits = 10;
+                // You can change nextSceneName here later if "Scene 3" is not the correct name
+                destWall.nextSceneName = "Scene 3"; 
+            }
+
             Debug.Log($"Created reactive wall: {name} with ColorReactiveWall component");
         }
 

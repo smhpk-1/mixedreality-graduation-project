@@ -250,6 +250,13 @@ namespace MusicSpace
                 
                 // Change wall color to match this cube (permanent until next hit)
                 wall.ChangeColorInstant(cubeColor, 0f);
+
+                // Trigger destructible wall damage if present
+                DestructibleWall destructibleWall = wall.GetComponent<DestructibleWall>();
+                if (destructibleWall != null)
+                {
+                    destructibleWall.TakeDamage();
+                }
                 
                 // Play collision sound with full intensity for wall hits
                 PlayCollisionSound(velocity, 1f);
