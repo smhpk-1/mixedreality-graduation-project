@@ -42,7 +42,6 @@ namespace MusicSpace
         private Material originalMaterial;
         private bool hasCollided = false;
         private bool isGrabbed = false;
-        private bool hasBeenThrown = false; // Track if cube was thrown
         private ColorReactiveWall currentAffectedWall = null;
 
         private void Awake()
@@ -142,7 +141,6 @@ namespace MusicSpace
         {
             isGrabbed = true;
             hasCollided = false;
-            hasBeenThrown = false;
             
             // Enable gravity when grabbed (will fall/throw when released)
             SetFloating(false);
@@ -158,7 +156,6 @@ namespace MusicSpace
         private void OnRelease(SelectExitEventArgs args)
         {
             isGrabbed = false;
-            hasBeenThrown = true;
             // Grab bırakıldığında gerçekçi fizik için Rigidbody ayarları
             SetFloating(false); // Gravity açık
             rb.isKinematic = false;
@@ -303,7 +300,6 @@ namespace MusicSpace
             // Reset state
             hasCollided = false;
             isGrabbed = false;
-            hasBeenThrown = false;
             
             // Go back to floating state
             SetFloating(true);
