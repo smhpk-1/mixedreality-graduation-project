@@ -234,6 +234,14 @@ namespace MusicSpace
             if (wall == null && isReactiveSurface)
             {
                 wall = collision.gameObject.AddComponent<ColorReactiveWall>();
+                
+                // Also add DestructibleWall if not already present
+                if (collision.gameObject.GetComponent<DestructibleWall>() == null)
+                {
+                    DestructibleWall destWall = collision.gameObject.AddComponent<DestructibleWall>();
+                    destWall.requiredHits = 3;
+                    destWall.nextSceneName = "Scene 3";
+                }
             }
             
             // Process collision with reactive wall
