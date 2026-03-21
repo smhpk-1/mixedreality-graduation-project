@@ -179,13 +179,19 @@ namespace MusicSpace
 
             hasCollided = true;
 
-            // Duvara çarptıysa, duvarın rengini küpün rengine anında döndür
             ColorReactiveWall wall = collision.gameObject.GetComponent<ColorReactiveWall>();
             if (wall != null)
             {
                 currentAffectedWall = wall;
                 wall.ChangeColorInstant(cubeColor, 1.5f); // 1.5 saniye sonra eski rengine döner
                 ApplySurfaceEffects(wall.surfaceType);
+                
+                // Trigger destructible wall damage if present
+                DestructibleWall destructibleWall = wall.GetComponent<DestructibleWall>();
+                if (destructibleWall != null)
+                {
+                    destructibleWall.TakeDamage();
+                }
             }
 
             // Gerçekçi fiziksel ses ve efektler
