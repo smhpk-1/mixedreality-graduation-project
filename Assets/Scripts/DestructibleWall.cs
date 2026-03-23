@@ -29,17 +29,33 @@ namespace MusicSpace
         private int currentHits = 0;
         private bool isDestroyed = false;
         private bool isShaking = false;
+        private bool isInitialized = false;
         private Vector3 originalLocalPosition;
         private float currentSinkOffset = 0f;
         
+        /// <summary>
+        /// Initialize position tracking. Called automatically on first TakeDamage
+        /// or in Start, whichever comes first. This handles the case where
+        /// AddComponent + TakeDamage happen in the same frame (Start hasn't run yet).
+        /// </summary>
+        private void Initialize()
+        {
+            if (isInitialized) return;
+            isInitialized = true;
+            originalLocalPosition = transform.localPosition;
+            Debug.Log($"[DestructibleWall] {gameObject.name} initialized at {originalLocalPosition}. requiredHits={requiredHits}");
+        }
+        
         private void Start()
         {
-            originalLocalPosition = transform.localPosition;
-            Debug.Log($"[DestructibleWall] {gameObject.name} initialized. requiredHits={requiredHits}");
+            Initialize();
         }
 
         public void TakeDamage(int delayMilliseconds = 0)
         {
+            // Initialize on first call — handles AddComponent + TakeDamage in same frame
+            Initialize();
+            
             if (isDestroyed) return;
 
             currentHits++;
