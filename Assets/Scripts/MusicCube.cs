@@ -42,7 +42,6 @@ namespace MusicSpace
         private Material originalMaterial;
         private bool hasCollided = false;
         private bool isGrabbed = false;
-        private ColorReactiveWall currentAffectedWall = null;
 
         private void Awake()
         {
@@ -145,12 +144,7 @@ namespace MusicSpace
             // Enable gravity when grabbed (will fall/throw when released)
             SetFloating(false);
             
-            // Reset any affected wall when picked up again
-            if (currentAffectedWall != null)
-            {
-                currentAffectedWall.ResetColor();
-                currentAffectedWall = null;
-            }
+            // Clear reference but don't reset wall color — keep the paint
         }
 
         private void OnRelease(SelectExitEventArgs args)
@@ -182,16 +176,9 @@ namespace MusicSpace
             ColorReactiveWall wall = collision.gameObject.GetComponent<ColorReactiveWall>();
             if (wall != null)
             {
-                currentAffectedWall = wall;
-                wall.ChangeColorInstant(cubeColor, 1.5f); // 1.5 saniye sonra eski rengine döner
+                // Color change and DestructibleWall damage are handled by
+                // ColorReactiveWall.OnCollisionEnter — no need to call here
                 ApplySurfaceEffects(wall.surfaceType);
-                
-                // Trigger destructible wall damage if present
-                DestructibleWall destructibleWall = wall.GetComponent<DestructibleWall>();
-                if (destructibleWall != null)
-                {
-                    destructibleWall.TakeDamage();
-                }
             }
 
             // Gerçekçi fiziksel ses ve efektler
@@ -284,12 +271,6 @@ namespace MusicSpace
 
         private IEnumerator DestroyAndRespawn()
         {
-            // Reset wall color before destroying
-            if (currentAffectedWall != null)
-            {
-                currentAffectedWall.ResetColor();
-                currentAffectedWall = null;
-            }
 
             yield return new WaitForSeconds(respawnDelay);
             
