@@ -14,7 +14,7 @@ namespace MusicSpace
 
     /// <summary>
     /// A wall or floor that changes color when hit by any cube with a Rigidbody.
-    /// Detects collisions and extracts color from the cube's material.
+    /// Also handles DestructibleWall damage when hit.
     /// </summary>
     public class ColorReactiveWall : MonoBehaviour
     {
@@ -31,7 +31,7 @@ namespace MusicSpace
         public float emissionIntensity = 0.5f;
         
         [Header("Collision Settings")]
-        public float minVelocityToTrigger = 0.5f;
+        public float minVelocityToTrigger = 0.1f;
 
         private MeshRenderer meshRenderer;
         private Material material;
@@ -73,10 +73,6 @@ namespace MusicSpace
 
         private void OnCollisionEnter(Collision collision)
         {
-            // Skip if this is a PlaygroundCube — its own OnCollisionEnter handles
-            // color change + damage. This prevents double collision handling.
-            if (collision.gameObject.GetComponent<PlaygroundCube>() != null) return;
-            
             // Check if the colliding object has a Rigidbody (i.e., it's a thrown object)
             Rigidbody rb = collision.rigidbody;
             if (rb == null) return;
@@ -99,6 +95,23 @@ namespace MusicSpace
             
             // Change wall color to match the cube (permanent until next hit)
             ChangeColorInstant(cubeColor, 0f);
+            
+            // Skip floor — only walls should be destructible
+            string objNameLower = gameObject.name.ToLower();
+            if (objNameLower.Contains("floor")) return;
+            
+            // Auto-add DestructibleWall if not present (walls in scene may not have it pre-assigned)
+            DestructibleWall destructibleWall = GetComponent<DestructibleWall>();
+            if (destructibleWall == null)
+            {
+                destructibleWall = gameObject.AddComponent<DestructibleWall>();
+                destructibleWall.requiredHits = 10;
+                destructibleWall.nextSceneName = "Scene 3";
+                Debug.Log($"[ColorReactiveWall] Auto-added DestructibleWall to {gameObject.name}");
+            }
+            
+            destructibleWall.TakeDamage();
+            Debug.Log($"[ColorReactiveWall] {gameObject.name} hit by {collision.gameObject.name}. TakeDamage called.");
         }
         
         // Fallback for trigger colliders
@@ -116,6 +129,20 @@ namespace MusicSpace
             if (cubeColor.r < 0.1f && cubeColor.g < 0.1f && cubeColor.b < 0.1f) return;
             
             ChangeColorInstant(cubeColor, 0f);
+            
+            // Skip floor
+            string objNameLower = gameObject.name.ToLower();
+            if (objNameLower.Contains("floor")) return;
+            
+            // Auto-add DestructibleWall if not present
+            DestructibleWall destructibleWall = GetComponent<DestructibleWall>();
+            if (destructibleWall == null)
+            {
+                destructibleWall = gameObject.AddComponent<DestructibleWall>();
+                destructibleWall.requiredHits = 10;
+                destructibleWall.nextSceneName = "Scene 3";
+            }
+            destructibleWall.TakeDamage();
         }
 
         private Color GetColorFromMaterial(Material mat)
