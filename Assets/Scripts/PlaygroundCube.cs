@@ -231,17 +231,10 @@ namespace MusicSpace
             bool isReactiveSurface = hitObjectName.Contains("wall") || hitObjectName.Contains("ceiling");
             
             // If it's a reactive surface but doesn't have the component, add it
+            // (only ColorReactiveWall — DestructibleWall is managed by Scene2RoomGenerator)
             if (wall == null && isReactiveSurface)
             {
                 wall = collision.gameObject.AddComponent<ColorReactiveWall>();
-                
-                // Also add DestructibleWall if not already present
-                if (collision.gameObject.GetComponent<DestructibleWall>() == null)
-                {
-                    DestructibleWall destWall = collision.gameObject.AddComponent<DestructibleWall>();
-                    destWall.requiredHits = 3;
-                    destWall.nextSceneName = "Scene 3";
-                }
             }
             
             // Process collision with reactive wall

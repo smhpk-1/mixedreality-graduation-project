@@ -138,7 +138,7 @@ namespace MusicSpace
             if (name != "Floor")
             {
                 DestructibleWall destWall = wall.AddComponent<DestructibleWall>();
-                destWall.requiredHits = 3;
+                destWall.requiredHits = 10;
                 // You can change nextSceneName here later if "Scene 3" is not the correct name
                 destWall.nextSceneName = "Scene 3"; 
             }
