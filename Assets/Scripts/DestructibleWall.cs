@@ -5,9 +5,10 @@ using System.Collections;
 namespace MusicSpace
 {
     /// <summary>
-    /// Tracks hits from PlaygroundCubes on walls. 
-    /// Provides progressive visual feedback: darkening on early hits,
-    /// shaking on later hits (last 3), and collapse + scene transition on final hit.
+    /// Tracks hits from cubes on walls. 
+    /// Shows progressive damage: wall gradually sinks with each hit,
+    /// shakes on the last 3 hits, and fully collapses on the final hit.
+    /// Color changes are handled separately by ColorReactiveWall.
     /// </summary>
     public class DestructibleWall : MonoBehaviour
     {
@@ -15,41 +16,26 @@ namespace MusicSpace
         public int requiredHits = 10;
         public string nextSceneName = "Scene 3";
         
-        [Header("Feedback Settings")]
+        [Header("Progressive Damage")]
+        [Tooltip("Total amount the wall sinks before final collapse (in units)")]
+        public float maxSinkBeforeCollapse = 0.5f;
+        
+        [Header("Shake Settings")]
+        [Tooltip("How many hits before the end to start shaking")]
+        public int shakeStartsAtRemaining = 3;
         public float shakeDuration = 0.3f;
         public float baseShakeAmount = 0.03f;
-        
-        [Header("Progressive Damage")]
-        [Tooltip("How many hits before the end to start shaking (e.g. 3 = last 3 hits shake)")]
-        public int shakeStartsAtRemaining = 3;
-        [Tooltip("How much to darken the wall per hit (0-1 range, cumulative)")]
-        public float darkenPerHit = 0.06f;
         
         private int currentHits = 0;
         private bool isDestroyed = false;
         private bool isShaking = false;
         private Vector3 originalLocalPosition;
-        private MeshRenderer meshRenderer;
-        private Color initialColor;
-        private bool hasStoredInitialColor = false;
+        private float currentSinkOffset = 0f;
         
         private void Start()
         {
             originalLocalPosition = transform.localPosition;
-            meshRenderer = GetComponent<MeshRenderer>();
-            
-            // Store the initial color so we can darken it progressively
-            if (meshRenderer != null && meshRenderer.material != null)
-            {
-                Material mat = meshRenderer.material;
-                if (mat.HasProperty("_BaseColor"))
-                    initialColor = mat.GetColor("_BaseColor");
-                else if (mat.HasProperty("_Color"))
-                    initialColor = mat.GetColor("_Color");
-                else
-                    initialColor = mat.color;
-                hasStoredInitialColor = true;
-            }
+            Debug.Log($"[DestructibleWall] {gameObject.name} initialized. requiredHits={requiredHits}");
         }
 
         public void TakeDamage(int delayMilliseconds = 0)
@@ -58,20 +44,27 @@ namespace MusicSpace
 
             currentHits++;
             int remaining = requiredHits - currentHits;
-            Debug.Log($"[DestructibleWall] {gameObject.name} took damage. Hits: {currentHits}/{requiredHits} (remaining: {remaining})");
+            Debug.Log($"[DestructibleWall] {gameObject.name} hit! {currentHits}/{requiredHits} (remaining: {remaining})");
 
             if (currentHits >= requiredHits)
             {
                 // Final hit — collapse and transition
                 isDestroyed = true;
+                Debug.Log($"[DestructibleWall] {gameObject.name} DESTROYED! Starting collapse...");
                 StartCoroutine(DestroyAndTransition());
             }
             else
             {
-                // Progressive darkening on every hit
-                ApplyDamageVisual();
+                // Progressive sinking — wall drops a little with each hit
+                float sinkPerHit = maxSinkBeforeCollapse / (requiredHits - 1);
+                currentSinkOffset += sinkPerHit;
                 
-                // Shake only in the last N hits before destruction
+                Vector3 sunkPosition = originalLocalPosition + Vector3.down * currentSinkOffset;
+                transform.localPosition = sunkPosition;
+                
+                Debug.Log($"[DestructibleWall] {gameObject.name} sunk by {currentSinkOffset:F3} units");
+                
+                // Shake on the last N hits before destruction
                 if (remaining <= shakeStartsAtRemaining && !isShaking)
                 {
                     StartCoroutine(ShakeEffect(remaining));
@@ -80,83 +73,62 @@ namespace MusicSpace
         }
 
         /// <summary>
-        /// Darken the wall slightly with each hit to show cumulative damage.
-        /// </summary>
-        private void ApplyDamageVisual()
-        {
-            if (!hasStoredInitialColor || meshRenderer == null) return;
-            
-            Material mat = meshRenderer.material;
-            // Calculate how much to darken: more hits = darker
-            float darkenFactor = 1f - (darkenPerHit * currentHits);
-            darkenFactor = Mathf.Max(darkenFactor, 0.3f); // Don't go fully black
-            
-            Color damagedColor = initialColor * darkenFactor;
-            damagedColor.a = 1f;
-            
-            if (mat.HasProperty("_BaseColor"))
-                mat.SetColor("_BaseColor", damagedColor);
-            if (mat.HasProperty("_Color"))
-                mat.SetColor("_Color", damagedColor);
-            mat.color = damagedColor;
-        }
-
-        /// <summary>
         /// Shake effect that gets stronger as remaining hits decrease.
         /// </summary>
         private IEnumerator ShakeEffect(int remaining)
         {
             isShaking = true;
-            float elapsed = 0f;
             
-            // Shake intensity increases as we get closer to destruction
-            // remaining=3 → mild, remaining=1 → intense
-            float intensityMultiplier = 1f + ((float)(shakeStartsAtRemaining - remaining) / shakeStartsAtRemaining) * 3f;
+            // Shake intensity increases: remaining=3 → mild, remaining=1 → intense
+            float intensityMultiplier = 1f + ((float)(shakeStartsAtRemaining - remaining) / shakeStartsAtRemaining) * 4f;
             float currentShakeAmount = baseShakeAmount * intensityMultiplier;
             
-            // Duration also increases for later hits
+            // Duration increases for later hits
             float currentDuration = shakeDuration * (1f + (shakeStartsAtRemaining - remaining) * 0.5f);
+            
+            // The base position now includes our sink offset
+            Vector3 basePosition = originalLocalPosition + Vector3.down * currentSinkOffset;
+            float elapsed = 0f;
 
             while (elapsed < currentDuration)
             {
                 elapsed += Time.deltaTime;
                 Vector3 randomOffset = Random.insideUnitSphere * currentShakeAmount;
-                // Keep the wall generally in its plane
-                randomOffset.z *= 0.2f; 
-                transform.localPosition = originalLocalPosition + randomOffset;
-                
+                randomOffset.z *= 0.2f; // Keep wall in its plane
+                transform.localPosition = basePosition + randomOffset;
                 yield return null;
             }
 
-            transform.localPosition = originalLocalPosition;
+            transform.localPosition = basePosition;
             isShaking = false;
         }
 
         private IEnumerator DestroyAndTransition()
         {
-            Debug.Log($"[DestructibleWall] {gameObject.name} is collapsing! Transitioning to {nextSceneName}...");
+            Debug.Log($"[DestructibleWall] {gameObject.name} collapsing! Next: {nextSceneName}");
             
-            // 1. Violent shake before collapsing
+            // 1. Violent shake before collapsing (1.5 seconds)
+            Vector3 basePosition = originalLocalPosition + Vector3.down * currentSinkOffset;
             float rumbleTime = 1.5f;
             float elapsed = 0f;
+            
             while (elapsed < rumbleTime)
             {
                 elapsed += Time.deltaTime;
                 float progress = elapsed / rumbleTime;
-                // Shake intensifies over time
-                float shakeAmount = baseShakeAmount * Mathf.Lerp(3f, 8f, progress);
+                float shakeAmount = baseShakeAmount * Mathf.Lerp(3f, 10f, progress);
                 Vector3 randomOffset = Random.insideUnitSphere * shakeAmount;
-                transform.localPosition = originalLocalPosition + randomOffset;
+                transform.localPosition = basePosition + randomOffset;
                 yield return null;
             }
 
-            // 2. Collapse: sink down into the floor
+            // 2. Collapse: sink down into the floor (3 seconds)
             float sinkTime = 3.0f;
             elapsed = 0f;
             Vector3 startPos = transform.localPosition;
             Vector3 targetPos = startPos + Vector3.down * transform.localScale.y;
 
-            // Turn off collisions so player can walk through
+            // Turn off collisions
             Collider col = GetComponent<Collider>();
             if (col != null) col.enabled = false;
 
@@ -164,8 +136,7 @@ namespace MusicSpace
             {
                 elapsed += Time.deltaTime;
                 float t = elapsed / sinkTime;
-                // Smooth easing
-                t = t * t * (3f - 2f * t);
+                t = t * t * (3f - 2f * t); // Smooth easing
                 transform.localPosition = Vector3.Lerp(startPos, targetPos, t);
                 yield return null;
             }
@@ -176,7 +147,7 @@ namespace MusicSpace
             yield return new WaitForSeconds(1.0f);
 
             // 4. Load next scene
-            Debug.Log($"[DestructibleWall] Loading Next Scene: {nextSceneName}...");
+            Debug.Log($"[DestructibleWall] Loading: {nextSceneName}");
             SceneManager.LoadScene(nextSceneName);
         }
     }
