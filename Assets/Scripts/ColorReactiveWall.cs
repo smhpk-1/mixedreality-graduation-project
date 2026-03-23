@@ -73,6 +73,10 @@ namespace MusicSpace
 
         private void OnCollisionEnter(Collision collision)
         {
+            // Skip if this is a PlaygroundCube — its own OnCollisionEnter handles
+            // color change + damage. This prevents double collision handling.
+            if (collision.gameObject.GetComponent<PlaygroundCube>() != null) return;
+            
             // Check if the colliding object has a Rigidbody (i.e., it's a thrown object)
             Rigidbody rb = collision.rigidbody;
             if (rb == null) return;

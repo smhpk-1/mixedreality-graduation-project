@@ -117,7 +117,7 @@ namespace MusicSpace
             if (!objNameLower.Contains("floor") && obj.GetComponent<DestructibleWall>() == null)
             {
                 DestructibleWall destWall = obj.AddComponent<DestructibleWall>();
-                destWall.requiredHits = 3;
+                destWall.requiredHits = 10;
                 destWall.nextSceneName = "Scene 3";
             }
             
