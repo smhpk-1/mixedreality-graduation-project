@@ -8,12 +8,13 @@ namespace MusicSpace
     /// Tracks hits from cubes on walls. 
     /// Shows progressive damage: wall gradually sinks with each hit,
     /// shakes on the last 3 hits, and fully collapses on the final hit.
+    /// After 3 walls are destroyed, the ceiling also collapses for realism.
     /// Color changes are handled separately by ColorReactiveWall.
     /// </summary>
     public class DestructibleWall : MonoBehaviour
     {
         [Header("Destruction Settings")]
-        public int requiredHits = 10;
+        public int requiredHits = 20;
         public string nextSceneName = "Scene 3";
         
         [Header("Progressive Damage")]
@@ -26,6 +27,14 @@ namespace MusicSpace
         public float shakeDuration = 0.3f;
         public float baseShakeAmount = 0.03f;
         
+        [Header("Ceiling Collapse")]
+        [Tooltip("How many walls must be destroyed before ceiling collapses")]
+        public int wallsNeededForCeilingCollapse = 3;
+        
+        // Static counter shared across all DestructibleWall instances
+        private static int totalWallsDestroyed = 0;
+        private static bool ceilingCollapsed = false;
+        
         private int currentHits = 0;
         private bool isDestroyed = false;
         private bool isShaking = false;
@@ -34,10 +43,15 @@ namespace MusicSpace
         private float currentSinkOffset = 0f;
         
         /// <summary>
-        /// Initialize position tracking. Called automatically on first TakeDamage
-        /// or in Start, whichever comes first. This handles the case where
-        /// AddComponent + TakeDamage happen in the same frame (Start hasn't run yet).
+        /// Reset static counters when scene loads (prevents stale state on scene reload)
         /// </summary>
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetStatics()
+        {
+            totalWallsDestroyed = 0;
+            ceilingCollapsed = false;
+        }
+
         private void Initialize()
         {
             if (isInitialized) return;
@@ -64,10 +78,10 @@ namespace MusicSpace
 
             if (currentHits >= requiredHits)
             {
-                // Final hit — collapse and transition
+                // Final hit — collapse wall
                 isDestroyed = true;
-                Debug.Log($"[DestructibleWall] {gameObject.name} DESTROYED! Starting collapse...");
-                StartCoroutine(DestroyAndTransition());
+                Debug.Log($"[DestructibleWall] {gameObject.name} DESTROYED!");
+                StartCoroutine(CollapseWall());
             }
             else
             {
@@ -88,21 +102,14 @@ namespace MusicSpace
             }
         }
 
-        /// <summary>
-        /// Shake effect that gets stronger as remaining hits decrease.
-        /// </summary>
         private IEnumerator ShakeEffect(int remaining)
         {
             isShaking = true;
             
-            // Shake intensity increases: remaining=3 → mild, remaining=1 → intense
             float intensityMultiplier = 1f + ((float)(shakeStartsAtRemaining - remaining) / shakeStartsAtRemaining) * 4f;
             float currentShakeAmount = baseShakeAmount * intensityMultiplier;
-            
-            // Duration increases for later hits
             float currentDuration = shakeDuration * (1f + (shakeStartsAtRemaining - remaining) * 0.5f);
             
-            // The base position now includes our sink offset
             Vector3 basePosition = originalLocalPosition + Vector3.down * currentSinkOffset;
             float elapsed = 0f;
 
@@ -110,7 +117,7 @@ namespace MusicSpace
             {
                 elapsed += Time.deltaTime;
                 Vector3 randomOffset = Random.insideUnitSphere * currentShakeAmount;
-                randomOffset.z *= 0.2f; // Keep wall in its plane
+                randomOffset.z *= 0.2f;
                 transform.localPosition = basePosition + randomOffset;
                 yield return null;
             }
@@ -119,11 +126,12 @@ namespace MusicSpace
             isShaking = false;
         }
 
-        private IEnumerator DestroyAndTransition()
+        /// <summary>
+        /// Collapses this wall, then checks if ceiling should also collapse.
+        /// </summary>
+        private IEnumerator CollapseWall()
         {
-            Debug.Log($"[DestructibleWall] {gameObject.name} collapsing! Next: {nextSceneName}");
-            
-            // 1. Violent shake before collapsing (1.5 seconds)
+            // 1. Violent shake (1.5 seconds)
             Vector3 basePosition = originalLocalPosition + Vector3.down * currentSinkOffset;
             float rumbleTime = 1.5f;
             float elapsed = 0f;
@@ -138,13 +146,12 @@ namespace MusicSpace
                 yield return null;
             }
 
-            // 2. Collapse: sink down into the floor (3 seconds)
+            // 2. Sink into the floor (3 seconds)
             float sinkTime = 3.0f;
             elapsed = 0f;
             Vector3 startPos = transform.localPosition;
             Vector3 targetPos = startPos + Vector3.down * transform.localScale.y;
 
-            // Turn off collisions
             Collider col = GetComponent<Collider>();
             if (col != null) col.enabled = false;
 
@@ -157,13 +164,122 @@ namespace MusicSpace
                 yield return null;
             }
 
-            gameObject.SetActive(false);
-
-            // 3. Wait before loading scene
-            yield return new WaitForSeconds(1.0f);
-
-            // 4. Load next scene
-            Debug.Log($"[DestructibleWall] Loading: {nextSceneName}");
+            // 3. Track destroyed walls BEFORE deactivating (coroutines stop on SetActive(false))
+            totalWallsDestroyed++;
+            Debug.Log($"[DestructibleWall] Total walls destroyed: {totalWallsDestroyed}/{wallsNeededForCeilingCollapse}");
+            
+            bool shouldCollapseCeiling = totalWallsDestroyed >= wallsNeededForCeilingCollapse && !ceilingCollapsed;
+            
+            if (shouldCollapseCeiling)
+            {
+                ceilingCollapsed = true;
+                Debug.Log("[DestructibleWall] Enough walls destroyed — collapsing ceiling!");
+                
+                // Hide this wall but DON'T deactivate — we need coroutines to keep running
+                Renderer renderer = GetComponent<Renderer>();
+                if (renderer != null) renderer.enabled = false;
+                
+                // Run ceiling collapse from this still-active object
+                StartCoroutine(CollapseCeiling());
+            }
+            else
+            {
+                // No ceiling collapse needed — safe to deactivate
+                gameObject.SetActive(false);
+            }
+        }
+        
+        /// <summary>
+        /// Finds the Ceiling object and makes it collapse dramatically,
+        /// then transitions to the next scene.
+        /// </summary>
+        private IEnumerator CollapseCeiling()
+        {
+            // Search for ceiling by name in the scene
+            GameObject ceiling = null;
+            
+            // Try to find in same parent hierarchy first
+            Transform parent = transform.parent;
+            while (parent != null)
+            {
+                Transform ceilingTransform = parent.Find("Ceiling");
+                if (ceilingTransform != null)
+                {
+                    ceiling = ceilingTransform.gameObject;
+                    break;
+                }
+                parent = parent.parent;
+            }
+            
+            // Fallback: search entire scene
+            if (ceiling == null)
+            {
+                foreach (GameObject obj in GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None))
+                {
+                    if (obj.name.ToLower().Contains("ceiling"))
+                    {
+                        ceiling = obj;
+                        break;
+                    }
+                }
+            }
+            
+            if (ceiling == null)
+            {
+                Debug.LogWarning("[DestructibleWall] Ceiling not found — skipping ceiling collapse");
+                yield return new WaitForSeconds(1.0f);
+                SceneManager.LoadScene(nextSceneName);
+                yield break;
+            }
+            
+            Debug.Log($"[DestructibleWall] Collapsing ceiling: {ceiling.name}");
+            
+            // Brief pause before ceiling starts falling
+            yield return new WaitForSeconds(0.5f);
+            
+            // 1. Ceiling shakes and creaks (2 seconds)
+            Vector3 ceilingStart = ceiling.transform.localPosition;
+            float shakeTime = 2.0f;
+            float elapsed = 0f;
+            
+            while (elapsed < shakeTime)
+            {
+                elapsed += Time.deltaTime;
+                float progress = elapsed / shakeTime;
+                float intensity = Mathf.Lerp(0.01f, 0.08f, progress);
+                Vector3 offset = Random.insideUnitSphere * intensity;
+                offset.y *= 0.3f; // Mostly horizontal shake
+                ceiling.transform.localPosition = ceilingStart + offset;
+                yield return null;
+            }
+            
+            // 2. Ceiling falls down (2.5 seconds)
+            Collider ceilingCol = ceiling.GetComponent<Collider>();
+            if (ceilingCol != null) ceilingCol.enabled = false;
+            
+            float fallTime = 2.5f;
+            elapsed = 0f;
+            Vector3 fallStart = ceiling.transform.localPosition;
+            float ceilingHeight = ceiling.transform.localScale.y;
+            float fallDistance = ceiling.transform.localPosition.y + ceilingHeight; // Fall to below floor
+            Vector3 fallTarget = fallStart + Vector3.down * fallDistance;
+            
+            while (elapsed < fallTime)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / fallTime;
+                // Accelerating fall (gravity-like)
+                t = t * t;
+                ceiling.transform.localPosition = Vector3.Lerp(fallStart, fallTarget, t);
+                yield return null;
+            }
+            
+            ceiling.SetActive(false);
+            
+            // 3. Wait and transition
+            yield return new WaitForSeconds(1.5f);
+            
+            Debug.Log($"[DestructibleWall] Room collapsed! Loading: {nextSceneName}");
             SceneManager.LoadScene(nextSceneName);
         }
     }

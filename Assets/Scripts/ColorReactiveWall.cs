@@ -105,7 +105,7 @@ namespace MusicSpace
             if (destructibleWall == null)
             {
                 destructibleWall = gameObject.AddComponent<DestructibleWall>();
-                destructibleWall.requiredHits = 10;
+                destructibleWall.requiredHits = 20;
                 destructibleWall.nextSceneName = "Scene 3";
                 Debug.Log($"[ColorReactiveWall] Auto-added DestructibleWall to {gameObject.name}");
             }
@@ -139,7 +139,7 @@ namespace MusicSpace
             if (destructibleWall == null)
             {
                 destructibleWall = gameObject.AddComponent<DestructibleWall>();
-                destructibleWall.requiredHits = 10;
+                destructibleWall.requiredHits = 20;
                 destructibleWall.nextSceneName = "Scene 3";
             }
             destructibleWall.TakeDamage();
