@@ -276,11 +276,39 @@ namespace MusicSpace
             
             ceiling.SetActive(false);
             
-            // 3. Wait and transition
-            yield return new WaitForSeconds(1.5f);
+            // 3. Clean up remaining room objects (floor, light, etc.)
+            yield return new WaitForSeconds(1.0f);
             
-            Debug.Log($"[DestructibleWall] Room collapsed! Loading: {nextSceneName}");
-            SceneManager.LoadScene(nextSceneName);
+            // Find and disable floor
+            Transform roomParent = ceiling.transform.parent;
+            if (roomParent != null)
+            {
+                Transform floor = roomParent.Find("Floor");
+                if (floor != null)
+                {
+                    // Sink the floor
+                    float floorSinkTime = 2.0f;
+                    elapsed = 0f;
+                    Vector3 floorStart = floor.localPosition;
+                    Vector3 floorEnd = floorStart + Vector3.down * 5f;
+                    
+                    while (elapsed < floorSinkTime)
+                    {
+                        elapsed += Time.deltaTime;
+                        float t = elapsed / floorSinkTime;
+                        t = t * t;
+                        floor.localPosition = Vector3.Lerp(floorStart, floorEnd, t);
+                        yield return null;
+                    }
+                    floor.gameObject.SetActive(false);
+                }
+                
+                // Disable room light
+                Transform roomLight = roomParent.Find("RoomLight");
+                if (roomLight != null) roomLight.gameObject.SetActive(false);
+            }
+            
+            Debug.Log("[DestructibleWall] Room fully collapsed! City environment revealed.");
         }
     }
 }
