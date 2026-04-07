@@ -29,7 +29,7 @@ namespace MusicSpace
         
         [Header("Ceiling Collapse")]
         [Tooltip("How many walls must be destroyed before ceiling collapses")]
-        public int wallsNeededForCeilingCollapse = 3;
+        public int wallsNeededForCeilingCollapse = 1;
         
         // Static counter shared across all DestructibleWall instances
         private static int totalWallsDestroyed = 0;
@@ -232,83 +232,100 @@ namespace MusicSpace
                 yield break;
             }
             
-            Debug.Log($"[DestructibleWall] Collapsing ceiling: {ceiling.name}");
+            Debug.Log($"[DestructibleWall] Collapsing entire room simultaneously!");
             
-            // Brief pause before ceiling starts falling
+            // Brief pause before room starts collapsing
             yield return new WaitForSeconds(0.5f);
             
-            // 1. Ceiling shakes and creaks (2 seconds)
-            Vector3 ceilingStart = ceiling.transform.localPosition;
-            float shakeTime = 2.0f;
-            float elapsed = 0f;
-            
-            while (elapsed < shakeTime)
+            // Find the room parent (RoomGeometry)
+            Transform roomParent = null;
+            Transform searchParent = transform.parent;
+            while (searchParent != null)
             {
-                elapsed += Time.deltaTime;
-                float progress = elapsed / shakeTime;
-                float intensity = Mathf.Lerp(0.01f, 0.08f, progress);
-                Vector3 offset = Random.insideUnitSphere * intensity;
-                offset.y *= 0.3f; // Mostly horizontal shake
-                ceiling.transform.localPosition = ceilingStart + offset;
-                yield return null;
-            }
-            
-            // 2. Ceiling falls down (2.5 seconds)
-            Collider ceilingCol = ceiling.GetComponent<Collider>();
-            if (ceilingCol != null) ceilingCol.enabled = false;
-            
-            float fallTime = 2.5f;
-            elapsed = 0f;
-            Vector3 fallStart = ceiling.transform.localPosition;
-            float ceilingHeight = ceiling.transform.localScale.y;
-            float fallDistance = ceiling.transform.localPosition.y + ceilingHeight; // Fall to below floor
-            Vector3 fallTarget = fallStart + Vector3.down * fallDistance;
-            
-            while (elapsed < fallTime)
-            {
-                elapsed += Time.deltaTime;
-                float t = elapsed / fallTime;
-                // Accelerating fall (gravity-like)
-                t = t * t;
-                ceiling.transform.localPosition = Vector3.Lerp(fallStart, fallTarget, t);
-                yield return null;
-            }
-            
-            ceiling.SetActive(false);
-            
-            // 3. Clean up remaining room objects (floor, light, etc.)
-            yield return new WaitForSeconds(1.0f);
-            
-            // Find and disable floor
-            Transform roomParent = ceiling.transform.parent;
-            if (roomParent != null)
-            {
-                Transform floor = roomParent.Find("Floor");
-                if (floor != null)
+                if (searchParent.Find("Ceiling") != null || searchParent.Find("Floor") != null)
                 {
-                    // Sink the floor
-                    float floorSinkTime = 2.0f;
-                    elapsed = 0f;
-                    Vector3 floorStart = floor.localPosition;
-                    Vector3 floorEnd = floorStart + Vector3.down * 5f;
-                    
-                    while (elapsed < floorSinkTime)
-                    {
-                        elapsed += Time.deltaTime;
-                        float t = elapsed / floorSinkTime;
-                        t = t * t;
-                        floor.localPosition = Vector3.Lerp(floorStart, floorEnd, t);
-                        yield return null;
-                    }
-                    floor.gameObject.SetActive(false);
+                    roomParent = searchParent;
+                    break;
                 }
-                
-                // Disable room light
-                Transform roomLight = roomParent.Find("RoomLight");
-                if (roomLight != null) roomLight.gameObject.SetActive(false);
+                searchParent = searchParent.parent;
+            }
+            
+            if (roomParent == null)
+            {
+                Debug.LogWarning("[DestructibleWall] Room parent not found!");
+                yield break;
+            }
+            
+            float collapseDuration = 3.0f;
+            
+            // ALL elements start collapsing at the SAME TIME
+            
+            // Collapse remaining walls
+            string[] wallNames = { "Wall_Front", "Wall_Back", "Wall_Left", "Wall_Right" };
+            foreach (string wallName in wallNames)
+            {
+                Transform wall = roomParent.Find(wallName);
+                if (wall != null && wall.gameObject.activeInHierarchy && wall.gameObject != gameObject)
+                {
+                    Collider wallCol = wall.GetComponent<Collider>();
+                    if (wallCol != null) wallCol.enabled = false;
+                    StartCoroutine(SinkObject(wall, wall.localScale.y + 2f, collapseDuration));
+                }
+            }
+            
+            // Collapse ceiling
+            Transform ceilingTransformToCollapse = roomParent.Find("Ceiling");
+            if (ceilingTransformToCollapse != null)
+            {
+                Collider ceilingCol = ceilingTransformToCollapse.GetComponent<Collider>();
+                if (ceilingCol != null) ceilingCol.enabled = false;
+                StartCoroutine(SinkObject(ceilingTransformToCollapse, ceilingTransformToCollapse.localPosition.y + ceilingTransformToCollapse.localScale.y + 5f, collapseDuration));
+            }
+            
+            // Collapse floor
+            Transform floor = roomParent.Find("Floor");
+            if (floor != null)
+            {
+                Collider floorCol = floor.GetComponent<Collider>();
+                if (floorCol != null) floorCol.enabled = false;
+                StartCoroutine(SinkObject(floor, 10f, collapseDuration));
+            }
+            
+            // Disable room light immediately
+            Transform roomLight = roomParent.Find("RoomLight");
+            if (roomLight != null) roomLight.gameObject.SetActive(false);
+            
+            // Wait for everything to finish
+            yield return new WaitForSeconds(collapseDuration + 0.5f);
+            
+            // Deactivate remaining room objects
+            foreach (Transform child in roomParent)
+            {
+                child.gameObject.SetActive(false);
             }
             
             Debug.Log("[DestructibleWall] Room fully collapsed! City environment revealed.");
+        }
+        
+        /// <summary>
+        /// Sinks an object downward over time and then deactivates it.
+        /// </summary>
+        private IEnumerator SinkObject(Transform obj, float sinkDistance, float duration)
+        {
+            Vector3 startPos = obj.localPosition;
+            Vector3 endPos = startPos + Vector3.down * sinkDistance;
+            float elapsed = 0f;
+            
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / duration;
+                t = t * t; // Accelerating
+                obj.localPosition = Vector3.Lerp(startPos, endPos, t);
+                yield return null;
+            }
+            
+            obj.gameObject.SetActive(false);
         }
     }
 }
