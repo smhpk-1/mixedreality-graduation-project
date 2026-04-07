@@ -31,3 +31,7 @@
 *.apk
 *_BackUpThisFolder_ButDontShipItWithYourGame/
 *_BurstDebugInformation_DoNotShip/
+
+# Large Asset Store packages (re-import from Asset Store if needed)
+Assets/Subway Vol2/
+Assets/Versatile Studio Assets/
