@@ -3,72 +3,77 @@ using UnityEngine;
 namespace MusicSpace
 {
     /// <summary>
-    /// Generates a small outdoor city environment around a metro entrance for Scene 2.
-    /// Includes: ground (road + sidewalks), buildings, trees, street lamps, metro entrance with stairs.
+    /// Generates a pedestrian city street with buildings on both sides and a metro entrance at the end.
+    /// No car road — just a walkable area between buildings leading to the metro station entrance.
     /// </summary>
     public class MetroEntranceCityGenerator : MonoBehaviour
     {
-        [Header("Ground Dimensions")]
-        public float roadWidth = 8f;
-        public float sidewalkWidth = 4f;
-        public float streetLength = 40f;
-        public float sidewalkHeight = 0.15f;
+        [Header("Pedestrian Street")]
+        public float streetWidth = 10f;
+        public float streetLength = 30f;
 
         [Header("Buildings")]
-        public int buildingsPerSide = 5;
-        public float minBuildingHeight = 6f;
-        public float maxBuildingHeight = 16f;
-        public float minBuildingWidth = 4f;
-        public float maxBuildingWidth = 7f;
-        public float buildingDepth = 6f;
-        public float buildingGap = 0.5f;
+        public int buildingsPerSide = 4;
+        public float minBuildingHeight = 8f;
+        public float maxBuildingHeight = 18f;
+        public float minBuildingWidth = 5f;
+        public float maxBuildingWidth = 8f;
+        public float buildingDepth = 7f;
+        public float buildingGap = 0.8f;
 
         [Header("Trees")]
-        public int treesPerSide = 3;
+        public int treeCount = 4;
         public float trunkRadius = 0.15f;
         public float trunkHeight = 2.5f;
         public float canopyRadius = 1.2f;
 
         [Header("Street Lamps")]
-        public int lampsPerSide = 4;
+        public int lampsPerSide = 3;
         public float lampHeight = 4f;
         public float lampPoleRadius = 0.06f;
 
         [Header("Metro Entrance")]
-        public float entranceWidth = 4f;
-        public float entranceDepth = 3f;
-        public float entranceHeight = 3f;
-        public int stairCount = 10;
-        public float stairDepth = 5f;
+        public float entranceWidth = 5f;
+        public float entranceDepth = 3.5f;
+        public float entranceHeight = 3.5f;
+        public int stairCount = 12;
+        public float stairDepth = 6f;
+        public string metroStationName = "METRO";
 
-        [Header("Colors")]
-        public Color roadColor = new Color(0.2f, 0.2f, 0.22f);
-        public Color sidewalkColor = new Color(0.6f, 0.6f, 0.58f);
-        public Color curbColor = new Color(0.5f, 0.5f, 0.48f);
+        [Header("Colors - Ground")]
+        public Color pavementColor = new Color(0.55f, 0.53f, 0.5f);
+        public Color pavementTileColor = new Color(0.6f, 0.58f, 0.55f);
 
-        [Header("Building Colors")]
+        [Header("Colors - Buildings")]
         public Color[] buildingColors = new Color[]
         {
-            new Color(0.75f, 0.72f, 0.68f), // Beige
-            new Color(0.6f, 0.58f, 0.55f),  // Gray stone
-            new Color(0.8f, 0.78f, 0.7f),   // Cream
-            new Color(0.55f, 0.5f, 0.45f),  // Brown gray
-            new Color(0.7f, 0.65f, 0.6f),   // Warm gray
+            new Color(0.78f, 0.75f, 0.7f),
+            new Color(0.65f, 0.62f, 0.58f),
+            new Color(0.82f, 0.8f, 0.73f),
+            new Color(0.58f, 0.53f, 0.48f),
+            new Color(0.72f, 0.68f, 0.63f),
         };
         public Color windowColor = new Color(0.4f, 0.55f, 0.7f, 0.8f);
         public Color roofColor = new Color(0.3f, 0.28f, 0.26f);
+        public Color shopfrontColor = new Color(0.35f, 0.3f, 0.25f);
+        public Color awningColor = new Color(0.6f, 0.15f, 0.1f);
 
-        [Header("Nature Colors")]
+        [Header("Colors - Nature")]
         public Color trunkColor = new Color(0.35f, 0.25f, 0.15f);
         public Color canopyColor = new Color(0.2f, 0.45f, 0.15f);
         public Color canopyColorAlt = new Color(0.15f, 0.4f, 0.12f);
 
-        [Header("Street Furniture Colors")]
-        public Color lampPostColor = new Color(0.25f, 0.25f, 0.25f);
+        [Header("Colors - Street Furniture")]
+        public Color lampPostColor = new Color(0.2f, 0.2f, 0.2f);
         public Color lampLightColor = new Color(1f, 0.95f, 0.8f);
-        public Color metroEntranceColor = new Color(0.35f, 0.35f, 0.38f);
-        public Color metroRailingColor = new Color(0.4f, 0.4f, 0.42f);
-        public Color metroSignColor = new Color(0.1f, 0.2f, 0.6f);
+        public Color benchColor = new Color(0.35f, 0.25f, 0.15f);
+
+        [Header("Colors - Metro")]
+        public Color metroEntranceColor = new Color(0.4f, 0.4f, 0.43f);
+        public Color metroRailingColor = new Color(0.5f, 0.5f, 0.52f);
+        public Color metroSignBgColor = new Color(0.05f, 0.1f, 0.5f);
+        public Color metroSignTextColor = new Color(1f, 1f, 1f);
+        public Color metroSignGlowColor = new Color(0.2f, 0.4f, 1f);
 
         private Transform cityRoot;
         private int seed = 42;
@@ -81,7 +86,6 @@ namespace MusicSpace
         [ContextMenu("Generate City")]
         public void GenerateCity()
         {
-            // Cleanup existing
             Transform existing = transform.Find("CityEnvironment");
             if (existing != null)
             {
@@ -99,10 +103,11 @@ namespace MusicSpace
             cityRoot.localPosition = Vector3.zero;
 
             GenerateBaseGround();
-            GenerateGround();
+            GeneratePedestrianStreet();
             GenerateBuildings();
             GenerateTrees();
             GenerateStreetLamps();
+            GenerateBenches();
             GenerateMetroEntrance();
             GenerateLighting();
 
@@ -111,84 +116,55 @@ namespace MusicSpace
 
         private void GenerateBaseGround()
         {
-            // Large base ground plane so nothing falls through in VR
-            float baseSize = streetLength + 40f;
+            float baseSize = streetLength + 60f;
             GameObject baseGround = CreateBox("BaseGround", new Vector3(baseSize, 0.5f, baseSize));
             baseGround.transform.parent = cityRoot;
             baseGround.transform.localPosition = new Vector3(0f, -0.3f, 0f);
-            ApplyMaterial(baseGround, new Color(0.25f, 0.25f, 0.23f)); // Dark asphalt
-
-            // Make it static for performance
+            ApplyMaterial(baseGround, new Color(0.22f, 0.22f, 0.2f));
             baseGround.isStatic = true;
         }
 
         private void GenerateLighting()
         {
-            // Directional light (sun)
             GameObject sunObj = new GameObject("Sun_DirectionalLight");
             sunObj.transform.parent = cityRoot;
             sunObj.transform.localPosition = new Vector3(0f, 20f, 0f);
-            sunObj.transform.rotation = Quaternion.Euler(50f, -30f, 0f);
+            sunObj.transform.rotation = Quaternion.Euler(45f, -30f, 0f);
             Light sunLight = sunObj.AddComponent<Light>();
             sunLight.type = LightType.Directional;
             sunLight.color = new Color(1f, 0.96f, 0.9f);
-            sunLight.intensity = 1.5f;
+            sunLight.intensity = 2f;
             sunLight.shadows = LightShadows.Soft;
         }
 
-        private void GenerateGround()
+        private void GeneratePedestrianStreet()
         {
-            Transform groundRoot = new GameObject("Ground").transform;
+            Transform groundRoot = new GameObject("PedestrianGround").transform;
             groundRoot.parent = cityRoot;
             groundRoot.localPosition = Vector3.zero;
 
-            float totalWidth = roadWidth + sidewalkWidth * 2;
+            // Main pavement
+            GameObject pavement = CreateBox("Pavement", new Vector3(streetWidth, 0.1f, streetLength));
+            pavement.transform.parent = groundRoot;
+            pavement.transform.localPosition = new Vector3(0f, 0.05f, streetLength / 2f);
+            ApplyMaterial(pavement, pavementColor);
 
-            // Road
-            GameObject road = CreateBox("Road", new Vector3(roadWidth, 0.05f, streetLength));
-            road.transform.parent = groundRoot;
-            road.transform.localPosition = new Vector3(0f, -0.025f, 0f);
-            ApplyMaterial(road, roadColor);
-
-            // Road markings (center line)
-            float markingLength = 2f;
-            float markingGap = 2f;
-            Transform markingsRoot = new GameObject("RoadMarkings").transform;
-            markingsRoot.parent = groundRoot;
-            markingsRoot.localPosition = Vector3.zero;
-
-            for (float z = -streetLength / 2f + 1f; z < streetLength / 2f - 1f; z += markingLength + markingGap)
+            // Decorative tile strips along the sides
+            for (int side = -1; side <= 1; side += 2)
             {
-                GameObject marking = CreateBox("Marking", new Vector3(0.15f, 0.06f, markingLength));
-                marking.transform.parent = markingsRoot;
-                marking.transform.localPosition = new Vector3(0f, 0f, z + markingLength / 2f);
-                ApplyMaterial(marking, Color.white);
+                float xPos = side * (streetWidth / 2f - 0.3f);
+                GameObject strip = CreateBox($"TileStrip_{(side < 0 ? "L" : "R")}", new Vector3(0.6f, 0.11f, streetLength));
+                strip.transform.parent = groundRoot;
+                strip.transform.localPosition = new Vector3(xPos, 0.055f, streetLength / 2f);
+                ApplyMaterial(strip, pavementTileColor);
             }
 
-            // Left sidewalk
-            GameObject leftSidewalk = CreateBox("LeftSidewalk", new Vector3(sidewalkWidth, sidewalkHeight, streetLength));
-            leftSidewalk.transform.parent = groundRoot;
-            leftSidewalk.transform.localPosition = new Vector3(-(roadWidth / 2f + sidewalkWidth / 2f), sidewalkHeight / 2f, 0f);
-            ApplyMaterial(leftSidewalk, sidewalkColor);
-
-            // Right sidewalk
-            GameObject rightSidewalk = CreateBox("RightSidewalk", new Vector3(sidewalkWidth, sidewalkHeight, streetLength));
-            rightSidewalk.transform.parent = groundRoot;
-            rightSidewalk.transform.localPosition = new Vector3(roadWidth / 2f + sidewalkWidth / 2f, sidewalkHeight / 2f, 0f);
-            ApplyMaterial(rightSidewalk, sidewalkColor);
-
-            // Curbs
-            float curbHeight = sidewalkHeight + 0.05f;
-            float curbWidth = 0.15f;
-            GameObject leftCurb = CreateBox("LeftCurb", new Vector3(curbWidth, curbHeight, streetLength));
-            leftCurb.transform.parent = groundRoot;
-            leftCurb.transform.localPosition = new Vector3(-(roadWidth / 2f + curbWidth / 2f), curbHeight / 2f, 0f);
-            ApplyMaterial(leftCurb, curbColor);
-
-            GameObject rightCurb = CreateBox("RightCurb", new Vector3(curbWidth, curbHeight, streetLength));
-            rightCurb.transform.parent = groundRoot;
-            rightCurb.transform.localPosition = new Vector3(roadWidth / 2f + curbWidth / 2f, curbHeight / 2f, 0f);
-            ApplyMaterial(rightCurb, curbColor);
+            // Small plaza area in front of metro entrance
+            float plazaSize = streetWidth + 4f;
+            GameObject plaza = CreateBox("MetroPlaza", new Vector3(plazaSize, 0.1f, 6f));
+            plaza.transform.parent = groundRoot;
+            plaza.transform.localPosition = new Vector3(0f, 0.05f, streetLength + 3f);
+            ApplyMaterial(plaza, pavementTileColor);
         }
 
         private void GenerateBuildings()
@@ -197,9 +173,7 @@ namespace MusicSpace
             buildingsRoot.parent = cityRoot;
             buildingsRoot.localPosition = Vector3.zero;
 
-            // Left side buildings
             GenerateBuildingRow(buildingsRoot, -1);
-            // Right side buildings
             GenerateBuildingRow(buildingsRoot, 1);
         }
 
@@ -210,12 +184,8 @@ namespace MusicSpace
             rowRoot.parent = parent;
             rowRoot.localPosition = Vector3.zero;
 
-            float xOffset = side * (roadWidth / 2f + sidewalkWidth + buildingDepth / 2f);
-            float zStart = -streetLength / 2f + 2f;
-
-            // Skip the metro entrance area on the right side
-            float metroZoneStart = -entranceWidth / 2f - 2f;
-            float metroZoneEnd = entranceWidth / 2f + 2f;
+            float xOffset = side * (streetWidth / 2f + buildingDepth / 2f);
+            float zStart = 1f;
 
             for (int i = 0; i < buildingsPerSide; i++)
             {
@@ -223,17 +193,10 @@ namespace MusicSpace
                 float bHeight = Random.Range(minBuildingHeight, maxBuildingHeight);
                 float zPos = zStart + bWidth / 2f;
 
-                // Skip metro zone on right side
-                if (side > 0 && zPos > metroZoneStart && zPos < metroZoneEnd)
-                {
-                    zStart = metroZoneEnd + buildingGap;
-                    zPos = zStart + bWidth / 2f;
-                }
-
-                if (zPos + bWidth / 2f > streetLength / 2f - 2f) break;
+                if (zPos + bWidth / 2f > streetLength - 1f) break;
 
                 Color bColor = buildingColors[i % buildingColors.Length];
-                GameObject building = GenerateSingleBuilding($"Building_{sideName}_{i}", bWidth, bHeight, buildingDepth, bColor);
+                GameObject building = GenerateSingleBuilding($"Building_{sideName}_{i}", bWidth, bHeight, buildingDepth, bColor, side);
                 building.transform.parent = rowRoot;
                 building.transform.localPosition = new Vector3(xOffset, 0f, zPos);
 
@@ -241,7 +204,7 @@ namespace MusicSpace
             }
         }
 
-        private GameObject GenerateSingleBuilding(string name, float width, float height, float depth, Color baseColor)
+        private GameObject GenerateSingleBuilding(string name, float width, float height, float depth, Color baseColor, int side)
         {
             GameObject building = new GameObject(name);
 
@@ -252,44 +215,60 @@ namespace MusicSpace
             ApplyMaterial(body, baseColor);
 
             // Roof
-            GameObject roof = CreateBox("Roof", new Vector3(width + 0.3f, 0.2f, depth + 0.3f));
+            GameObject roof = CreateBox("Roof", new Vector3(width + 0.3f, 0.25f, depth + 0.3f));
             roof.transform.parent = building.transform;
-            roof.transform.localPosition = new Vector3(0f, height + 0.1f, 0f);
+            roof.transform.localPosition = new Vector3(0f, height + 0.125f, 0f);
             ApplyMaterial(roof, roofColor);
 
-            // Windows
-            float windowSize = 0.8f;
-            float windowSpacingX = 1.8f;
-            float windowSpacingY = 2.5f;
-            float windowDepthOffset = 0.05f;
+            // Windows on the street-facing side
+            float windowWidth = 0.9f;
+            float windowHeight = 1.1f;
+            float windowSpacingX = 2f;
+            float windowSpacingY = 2.8f;
+            float windowInset = 0.06f;
 
-            int windowCols = Mathf.FloorToInt((width - 1f) / windowSpacingX);
-            int windowRows = Mathf.FloorToInt((height - 1.5f) / windowSpacingY);
+            int windowCols = Mathf.FloorToInt((width - 1.5f) / windowSpacingX);
+            int windowRows = Mathf.FloorToInt((height - 4f) / windowSpacingY);
+            float facingDir = -side;
+            float faceX = facingDir * depth / 2f;
 
             Transform windowsRoot = new GameObject("Windows").transform;
             windowsRoot.parent = building.transform;
             windowsRoot.localPosition = Vector3.zero;
 
-            // Front face windows
             for (int row = 0; row < windowRows; row++)
             {
                 for (int col = 0; col < windowCols; col++)
                 {
-                    float wx = -((windowCols - 1) * windowSpacingX) / 2f + col * windowSpacingX;
-                    float wy = 2f + row * windowSpacingY;
+                    float wz = -((windowCols - 1) * windowSpacingX) / 2f + col * windowSpacingX;
+                    float wy = 4.5f + row * windowSpacingY;
 
-                    GameObject window = CreateBox($"Window_{row}_{col}", new Vector3(windowSize, windowSize * 1.2f, windowDepthOffset));
+                    GameObject window = CreateBox($"Window_{row}_{col}", new Vector3(windowInset, windowHeight, windowWidth));
                     window.transform.parent = windowsRoot;
-                    window.transform.localPosition = new Vector3(wx, wy, -depth / 2f - windowDepthOffset / 2f);
-                    ApplyMaterial(window, windowColor, 0.7f, 0.9f);
+                    window.transform.localPosition = new Vector3(faceX + facingDir * windowInset / 2f, wy, wz);
+                    ApplyMaterial(window, windowColor, 0.5f, 0.9f);
                 }
             }
 
-            // Door
-            GameObject door = CreateBox("Door", new Vector3(1f, 2.2f, windowDepthOffset));
-            door.transform.parent = building.transform;
-            door.transform.localPosition = new Vector3(0f, 1.1f, -depth / 2f - windowDepthOffset / 2f);
-            ApplyMaterial(door, new Color(0.3f, 0.2f, 0.15f));
+            // Ground floor shopfront
+            float shopHeight = 3f;
+            GameObject shopfront = CreateBox("Shopfront", new Vector3(windowInset, shopHeight, width - 0.5f));
+            shopfront.transform.parent = building.transform;
+            shopfront.transform.localPosition = new Vector3(faceX + facingDir * windowInset / 2f, shopHeight / 2f, 0f);
+            ApplyMaterial(shopfront, shopfrontColor);
+
+            // Shop window (glass)
+            GameObject shopWindow = CreateBox("ShopWindow", new Vector3(windowInset + 0.01f, 2f, width * 0.6f));
+            shopWindow.transform.parent = building.transform;
+            shopWindow.transform.localPosition = new Vector3(faceX + facingDir * (windowInset / 2f + 0.005f), 1.5f, 0f);
+            ApplyMaterial(shopWindow, new Color(0.5f, 0.65f, 0.8f, 0.7f), 0.3f, 0.95f);
+
+            // Awning over shop
+            GameObject awning = CreateBox("Awning", new Vector3(1f, 0.05f, width * 0.7f));
+            awning.transform.parent = building.transform;
+            awning.transform.localPosition = new Vector3(faceX + facingDir * 0.5f, shopHeight + 0.1f, 0f);
+            Color aColor = Random.value > 0.5f ? awningColor : new Color(0.15f, 0.3f, 0.5f);
+            ApplyMaterial(awning, aColor);
 
             return building;
         }
@@ -300,23 +279,16 @@ namespace MusicSpace
             treesRoot.parent = cityRoot;
             treesRoot.localPosition = Vector3.zero;
 
-            for (int side = -1; side <= 1; side += 2)
+            float spacing = streetLength / (treeCount + 1);
+            for (int i = 0; i < treeCount; i++)
             {
-                float xPos = side * (roadWidth / 2f + sidewalkWidth * 0.6f);
-                float spacing = streetLength / (treesPerSide + 1);
+                float zPos = spacing * (i + 1);
+                // Alternate sides
+                float xPos = (i % 2 == 0 ? -1f : 1f) * (streetWidth / 2f - 1.2f);
 
-                for (int i = 0; i < treesPerSide; i++)
-                {
-                    float zPos = -streetLength / 2f + spacing * (i + 1);
-
-                    // Skip metro entrance zone on right side
-                    if (side > 0 && Mathf.Abs(zPos) < entranceWidth / 2f + 3f)
-                        continue;
-
-                    GameObject tree = GenerateTree($"Tree_{(side < 0 ? "L" : "R")}_{i}");
-                    tree.transform.parent = treesRoot;
-                    tree.transform.localPosition = new Vector3(xPos, sidewalkHeight, zPos);
-                }
+                GameObject tree = GenerateTree($"Tree_{i}");
+                tree.transform.parent = treesRoot;
+                tree.transform.localPosition = new Vector3(xPos, 0.1f, zPos);
             }
         }
 
@@ -324,7 +296,6 @@ namespace MusicSpace
         {
             GameObject tree = new GameObject(name);
 
-            // Trunk (cylinder)
             GameObject trunk = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
             trunk.name = "Trunk";
             trunk.transform.parent = tree.transform;
@@ -332,7 +303,6 @@ namespace MusicSpace
             trunk.transform.localScale = new Vector3(trunkRadius * 2f, trunkHeight / 2f, trunkRadius * 2f);
             ApplyMaterial(trunk, trunkColor);
 
-            // Canopy layers (3 spheres for a fuller look)
             Color cColor = Random.value > 0.5f ? canopyColor : canopyColorAlt;
 
             GameObject canopy1 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
@@ -367,20 +337,16 @@ namespace MusicSpace
 
             for (int side = -1; side <= 1; side += 2)
             {
-                float xPos = side * (roadWidth / 2f + sidewalkWidth * 0.3f);
+                float xPos = side * (streetWidth / 2f - 0.5f);
                 float spacing = streetLength / (lampsPerSide + 1);
 
                 for (int i = 0; i < lampsPerSide; i++)
                 {
-                    float zPos = -streetLength / 2f + spacing * (i + 1);
-
-                    // Skip metro entrance zone on right side
-                    if (side > 0 && Mathf.Abs(zPos) < entranceWidth / 2f + 2f)
-                        continue;
+                    float zPos = spacing * (i + 1);
 
                     GameObject lamp = GenerateStreetLamp($"Lamp_{(side < 0 ? "L" : "R")}_{i}");
                     lamp.transform.parent = lampsRoot;
-                    lamp.transform.localPosition = new Vector3(xPos, sidewalkHeight, zPos);
+                    lamp.transform.localPosition = new Vector3(xPos, 0.1f, zPos);
                 }
             }
         }
@@ -389,7 +355,6 @@ namespace MusicSpace
         {
             GameObject lamp = new GameObject(name);
 
-            // Pole
             GameObject pole = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
             pole.name = "Pole";
             pole.transform.parent = lamp.transform;
@@ -397,156 +362,414 @@ namespace MusicSpace
             pole.transform.localScale = new Vector3(lampPoleRadius * 2f, lampHeight / 2f, lampPoleRadius * 2f);
             ApplyMaterial(pole, lampPostColor);
 
-            // Lamp head (horizontal arm)
-            GameObject arm = CreateBox("Arm", new Vector3(0.08f, 0.08f, 0.8f));
-            arm.transform.parent = lamp.transform;
-            arm.transform.localPosition = new Vector3(0f, lampHeight, 0.4f);
-            ApplyMaterial(arm, lampPostColor);
+            // Classic lamp head
+            GameObject head = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            head.name = "LampHead";
+            head.transform.parent = lamp.transform;
+            head.transform.localPosition = new Vector3(0f, lampHeight + 0.15f, 0f);
+            head.transform.localScale = new Vector3(0.35f, 0.25f, 0.35f);
+            ApplyMaterial(head, lampLightColor, 0f, 0.5f, lampLightColor, 3f);
 
-            // Light housing
-            GameObject housing = CreateBox("Housing", new Vector3(0.25f, 0.1f, 0.4f));
-            housing.transform.parent = lamp.transform;
-            housing.transform.localPosition = new Vector3(0f, lampHeight - 0.1f, 0.7f);
-            ApplyMaterial(housing, lampPostColor);
-
-            // Light bulb (emissive)
-            GameObject bulb = CreateBox("Bulb", new Vector3(0.2f, 0.04f, 0.35f));
-            bulb.transform.parent = lamp.transform;
-            bulb.transform.localPosition = new Vector3(0f, lampHeight - 0.17f, 0.7f);
-            ApplyMaterial(bulb, lampLightColor, 0f, 0.5f, lampLightColor, 2f);
-
-            // Point light
             GameObject lightObj = new GameObject("StreetLight");
             lightObj.transform.parent = lamp.transform;
-            lightObj.transform.localPosition = new Vector3(0f, lampHeight - 0.3f, 0.7f);
+            lightObj.transform.localPosition = new Vector3(0f, lampHeight, 0f);
             Light pointLight = lightObj.AddComponent<Light>();
             pointLight.type = LightType.Point;
             pointLight.color = lampLightColor;
             pointLight.intensity = 1.5f;
-            pointLight.range = 10f;
+            pointLight.range = 12f;
             pointLight.shadows = LightShadows.Soft;
 
             return lamp;
+        }
+
+        private void GenerateBenches()
+        {
+            Transform benchRoot = new GameObject("Benches").transform;
+            benchRoot.parent = cityRoot;
+            benchRoot.localPosition = Vector3.zero;
+
+            float[] benchPositions = { streetLength * 0.25f, streetLength * 0.5f, streetLength * 0.75f };
+            for (int i = 0; i < benchPositions.Length; i++)
+            {
+                float xPos = (i % 2 == 0 ? -1f : 1f) * (streetWidth / 2f - 1.5f);
+                GameObject bench = GenerateBench($"Bench_{i}");
+                bench.transform.parent = benchRoot;
+                bench.transform.localPosition = new Vector3(xPos, 0.1f, benchPositions[i]);
+                // Rotate to face the street center
+                bench.transform.rotation = Quaternion.Euler(0f, (i % 2 == 0) ? 90f : -90f, 0f);
+            }
+        }
+
+        private GameObject GenerateBench(string name)
+        {
+            GameObject bench = new GameObject(name);
+
+            // Seat
+            GameObject seat = CreateBox("Seat", new Vector3(1.5f, 0.08f, 0.5f));
+            seat.transform.parent = bench.transform;
+            seat.transform.localPosition = new Vector3(0f, 0.45f, 0f);
+            ApplyMaterial(seat, benchColor);
+
+            // Back
+            GameObject back = CreateBox("Back", new Vector3(1.5f, 0.5f, 0.08f));
+            back.transform.parent = bench.transform;
+            back.transform.localPosition = new Vector3(0f, 0.7f, -0.22f);
+            ApplyMaterial(back, benchColor);
+
+            // Legs
+            for (int i = -1; i <= 1; i += 2)
+            {
+                GameObject leg = CreateBox($"Leg_{(i < 0 ? "L" : "R")}", new Vector3(0.08f, 0.45f, 0.08f));
+                leg.transform.parent = bench.transform;
+                leg.transform.localPosition = new Vector3(i * 0.6f, 0.225f, 0f);
+                ApplyMaterial(leg, lampPostColor);
+            }
+
+            return bench;
         }
 
         private void GenerateMetroEntrance()
         {
             Transform metroRoot = new GameObject("MetroEntrance").transform;
             metroRoot.parent = cityRoot;
+            metroRoot.localPosition = new Vector3(0f, 0.1f, streetLength);
 
-            // Position on right sidewalk
-            float xPos = roadWidth / 2f + sidewalkWidth / 2f;
-            metroRoot.localPosition = new Vector3(xPos, sidewalkHeight, 0f);
+            float stairTotalDrop = entranceHeight;
+            float wallThick = 0.3f;
+            float ceilingAtTop = entranceHeight + 0.5f;
+            float elevDepth = 2.5f;
+            float walkingDistance = 4f; // walking area between stairs and elevator
+            float totalTunnelLength = entranceDepth + stairDepth + walkingDistance + elevDepth;
+            float totalHeight = ceilingAtTop + stairTotalDrop;
+            float bottomY = -stairTotalDrop;
 
-            // Entrance frame - two pillars and a top beam
-            float pillarSize = 0.3f;
-
-            // Left pillar
+            // === ENTRANCE FRAME (visible from street) ===
+            float pillarSize = 0.35f;
             GameObject leftPillar = CreateBox("LeftPillar", new Vector3(pillarSize, entranceHeight, pillarSize));
             leftPillar.transform.parent = metroRoot;
             leftPillar.transform.localPosition = new Vector3(-entranceWidth / 2f, entranceHeight / 2f, 0f);
-            ApplyMaterial(leftPillar, metroEntranceColor);
+            ApplyMaterial(leftPillar, metroEntranceColor, 0.3f, 0.4f);
 
-            // Right pillar
             GameObject rightPillar = CreateBox("RightPillar", new Vector3(pillarSize, entranceHeight, pillarSize));
             rightPillar.transform.parent = metroRoot;
             rightPillar.transform.localPosition = new Vector3(entranceWidth / 2f, entranceHeight / 2f, 0f);
-            ApplyMaterial(rightPillar, metroEntranceColor);
+            ApplyMaterial(rightPillar, metroEntranceColor, 0.3f, 0.4f);
 
-            // Top beam
-            GameObject topBeam = CreateBox("TopBeam", new Vector3(entranceWidth + pillarSize, 0.3f, entranceDepth));
-            topBeam.transform.parent = metroRoot;
-            topBeam.transform.localPosition = new Vector3(0f, entranceHeight + 0.15f, entranceDepth / 2f);
-            ApplyMaterial(topBeam, metroEntranceColor);
-
-            // Canopy/Roof over entrance
-            GameObject canopy = CreateBox("Canopy", new Vector3(entranceWidth + 1f, 0.1f, entranceDepth + 1f));
+            GameObject canopy = CreateBox("Canopy", new Vector3(entranceWidth + 2f, 0.12f, entranceDepth + 1.5f));
             canopy.transform.parent = metroRoot;
-            canopy.transform.localPosition = new Vector3(0f, entranceHeight + 0.35f, entranceDepth / 2f);
-            ApplyMaterial(canopy, metroEntranceColor * 0.8f);
+            canopy.transform.localPosition = new Vector3(0f, ceilingAtTop, entranceDepth / 2f);
+            ApplyMaterial(canopy, metroEntranceColor * 0.7f, 0.4f, 0.5f);
 
-            // Metro sign
-            GameObject sign = CreateBox("MetroSign", new Vector3(entranceWidth * 0.8f, 0.6f, 0.1f));
-            sign.transform.parent = metroRoot;
-            sign.transform.localPosition = new Vector3(0f, entranceHeight + 0.65f, -0.05f);
-            ApplyMaterial(sign, metroSignColor, 0f, 0.3f, metroSignColor, 1f);
+            // === METRO SIGN ===
+            float signWidth = entranceWidth + 1f;
+            float signHeight = 1f;
+            GameObject signBg = CreateBox("MetroSign_Background", new Vector3(signWidth, signHeight, 0.15f));
+            signBg.transform.parent = metroRoot;
+            signBg.transform.localPosition = new Vector3(0f, entranceHeight + 1.2f, -0.1f);
+            ApplyMaterial(signBg, metroSignBgColor, 0f, 0.3f, metroSignGlowColor, 1.5f);
 
-            // "M" letter on sign
-            GameObject mLetter = CreateBox("M_Letter", new Vector3(0.4f, 0.4f, 0.12f));
-            mLetter.transform.parent = metroRoot;
-            mLetter.transform.localPosition = new Vector3(0f, entranceHeight + 0.65f, -0.1f);
-            ApplyMaterial(mLetter, Color.white);
+            float borderThickness = 0.08f;
+            GameObject borderTop = CreateBox("SignBorder_Top", new Vector3(signWidth + 0.1f, borderThickness, 0.18f));
+            borderTop.transform.parent = metroRoot;
+            borderTop.transform.localPosition = new Vector3(0f, entranceHeight + 1.2f + signHeight / 2f + borderThickness / 2f, -0.1f);
+            ApplyMaterial(borderTop, metroSignTextColor, 0.5f, 0.7f);
 
-            // Side walls of stairway
-            float stairTotalDepth = stairDepth;
-            float stairTotalDrop = entranceHeight;
+            GameObject borderBot = CreateBox("SignBorder_Bottom", new Vector3(signWidth + 0.1f, borderThickness, 0.18f));
+            borderBot.transform.parent = metroRoot;
+            borderBot.transform.localPosition = new Vector3(0f, entranceHeight + 1.2f - signHeight / 2f - borderThickness / 2f, -0.1f);
+            ApplyMaterial(borderBot, metroSignTextColor, 0.5f, 0.7f);
 
-            GameObject leftWall = CreateBox("LeftStairWall", new Vector3(0.2f, entranceHeight + 1f, stairTotalDepth + entranceDepth));
+            GameObject mCircle = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+            mCircle.name = "M_Symbol";
+            mCircle.transform.parent = metroRoot;
+            mCircle.transform.localPosition = new Vector3(-signWidth / 2f + 0.8f, entranceHeight + 1.2f, -0.2f);
+            mCircle.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
+            mCircle.transform.localScale = new Vector3(0.7f, 0.1f, 0.7f);
+            ApplyMaterial(mCircle, metroSignTextColor, 0f, 0.3f, metroSignTextColor, 2f);
+
+            string text = metroStationName;
+            float letterWidth = 0.35f;
+            float letterSpacing = 0.45f;
+            float textStartX = -((text.Length - 1) * letterSpacing) / 2f + 0.5f;
+            Transform textRoot = new GameObject("SignText").transform;
+            textRoot.parent = metroRoot;
+            textRoot.localPosition = Vector3.zero;
+            for (int i = 0; i < text.Length; i++)
+            {
+                GameObject letter = CreateBox($"Letter_{text[i]}", new Vector3(letterWidth, 0.5f, 0.08f));
+                letter.transform.parent = textRoot;
+                letter.transform.localPosition = new Vector3(textStartX + i * letterSpacing, entranceHeight + 1.2f, -0.22f);
+                ApplyMaterial(letter, metroSignTextColor, 0f, 0.3f, metroSignTextColor, 2f);
+            }
+
+            GameObject signPole = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+            signPole.name = "StandingSignPole";
+            signPole.transform.parent = metroRoot;
+            signPole.transform.localPosition = new Vector3(-entranceWidth / 2f - 1.5f, 1.5f, -0.5f);
+            signPole.transform.localScale = new Vector3(0.08f, 1.5f, 0.08f);
+            ApplyMaterial(signPole, lampPostColor);
+
+            GameObject standingSign = CreateBox("StandingSign", new Vector3(1.2f, 0.8f, 0.1f));
+            standingSign.transform.parent = metroRoot;
+            standingSign.transform.localPosition = new Vector3(-entranceWidth / 2f - 1.5f, 3.2f, -0.5f);
+            ApplyMaterial(standingSign, metroSignBgColor, 0f, 0.3f, metroSignGlowColor, 1f);
+
+            // === FULLY ENCLOSED TUNNEL (walls + ceiling + floor + back wall) ===
+            // Left wall — full height, full tunnel length
+            GameObject leftWall = CreateBox("LeftWall", new Vector3(wallThick, totalHeight, totalTunnelLength));
             leftWall.transform.parent = metroRoot;
-            leftWall.transform.localPosition = new Vector3(-entranceWidth / 2f, entranceHeight / 2f - stairTotalDrop / 2f, entranceDepth / 2f + stairTotalDepth / 2f);
-            ApplyMaterial(leftWall, metroEntranceColor * 0.9f);
+            leftWall.transform.localPosition = new Vector3(
+                -entranceWidth / 2f - wallThick / 2f,
+                ceilingAtTop / 2f - stairTotalDrop / 2f,
+                totalTunnelLength / 2f);
+            ApplyMaterial(leftWall, metroEntranceColor * 0.85f, 0.1f, 0.3f);
 
-            GameObject rightWall = CreateBox("RightStairWall", new Vector3(0.2f, entranceHeight + 1f, stairTotalDepth + entranceDepth));
+            // Right wall
+            GameObject rightWall = CreateBox("RightWall", new Vector3(wallThick, totalHeight, totalTunnelLength));
             rightWall.transform.parent = metroRoot;
-            rightWall.transform.localPosition = new Vector3(entranceWidth / 2f, entranceHeight / 2f - stairTotalDrop / 2f, entranceDepth / 2f + stairTotalDepth / 2f);
-            ApplyMaterial(rightWall, metroEntranceColor * 0.9f);
+            rightWall.transform.localPosition = new Vector3(
+                entranceWidth / 2f + wallThick / 2f,
+                ceilingAtTop / 2f - stairTotalDrop / 2f,
+                totalTunnelLength / 2f);
+            ApplyMaterial(rightWall, metroEntranceColor * 0.85f, 0.1f, 0.3f);
 
-            // Stairs going down
+            // Inner wall surfaces (visible from inside)
+            GameObject leftInner = CreateBox("LeftInnerWall", new Vector3(0.05f, totalHeight, totalTunnelLength));
+            leftInner.transform.parent = metroRoot;
+            leftInner.transform.localPosition = new Vector3(
+                -entranceWidth / 2f + 0.025f,
+                ceilingAtTop / 2f - stairTotalDrop / 2f,
+                totalTunnelLength / 2f);
+            ApplyMaterial(leftInner, new Color(0.82f, 0.8f, 0.76f), 0.05f, 0.2f);
+
+            GameObject rightInner = CreateBox("RightInnerWall", new Vector3(0.05f, totalHeight, totalTunnelLength));
+            rightInner.transform.parent = metroRoot;
+            rightInner.transform.localPosition = new Vector3(
+                entranceWidth / 2f - 0.025f,
+                ceilingAtTop / 2f - stairTotalDrop / 2f,
+                totalTunnelLength / 2f);
+            ApplyMaterial(rightInner, new Color(0.82f, 0.8f, 0.76f), 0.05f, 0.2f);
+
+            // Ceiling — covers entire tunnel
+            GameObject stairCeiling = CreateBox("TunnelCeiling", new Vector3(entranceWidth + wallThick * 2, 0.25f, totalTunnelLength));
+            stairCeiling.transform.parent = metroRoot;
+            stairCeiling.transform.localPosition = new Vector3(0f, ceilingAtTop, totalTunnelLength / 2f);
+            ApplyMaterial(stairCeiling, metroEntranceColor * 0.7f, 0.1f, 0.3f);
+
+            // Floor at bottom — only from where stairs END to back wall (not under stairs)
+            float stairEndZ = entranceDepth + stairDepth;
+            float bottomFloorLength = walkingDistance + elevDepth;
+            GameObject bottomFloor = CreateBox("BottomFloor", new Vector3(entranceWidth, 0.25f, bottomFloorLength));
+            bottomFloor.transform.parent = metroRoot;
+            bottomFloor.transform.localPosition = new Vector3(0f, bottomY - 0.125f, stairEndZ + bottomFloorLength / 2f);
+            ApplyMaterial(bottomFloor, metroEntranceColor * 0.75f, 0.1f, 0.3f);
+
+            // Back wall — closes off the very end
+            GameObject backWall = CreateBox("BackWall", new Vector3(entranceWidth + wallThick * 2, totalHeight, wallThick));
+            backWall.transform.parent = metroRoot;
+            backWall.transform.localPosition = new Vector3(0f, ceilingAtTop / 2f - stairTotalDrop / 2f, totalTunnelLength + wallThick / 2f);
+            ApplyMaterial(backWall, metroEntranceColor * 0.8f, 0.1f, 0.3f);
+
+            // === STAIRS ===
             Transform stairsRoot = new GameObject("Stairs").transform;
             stairsRoot.parent = metroRoot;
             stairsRoot.localPosition = new Vector3(0f, 0f, entranceDepth);
 
             float stepWidth = entranceWidth - 0.4f;
             float stepHeight = stairTotalDrop / stairCount;
-            float stepDepth = stairTotalDepth / stairCount;
+            float stepDepth = stairDepth / stairCount;
 
             for (int i = 0; i < stairCount; i++)
             {
                 GameObject step = CreateBox($"Step_{i}", new Vector3(stepWidth, stepHeight, stepDepth));
                 step.transform.parent = stairsRoot;
                 step.transform.localPosition = new Vector3(0f, -stepHeight * i - stepHeight / 2f, stepDepth * i + stepDepth / 2f);
-                ApplyMaterial(step, Color.Lerp(sidewalkColor, metroEntranceColor, 0.5f));
+                ApplyMaterial(step, Color.Lerp(pavementColor, metroEntranceColor, 0.5f));
             }
 
             // Railings
             float railingHeight = 0.9f;
             float railingRadius = 0.03f;
-
             for (int side = -1; side <= 1; side += 2)
             {
-                float railX = side * (stepWidth / 2f + 0.05f);
+                float railX = side * (stepWidth / 2f + 0.08f);
                 Transform railRoot = new GameObject($"Railing_{(side < 0 ? "Left" : "Right")}").transform;
                 railRoot.parent = metroRoot;
                 railRoot.localPosition = Vector3.zero;
-
-                // Railing posts
                 for (int i = 0; i <= stairCount; i += 2)
                 {
                     float pY = -stepHeight * i + railingHeight / 2f;
                     float pZ = entranceDepth + stepDepth * i;
-
                     GameObject post = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
                     post.name = $"Post_{i}";
                     post.transform.parent = railRoot;
                     post.transform.localPosition = new Vector3(railX, pY, pZ);
                     post.transform.localScale = new Vector3(railingRadius * 2f, railingHeight / 2f, railingRadius * 2f);
-                    ApplyMaterial(post, metroRailingColor);
+                    ApplyMaterial(post, metroRailingColor, 0.6f, 0.5f);
                 }
             }
 
-            // Floor at bottom of stairs (for transition trigger)
-            GameObject bottomFloor = CreateBox("BottomFloor", new Vector3(stepWidth, 0.1f, 2f));
-            bottomFloor.transform.parent = metroRoot;
-            bottomFloor.transform.localPosition = new Vector3(0f, -stairTotalDrop - 0.05f, entranceDepth + stairTotalDepth + 1f);
-            ApplyMaterial(bottomFloor, metroEntranceColor);
+            // Stair lighting
+            for (int i = 0; i < 4; i++)
+            {
+                float lZ = entranceDepth + stairDepth * (i + 1) / 5f;
+                float lY = -stairTotalDrop * (i + 1) / 5f + 2f;
+                GameObject stairLight = new GameObject($"StairLight_{i}");
+                stairLight.transform.parent = metroRoot;
+                stairLight.transform.localPosition = new Vector3(0f, lY, lZ);
+                Light pl = stairLight.AddComponent<Light>();
+                pl.type = LightType.Point;
+                pl.color = new Color(1f, 0.95f, 0.85f);
+                pl.intensity = 1.5f;
+                pl.range = 6f;
+            }
 
-            // Scene transition trigger zone (invisible)
-            GameObject trigger = new GameObject("SceneTransitionTrigger");
-            trigger.transform.parent = metroRoot;
-            trigger.transform.localPosition = new Vector3(0f, -stairTotalDrop + 1f, entranceDepth + stairTotalDepth + 1f);
-            BoxCollider triggerCollider = trigger.AddComponent<BoxCollider>();
-            triggerCollider.size = new Vector3(stepWidth, 2f, 2f);
-            triggerCollider.isTrigger = true;
+            // Walking area light
+            GameObject walkLight = new GameObject("WalkAreaLight");
+            walkLight.transform.parent = metroRoot;
+            walkLight.transform.localPosition = new Vector3(0f, bottomY + 2.5f, stairEndZ + walkingDistance / 2f);
+            Light wLight = walkLight.AddComponent<Light>();
+            wLight.type = LightType.Point;
+            wLight.color = new Color(1f, 0.95f, 0.85f);
+            wLight.intensity = 1.5f;
+            wLight.range = 6f;
+
+            // === ELEVATOR — after walking distance from stairs ===
+            float elevWidth = entranceWidth - 0.4f;
+            float elevHeight = 3f;
+            float doorZ = stairEndZ + walkingDistance;
+            GenerateElevator(metroRoot, bottomY, doorZ, elevWidth, elevDepth, elevHeight);
+        }
+
+        private void GenerateElevator(Transform parent, float floorY, float doorZ, float elevWidth, float elevDepth, float elevHeight)
+        {
+            Transform elevRoot = new GameObject("Elevator").transform;
+            elevRoot.parent = parent;
+            elevRoot.localPosition = new Vector3(0f, floorY, doorZ);
+
+            float wallThickness = 0.12f;
+            Color elevWallColor = new Color(0.55f, 0.55f, 0.58f);
+            Color elevDoorColor = new Color(0.6f, 0.6f, 0.63f);
+            Color elevFloorColor = new Color(0.4f, 0.4f, 0.38f);
+            Color buttonColor = new Color(0.8f, 0.7f, 0.1f);
+
+            // Floor
+            GameObject elevFloor = CreateBox("ElevatorFloor", new Vector3(elevWidth, 0.1f, elevDepth));
+            elevFloor.transform.parent = elevRoot;
+            elevFloor.transform.localPosition = new Vector3(0f, 0.05f, elevDepth / 2f);
+            ApplyMaterial(elevFloor, elevFloorColor, 0.2f, 0.4f);
+
+            // Back wall
+            GameObject backWall = CreateBox("ElevBackWall", new Vector3(elevWidth, elevHeight, wallThickness));
+            backWall.transform.parent = elevRoot;
+            backWall.transform.localPosition = new Vector3(0f, elevHeight / 2f, elevDepth);
+            ApplyMaterial(backWall, elevWallColor, 0.4f, 0.5f);
+
+            // Left wall
+            GameObject leftWall = CreateBox("ElevLeftWall", new Vector3(wallThickness, elevHeight, elevDepth));
+            leftWall.transform.parent = elevRoot;
+            leftWall.transform.localPosition = new Vector3(-elevWidth / 2f, elevHeight / 2f, elevDepth / 2f);
+            ApplyMaterial(leftWall, elevWallColor, 0.4f, 0.5f);
+
+            // Right wall
+            GameObject rightWall = CreateBox("ElevRightWall", new Vector3(wallThickness, elevHeight, elevDepth));
+            rightWall.transform.parent = elevRoot;
+            rightWall.transform.localPosition = new Vector3(elevWidth / 2f, elevHeight / 2f, elevDepth / 2f);
+            ApplyMaterial(rightWall, elevWallColor, 0.4f, 0.5f);
+
+            // Ceiling
+            GameObject ceiling = CreateBox("ElevCeiling", new Vector3(elevWidth, wallThickness, elevDepth));
+            ceiling.transform.parent = elevRoot;
+            ceiling.transform.localPosition = new Vector3(0f, elevHeight, elevDepth / 2f);
+            ApplyMaterial(ceiling, elevWallColor * 0.9f, 0.3f, 0.4f);
+
+            // === DOORS — start CLOSED (at center) ===
+            float doorHeight = 2.5f;
+            float doorHalfWidth = elevWidth / 2f;
+            float doorThickness = 0.08f;
+
+            GameObject leftDoor = CreateBox("LeftDoor", new Vector3(doorHalfWidth, doorHeight, doorThickness));
+            leftDoor.transform.parent = elevRoot;
+            leftDoor.transform.localPosition = new Vector3(-doorHalfWidth / 2f, doorHeight / 2f, 0f);
+            ApplyMaterial(leftDoor, elevDoorColor, 0.5f, 0.6f);
+
+            GameObject rightDoor = CreateBox("RightDoor", new Vector3(doorHalfWidth, doorHeight, doorThickness));
+            rightDoor.transform.parent = elevRoot;
+            rightDoor.transform.localPosition = new Vector3(doorHalfWidth / 2f, doorHeight / 2f, 0f);
+            ApplyMaterial(rightDoor, elevDoorColor, 0.5f, 0.6f);
+
+            // Door seam
+            GameObject doorSeam = CreateBox("DoorSeam", new Vector3(0.02f, doorHeight, doorThickness + 0.01f));
+            doorSeam.transform.parent = elevRoot;
+            doorSeam.transform.localPosition = new Vector3(0f, doorHeight / 2f, 0f);
+            ApplyMaterial(doorSeam, new Color(0.15f, 0.15f, 0.15f));
+
+            // Door frame
+            GameObject doorFrameTop = CreateBox("DoorFrameTop", new Vector3(elevWidth + 0.1f, 0.15f, 0.15f));
+            doorFrameTop.transform.parent = elevRoot;
+            doorFrameTop.transform.localPosition = new Vector3(0f, doorHeight + 0.075f, 0f);
+            ApplyMaterial(doorFrameTop, metroEntranceColor, 0.3f, 0.4f);
+
+            // Arrow indicator above door
+            GameObject arrowDown = CreateBox("ArrowDown", new Vector3(0.3f, 0.3f, 0.05f));
+            arrowDown.transform.parent = elevRoot;
+            arrowDown.transform.localPosition = new Vector3(0f, doorHeight + 0.4f, -0.05f);
+            arrowDown.transform.rotation = Quaternion.Euler(0f, 0f, 45f);
+            ApplyMaterial(arrowDown, new Color(0f, 0.8f, 0f), 0f, 0.3f, new Color(0f, 0.8f, 0f), 2f);
+
+            // Button panel (inside)
+            GameObject buttonPanel = CreateBox("ButtonPanel", new Vector3(0.03f, 0.4f, 0.2f));
+            buttonPanel.transform.parent = elevRoot;
+            buttonPanel.transform.localPosition = new Vector3(elevWidth / 2f - 0.18f, 1.2f, 0.4f);
+            ApplyMaterial(buttonPanel, new Color(0.3f, 0.3f, 0.32f), 0.5f, 0.6f);
+
+            GameObject btnDown = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+            btnDown.name = "Button_Down";
+            btnDown.transform.parent = elevRoot;
+            btnDown.transform.localPosition = new Vector3(elevWidth / 2f - 0.2f, 1.25f, 0.4f);
+            btnDown.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+            btnDown.transform.localScale = new Vector3(0.06f, 0.02f, 0.06f);
+            ApplyMaterial(btnDown, buttonColor, 0f, 0.3f, buttonColor, 2f);
+
+            // Ceiling light
+            GameObject elevLight = new GameObject("ElevatorLight");
+            elevLight.transform.parent = elevRoot;
+            elevLight.transform.localPosition = new Vector3(0f, elevHeight - 0.2f, elevDepth / 2f);
+            Light eLight = elevLight.AddComponent<Light>();
+            eLight.type = LightType.Point;
+            eLight.color = new Color(1f, 0.98f, 0.9f);
+            eLight.intensity = 2f;
+            eLight.range = 5f;
+
+            GameObject lightFixture = CreateBox("LightFixture", new Vector3(0.6f, 0.04f, 0.6f));
+            lightFixture.transform.parent = elevRoot;
+            lightFixture.transform.localPosition = new Vector3(0f, elevHeight - 0.05f, elevDepth / 2f);
+            ApplyMaterial(lightFixture, Color.white, 0f, 0.3f, Color.white, 3f);
+
+            // Handrail
+            GameObject handrail = CreateBox("Handrail", new Vector3(elevWidth - 0.4f, 0.05f, 0.05f));
+            handrail.transform.parent = elevRoot;
+            handrail.transform.localPosition = new Vector3(0f, 1f, elevDepth - 0.1f);
+            ApplyMaterial(handrail, metroRailingColor, 0.7f, 0.6f);
+
+            // === PROXIMITY TRIGGER — outside elevator, opens doors when player approaches ===
+            GameObject proximityTrigger = new GameObject("ElevatorProximityTrigger");
+            proximityTrigger.transform.parent = elevRoot;
+            proximityTrigger.transform.localPosition = new Vector3(0f, 1.5f, -1.5f);
+            BoxCollider proxCollider = proximityTrigger.AddComponent<BoxCollider>();
+            proxCollider.size = new Vector3(elevWidth, 3f, 3f);
+            proxCollider.isTrigger = true;
+            proximityTrigger.AddComponent<ElevatorProximityTrigger>();
+
+            // === INSIDE TRIGGER — detects player inside, closes doors + scene transition ===
+            GameObject insideTrigger = new GameObject("ElevatorInsideTrigger");
+            insideTrigger.transform.parent = elevRoot;
+            insideTrigger.transform.localPosition = new Vector3(0f, elevHeight / 2f, elevDepth / 2f);
+            BoxCollider insideCollider = insideTrigger.AddComponent<BoxCollider>();
+            insideCollider.size = new Vector3(elevWidth - 0.3f, elevHeight, elevDepth - 0.3f);
+            insideCollider.isTrigger = true;
+            insideTrigger.AddComponent<ElevatorSceneTransition>();
         }
 
         // === Helper Methods ===
