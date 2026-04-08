@@ -98,13 +98,42 @@ namespace MusicSpace
             cityRoot.parent = transform;
             cityRoot.localPosition = Vector3.zero;
 
+            GenerateBaseGround();
             GenerateGround();
             GenerateBuildings();
             GenerateTrees();
             GenerateStreetLamps();
             GenerateMetroEntrance();
+            GenerateLighting();
 
             Random.state = oldState;
+        }
+
+        private void GenerateBaseGround()
+        {
+            // Large base ground plane so nothing falls through in VR
+            float baseSize = streetLength + 40f;
+            GameObject baseGround = CreateBox("BaseGround", new Vector3(baseSize, 0.5f, baseSize));
+            baseGround.transform.parent = cityRoot;
+            baseGround.transform.localPosition = new Vector3(0f, -0.3f, 0f);
+            ApplyMaterial(baseGround, new Color(0.25f, 0.25f, 0.23f)); // Dark asphalt
+
+            // Make it static for performance
+            baseGround.isStatic = true;
+        }
+
+        private void GenerateLighting()
+        {
+            // Directional light (sun)
+            GameObject sunObj = new GameObject("Sun_DirectionalLight");
+            sunObj.transform.parent = cityRoot;
+            sunObj.transform.localPosition = new Vector3(0f, 20f, 0f);
+            sunObj.transform.rotation = Quaternion.Euler(50f, -30f, 0f);
+            Light sunLight = sunObj.AddComponent<Light>();
+            sunLight.type = LightType.Directional;
+            sunLight.color = new Color(1f, 0.96f, 0.9f);
+            sunLight.intensity = 1.5f;
+            sunLight.shadows = LightShadows.Soft;
         }
 
         private void GenerateGround()
