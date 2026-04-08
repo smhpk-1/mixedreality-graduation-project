@@ -117,11 +117,53 @@ namespace MusicSpace
         private void GenerateBaseGround()
         {
             float baseSize = streetLength + 60f;
-            GameObject baseGround = CreateBox("BaseGround", new Vector3(baseSize, 0.5f, baseSize));
-            baseGround.transform.parent = cityRoot;
-            baseGround.transform.localPosition = new Vector3(0f, -0.3f, 0f);
-            ApplyMaterial(baseGround, new Color(0.22f, 0.22f, 0.2f));
-            baseGround.isStatic = true;
+            float halfBase = baseSize / 2f;
+            float groundY = -0.3f;
+            float groundThick = 0.5f;
+            Color groundColor = new Color(0.22f, 0.22f, 0.2f);
+
+            // Hole dimensions — must cover the ENTIRE underground tunnel
+            float holeWidth = entranceWidth + 2f;
+            float walkingDist = 4f; // must match walkingDistance in GenerateMetroEntrance
+            float elevDep = 2.5f;   // must match elevDepth in GenerateMetroEntrance
+            float holeDepth = entranceDepth + stairDepth + walkingDist + elevDep + 2f; // full tunnel + margin
+            float holeZ = streetLength; // metro entrance Z position
+            float halfHoleW = holeWidth / 2f;
+
+            // Split ground into 4 pieces around the hole:
+            // 1) FRONT piece: from -halfBase to holeZ (everything before the hole)
+            float frontLength = holeZ + halfBase;
+            GameObject front = CreateBox("BaseGround_Front", new Vector3(baseSize, groundThick, frontLength));
+            front.transform.parent = cityRoot;
+            front.transform.localPosition = new Vector3(0f, groundY, -halfBase + frontLength / 2f);
+            ApplyMaterial(front, groundColor);
+            front.isStatic = true;
+
+            // 2) BACK piece: from holeZ+holeDepth to +halfBase
+            float backStart = holeZ + holeDepth;
+            float backLength = halfBase - backStart + halfBase; // remaining
+            if (backLength > 0.1f)
+            {
+                GameObject back = CreateBox("BaseGround_Back", new Vector3(baseSize, groundThick, backLength));
+                back.transform.parent = cityRoot;
+                back.transform.localPosition = new Vector3(0f, groundY, backStart + backLength / 2f);
+                ApplyMaterial(back, groundColor);
+                back.isStatic = true;
+            }
+
+            // 3) LEFT strip: beside hole on left
+            GameObject leftStrip = CreateBox("BaseGround_Left", new Vector3(halfBase - halfHoleW, groundThick, holeDepth));
+            leftStrip.transform.parent = cityRoot;
+            leftStrip.transform.localPosition = new Vector3(-(halfHoleW + (halfBase - halfHoleW) / 2f), groundY, holeZ + holeDepth / 2f);
+            ApplyMaterial(leftStrip, groundColor);
+            leftStrip.isStatic = true;
+
+            // 4) RIGHT strip: beside hole on right
+            GameObject rightStrip = CreateBox("BaseGround_Right", new Vector3(halfBase - halfHoleW, groundThick, holeDepth));
+            rightStrip.transform.parent = cityRoot;
+            rightStrip.transform.localPosition = new Vector3(halfHoleW + (halfBase - halfHoleW) / 2f, groundY, holeZ + holeDepth / 2f);
+            ApplyMaterial(rightStrip, groundColor);
+            rightStrip.isStatic = true;
         }
 
         private void GenerateLighting()
@@ -159,11 +201,12 @@ namespace MusicSpace
                 ApplyMaterial(strip, pavementTileColor);
             }
 
-            // Small plaza area in front of metro entrance
-            float plazaSize = streetWidth + 4f;
-            GameObject plaza = CreateBox("MetroPlaza", new Vector3(plazaSize, 0.1f, 6f));
+            // Small plaza area in front of metro entrance (stops before the entrance hole)
+            float plazaWidth = streetWidth + 4f;
+            float plazaDepth = 2f;
+            GameObject plaza = CreateBox("MetroPlaza", new Vector3(plazaWidth, 0.1f, plazaDepth));
             plaza.transform.parent = groundRoot;
-            plaza.transform.localPosition = new Vector3(0f, 0.05f, streetLength + 3f);
+            plaza.transform.localPosition = new Vector3(0f, 0.05f, streetLength - plazaDepth / 2f);
             ApplyMaterial(plaza, pavementTileColor);
         }
 
