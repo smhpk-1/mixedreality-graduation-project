@@ -118,7 +118,9 @@ namespace MusicSpace
         {
             float baseSize = streetLength + 60f;
             float halfBase = baseSize / 2f;
-            float groundY = -0.3f;
+            // Calculate groundY so all BaseGround pieces sit at world y ≈ -0.1 (player feet level)
+            float worldGroundY = -0.1f;
+            float groundY = worldGroundY - transform.position.y;
             float groundThick = 0.5f;
             Color groundColor = new Color(0.22f, 0.22f, 0.2f);
 
