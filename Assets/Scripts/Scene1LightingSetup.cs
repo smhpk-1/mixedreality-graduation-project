@@ -3,11 +3,11 @@ using UnityEngine;
 public class Scene1LightingSetup : MonoBehaviour
 {
     [Header("Ambient Settings")]
-    public Color ambientColor = new Color(0.65f, 0.65f, 0.7f);
+    public Color ambientColor = new Color(0.5f, 0.5f, 0.55f);
     
     [Header("Directional Light")]
     public Color sunColor = new Color(0.95f, 0.9f, 0.85f);
-    public float sunIntensity = 1.5f;
+    public float sunIntensity = 1.2f;
     public Vector3 sunRotation = new Vector3(50f, -30f, 0f);
 
     private void Start()

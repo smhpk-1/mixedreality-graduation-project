@@ -32173,9 +32173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98df2154f5054139853207459ed09f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Scene1LightingSetup
-  ambientColor: {r: 0.35, g: 0.35, b: 0.4, a: 1}
-  sunColor: {r: 0.9, g: 0.85, b: 0.8, a: 1}
-  sunIntensity: 0.8
+  ambientColor: {r: 0.5, g: 0.5, b: 0.55, a: 1}
+  sunColor: {r: 0.95, g: 0.9, b: 0.85, a: 1}
+  sunIntensity: 1.2
   sunRotation: {x: 50, y: -30, z: 0}
 --- !u!4 &2133635010
 Transform:
