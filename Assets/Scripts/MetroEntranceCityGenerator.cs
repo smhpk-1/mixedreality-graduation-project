@@ -605,9 +605,10 @@ namespace MusicSpace
             // Floor at bottom — only from where stairs END to back wall (not under stairs)
             float stairEndZ = entranceDepth + stairDepth;
             float bottomFloorLength = walkingDistance + elevDepth;
-            GameObject bottomFloor = CreateBox("BottomFloor", new Vector3(entranceWidth, 0.25f, bottomFloorLength));
+            // Make floor wider (wall to wall) and thicker to prevent falling through
+            GameObject bottomFloor = CreateBox("BottomFloor", new Vector3(entranceWidth + wallThick * 2, 0.5f, bottomFloorLength + 1f));
             bottomFloor.transform.parent = metroRoot;
-            bottomFloor.transform.localPosition = new Vector3(0f, bottomY - 0.125f, stairEndZ + bottomFloorLength / 2f);
+            bottomFloor.transform.localPosition = new Vector3(0f, bottomY - 0.25f, stairEndZ + bottomFloorLength / 2f);
             ApplyMaterial(bottomFloor, metroEntranceColor * 0.75f, 0.1f, 0.3f);
 
             // Back wall — closes off the very end
@@ -625,6 +626,12 @@ namespace MusicSpace
             float stepHeight = stairTotalDrop / stairCount;
             float stepDepth = stairDepth / stairCount;
 
+            // Step_Before: flat landing before stairs begin
+            GameObject stepBefore = CreateBox("Step_Before", new Vector3(stepWidth, 0.15f, entranceDepth));
+            stepBefore.transform.parent = stairsRoot;
+            stepBefore.transform.localPosition = new Vector3(0f, 0f, -entranceDepth / 2f);
+            ApplyMaterial(stepBefore, Color.Lerp(pavementColor, metroEntranceColor, 0.5f));
+
             for (int i = 0; i < stairCount; i++)
             {
                 GameObject step = CreateBox($"Step_{i}", new Vector3(stepWidth, stepHeight, stepDepth));
@@ -632,6 +639,18 @@ namespace MusicSpace
                 step.transform.localPosition = new Vector3(0f, -stepHeight * i - stepHeight / 2f, stepDepth * i + stepDepth / 2f);
                 ApplyMaterial(step, Color.Lerp(pavementColor, metroEntranceColor, 0.5f));
             }
+
+            // Invisible ramp collider over all stairs — prevents falling between steps
+            float rampLength = stairDepth;
+            float rampHeight = stairTotalDrop;
+            GameObject rampCollider = CreateBox("StairRamp", new Vector3(stepWidth, 0.05f, Mathf.Sqrt(rampLength * rampLength + rampHeight * rampHeight)));
+            rampCollider.transform.parent = stairsRoot;
+            rampCollider.transform.localPosition = new Vector3(0f, -rampHeight / 2f, rampLength / 2f);
+            float rampAngle = Mathf.Atan2(rampHeight, rampLength) * Mathf.Rad2Deg;
+            rampCollider.transform.localRotation = Quaternion.Euler(rampAngle, 0f, 0f);
+            // Make ramp invisible — only the collider matters
+            Renderer rampRenderer = rampCollider.GetComponent<Renderer>();
+            if (rampRenderer != null) rampRenderer.enabled = false;
 
             // Railings
             float railingHeight = 0.9f;
@@ -699,10 +718,10 @@ namespace MusicSpace
             Color elevFloorColor = new Color(0.4f, 0.4f, 0.38f);
             Color buttonColor = new Color(0.8f, 0.7f, 0.1f);
 
-            // Floor
-            GameObject elevFloor = CreateBox("ElevatorFloor", new Vector3(elevWidth, 0.1f, elevDepth));
+            // Floor — wider and thicker to prevent falling through
+            GameObject elevFloor = CreateBox("ElevatorFloor", new Vector3(elevWidth + 0.5f, 0.3f, elevDepth + 0.5f));
             elevFloor.transform.parent = elevRoot;
-            elevFloor.transform.localPosition = new Vector3(0f, 0.05f, elevDepth / 2f);
+            elevFloor.transform.localPosition = new Vector3(0f, 0.15f, elevDepth / 2f);
             ApplyMaterial(elevFloor, elevFloorColor, 0.2f, 0.4f);
 
             // Back wall
