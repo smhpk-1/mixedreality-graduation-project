@@ -19,20 +19,10 @@ public class SimpleRoomGenerator : MonoBehaviour
     [ContextMenu("Generate Boring Office")]
     public void GenerateRoom()
     {
-        // 0. ATMOSPHERE: Find and disable the Main Sun (Directional Light)
-        Light[] allLights = FindObjectsByType<Light>(FindObjectsSortMode.None);
-        foreach (Light l in allLights)
-        {
-            if (l.type == LightType.Directional)
-            {
-                l.gameObject.SetActive(false);
-            }
-        }
-
-        // NEW: Darken Environment Ambient Light to make point lights visible
+        // Ambient settings - industrial but visible
         RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
-        RenderSettings.ambientLight = new Color(0.02f, 0.02f, 0.02f); // Pitch black ambient
-        RenderSettings.reflectionIntensity = 0.0f; // No reflections from skybox
+        RenderSettings.ambientLight = new Color(0.35f, 0.35f, 0.4f);
+        RenderSettings.reflectionIntensity = 1.0f;
 
         // FORCE SETTINGS: Override Inspector values
         height = 7f;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RuntimeAtmosphereController : MonoBehaviour
 {
@@ -6,8 +7,17 @@ public class RuntimeAtmosphereController : MonoBehaviour
     public Color ambientColor = new Color(0.02f, 0.02f, 0.02f); // Pitch Black
     public bool disableSun = true;
 
+    [Header("Scene Filter")]
+    [Tooltip("Only apply atmosphere in this scene. Leave empty to apply in any scene.")]
+    public string targetSceneName = "Scene 3";
+
     private void Start()
     {
+        if (!string.IsNullOrEmpty(targetSceneName) &&
+            SceneManager.GetActiveScene().name != targetSceneName)
+        {
+            return;
+        }
         ApplyAtmosphere();
     }
 
