@@ -1741,7 +1741,6 @@ GameObject:
   m_Component:
   - component: {fileID: 92408387}
   - component: {fileID: 92408389}
-  - component: {fileID: 92408388}
   m_Layer: 0
   m_Name: ElevatorProximityTrigger
   m_TagString: Untagged
@@ -1764,18 +1763,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 740777298}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &92408388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92408386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13d0b21f96b3a45b0b9472d33bc08c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MusicSpace.ElevatorProximityTrigger
 --- !u!65 &92408389
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1793,7 +1780,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 3.6, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
@@ -17382,6 +17369,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 740777298}
+  - component: {fileID: 740777299}
   m_Layer: 0
   m_Name: Elevator
   m_TagString: Untagged
@@ -17421,6 +17409,18 @@ Transform:
   - {fileID: 1746071924}
   m_Father: {fileID: 1099680892}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &740777299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740777297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1517efc43a8a4ff6af931ddfe5a0963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicSpace.ElevatorButtonSetup
 --- !u!1 &745721468
 GameObject:
   m_ObjectHideFlags: 0
@@ -45939,6 +45939,7 @@ MonoBehaviour:
   doorOpenDuration: 1.5
   doorCloseDuration: 1.5
   waitAfterClose: 5
+  insideRadius: 1.5
 --- !u!65 &1746071926
 BoxCollider:
   m_ObjectHideFlags: 0

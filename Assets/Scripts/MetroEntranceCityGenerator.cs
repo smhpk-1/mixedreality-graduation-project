@@ -817,13 +817,10 @@ namespace MusicSpace
             handrail.transform.localPosition = new Vector3(0f, 1f, elevDepth - 0.1f);
             ApplyMaterial(handrail, metroRailingColor, 0.7f, 0.6f);
 
-            // === PROXIMITY TRIGGER — outside elevator, opens doors when player approaches ===
+            // === PROXIMITY TRIGGER — distance-based, Camera.main, no tag dependency ===
             GameObject proximityTrigger = new GameObject("ElevatorProximityTrigger");
             proximityTrigger.transform.parent = elevRoot;
             proximityTrigger.transform.localPosition = new Vector3(0f, 1.5f, -1.5f);
-            BoxCollider proxCollider = proximityTrigger.AddComponent<BoxCollider>();
-            proxCollider.size = new Vector3(elevWidth, 3f, 3f);
-            proxCollider.isTrigger = true;
             proximityTrigger.AddComponent<ElevatorProximityTrigger>();
 
             // === INSIDE TRIGGER — detects player inside, closes doors + scene transition ===

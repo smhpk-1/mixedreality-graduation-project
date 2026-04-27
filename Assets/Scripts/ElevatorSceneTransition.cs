@@ -6,7 +6,7 @@ namespace MusicSpace
     /// <summary>
     /// Attached to the inside trigger of the elevator.
     /// When the player enters: closes doors, waits 5 seconds, transitions to Scene 3.
-    /// Also provides OpenDoors() method called by ElevatorProximityTrigger.
+    /// OpenDoors() is called by ElevatorCallButton when the player presses the call button.
     /// </summary>
     public class ElevatorSceneTransition : MonoBehaviour
     {
@@ -45,17 +45,35 @@ namespace MusicSpace
             StartCoroutine(DoorOpenSequence());
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (closing) return;
-            if (!doorsOpen) return;
+        [Tooltip("Radius inside elevator that triggers door close + scene transition.")]
+        public float insideRadius = 1.5f;
 
-            if (other.CompareTag("Player") || other.CompareTag("MainCamera") ||
-                other.GetComponentInParent<Camera>() != null)
+        private bool playerInside = false;
+
+        private void Update()
+        {
+            if (!doorsOpen || closing) return;
+
+            Camera cam = Camera.main;
+            if (cam == null) return;
+
+            bool nowInside = Vector3.Distance(cam.transform.position, transform.position) <= insideRadius;
+
+            if (nowInside && !playerInside)
             {
+                playerInside = true;
                 closing = true;
                 StartCoroutine(DoorCloseAndTransition());
             }
+
+            if (!nowInside)
+                playerInside = false;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = new Color(1f, 0.3f, 0f, 0.2f);
+            Gizmos.DrawSphere(transform.position, insideRadius);
         }
 
         private System.Collections.IEnumerator DoorOpenSequence()
