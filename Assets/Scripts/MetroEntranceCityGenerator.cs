@@ -80,7 +80,8 @@ namespace MusicSpace
 
         private void Start()
         {
-            GenerateCity();
+            // City is pre-generated in the editor via [ContextMenu("Generate City")].
+            // Do NOT regenerate at runtime — it would destroy any manually added objects.
         }
 
         [ContextMenu("Generate City")]

@@ -9716,14 +9716,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Universal Render Pipeline/Lit
+  m_Name: 
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _EMISSION
+  m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 1
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -9816,7 +9815,7 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.3
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -9828,7 +9827,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 2, g: 2, b: 2, a: 2}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
@@ -11603,9 +11602,9 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.9433962, g: 0.06674972, b: 0.06674972, a: 1}
-    - _Color: {r: 0.9433962, g: 0.06674972, b: 0.06674972, a: 1}
-    - _EmissionColor: {r: 2, g: 2, b: 2, a: 2}
+    - _BaseColor: {r: 1, g: 0.9, b: 0, a: 1}
+    - _Color: {r: 1, g: 0.9, b: 0, a: 1}
+    - _EmissionColor: {r: 2, g: 1.8, b: 0, a: 2}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
@@ -13097,9 +13096,9 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 2, g: 2, b: 2, a: 2}
+    - _BaseColor: {r: 1, g: 0.9, b: 0, a: 1}
+    - _Color: {r: 1, g: 0.9, b: 0, a: 1}
+    - _EmissionColor: {r: 2, g: 1.8, b: 0, a: 2}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
@@ -36612,9 +36611,9 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 2, g: 2, b: 2, a: 2}
+    - _BaseColor: {r: 1, g: 0.9, b: 0, a: 1}
+    - _Color: {r: 1, g: 0.9, b: 0, a: 1}
+    - _EmissionColor: {r: 2, g: 1.8, b: 0, a: 2}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
@@ -42077,9 +42076,9 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 2, g: 2, b: 2, a: 2}
+    - _BaseColor: {r: 1, g: 0.9, b: 0, a: 1}
+    - _Color: {r: 1, g: 0.9, b: 0, a: 1}
+    - _EmissionColor: {r: 2, g: 1.8, b: 0, a: 2}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
@@ -48924,11 +48923,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1882284119}
+  - {fileID: 1983773158}
   - {fileID: 989483988}
   - {fileID: 26858178}
   - {fileID: 1391472974}
   - {fileID: 1475850621}
-  - {fileID: 1983773158}
   - {fileID: 667244586}
   - {fileID: 2126523878}
   m_Father: {fileID: 5325456}
