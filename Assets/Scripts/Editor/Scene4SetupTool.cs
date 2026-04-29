@@ -67,22 +67,7 @@ namespace MusicSpace.Editor
                 Debug.Log("[Scene4Setup] XR Origin oluşturuldu ve terrain üzerine yerleştirildi.");
             }
 
-            // 3. TerrainSpawnPoint scriptini XR Origin'e ekle
-            var xrOrigin = Object.FindFirstObjectByType<Unity.XR.CoreUtils.XROrigin>();
-            if (xrOrigin != null)
-            {
-                var spawnScript = xrOrigin.GetComponent<TerrainSpawnPoint>();
-                if (spawnScript == null)
-                {
-                    spawnScript = xrOrigin.gameObject.AddComponent<TerrainSpawnPoint>();
-                    spawnScript.spawnX = 250f;
-                    spawnScript.spawnZ = 250f;
-                    spawnScript.heightOffset = 0.1f;
-                    Debug.Log("[Scene4Setup] TerrainSpawnPoint scripti XR Origin'e eklendi.");
-                }
-            }
-
-            // 4. Mevcut Main Camera'yı devre dışı bırak (XR Origin kendi kamerasını getirir)
+            // 3. Mevcut Main Camera'yı devre dışı bırak (XR Origin kendi kamerasını getirir)
             var mainCam = Camera.main;
             if (mainCam != null && mainCam.GetComponentInParent<Unity.XR.CoreUtils.XROrigin>() == null)
             {
@@ -90,7 +75,7 @@ namespace MusicSpace.Editor
                 Debug.Log("[Scene4Setup] Eski Main Camera devre dışı bırakıldı.");
             }
 
-            // 5. Kaydet
+            // 4. Kaydet
             EditorSceneManager.MarkSceneDirty(scene);
             EditorSceneManager.SaveScene(scene);
             Debug.Log("[Scene4Setup] Scene 4 VR kurulumu tamamlandı.");
