@@ -10,22 +10,23 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 [RequireComponent(typeof(XRGrabInteractable))]
 public class Scene3ToScene4Cube : MonoBehaviour
 {
+    [Header("Renk")]
+    public Color cubeColor = new Color(0.6f, 0.2f, 0.9f, 1f);
+
     private void Start()
     {
         var grab = GetComponent<XRGrabInteractable>();
         grab.selectEntered.AddListener(_ => LoadScene4());
 
-        // Küpü mor renge boyar
         var rend = GetComponent<Renderer>();
-        if (rend != null)
+        if (rend != null && rend.sharedMaterial != null)
         {
-            var mat = rend.material; // mevcut materyali kullan
-            Color purple = new Color(0.6f, 0.2f, 0.9f, 1f);
-            if (mat.HasProperty("_BaseColor"))
-                mat.SetColor("_BaseColor", purple);
-            if (mat.HasProperty("_Color"))
-                mat.SetColor("_Color", purple);
-            mat.color = purple;
+            // Shared material'i değiştirmemek için instance al
+            MaterialPropertyBlock block = new MaterialPropertyBlock();
+            rend.GetPropertyBlock(block);
+            block.SetColor("_BaseColor", cubeColor);
+            block.SetColor("_Color", cubeColor);
+            rend.SetPropertyBlock(block);
         }
     }
 
