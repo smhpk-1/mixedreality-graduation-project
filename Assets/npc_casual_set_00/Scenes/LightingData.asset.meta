@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 597bf9fe194609d419b66e3f80baeaf9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 112000000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 326131
+  packageName: npc_casual_set_00
+  packageVersion: 1.0.3
+  assetPath: Assets/npc_casual_set_00/Scenes/LightingData.asset
+  uploadId: 807672

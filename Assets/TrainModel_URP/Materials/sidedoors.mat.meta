@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d9a81eea7388bba4c83063da39d7d8d5
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324986
+  packageName: (URP) Simple Italian Train 3D model
+  packageVersion: 1.0
+  assetPath: Assets/TrainModel_URP/Materials/sidedoors.mat
+  uploadId: 768490

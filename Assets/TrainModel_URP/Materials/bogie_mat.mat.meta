@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f4ffc4fe3635daf4c84856a38133b6f7
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324986
+  packageName: (URP) Simple Italian Train 3D model
+  packageVersion: 1.0
+  assetPath: Assets/TrainModel_URP/Materials/bogie_mat.mat
+  uploadId: 768490

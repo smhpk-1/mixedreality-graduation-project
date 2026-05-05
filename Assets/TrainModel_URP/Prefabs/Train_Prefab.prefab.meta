@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ef55e89dec6ee751f9f98d52198da308
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324986
+  packageName: (URP) Simple Italian Train 3D model
+  packageVersion: 1.0
+  assetPath: Assets/TrainModel_URP/Prefabs/Train_Prefab.prefab
+  uploadId: 768490

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9c51a14a7e7fc1d4f9212860d4e108dc
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324986
+  packageName: (URP) Simple Italian Train 3D model
+  packageVersion: 1.0
+  assetPath: Assets/TrainModel_URP/Materials/driver_doors.mat
+  uploadId: 768490

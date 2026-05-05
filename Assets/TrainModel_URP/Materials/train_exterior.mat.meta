@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8cd08eb88d7e96b4f9189ad680954c8c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324986
+  packageName: (URP) Simple Italian Train 3D model
+  packageVersion: 1.0
+  assetPath: Assets/TrainModel_URP/Materials/train_exterior.mat
+  uploadId: 768490
