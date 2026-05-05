@@ -76,9 +76,7 @@ public class SubwayTrainController : MonoBehaviour
 
         while (true)
         {
-            // 1) Tünelin başına ışınla (Y korunur)
-            if (startPoint != null)
-                transform.position = WithLockedY(startPoint.position);
+            // Tren mevcut pozisyonundan hareket eder, ışınlama yok
 
             if (stopPoint != null)
                 yield return MoveTo(stopPoint.position, arrivalSpeed);
@@ -96,7 +94,10 @@ public class SubwayTrainController : MonoBehaviour
             if (exitPoint != null)
                 yield return MoveTo(exitPoint.position, departureSpeed);
 
-            // 6) Kısa bekleme, sonra başa dön
+            // 6) Start'a geri dön (tünel arkasına), sonra tekrarla
+            if (startPoint != null)
+                yield return MoveTo(startPoint.position, departureSpeed);
+
             yield return new WaitForSeconds(initialDelay);
         }
     }
