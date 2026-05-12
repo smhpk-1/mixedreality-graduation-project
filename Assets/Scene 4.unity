@@ -643,7 +643,7 @@ Transform:
   m_GameObject: {fileID: 25374645}
   serializedVersion: 2
   m_LocalRotation: {x: -0.35845655, y: 0.69427204, z: 0.54649186, w: 0.3014}
-  m_LocalPosition: {x: 4.8348083, y: 2.2325354, z: 4.69104}
+  m_LocalPosition: {x: 4.81, y: 1.3, z: 4.9}
   m_LocalScale: {x: 2, y: 2, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6854,7 +6854,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.4117709, z: -0, w: 0.9112875}
   m_LocalPosition: {x: 6.6824036, y: 0.015000343, z: -4.03566}
-  m_LocalScale: {x: 2.8000002, y: 2.8, z: 2.8000002}
+  m_LocalScale: {x: 2.5, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 399971290}
@@ -8780,7 +8780,7 @@ Transform:
   m_GameObject: {fileID: 325997654}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7351394, z: -0, w: 0.677916}
-  m_LocalPosition: {x: 3.4224243, y: 2.2050009, z: 11.054352}
+  m_LocalPosition: {x: 3.4224243, y: 1.52, z: 11.054352}
   m_LocalScale: {x: 4, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37480,45 +37480,52 @@ MonoBehaviour:
   stems:
   - label: 08SYNTH Searing Lead
     clip: {fileID: 8300000, guid: ca4f9ee596ef64e34895fd75cac366e2, type: 3}
-    volume: 0.5
+    volume: 1
     mode: 1
     sourceObject: {fileID: 325997654}
-    maxDistance: 0
+    minDistance: 8
+    maxDistance: 50
   - label: 09SYNTH Synthetic Wurli
     clip: {fileID: 8300000, guid: 3bd3d8a41d48a414aa067d3601eeb5db, type: 3}
-    volume: 0.5
+    volume: 1
     mode: 1
     sourceObject: {fileID: 325997654}
-    maxDistance: 0
+    minDistance: 8
+    maxDistance: 50
   - label: 01Blue Ridge Kit
     clip: {fileID: 8300000, guid: 66074f15b02704bf99222dcb841408aa, type: 3}
-    volume: 0.5
+    volume: 1
     mode: 1
     sourceObject: {fileID: 247468362}
-    maxDistance: 0
+    minDistance: 8
+    maxDistance: 50
   - label: 02Guitar
     clip: {fileID: 8300000, guid: 0de22118ca6cc45259d87b5758b5fde1, type: 3}
-    volume: 0.5
+    volume: 1
     mode: 1
     sourceObject: {fileID: 25374645}
-    maxDistance: 0
+    minDistance: 8
+    maxDistance: 50
   - label: 05BASS Distant Vibe
     clip: {fileID: 8300000, guid: d31eaa39b0e2b4a97921eac7abd9086c, type: 3}
-    volume: 0.5
+    volume: 1
     mode: 1
     sourceObject: {fileID: 1789174014}
-    maxDistance: 0
+    minDistance: 8
+    maxDistance: 50
   - label: 06BASS Open The Bottle
     clip: {fileID: 8300000, guid: 7eeec19883c4d4fe985fc3cf659ebcee, type: 3}
-    volume: 0.5
+    volume: 1
     mode: 1
     sourceObject: {fileID: 1789174014}
-    maxDistance: 0
+    minDistance: 8
+    maxDistance: 50
   - label: soundeffects
     clip: {fileID: 8300000, guid: f2dbfd80727e543d09f26ca8f5afb885, type: 3}
-    volume: 0.06
+    volume: 1
     mode: 0
     sourceObject: {fileID: 0}
+    minDistance: 0
     maxDistance: 0
   playOnAwake: 1
   startDelay: 0
@@ -49233,7 +49240,7 @@ Transform:
   m_GameObject: {fileID: 1789174014}
   serializedVersion: 2
   m_LocalRotation: {x: 0.6524529, y: -0.15881117, z: 0.06300709, w: 0.7383187}
-  m_LocalPosition: {x: -5.897583, y: 2.1750002, z: -4.5456543}
+  m_LocalPosition: {x: -5.99, y: 1.59, z: -4.49}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:

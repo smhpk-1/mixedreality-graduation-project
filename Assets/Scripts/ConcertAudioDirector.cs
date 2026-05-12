@@ -21,8 +21,11 @@ public class ConcertAudioDirector : MonoBehaviour
         [Tooltip("Sadece Spatial3D modunda: sesin geldiği sahne objesi (speaker, enstrüman vb.)")]
         public GameObject  sourceObject;
 
-        [Tooltip("Spatial3D: sesin duyulduğu maksimum mesafe (metre)")]
-        public float       maxDistance = 20f;
+        [Tooltip("Spatial3D: sesin tam volume duyulduğu mesafe (metre) — bu mesafeye kadar ses kısılmaz")]
+        public float       minDistance = 8f;
+
+        [Tooltip("Spatial3D: sesin tamamen kesileceği maksimum mesafe (metre)")]
+        public float       maxDistance = 60f;
 
         // Runtime'da oluşturulur
         [System.NonSerialized] public AudioSource runtimeSource;
@@ -59,8 +62,8 @@ public class ConcertAudioDirector : MonoBehaviour
             {
                 src.spatialBlend   = 1f;
                 src.spatialize     = true;
-                src.rolloffMode    = AudioRolloffMode.Logarithmic;
-                src.minDistance    = 1f;
+                src.rolloffMode    = AudioRolloffMode.Linear; // daha geniş alanda eşit ses
+                src.minDistance    = stem.minDistance;
                 src.maxDistance    = stem.maxDistance;
                 src.dopplerLevel   = 0f;
             }
