@@ -57072,6 +57072,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5726847344798059793, guid: 7ff7e096ac295fb4b84d7d2a573bd046, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1242461848}
+    - targetCorrespondingSourceObject: {fileID: 5726847344798059793, guid: 7ff7e096ac295fb4b84d7d2a573bd046, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1242461849}
   m_SourcePrefab: {fileID: 100100000, guid: 7ff7e096ac295fb4b84d7d2a573bd046, type: 3}
 --- !u!1 &1081945914
 GameObject:
@@ -66414,6 +66417,62 @@ MonoBehaviour:
   breathAmount: 0.008
   swaySpeed: 0.35
   swayAmount: 0.4
+--- !u!114 &1242461849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242461847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: NPCScene3Wanderer
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
 --- !u!1 &1244119747
 GameObject:
   m_ObjectHideFlags: 0
