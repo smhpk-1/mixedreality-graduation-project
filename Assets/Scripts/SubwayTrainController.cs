@@ -3,7 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// Metro treni kontrolcüsü.
-/// Tren tünelden gelir, istasyonda durur, kapılar açılır/kapanır, tren gider.
+/// Tren tünelden gelir, istasyonda durur, kapılar kayarak açılır/kapanır, tren gider.
 /// "Static Mode" açıksa tren sabit durur (animasyon yok).
 /// </summary>
 public class SubwayTrainController : MonoBehaviour
@@ -12,12 +12,21 @@ public class SubwayTrainController : MonoBehaviour
     [Tooltip("İşaretliyse tren sabit durur, hareket etmez.")]
     public bool staticMode = true;
 
-    [Header("Kapı Objeleri")]
-    [Tooltip("Trende ayrı obje olan kapı transformları (sol/sağ kapılar vb.)")]
-    public Transform[] doors;
+    [Header("Kayan Kapılar")]
+    [Tooltip("Sol taraftaki kapı panelleri — açılınca slideLocalAxis negatif yönde kayar")]
+    public Transform[] leftDoors;
 
-    [Tooltip("Kapı açık rotasyonu (Y ekseni derece)")]
-    [Range(0f, 120f)] public float doorOpenAngle = 90f;
+    [Tooltip("Sağ taraftaki kapı panelleri — açılınca slideLocalAxis pozitif yönde kayar")]
+    public Transform[] rightDoors;
+
+    [Tooltip("Kapının kayacağı yerel eksen (genellikle Vector3.right = X ekseni)")]
+    public Vector3 slideLocalAxis = Vector3.right;
+
+    [Tooltip("Kapının ne kadar kayacağı (metre)")]
+    public float slideDistance = 0.7f;
+
+    [Tooltip("Kapı açılma/kapanma animasyon süresi (saniye)")]
+    public float doorAnimDuration = 0.6f;
 
     [Header("Hareket (Static Mode kapalıyken)")]
     [Tooltip("Trenin başlangıç noktası (tünel girişi)")]
@@ -42,32 +51,37 @@ public class SubwayTrainController : MonoBehaviour
     public float initialDelay = 2f;
 
     // Dahili
-    private Quaternion[] doorClosedRotations;
-    private float        lockedY; // Trenin ray üzerindeki Y pozisyonu korunur
+    private Vector3[] leftDoorClosedPositions;
+    private Vector3[] rightDoorClosedPositions;
+    private float     lockedY;
 
     private void Start()
     {
-        // Kapı başlangıç rotasyonlarını kaydet
-        if (doors != null && doors.Length > 0)
-        {
-            doorClosedRotations = new Quaternion[doors.Length];
-            for (int i = 0; i < doors.Length; i++)
-            {
-                if (doors[i] != null)
-                    doorClosedRotations[i] = doors[i].localRotation;
-            }
-        }
+        // Kapı kapalı pozisyonlarını kaydet
+        SaveDoorPositions();
 
-        if (staticMode)
-        {
-            // Sabit mod: sadece durur
-            return;
-        }
+        if (staticMode) return;
 
-        // Trenin mevcut Y'sini kilitle — ray hizalaması korunur
         lockedY = transform.position.y;
-
         StartCoroutine(TrainRoutine());
+    }
+
+    private void SaveDoorPositions()
+    {
+        if (leftDoors != null)
+        {
+            leftDoorClosedPositions = new Vector3[leftDoors.Length];
+            for (int i = 0; i < leftDoors.Length; i++)
+                if (leftDoors[i] != null)
+                    leftDoorClosedPositions[i] = leftDoors[i].localPosition;
+        }
+        if (rightDoors != null)
+        {
+            rightDoorClosedPositions = new Vector3[rightDoors.Length];
+            for (int i = 0; i < rightDoors.Length; i++)
+                if (rightDoors[i] != null)
+                    rightDoorClosedPositions[i] = rightDoors[i].localPosition;
+        }
     }
 
     private IEnumerator TrainRoutine()
@@ -76,21 +90,23 @@ public class SubwayTrainController : MonoBehaviour
 
         while (true)
         {
-            // Tren mevcut pozisyonundan hareket eder, ışınlama yok
-
+            // 1) İstasyona gel
             if (stopPoint != null)
                 yield return MoveTo(stopPoint.position, arrivalSpeed);
 
             // 2) Kapıları aç
-            yield return SetDoors(open: true, duration: 0.8f);
+            yield return SlideDoors(open: true);
 
             // 3) Kapılar açık bekle
             yield return new WaitForSeconds(doorOpenDuration);
 
             // 4) Kapıları kapat
-            yield return SetDoors(open: false, duration: 0.8f);
+            yield return SlideDoors(open: false);
 
-            // 5) Exit'e git
+            // 5) Kapılar kapandıktan 1 saniye sonra hareket et
+            yield return new WaitForSeconds(1f);
+
+            // 6) Exit'e git
             if (exitPoint != null)
                 yield return MoveTo(exitPoint.position, departureSpeed);
 
@@ -109,7 +125,7 @@ public class SubwayTrainController : MonoBehaviour
 
     private IEnumerator MoveTo(Vector3 target, float speed)
     {
-        target = WithLockedY(target); // Y'yi asla değiştirme
+        target = WithLockedY(target);
         while (Vector3.Distance(transform.position, target) > 0.05f)
         {
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
@@ -118,48 +134,64 @@ public class SubwayTrainController : MonoBehaviour
         transform.position = target;
     }
 
-    private IEnumerator SetDoors(bool open, float duration)
+    /// <summary>
+    /// Sol kapılar slideLocalAxis negatif yönde, sağ kapılar pozitif yönde kayar.
+    /// </summary>
+    private IEnumerator SlideDoors(bool open)
     {
-        if (doors == null || doors.Length == 0) yield break;
+        bool hasLeft  = leftDoors  != null && leftDoors.Length  > 0;
+        bool hasRight = rightDoors != null && rightDoors.Length > 0;
+        if (!hasLeft && !hasRight) yield break;
 
-        float elapsed = 0f;
-        Quaternion[] startRots = new Quaternion[doors.Length];
-        Quaternion[] targetRots = new Quaternion[doors.Length];
+        Vector3 leftOffset  = -slideLocalAxis.normalized * slideDistance;
+        Vector3 rightOffset =  slideLocalAxis.normalized * slideDistance;
 
-        for (int i = 0; i < doors.Length; i++)
+        Vector3[] leftStart   = new Vector3[hasLeft  ? leftDoors.Length  : 0];
+        Vector3[] rightStart  = new Vector3[hasRight ? rightDoors.Length : 0];
+        Vector3[] leftTarget  = new Vector3[leftStart.Length];
+        Vector3[] rightTarget = new Vector3[rightStart.Length];
+
+        for (int i = 0; i < leftStart.Length; i++)
         {
-            if (doors[i] == null) continue;
-            startRots[i] = doors[i].localRotation;
-
-            if (open)
-            {
-                // Her kapıya uygun açılma yönü: çift kapılarda i çift = sol, tek = sağ
-                float sign = (i % 2 == 0) ? 1f : -1f;
-                targetRots[i] = doorClosedRotations[i] * Quaternion.Euler(0f, sign * doorOpenAngle, 0f);
-            }
-            else
-            {
-                targetRots[i] = doorClosedRotations[i];
-            }
+            if (leftDoors[i] == null) continue;
+            leftStart[i]  = leftDoors[i].localPosition;
+            leftTarget[i] = open ? leftDoorClosedPositions[i] + leftOffset
+                                 : leftDoorClosedPositions[i];
+        }
+        for (int i = 0; i < rightStart.Length; i++)
+        {
+            if (rightDoors[i] == null) continue;
+            rightStart[i]  = rightDoors[i].localPosition;
+            rightTarget[i] = open ? rightDoorClosedPositions[i] + rightOffset
+                                  : rightDoorClosedPositions[i];
         }
 
-        while (elapsed < duration)
+        float elapsed = 0f;
+        while (elapsed < doorAnimDuration)
         {
             elapsed += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsed / duration);
-            for (int i = 0; i < doors.Length; i++)
-            {
-                if (doors[i] != null)
-                    doors[i].localRotation = Quaternion.Slerp(startRots[i], targetRots[i], t);
-            }
+            float t = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(elapsed / doorAnimDuration));
+
+            for (int i = 0; i < leftStart.Length; i++)
+                if (leftDoors[i] != null)
+                    leftDoors[i].localPosition = Vector3.Lerp(leftStart[i], leftTarget[i], t);
+
+            for (int i = 0; i < rightStart.Length; i++)
+                if (rightDoors[i] != null)
+                    rightDoors[i].localPosition = Vector3.Lerp(rightStart[i], rightTarget[i], t);
+
             yield return null;
         }
     }
 
-    // Inspector'dan test etmek için
+    // Inspector'dan Play modunda test etmek için
     [ContextMenu("Kapıları Aç")]
-    private void DebugOpenDoors() => StartCoroutine(SetDoors(open: true, duration: 0.8f));
+    private void DebugOpenDoors()
+    {
+        SaveDoorPositions();
+        StartCoroutine(SlideDoors(open: true));
+    }
 
     [ContextMenu("Kapıları Kapat")]
-    private void DebugCloseDoors() => StartCoroutine(SetDoors(open: false, duration: 0.8f));
+    private void DebugCloseDoors() => StartCoroutine(SlideDoors(open: false));
 }
