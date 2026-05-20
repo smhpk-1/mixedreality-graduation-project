@@ -75,6 +75,26 @@ public class NPCTrainPassenger : MonoBehaviour
     public void DespawnWithTrain()
     {
         if (CurrentState == State.Done) return;
+
+        // Yalnızca gerçekten trene binmiş NPC'ler trenle birlikte yok olur.
+        // Hâlâ peronda dolaşan / yürüyen NPC'leri silmek senaryoyu bozar —
+        // bunun yerine wander moduna geri dönsünler ki sahnede kalmaya devam etsinler.
+        if (CurrentState != State.InsideTrain)
+        {
+            // Trene yetişemeyen NPC: boarding'i bırak, wandering'e dön
+            StopAllCoroutines();
+            transform.SetParent(null, worldPositionStays: true);
+            EnableNav(true);
+            if (wanderer != null)
+            {
+                wanderer.externalControl = false;
+                wanderer.externalSpeed   = 0f;
+                wanderer.freezeAnimation = false;
+            }
+            CurrentState = State.Wandering;
+            return;
+        }
+
         CurrentState = State.Done;
         StopAllCoroutines();
         StartCoroutine(FadeAndDestroy());
@@ -105,6 +125,10 @@ public class NPCTrainPassenger : MonoBehaviour
         if (nav != null) nav.speed = walkSpeed;
         if (nav != null && nav.isOnNavMesh) nav.SetDestination(boardingPoint.position);
 
+        // Yürüme döngüsü — NavMesh varsa onunla, yetmediği yerde DirectStep ile devam et.
+        // Stuck-detection: 1.5 saniye boyunca hız çok düşükse direkt adım moduna geç.
+        float stuckTimer = 0f;
+        bool  forcedDirect = false;
         while (true)
         {
             Vector3 destination = boardingPoint.position;
@@ -112,10 +136,18 @@ public class NPCTrainPassenger : MonoBehaviour
 
             RotateToward(destination);
 
-            bool navUsable = nav != null && nav.enabled && nav.isOnNavMesh
-                          && nav.pathStatus != NavMeshPathStatus.PathInvalid;
+            bool navOn = nav != null && nav.enabled && nav.isOnNavMesh;
 
-            if (navUsable)
+            // NavMesh hedefe ulaşamıyorsa (Partial path → tren içi NavMesh'siz)
+            // ya da NPC bir yere takılıp kalmışsa → DirectStep'e geç.
+            bool partialPath = navOn && nav.pathStatus == NavMeshPathStatus.PathPartial;
+            bool stuck       = navOn && nav.velocity.sqrMagnitude < 0.04f; // <0.2 m/s
+            if (stuck) stuckTimer += Time.deltaTime; else stuckTimer = 0f;
+
+            if (!forcedDirect && (partialPath || stuckTimer > 1.5f))
+                forcedDirect = true;
+
+            if (navOn && !forcedDirect)
             {
                 nav.SetDestination(destination);
                 if (wanderer != null)
@@ -123,6 +155,8 @@ public class NPCTrainPassenger : MonoBehaviour
             }
             else
             {
+                // NavMesh'i kapat ki agent direkt hareketi engellemesin
+                if (navOn) { nav.ResetPath(); nav.enabled = false; }
                 DirectStep(destination, walkSpeed);
                 if (wanderer != null) wanderer.externalSpeed = walkSpeed;
             }
@@ -198,20 +232,29 @@ public class NPCTrainPassenger : MonoBehaviour
 
     private IEnumerator WalkUntilArrival(Vector3 destination, float speed)
     {
+        float stuckTimer = 0f;
+        bool  forcedDirect = false;
+
         while (FlatDist(transform.position, destination) > arrivalRadius)
         {
             RotateToward(destination);
 
-            bool navUsable = nav != null && nav.enabled && nav.isOnNavMesh
-                          && nav.pathStatus != NavMeshPathStatus.PathInvalid;
+            bool navOn       = nav != null && nav.enabled && nav.isOnNavMesh;
+            bool partialPath = navOn && nav.pathStatus == NavMeshPathStatus.PathPartial;
+            bool stuck       = navOn && nav.velocity.sqrMagnitude < 0.04f;
+            if (stuck) stuckTimer += Time.deltaTime; else stuckTimer = 0f;
 
-            if (navUsable)
+            if (!forcedDirect && (partialPath || stuckTimer > 1.5f))
+                forcedDirect = true;
+
+            if (navOn && !forcedDirect)
             {
                 if (wanderer != null)
                     wanderer.externalSpeed = Mathf.Max(nav.velocity.magnitude, 0.4f);
             }
             else
             {
+                if (navOn) { nav.ResetPath(); nav.enabled = false; }
                 DirectStep(destination, speed);
                 if (wanderer != null) wanderer.externalSpeed = speed;
             }
