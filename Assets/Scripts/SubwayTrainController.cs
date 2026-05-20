@@ -50,6 +50,21 @@ public class SubwayTrainController : MonoBehaviour
     [Tooltip("İstasyona ulaşmadan önce bekleme süresi")]
     public float initialDelay = 2f;
 
+    // ── Eventler ─────────────────────────────────────────────────────────
+    /// <summary>Tren istasyona ulaştığında. Parametre: kaçıncı duruş (1'den başlar).</summary>
+    public event System.Action<int> OnArrivedAtStop;
+    /// <summary>Kapılar tamamen açıldığında.</summary>
+    public event System.Action OnDoorsOpened;
+    /// <summary>Kapılar kapanmaya başlamadan hemen önce.</summary>
+    public event System.Action OnDoorsClosing;
+    /// <summary>Kapılar kapandı, tren hareket edecek.</summary>
+    public event System.Action OnDeparted;
+    /// <summary>Tren exitPoint'e ulaştı (NPC'ler için despawn anı).</summary>
+    public event System.Action OnReachedExit;
+
+    /// <summary>Kaçıncı kez istasyona durduğunu gösterir (1 = ilk geliş).</summary>
+    public int StopCount { get; private set; }
+
     // Dahili
     private Vector3[] leftDoorClosedPositions;
     private Vector3[] rightDoorClosedPositions;
@@ -94,23 +109,31 @@ public class SubwayTrainController : MonoBehaviour
             if (stopPoint != null)
                 yield return MoveTo(stopPoint.position, arrivalSpeed);
 
+            StopCount++;
+            OnArrivedAtStop?.Invoke(StopCount);
+
             // 2) Kapıları aç
             yield return SlideDoors(open: true);
+            OnDoorsOpened?.Invoke();
 
             // 3) Kapılar açık bekle
             yield return new WaitForSeconds(doorOpenDuration);
 
-            // 4) Kapıları kapat
+            // 4) Kapılar kapanmadan önce NPC'leri uyar
+            OnDoorsClosing?.Invoke();
             yield return SlideDoors(open: false);
 
             // 5) Kapılar kapandıktan 1 saniye sonra hareket et
             yield return new WaitForSeconds(1f);
+            OnDeparted?.Invoke();
 
             // 6) Exit'e git
             if (exitPoint != null)
                 yield return MoveTo(exitPoint.position, departureSpeed);
 
-            // 6) Start'a geri dön (tünel arkasına), sonra tekrarla
+            OnReachedExit?.Invoke();
+
+            // 7) Start'a geri dön (tünel arkasına), sonra tekrarla
             if (startPoint != null)
                 yield return MoveTo(startPoint.position, departureSpeed);
 

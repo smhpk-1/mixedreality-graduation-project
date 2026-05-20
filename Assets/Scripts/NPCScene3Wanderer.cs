@@ -43,6 +43,14 @@ public class NPCScene3Wanderer : MonoBehaviour
     [Range(0f, 1f)] public float neckLookWeight = 0.32f;
     [Range(0f, 1f)] public float headLookWeight = 0.58f;
 
+    [Header("External Control")]
+    [Tooltip("True yapıldığında locomotion dışarıdan yönetilir; animasyon ve baş hareketi devam eder.")]
+    public bool externalControl = false;
+    [Tooltip("externalControl=true iken NPCTrainPassenger tarafından set edilir.")]
+    public float externalSpeed = 0f;
+    [Tooltip("True iken tüm kemik animasyonu durdurulur (tren içinde hareketsiz dururken).")]
+    public bool freezeAnimation = false;
+
     [Header("Procedural Walk")]
     public bool animateBody = true;
     [Min(0.1f)] public float strideFrequency = 1.35f;
@@ -125,10 +133,26 @@ public class NPCScene3Wanderer : MonoBehaviour
 
         PickNewDestination();
         PickNewLookTarget();
+
+        // Play'e basınca anlık kaymağı önlemek için kısa başlangıç durakması
+        BeginPause();
     }
 
     private void Update()
     {
+        // ── Dış kontrol modu (NPCTrainPassenger) ──────────────────────────
+        if (externalControl)
+        {
+            currentSpeed   = externalSpeed;
+            if (!freezeAnimation)
+            {
+                walkedDistance += externalSpeed * Time.deltaTime;
+                UpdateLookTarget();
+            }
+            return;
+        }
+
+        // ── Normal wander modu ────────────────────────────────────────────
         float previousSpeed = currentSpeed;
         Vector3 previousPosition = transform.position;
 
@@ -517,7 +541,7 @@ public class NPCScene3Wanderer : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!hasHumanoidPose)
+        if (!hasHumanoidPose || freezeAnimation)
             return;
 
         ResetPose();
