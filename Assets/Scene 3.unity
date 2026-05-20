@@ -5345,9 +5345,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -7404,9 +7404,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -8070,7 +8070,7 @@ Transform:
   m_GameObject: {fileID: 139802525}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -3.92}
+  m_LocalPosition: {x: -0, y: -0.8, z: -3.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11776,6 +11776,8 @@ MonoBehaviour:
   departureSpeed: 4
   doorOpenDuration: 8
   initialDelay: 2
+  waitForPassengers: 0
+  maxPassengerWaitTime: 60
 --- !u!4 &201443230 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
@@ -14231,9 +14233,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -14898,6 +14900,8 @@ MonoBehaviour:
   departureSpeed: 10
   doorOpenDuration: 5
   initialDelay: 2
+  waitForPassengers: 0
+  maxPassengerWaitTime: 60
 --- !u!43 &266833713
 Mesh:
   m_ObjectHideFlags: 0
@@ -21249,6 +21253,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374081681}
   m_Mesh: {fileID: 4300010, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &375857704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 375857705}
+  m_Layer: 0
+  m_Name: Train_1_Exit_Path
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &375857705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375857704}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -72.02644, y: 15.05022, z: -210.31789}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1451406181}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &377267601
 GameObject:
   m_ObjectHideFlags: 0
@@ -23011,7 +23047,7 @@ Transform:
   m_GameObject: {fileID: 398063606}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3.45}
+  m_LocalPosition: {x: 0, y: -0.8, z: 3.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33696,9 +33732,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -34500,7 +34536,7 @@ Transform:
   m_GameObject: {fileID: 597633380}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 1.244}
+  m_LocalPosition: {x: -0, y: -0.8, z: 1.244}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37375,6 +37411,8 @@ MonoBehaviour:
   departureSpeed: 4
   doorOpenDuration: 8
   initialDelay: 2
+  waitForPassengers: 0
+  maxPassengerWaitTime: 60
 --- !u!114 &648020546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37400,6 +37438,8 @@ MonoBehaviour:
   departureSpeed: 10
   doorOpenDuration: 5
   initialDelay: 2
+  waitForPassengers: 0
+  maxPassengerWaitTime: 60
 --- !u!114 &648020547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37425,6 +37465,8 @@ MonoBehaviour:
   departureSpeed: 10
   doorOpenDuration: 5
   initialDelay: 2
+  waitForPassengers: 0
+  maxPassengerWaitTime: 60
 --- !u!114 &648020548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37450,6 +37492,8 @@ MonoBehaviour:
   departureSpeed: 10
   doorOpenDuration: 5
   initialDelay: 2
+  waitForPassengers: 0
+  maxPassengerWaitTime: 60
 --- !u!4 &649621595
 Transform:
   m_ObjectHideFlags: 0
@@ -41995,7 +42039,7 @@ Transform:
   m_GameObject: {fileID: 715181112}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.137, y: 0, z: -1.193}
+  m_LocalPosition: {x: 0.137, y: -0.8, z: -1.193}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42019,9 +42063,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -43136,7 +43180,7 @@ Transform:
   m_GameObject: {fileID: 742122639}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 8.52}
+  m_LocalPosition: {x: 0, y: -0.8, z: 8.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44581,9 +44625,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -47841,6 +47885,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832625712}
   m_Mesh: {fileID: 4300012, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &835731876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 835731877}
+  m_Layer: 0
+  m_Name: 'Train1_BoardWP_0 '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &835731877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835731876}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -69.26, y: 15.074, z: -197.87}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &842921995
 GameObject:
   m_ObjectHideFlags: 0
@@ -48743,9 +48818,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -51888,9 +51963,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -52283,7 +52358,7 @@ Transform:
   m_GameObject: {fileID: 913425219}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.34}
+  m_LocalPosition: {x: 0, y: -0.8, z: 2.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53672,9 +53747,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -56611,7 +56686,7 @@ Transform:
   m_GameObject: {fileID: 997747292}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.55}
+  m_LocalPosition: {x: 0, y: -0.8, z: 4.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -59746,7 +59821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -70.0657
+      value: -53.88
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -59754,31 +59829,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -199.69482
+      value: -192.25
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.94380623
+      value: 0.99549633
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.063146606
+      value: -0.066605195
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.3236871
+      value: -0.06730977
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.021656705
+      value: -0.00450346
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -7.655
+      value: -7.656
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 397.86
+      value: -7.736
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -62487,9 +62562,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -67674,9 +67749,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -68783,9 +68858,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -70646,9 +70721,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -79025,7 +79100,7 @@ Transform:
   m_GameObject: {fileID: 1381759994}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -6.06}
+  m_LocalPosition: {x: -0, y: -0.8, z: -6.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83718,12 +83793,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451406180}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -72.34057, y: 16.588, z: -211.145}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.026443481, y: 0.009780884, z: -0.8271179}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 375857705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1452638947
 GameObject:
@@ -84415,9 +84490,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -89257,9 +89332,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -91091,7 +91166,7 @@ Transform:
   m_GameObject: {fileID: 1563855367}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -1.94}
+  m_LocalPosition: {x: -0, y: -0.8, z: -1.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -91147,9 +91222,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -93424,9 +93499,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -97960,6 +98035,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696369342}
   m_Mesh: {fileID: 4300012, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &1702096336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1702096337}
+  m_Layer: 0
+  m_Name: Train1_BoardWP_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1702096337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702096336}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -72.33, y: 15.074, z: -211.544}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1703260039
 GameObject:
   m_ObjectHideFlags: 0
@@ -99841,6 +99947,8 @@ MonoBehaviour:
   departureSpeed: 10
   doorOpenDuration: 5
   initialDelay: 2
+  waitForPassengers: 0
+  maxPassengerWaitTime: 60
 --- !u!1 &1740903908
 GameObject:
   m_ObjectHideFlags: 0
@@ -101208,6 +101316,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 307650709}
   m_LocalEulerAnglesHint: {x: -89.981, y: 0, z: -90.00001}
+--- !u!1 &1774615118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1774615119}
+  m_Layer: 0
+  m_Name: Train1_BoardWP_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1774615119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774615118}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -72, y: 15.357, z: -213.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1776807504
 Mesh:
   m_ObjectHideFlags: 0
@@ -101843,7 +101982,7 @@ Transform:
   m_GameObject: {fileID: 1790435388}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -102311,9 +102450,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -102903,6 +103042,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1807657252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1807657253}
+  m_Layer: 0
+  m_Name: Train1_BoardWP_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1807657253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807657252}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -73.32, y: 15.074, z: -206.55}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1808056107
 GameObject:
   m_ObjectHideFlags: 0
@@ -103228,9 +103398,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -108462,9 +108632,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -110989,6 +111159,8 @@ MonoBehaviour:
   departureSpeed: 10
   doorOpenDuration: 5
   initialDelay: 2
+  waitForPassengers: 0
+  maxPassengerWaitTime: 60
 --- !u!4 &1947350106
 Transform:
   m_ObjectHideFlags: 0
@@ -111545,7 +111717,7 @@ Transform:
   m_GameObject: {fileID: 1957328113}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.056, y: 17.741, z: -191.15265}
+  m_LocalPosition: {x: -17.056, y: 17.278, z: -191.15265}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -111665,7 +111837,7 @@ Transform:
   m_GameObject: {fileID: 1961212834}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 6.97}
+  m_LocalPosition: {x: 0, y: -0.8, z: 6.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -116887,9 +117059,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -117030,6 +117202,9 @@ MonoBehaviour:
   - {fileID: 715181113}
   - {fileID: 597633381}
   - {fileID: 1790435389}
+  train1BoardingPath: []
+  train2BoardingPath: []
+  train1ExitPath: []
   exitWaypoint: {fileID: 1451406181}
   stairWaypoints:
   - {fileID: 414989015}
@@ -119825,7 +120000,7 @@ Transform:
   m_GameObject: {fileID: 2117483653}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -7.97}
+  m_LocalPosition: {x: -0, y: -0.8, z: -7.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -120057,9 +120232,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
   boardingPoint: {fileID: 0}
+  boardingPath: []
+  exitPath: []
   fate: 0
-  exitWaypoint: {fileID: 0}
-  stairWaypoints: []
   walkSpeed: 1.8
   stairSpeed: 0.7
   arrivalRadius: 0.55
@@ -121733,8 +121908,12 @@ SceneRoots:
   - {fileID: 129664906}
   - {fileID: 475855856}
   - {fileID: 2073857190}
-  - {fileID: 1451406181}
   - {fileID: 414989015}
   - {fileID: 1883180547}
   - {fileID: 807733167}
   - {fileID: 1957328114}
+  - {fileID: 375857705}
+  - {fileID: 835731877}
+  - {fileID: 1807657253}
+  - {fileID: 1702096337}
+  - {fileID: 1774615119}

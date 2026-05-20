@@ -555,7 +555,11 @@ public class NPCScene3Wanderer : MonoBehaviour
 
         ResetPose();
 
-        float motion = Mathf.Clamp01(currentSpeed / Mathf.Max(0.01f, walkSpeed));
+        // Motion ramp-up'ı hızlandır: NPC 0.4 m/s civarı bir hareket bile yaptığında
+        // bacaklar tam salınımda olsun. Çok düşük hızda (yavaşlama anı) doğal olarak söner.
+        // Bu, NPC hareket etmeye başladığı an "tam yürüyüş" gibi görünmesini sağlar (ayak kayma yok).
+        float speedRatio = currentSpeed / Mathf.Max(0.01f, walkSpeed);
+        float motion = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.05f, 0.35f, speedRatio));
         if (animateBody)
             ApplyProceduralWalk(motion);
 
@@ -595,7 +599,10 @@ public class NPCScene3Wanderer : MonoBehaviour
 
     private void ApplyProceduralWalk(float motion)
     {
-        float phase = walkedDistance * strideFrequency * Mathf.PI * 2f;
+        // Phase'i zamana bağla, walkedDistance'a değil — böylece bacaklar her zaman
+        // "salınmaya hazır" pozisyonda olur. motion=0 iken çarpan sıfır → görünmez.
+        // motion arttığında anında doğru fazda salınmaya başlar (ayak kayma sorununu önler).
+        float phase = Time.time * strideFrequency * Mathf.PI * 2f;
         float stride = Mathf.Sin(phase);
         float doubleStep = Mathf.Abs(Mathf.Sin(phase * 2f));
         float idleBreath = Mathf.Sin(Time.time * 1.4f) * (1f - motion);

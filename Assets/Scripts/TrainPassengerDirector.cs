@@ -1,15 +1,18 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
 /// Scene 3 NPC-Tren koordinatörü.
 ///
-/// Train 1 (Train_Prefab): NPC'ler 1. durakta biner → tren gider → 2. durakta iner →
-///                         TrainExitWaypoint → StairWP_0..3 → fade out
-/// Train 2 (Train_Prefab 2): NPC'ler binince trenle birlikte exit'e gider → fade out
+/// Train 1 (Train_Prefab): NPC'ler 1. durakta train1BoardingPath ile biner →
+///   tren gider → 2. durakta train1ExitPath ile iner ve merdivene çıkar → fade out
+/// Train 2 (Train_Prefab 2): NPC'ler train2BoardingPath ile biner → trenle gider → fade out
 ///
-/// Tren her durakta tüm yolcular trene tamamen binip kendi spotuna varana kadar
-/// kapılarını açık tutar (waitForPassengers). Director her frame yolcuları izler ve
-/// hepsi InsideTrain state'ine ulaştığında trene SignalReadyToClose() gönderir.
+/// Path'ler waypoint zincirleridir — NPC NavMesh kullanmaz, sadece waypoint'leri
+/// sırayla yürür. Bu yüzden kullanıcı yolu istediği gibi (kapıdan içeri vs.) çizebilir.
+///
+/// Tren kapıları, tüm yolcular boarding spot'larına varana kadar açık kalır
+/// (SubwayTrainController.waitForPassengers).
 /// </summary>
 public class TrainPassengerDirector : MonoBehaviour
 {
@@ -17,16 +20,27 @@ public class TrainPassengerDirector : MonoBehaviour
     public SubwayTrainController train1;
     public SubwayTrainController train2;
 
-    [Header("Biniş Noktaları")]
+    [Header("Biniş Noktaları (NPC'lerin tren içindeki spotları)")]
     [Tooltip("Train_Prefab içine yerleştirilmiş Empty objeler — 10 adet")]
     public Transform[] train1BoardingPoints;
     [Tooltip("Train_Prefab 2 içine yerleştirilmiş Empty objeler — 12 adet")]
     public Transform[] train2BoardingPoints;
 
-    [Header("Train 1 İniş & Merdiven")]
-    [Tooltip("Trenden indikten sonra önce gidilecek peron noktası")]
+    [Header("Biniş Yolları (Waypoint zincirleri — peron → kapı → tren içi)")]
+    [Tooltip("Train 1 için biniş yolu — tüm Train 1 NPC'leri bu zinciri sırayla yürür")]
+    public Transform[] train1BoardingPath;
+    [Tooltip("Train 2 için biniş yolu — tüm Train 2 NPC'leri bu zinciri sırayla yürür")]
+    public Transform[] train2BoardingPath;
+
+    [Header("Train 1 İniş Yolu (Yeni — full waypoint chain)")]
+    [Tooltip("Train 1 iniş + merdiven yolu (tren içi → peron → merdiven üstü). " +
+             "Dolu ise aşağıdaki eski Exit Waypoint + Stair Waypoints YERİNE kullanılır.")]
+    public Transform[] train1ExitPath;
+
+    [Header("Eski Alanlar (Geriye Dönük — train1ExitPath boşsa kullanılır)")]
+    [Tooltip("[Eski] Trenden indikten sonra önce gidilecek peron noktası")]
     public Transform exitWaypoint;
-    [Tooltip("Merdiven waypoint'leri: alt → üst (StairWP_0..3)")]
+    [Tooltip("[Eski] Merdiven waypoint'leri: alt → üst (StairWP_0..3)")]
     public Transform[] stairWaypoints;
 
     [Header("NPC Grupları")]
@@ -41,14 +55,17 @@ public class TrainPassengerDirector : MonoBehaviour
 
     private void Start()
     {
+        // ── Train 1 için "full exit path" oluştur ─────────────────────────
+        Transform[] train1FullExit = BuildTrain1ExitPath();
+
         // ── Train 1 NPC yapılandırması ───────────────────────────────────
         for (int i = 0; i < train1Passengers.Length; i++)
         {
             var npc = train1Passengers[i];
             if (npc == null) continue;
-            npc.fate           = NPCTrainPassenger.Fate.ExitAndClimbStair;
-            npc.exitWaypoint   = exitWaypoint;
-            npc.stairWaypoints = stairWaypoints;
+            npc.fate         = NPCTrainPassenger.Fate.ExitAndClimbStair;
+            npc.boardingPath = train1BoardingPath;
+            npc.exitPath     = train1FullExit;
 
             if (train1BoardingPoints != null && train1BoardingPoints.Length > 0)
                 npc.boardingPoint = train1BoardingPoints[i % train1BoardingPoints.Length];
@@ -59,7 +76,9 @@ public class TrainPassengerDirector : MonoBehaviour
         {
             var npc = train2Passengers[i];
             if (npc == null) continue;
-            npc.fate = NPCTrainPassenger.Fate.DespawnWithTrain;
+            npc.fate         = NPCTrainPassenger.Fate.DespawnWithTrain;
+            npc.boardingPath = train2BoardingPath;
+            // Train 2 NPC'leri inmez → exitPath gerekmiyor
 
             if (train2BoardingPoints != null && train2BoardingPoints.Length > 0)
                 npc.boardingPoint = train2BoardingPoints[i % train2BoardingPoints.Length];
@@ -78,6 +97,19 @@ public class TrainPassengerDirector : MonoBehaviour
             train2.OnArrivedAtStop += OnTrain2ArrivedAtStop;
             train2.OnReachedExit   += OnTrain2ReachedExit;
         }
+    }
+
+    private Transform[] BuildTrain1ExitPath()
+    {
+        // train1ExitPath doluysa direkt kullan
+        if (train1ExitPath != null && train1ExitPath.Length > 0)
+            return train1ExitPath;
+
+        // Yoksa eski alanlardan birleştir: exitWaypoint + stairWaypoints
+        var list = new List<Transform>();
+        if (exitWaypoint != null) list.Add(exitWaypoint);
+        if (stairWaypoints != null) list.AddRange(stairWaypoints);
+        return list.ToArray();
     }
 
     private void OnDestroy()
@@ -131,9 +163,8 @@ public class TrainPassengerDirector : MonoBehaviour
         else if (stopCount == 2)
         {
             foreach (var npc in train1Passengers)
-                npc?.StartExiting(exitWaypoint, stairWaypoints);
-            // 2. durakta inenler için "kapanmaya hazır" sinyali — kimse binmiyor
-            // doorOpenDuration sonrası sinyal ver ki tren beklemesin
+                npc?.StartExiting(BuildTrain1ExitPath());
+            // 2. durakta kimse binmediği için kapı bekleme süresi kısa olsun
             Invoke(nameof(SignalTrain1ReadyToClose), 1f);
         }
     }
@@ -155,5 +186,29 @@ public class TrainPassengerDirector : MonoBehaviour
     {
         foreach (var npc in train2Passengers)
             npc?.DespawnWithTrain();
+    }
+
+    // ── Gizmo: Scene view'da path'leri göster ────────────────────────────
+    private void OnDrawGizmos()
+    {
+        DrawPath(train1BoardingPath, new Color(0.2f, 0.6f, 1f, 0.9f));
+        DrawPath(train2BoardingPath, new Color(0.5f, 0.8f, 0.2f, 0.9f));
+        DrawPath(train1ExitPath != null && train1ExitPath.Length > 0
+                 ? train1ExitPath
+                 : BuildTrain1ExitPath(),
+                 new Color(1f, 0.6f, 0.1f, 0.9f));
+    }
+
+    private static void DrawPath(Transform[] path, Color color)
+    {
+        if (path == null || path.Length == 0) return;
+        Gizmos.color = color;
+        for (int i = 0; i < path.Length; i++)
+        {
+            if (path[i] == null) continue;
+            Gizmos.DrawSphere(path[i].position, 0.18f);
+            if (i > 0 && path[i - 1] != null)
+                Gizmos.DrawLine(path[i - 1].position, path[i].position);
+        }
     }
 }
