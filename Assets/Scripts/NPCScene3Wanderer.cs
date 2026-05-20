@@ -182,7 +182,9 @@ public class NPCScene3Wanderer : MonoBehaviour
             agent = gameObject.AddComponent<NavMeshAgent>();
 
         agent.speed = walkSpeed;
-        agent.acceleration = acceleration * 2f;
+        // Yüksek acceleration: NavMeshAgent fiziksel hızı hemen toplasın,
+        // procedural walk ile senkron başlasın (kaymayı önler)
+        agent.acceleration = 60f;
         agent.angularSpeed = 360f;
         agent.stoppingDistance = stoppingDistance;
         agent.autoBraking = true;
@@ -225,7 +227,12 @@ public class NPCScene3Wanderer : MonoBehaviour
         if (desired.sqrMagnitude > 0.01f)
             RotateTowards(desired.normalized);
 
-        currentSpeed = Mathf.MoveTowards(currentSpeed, Mathf.Min(desired.magnitude, walkSpeed), acceleration * Time.deltaTime);
+        // currentSpeed'i agent'ın GERÇEK velocity'sine bağla — smoothing yok.
+        // Bu sayede NPC fiziksel olarak hareket ettiği anda procedural walk da
+        // tam motion'da animasyona başlar (ayak kayma sorununu önler).
+        Vector3 actual = agent.velocity;
+        actual.y = 0f;
+        currentSpeed = actual.magnitude;
 
         if (!agent.pathPending && agent.remainingDistance <= stoppingDistance)
             BeginPause();

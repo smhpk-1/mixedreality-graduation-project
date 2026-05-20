@@ -6,6 +6,10 @@ using UnityEngine;
 /// Train 1 (Train_Prefab): NPC'ler 1. durakta biner → tren gider → 2. durakta iner →
 ///                         TrainExitWaypoint → StairWP_0..3 → fade out
 /// Train 2 (Train_Prefab 2): NPC'ler binince trenle birlikte exit'e gider → fade out
+///
+/// Tren her durakta tüm yolcular trene tamamen binip kendi spotuna varana kadar
+/// kapılarını açık tutar (waitForPassengers). Director her frame yolcuları izler ve
+/// hepsi InsideTrain state'ine ulaştığında trene SignalReadyToClose() gönderir.
 /// </summary>
 public class TrainPassengerDirector : MonoBehaviour
 {
@@ -30,6 +34,10 @@ public class TrainPassengerDirector : MonoBehaviour
     public NPCTrainPassenger[] train1Passengers;
     [Tooltip("Train 2'ye binecek NPC'ler (12 adet)")]
     public NPCTrainPassenger[] train2Passengers;
+
+    // İzleme: hangi tren şu an "tüm yolcular bindi mi?" diye bekleniyor
+    private bool watchingTrain1Boarding = false;
+    private bool watchingTrain2Boarding = false;
 
     private void Start()
     {
@@ -57,6 +65,10 @@ public class TrainPassengerDirector : MonoBehaviour
                 npc.boardingPoint = train2BoardingPoints[i % train2BoardingPoints.Length];
         }
 
+        // ── Trenleri yolcu bekleme moduna al ─────────────────────────────
+        if (train1 != null) train1.waitForPassengers = true;
+        if (train2 != null) train2.waitForPassengers = true;
+
         // ── Event aboneliği ──────────────────────────────────────────────
         if (train1 != null)
             train1.OnArrivedAtStop += OnTrain1ArrivedAtStop;
@@ -80,21 +92,53 @@ public class TrainPassengerDirector : MonoBehaviour
         }
     }
 
+    // ── Her frame: boarding tamamlandı mı kontrol et ─────────────────────
+    private void Update()
+    {
+        if (watchingTrain1Boarding && AllInsideTrain(train1Passengers))
+        {
+            watchingTrain1Boarding = false;
+            train1?.SignalReadyToClose();
+        }
+        if (watchingTrain2Boarding && AllInsideTrain(train2Passengers))
+        {
+            watchingTrain2Boarding = false;
+            train2?.SignalReadyToClose();
+        }
+    }
+
+    private static bool AllInsideTrain(NPCTrainPassenger[] passengers)
+    {
+        if (passengers == null || passengers.Length == 0) return true;
+        foreach (var npc in passengers)
+        {
+            if (npc == null) continue;
+            if (npc.CurrentState != NPCTrainPassenger.State.InsideTrain)
+                return false;
+        }
+        return true;
+    }
+
     // ── Train 1: iki duraklı senaryo ──────────────────────────────────────
-    // 1. durak → biniş başlasın.   2. durak → iniş başlasın (merdivenden çıkış).
     private void OnTrain1ArrivedAtStop(int stopCount)
     {
         if (stopCount == 1)
         {
             foreach (var npc in train1Passengers)
                 npc?.StartBoarding(train1.transform);
+            watchingTrain1Boarding = true;
         }
         else if (stopCount == 2)
         {
             foreach (var npc in train1Passengers)
                 npc?.StartExiting(exitWaypoint, stairWaypoints);
+            // 2. durakta inenler için "kapanmaya hazır" sinyali — kimse binmiyor
+            // doorOpenDuration sonrası sinyal ver ki tren beklemesin
+            Invoke(nameof(SignalTrain1ReadyToClose), 1f);
         }
     }
+
+    private void SignalTrain1ReadyToClose() => train1?.SignalReadyToClose();
 
     // ── Train 2: tek yön senaryosu ────────────────────────────────────────
     private void OnTrain2ArrivedAtStop(int stopCount)
@@ -103,6 +147,7 @@ public class TrainPassengerDirector : MonoBehaviour
         {
             foreach (var npc in train2Passengers)
                 npc?.StartBoarding(train2.transform);
+            watchingTrain2Boarding = true;
         }
     }
 

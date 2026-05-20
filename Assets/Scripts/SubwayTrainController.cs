@@ -44,11 +44,26 @@ public class SubwayTrainController : MonoBehaviour
     [Tooltip("İstasyondan çıkış hızı")]
     public float departureSpeed = 10f;
 
-    [Tooltip("Kapılar açık kalma süresi (saniye) — NPC'lerin trene yetişmesi için yeterli olmalı")]
-    public float doorOpenDuration = 8f;
+    [Tooltip("Kapılar açık kalma süresi — minimum bekleme süresi. waitForPassengers açıksa bu süreden sonra da yolcuları bekler.")]
+    public float doorOpenDuration = 4f;
 
     [Tooltip("İstasyona ulaşmadan önce bekleme süresi")]
     public float initialDelay = 2f;
+
+    [Header("Yolcu Bekleme Modu")]
+    [Tooltip("Açıksa: kapılar açıldıktan sonra Director SignalReadyToClose() çağırana kadar bekler. Kapalıysa: sadece doorOpenDuration kadar bekler.")]
+    public bool waitForPassengers = false;
+
+    [Tooltip("waitForPassengers açıkken maksimum bekleme süresi (saniye). Bu süreyi aşarsa tren yine hareket eder.")]
+    public float maxPassengerWaitTime = 60f;
+
+    private bool readyToClose = false;
+
+    /// <summary>Director çağırır: tüm yolcular bindi, tren kapanıp gidebilir.</summary>
+    public void SignalReadyToClose()
+    {
+        readyToClose = true;
+    }
 
     // ── Eventler ─────────────────────────────────────────────────────────
     /// <summary>Tren istasyona ulaştığında. Parametre: kaçıncı duruş (1'den başlar).</summary>
@@ -116,10 +131,23 @@ public class SubwayTrainController : MonoBehaviour
             yield return SlideDoors(open: true);
             OnDoorsOpened?.Invoke();
 
-            // 3) Kapılar açık bekle
+            // 3) Minimum bekleme (NPC'lerin yola çıkması için)
             yield return new WaitForSeconds(doorOpenDuration);
 
-            // 4) Kapılar kapanmadan önce NPC'leri uyar
+            // 4) Yolcu bekleme modu: Director SignalReadyToClose() çağırana kadar bekle
+            if (waitForPassengers)
+            {
+                readyToClose = false;
+                float waited = 0f;
+                while (!readyToClose && waited < maxPassengerWaitTime)
+                {
+                    waited += Time.deltaTime;
+                    yield return null;
+                }
+                readyToClose = false; // sonraki durak için sıfırla
+            }
+
+            // 5) Kapılar kapanmadan önce NPC'leri uyar
             OnDoorsClosing?.Invoke();
             yield return SlideDoors(open: false);
 
