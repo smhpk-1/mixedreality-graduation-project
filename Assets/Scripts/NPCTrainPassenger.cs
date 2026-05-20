@@ -4,42 +4,33 @@ using UnityEngine.AI;
 
 /// <summary>
 /// Metro yolcu NPC'si.
-/// 
-/// Senaryo:
-///   Wandering  → (Director çağırır StartBoarding) → WalkToBoard → InsideTrain
-///   InsideTrain → (Director çağırır StartExiting)  → Exiting → WalkToStair → ClimbStair → Done
-///   InsideTrain → (Director çağırır DespawnWithTrain) → Done (fade + destroy)
-/// 
-/// boardingPoint : Tren içindeki hedef nokta (Empty Transform). Tren durakken
-///                 world-space pozisyonu NPC'nin yürüyeceği yer olur.
-/// exitWaypoint  : Trenden inerken önce gidilecek peron noktası.
-/// stairWaypoints: Merdiveni tırmanan waypoint zinciri (alt → üst).
+///
+/// Wandering  → StartBoarding()        → WalkToBoard → InsideTrain
+/// InsideTrain → StartExiting()         → Exiting → WalkToStair → ClimbStair → Done
+/// InsideTrain → DespawnWithTrain()     → Done (fade + destroy)
 /// </summary>
 public class NPCTrainPassenger : MonoBehaviour
 {
     public enum Fate
     {
-        ExitAndClimbStair,   // Train_Prefab grubu: iner, merdiveni çıkar, yok olur
-        DespawnWithTrain     // Train_Prefab 2 grubu: trenle birlikte kaybolur
+        ExitAndClimbStair,
+        DespawnWithTrain
     }
 
     [Header("Atama")]
-    public Transform  boardingPoint;  // Tren içindeki boş obje (tren durunca world-pos'u hedef)
+    public Transform  boardingPoint;
     public Fate       fate = Fate.ExitAndClimbStair;
 
     [Header("Çıkış (Fate = ExitAndClimbStair)")]
-    [Tooltip("Trenden indikten sonra önce gidilecek peron noktası")]
-    public Transform  exitWaypoint;
-    [Tooltip("Merdiven waypoint zinciri: alt noktadan üst noktaya sırayla")]
+    public Transform   exitWaypoint;
     public Transform[] stairWaypoints;
 
     [Header("Ayarlar")]
-    public float walkSpeed       = 1.2f;
-    public float stairSpeed      = 0.7f;
+    public float walkSpeed       = 1.4f;
+    public float stairSpeed      = 0.9f;
     public float arrivalRadius   = 0.55f;
     public float fadeOutDuration = 1.4f;
 
-    // ── İç durum ─────────────────────────────────────────────────────────
     public enum State
     {
         Wandering, WalkToBoard, InsideTrain,
@@ -51,19 +42,16 @@ public class NPCTrainPassenger : MonoBehaviour
     private NavMeshAgent      nav;
     private NPCScene3Wanderer wanderer;
     private Renderer[]        renderers;
-    private Transform         boardingTrainTransform; // Director'dan gelir
+    private Transform         boardingTrainTransform;
 
-    // ── Başlangıç ────────────────────────────────────────────────────────
     private void Awake()
     {
-        nav       = GetComponent<NavMeshAgent>();
         wanderer  = GetComponent<NPCScene3Wanderer>();
         renderers = GetComponentsInChildren<Renderer>(true);
     }
 
     // ── Dışarıdan tetikleyiciler ─────────────────────────────────────────
 
-    /// <summary>Director tarafından: NPC trene binmeye başlasın.</summary>
     public void StartBoarding(Transform trainTransform = null)
     {
         if (CurrentState != State.Wandering) return;
@@ -72,11 +60,10 @@ public class NPCTrainPassenger : MonoBehaviour
             Debug.LogWarning($"[NPCTrainPassenger] {name}: boardingPoint atanmamış!", this);
             return;
         }
-        boardingTrainTransform = trainTransform; // tren parent'ı sakla
+        boardingTrainTransform = trainTransform;
         StartCoroutine(BoardingCoroutine());
     }
 
-    /// <summary>Director tarafından (Train_Prefab grubu): NPC insin ve merdivene gitsin.</summary>
     public void StartExiting(Transform overrideExitWaypoint = null, Transform[] overrideStairWaypoints = null)
     {
         if (CurrentState != State.InsideTrain) return;
@@ -85,7 +72,6 @@ public class NPCTrainPassenger : MonoBehaviour
         StartCoroutine(ExitCoroutine());
     }
 
-    /// <summary>Director tarafından (Train_Prefab 2 grubu): tren sahneden çıkınca kaybol.</summary>
     public void DespawnWithTrain()
     {
         if (CurrentState == State.Done) return;
@@ -98,50 +84,56 @@ public class NPCTrainPassenger : MonoBehaviour
     private IEnumerator BoardingCoroutine()
     {
         CurrentState = State.WalkToBoard;
-        // Locomotion'ı durdur ama animasyon (LateUpdate) devam etsin
-        if (wanderer != null) wanderer.externalControl = true;
 
-        // nav null olabilir (NPCScene3Wanderer Start'ta ekler) — geç al
-        if (nav == null) nav = GetComponent<NavMeshAgent>();
+        // Wanderer'ı dış kontrolde tut — locomotion durur, animasyon devam eder
+        if (wanderer != null)
+        {
+            wanderer.externalControl = true;
+            wanderer.externalSpeed   = walkSpeed;
+            wanderer.freezeAnimation = false;
+        }
 
-        // Hedefe hemen dön — vucüt ve yüz trene baksın
-        Vector3 initialDir = boardingPoint.position - transform.position;
-        initialDir.y = 0f;
-        if (initialDir.sqrMagnitude > 0.01f)
-            transform.rotation = Quaternion.LookRotation(initialDir.normalized);
+        nav = GetComponent<NavMeshAgent>();
+
+        // Hedefe anında dön
+        Vector3 toBoard = boardingPoint.position - transform.position;
+        toBoard.y = 0f;
+        if (toBoard.sqrMagnitude > 0.01f)
+            transform.rotation = Quaternion.LookRotation(toBoard.normalized);
 
         EnableNav(true);
         if (nav != null) nav.speed = walkSpeed;
         if (nav != null && nav.isOnNavMesh) nav.SetDestination(boardingPoint.position);
 
-        // NavMesh üzerinde ilerle; her frame hedefi güncelle (tren sabit de olsa)
         while (true)
         {
-            Vector3 destination = boardingPoint.position; // her frame taze pozisyon
-            float dist = FlatDist(transform.position, destination);
-            if (dist <= arrivalRadius) break;
+            Vector3 destination = boardingPoint.position;
+            if (FlatDist(transform.position, destination) <= arrivalRadius) break;
 
-            // Her zaman hedefe bak (NavMesh aktif olsun ya da olmasın)
             RotateToward(destination);
 
-            // NavMesh path geçersizse veya NavMesh yoksa direkt yürü
-            if (nav == null || !nav.enabled || !nav.isOnNavMesh || !nav.hasPath || nav.pathStatus == NavMeshPathStatus.PathInvalid)
-            {
-                if (nav != null && nav.isOnNavMesh) nav.SetDestination(destination);
-                DirectStep(destination, walkSpeed);
-            }
+            bool navUsable = nav != null && nav.enabled && nav.isOnNavMesh
+                          && nav.pathStatus != NavMeshPathStatus.PathInvalid;
 
-            // Wanderer'a anlık hızı besle (animasyon için)
-            if (wanderer != null)
-                wanderer.externalSpeed = (nav != null && nav.enabled && nav.isOnNavMesh) ? Mathf.Max(nav.velocity.magnitude, 0.1f) : walkSpeed;
+            if (navUsable)
+            {
+                nav.SetDestination(destination);
+                if (wanderer != null)
+                    wanderer.externalSpeed = Mathf.Max(nav.velocity.magnitude, 0.4f);
+            }
+            else
+            {
+                DirectStep(destination, walkSpeed);
+                if (wanderer != null) wanderer.externalSpeed = walkSpeed;
+            }
 
             yield return null;
         }
 
-        // Trene parentla — Director'dan gelen transform öncelikli, yoksa boardingPoint zinciri
+        // Trene parent et — NPC trenle birlikte hareket eder
         Transform parent = boardingTrainTransform
                         ?? (boardingPoint.parent != null ? boardingPoint.parent : boardingPoint);
-        transform.SetParent(parent);
+        transform.SetParent(parent, worldPositionStays: true);
         EnableNav(false);
 
         // boardingPoint'in baktığı yöne dön
@@ -150,49 +142,50 @@ public class NPCTrainPassenger : MonoBehaviour
         if (faceDir.sqrMagnitude > 0.001f)
             transform.rotation = Quaternion.LookRotation(faceDir);
 
-        // Trenin içinde: tüm animasyonu dondur (hareketsiz yolcu)
+        // Trenin içinde: kemik animasyonu da dur (hareketsiz yolcu)
         if (wanderer != null)
         {
-            wanderer.externalSpeed    = 0f;
-            wanderer.freezeAnimation  = true;
+            wanderer.externalSpeed   = 0f;
+            wanderer.freezeAnimation = true;
         }
         CurrentState = State.InsideTrain;
     }
 
-    // ── Coroutine: Çıkış + Merdiven ─────────────────────────────────────
+    // ── Coroutine: Çıkış + Merdiven ──────────────────────────────────────
     private IEnumerator ExitCoroutine()
     {
         // Trenden ayrıl
-        transform.SetParent(null);
+        transform.SetParent(null, worldPositionStays: true);
         CurrentState = State.Exiting;
 
-        EnableNav(true);
-        nav.speed = walkSpeed;
-        // Animasyonu aç, tekrar yürüme animasyonu
         if (wanderer != null)
         {
             wanderer.freezeAnimation = false;
-            wanderer.externalSpeed = walkSpeed;
+            wanderer.externalControl = true;
+            wanderer.externalSpeed   = walkSpeed;
         }
+
+        EnableNav(true);
+        if (nav != null) nav.speed = walkSpeed;
 
         // Peron çıkış noktasına git
         if (exitWaypoint != null)
         {
-            if (nav.isOnNavMesh) nav.SetDestination(exitWaypoint.position);
+            if (nav != null && nav.isOnNavMesh) nav.SetDestination(exitWaypoint.position);
             yield return WalkUntilArrival(exitWaypoint.position, walkSpeed);
         }
 
         // Merdiven waypoint'lerini sırayla geç
-        CurrentState = State.WalkToStair;
-        if (stairWaypoints != null)
+        if (stairWaypoints != null && stairWaypoints.Length > 0)
         {
             CurrentState = State.ClimbStair;
-            nav.speed = stairSpeed;
+            if (nav != null) nav.speed = stairSpeed;
             if (wanderer != null) wanderer.externalSpeed = stairSpeed;
+
             foreach (Transform wp in stairWaypoints)
             {
                 if (wp == null) continue;
-                if (nav.isOnNavMesh) nav.SetDestination(wp.position);
+                if (nav != null && nav.isOnNavMesh) nav.SetDestination(wp.position);
                 yield return WalkUntilArrival(wp.position, stairSpeed);
             }
         }
@@ -201,25 +194,32 @@ public class NPCTrainPassenger : MonoBehaviour
         yield return FadeAndDestroy();
     }
 
-    // ── Yardımcı: hedefe ulaşana kadar bekle ────────────────────────────
+    // ── Yardımcılar ──────────────────────────────────────────────────────
+
     private IEnumerator WalkUntilArrival(Vector3 destination, float speed)
     {
         while (FlatDist(transform.position, destination) > arrivalRadius)
         {
             RotateToward(destination);
 
-            if (!nav.hasPath || nav.pathStatus == NavMeshPathStatus.PathInvalid)
-                DirectStep(destination, speed);
+            bool navUsable = nav != null && nav.enabled && nav.isOnNavMesh
+                          && nav.pathStatus != NavMeshPathStatus.PathInvalid;
 
-            // Anlık hız → animasyon
-            if (wanderer != null)
-                wanderer.externalSpeed = nav.enabled ? nav.velocity.magnitude : speed;
+            if (navUsable)
+            {
+                if (wanderer != null)
+                    wanderer.externalSpeed = Mathf.Max(nav.velocity.magnitude, 0.4f);
+            }
+            else
+            {
+                DirectStep(destination, speed);
+                if (wanderer != null) wanderer.externalSpeed = speed;
+            }
 
             yield return null;
         }
     }
 
-    // ── Yardımcı: hedefe bak ─────────────────────────────────────────────
     private void RotateToward(Vector3 target)
     {
         Vector3 dir = target - transform.position;
@@ -228,56 +228,61 @@ public class NPCTrainPassenger : MonoBehaviour
             transform.rotation = Quaternion.Slerp(
                 transform.rotation,
                 Quaternion.LookRotation(dir.normalized),
-                6f * Time.deltaTime);
+                8f * Time.deltaTime);
     }
 
-    // ── Yardımcı: NavMesh olmadan adım at ───────────────────────────────
     private void DirectStep(Vector3 target, float speed)
     {
-        Vector3 dir = (target - transform.position);
+        Vector3 dir = target - transform.position;
         dir.y = 0f;
         if (dir.sqrMagnitude > 0.001f)
-        {
             transform.rotation = Quaternion.Slerp(
                 transform.rotation,
                 Quaternion.LookRotation(dir.normalized),
-                8f * Time.deltaTime);
-        }
+                10f * Time.deltaTime);
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
 
-    // ── Yardımcı: NavMeshAgent aç/kapa ───────────────────────────────────
     private void EnableNav(bool active)
     {
         if (nav == null) return;
-        if (active && !nav.isOnNavMesh)
+        if (active)
         {
-            // NavMesh üzerinde değilse en yakın noktaya itetle
-            if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 2f, NavMesh.AllAreas))
+            if (!nav.isOnNavMesh &&
+                NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 3f, NavMesh.AllAreas))
+            {
                 transform.position = hit.position;
+            }
         }
         nav.enabled = active;
     }
 
-    // ── Yardımcı: Fade + Destroy ─────────────────────────────────────────
+    // ── Fade + Destroy ───────────────────────────────────────────────────
     private IEnumerator FadeAndDestroy()
     {
-        float elapsed = 0f;
-        // Renderer'ların başlangıç alpha'larını kaydet
+        // Renderer materyallerini transparency'ye al
         float[] startAlphas = new float[renderers.Length];
         for (int i = 0; i < renderers.Length; i++)
         {
             if (renderers[i] == null) continue;
             Material mat = renderers[i].material;
-            // URP'de _BaseColor, Standard'da _Color
             Color c = mat.HasProperty("_BaseColor") ? mat.GetColor("_BaseColor") : mat.color;
             startAlphas[i] = c.a;
-            // Transparency'yi aç
-            mat.SetFloat("_Surface", 1f);        // URP Transparent
-            mat.EnableKeyword("_ALPHAPREMULTIPLY_ON");
+            // URP Lit: _Surface=1 transparent. Standart shader'da da harmsız.
+            if (mat.HasProperty("_Surface"))
+            {
+                mat.SetFloat("_Surface", 1f);
+                mat.SetFloat("_Blend", 0f);
+                mat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                mat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                mat.SetInt("_ZWrite", 0);
+                mat.DisableKeyword("_SURFACE_TYPE_OPAQUE");
+                mat.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
+            }
             mat.renderQueue = 3000;
         }
 
+        float elapsed = 0f;
         while (elapsed < fadeOutDuration)
         {
             elapsed += Time.deltaTime;
@@ -305,7 +310,6 @@ public class NPCTrainPassenger : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // ── Yardımcı ─────────────────────────────────────────────────────────
     private static float FlatDist(Vector3 a, Vector3 b)
     {
         a.y = b.y = 0f;

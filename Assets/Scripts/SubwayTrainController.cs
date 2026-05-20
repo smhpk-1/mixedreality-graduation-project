@@ -10,7 +10,7 @@ public class SubwayTrainController : MonoBehaviour
 {
     [Header("Mod")]
     [Tooltip("İşaretliyse tren sabit durur, hareket etmez.")]
-    public bool staticMode = true;
+    public bool staticMode = false;
 
     [Header("Kayan Kapılar")]
     [Tooltip("Sol taraftaki kapı panelleri — açılınca slideLocalAxis negatif yönde kayar")]
@@ -44,8 +44,8 @@ public class SubwayTrainController : MonoBehaviour
     [Tooltip("İstasyondan çıkış hızı")]
     public float departureSpeed = 10f;
 
-    [Tooltip("Kapılar açık kalma süresi (saniye)")]
-    public float doorOpenDuration = 5f;
+    [Tooltip("Kapılar açık kalma süresi (saniye) — NPC'lerin trene yetişmesi için yeterli olmalı")]
+    public float doorOpenDuration = 8f;
 
     [Tooltip("İstasyona ulaşmadan önce bekleme süresi")]
     public float initialDelay = 2f;

@@ -267,7 +267,9 @@ public class NPCScene3Wanderer : MonoBehaviour
         RotateTowards(desiredDirection);
 
         currentSpeed = Mathf.MoveTowards(currentSpeed, targetSegmentSpeed, acceleration * Time.deltaTime);
-        Vector3 nextPosition = transform.position + transform.forward * currentSpeed * Time.deltaTime;
+        // forward yerine desiredDirection kullan: NPC daha dönmemişken yan/geri kaymayı önler
+        Vector3 moveDir = Vector3.Dot(transform.forward, desiredDirection) > 0.3f ? transform.forward : desiredDirection;
+        Vector3 nextPosition = transform.position + moveDir * currentSpeed * Time.deltaTime;
 
         if (TryProjectToGround(nextPosition, out Vector3 grounded))
             nextPosition = grounded;

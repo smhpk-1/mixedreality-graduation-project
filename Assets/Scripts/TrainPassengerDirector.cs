@@ -2,45 +2,38 @@ using UnityEngine;
 
 /// <summary>
 /// Scene 3 NPC-Tren koordinatörü.
-/// 
-/// Atama:
-///   train1Passengers → Train_Prefab ile gider, döner, Stair_1'den çıkar
-///   train2Passengers → Train_Prefab 2 ile gider, sahneden kaybolur
 ///
-/// Inspector kurulum:
-///   1) train1 = Train_Prefab'in SubwayTrainController'ı
-///   2) train2 = Train_Prefab 2'nin SubwayTrainController'ı
-///   3) train1BoardingPoint / train2BoardingPoint = Tren içinde boş obje
-///   4) exitWaypoint = Trenden indikten sonra gidilecek peron noktası
-///   5) stairWaypoints = Stair_1 merdiven waypoint zinciri (alt → üst)
-///   6) train1Passengers / train2Passengers = Sahnedeki NPC listesi
+/// Train 1 (Train_Prefab): NPC'ler 1. durakta biner → tren gider → 2. durakta iner →
+///                         TrainExitWaypoint → StairWP_0..3 → fade out
+/// Train 2 (Train_Prefab 2): NPC'ler binince trenle birlikte exit'e gider → fade out
 /// </summary>
 public class TrainPassengerDirector : MonoBehaviour
 {
     [Header("Trenler")]
-    public SubwayTrainController train1; // Dönen tren (Exit + Stair)
-    public SubwayTrainController train2; // Tek yön tren (Despawn)
+    public SubwayTrainController train1;
+    public SubwayTrainController train2;
 
     [Header("Biniş Noktaları")]
-    [Tooltip("Train_Prefab içine yerleştirilmiş boş objeler — her NPC farklı noktaya gider")]
+    [Tooltip("Train_Prefab içine yerleştirilmiş Empty objeler — 10 adet")]
     public Transform[] train1BoardingPoints;
-    [Tooltip("Train_Prefab 2 içine yerleştirilmiş boş objeler")]
+    [Tooltip("Train_Prefab 2 içine yerleştirilmiş Empty objeler — 12 adet")]
     public Transform[] train2BoardingPoints;
 
-    [Header("İniş & Merdiven (Train_Prefab grubu)")]
+    [Header("Train 1 İniş & Merdiven")]
     [Tooltip("Trenden indikten sonra önce gidilecek peron noktası")]
     public Transform exitWaypoint;
-    [Tooltip("Stair_1 merdiven waypoint'leri: alt → üst sırayla")]
+    [Tooltip("Merdiven waypoint'leri: alt → üst (StairWP_0..3)")]
     public Transform[] stairWaypoints;
 
     [Header("NPC Grupları")]
+    [Tooltip("Train 1'e binecek NPC'ler (10 adet)")]
     public NPCTrainPassenger[] train1Passengers;
+    [Tooltip("Train 2'ye binecek NPC'ler (12 adet)")]
     public NPCTrainPassenger[] train2Passengers;
 
-    // ── Başlangıç ────────────────────────────────────────────────────────
     private void Start()
     {
-        // Train1 NPC'lerini yapılandır — her birine farklı boarding noktası
+        // ── Train 1 NPC yapılandırması ───────────────────────────────────
         for (int i = 0; i < train1Passengers.Length; i++)
         {
             var npc = train1Passengers[i];
@@ -53,7 +46,7 @@ public class TrainPassengerDirector : MonoBehaviour
                 npc.boardingPoint = train1BoardingPoints[i % train1BoardingPoints.Length];
         }
 
-        // Train2 NPC'lerini yapılandır — her birine farklı boarding noktası
+        // ── Train 2 NPC yapılandırması ───────────────────────────────────
         for (int i = 0; i < train2Passengers.Length; i++)
         {
             var npc = train2Passengers[i];
@@ -64,50 +57,31 @@ public class TrainPassengerDirector : MonoBehaviour
                 npc.boardingPoint = train2BoardingPoints[i % train2BoardingPoints.Length];
         }
 
-        // Train1 event'leri
+        // ── Event aboneliği ──────────────────────────────────────────────
         if (train1 != null)
-        {
-            train1.OnDoorsOpened  += OnTrain1DoorsOpened;
             train1.OnArrivedAtStop += OnTrain1ArrivedAtStop;
-            train1.OnReachedExit  += OnTrain1ReachedExit;
-        }
 
-        // Train2 event'leri
         if (train2 != null)
         {
-            train2.OnDoorsOpened  += OnTrain2DoorsOpened;
-            train2.OnReachedExit  += OnTrain2ReachedExit;
+            train2.OnArrivedAtStop += OnTrain2ArrivedAtStop;
+            train2.OnReachedExit   += OnTrain2ReachedExit;
         }
     }
 
     private void OnDestroy()
     {
         if (train1 != null)
-        {
-            train1.OnDoorsOpened   -= OnTrain1DoorsOpened;
             train1.OnArrivedAtStop -= OnTrain1ArrivedAtStop;
-            train1.OnReachedExit   -= OnTrain1ReachedExit;
-        }
+
         if (train2 != null)
         {
-            train2.OnDoorsOpened  -= OnTrain2DoorsOpened;
-            train2.OnReachedExit  -= OnTrain2ReachedExit;
+            train2.OnArrivedAtStop -= OnTrain2ArrivedAtStop;
+            train2.OnReachedExit   -= OnTrain2ReachedExit;
         }
     }
 
-    // ── Train 1 event handler'ları ────────────────────────────────────────
-
-    /// <summary>
-    /// Tren durdu → NPC'ler kapı açılmadan önce yürümeye başlasın (daha fazla süre).
-    /// </summary>
-    private void OnTrain1DoorsOpened()
-    {
-        // Kapı açıldığında boarding OnArrivedAtStop'ta zaten başladı, ek işlem yok.
-    }
-
-    /// <summary>
-    /// Tren durağa vardı → NPC'ler hemen yürümeye başlasın (kapı açılmadan önce).
-    /// </summary>
+    // ── Train 1: iki duraklı senaryo ──────────────────────────────────────
+    // 1. durak → biniş başlasın.   2. durak → iniş başlasın (merdivenden çıkış).
     private void OnTrain1ArrivedAtStop(int stopCount)
     {
         if (stopCount == 1)
@@ -115,27 +89,23 @@ public class TrainPassengerDirector : MonoBehaviour
             foreach (var npc in train1Passengers)
                 npc?.StartBoarding(train1.transform);
         }
+        else if (stopCount == 2)
+        {
+            foreach (var npc in train1Passengers)
+                npc?.StartExiting(exitWaypoint, stairWaypoints);
+        }
     }
 
-    /// <summary>
-    /// Train1 çıkış noktasına ulaştı → tüm Train1 NPC'leri trenle birlikte kaybolur.
-    /// </summary>
-    private void OnTrain1ReachedExit()
+    // ── Train 2: tek yön senaryosu ────────────────────────────────────────
+    private void OnTrain2ArrivedAtStop(int stopCount)
     {
-        foreach (var npc in train1Passengers)
-            npc?.DespawnWithTrain();
+        if (stopCount == 1)
+        {
+            foreach (var npc in train2Passengers)
+                npc?.StartBoarding(train2.transform);
+        }
     }
 
-    // ── Train 2 event handler'ları ────────────────────────────────────────
-
-    /// <summary>Train2 kapıları açtı → NPC'ler biner.</summary>
-    private void OnTrain2DoorsOpened()
-    {
-        foreach (var npc in train2Passengers)
-            npc?.StartBoarding(train2.transform);
-    }
-
-    /// <summary>Train2 exitPoint'e ulaştı → NPC'ler trenle kaybolur.</summary>
     private void OnTrain2ReachedExit()
     {
         foreach (var npc in train2Passengers)

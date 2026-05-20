@@ -2664,13 +2664,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44596869}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 84.66, y: 92.40103, z: -25.718048}
+  m_LocalRotation: {x: -0.9070921, y: -0, z: -0, w: 0.42093226}
+  m_LocalPosition: {x: 84.659996, y: 89.23751, z: 5.2}
   m_LocalScale: {x: 1, y: 1.0000007, z: 1.0000007}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 63986101}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -130.213, y: 0, z: 0}
 --- !u!23 &44596871
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3009,7 +3009,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!114 &44847529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3176,7 +3175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!65 &44847533
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4371,6 +4369,7 @@ Transform:
   - {fileID: 145739625}
   - {fileID: 1871610544}
   - {fileID: 44596870}
+  - {fileID: 783039896}
   - {fileID: 91673211}
   - {fileID: 2146633393}
   m_Father: {fileID: 602488584}
@@ -5274,6 +5273,107 @@ MonoBehaviour:
   breathAmount: 0.008
   swaySpeed: 0.35
   swayAmount: 0.4
+--- !u!114 &83636801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83636799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
+--- !u!114 &83636802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83636799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &83636803
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83636799}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &91673210
 GameObject:
   m_ObjectHideFlags: 0
@@ -7232,6 +7332,107 @@ MonoBehaviour:
   breathAmount: 0.008
   swaySpeed: 0.35
   swayAmount: 0.4
+--- !u!114 &123949442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123949440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
+--- !u!114 &123949443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123949440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &123949444
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123949440}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &127823450
 GameObject:
   m_ObjectHideFlags: 0
@@ -7345,6 +7546,72 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.299246, y: 9.596875, z: 35.321342}
   m_Center: {x: -1.3362521e-14, y: 2.1488147, z: 17.660671}
+--- !u!1001 &129664906
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6174326141219191701, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+      propertyPath: m_Name
+      value: npc_csl_00_character_02f_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837673993700860207, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -69.76902
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837673993700860207, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.040222
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837673993700860207, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -194.84663
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837673993700860207, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837673993700860207, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837673993700860207, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837673993700860207, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837673993700860207, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837673993700860207, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837673993700860207, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6174326141219191701, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 942519077}
+    - targetCorrespondingSourceObject: {fileID: 6174326141219191701, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 942519076}
+    - targetCorrespondingSourceObject: {fileID: 6174326141219191701, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 942519081}
+  m_SourcePrefab: {fileID: 100100000, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
 --- !u!4 &131573573
 Transform:
   m_ObjectHideFlags: 0
@@ -7778,6 +8045,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300018, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &139802525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 139802526}
+  m_Layer: 0
+  m_Name: Train_2_Boarding_Point_8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &139802526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139802525}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: -3.92}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 648020541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &140633817
 GameObject:
   m_ObjectHideFlags: 0
@@ -7882,6 +8180,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 307650709}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &144247223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 144247224}
+  m_Layer: 0
+  m_Name: BoardingSpot_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &144247224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144247223}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.028382413, y: -0.6377001, z: -8.33853}
+  m_LocalScale: {x: 0.9188641, y: 1, z: 1.1111109}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201443230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &144706313
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_Name
+      value: npc_csl_00_character_01f_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -60.75123
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.050222
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -190.10118
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 911192070}
+    - targetCorrespondingSourceObject: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 911192069}
+    - targetCorrespondingSourceObject: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 911192074}
+  m_SourcePrefab: {fileID: 100100000, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
 --- !u!1 &145739624
 GameObject:
   m_ObjectHideFlags: 0
@@ -7894,6 +8289,7 @@ GameObject:
   - component: {fileID: 145739627}
   - component: {fileID: 145739626}
   - component: {fileID: 145739628}
+  - component: {fileID: 145739629}
   m_Layer: 0
   m_Name: Floor_Main (4)
   m_TagString: Untagged
@@ -7996,6 +8392,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 70.14021, y: 101.3253, z: 10.729457}
   m_Center: {x: 0.012069702, y: -0.66265297, z: -5.264728}
+--- !u!114 &145739629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145739624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 2f9b3ae7d89f24400bd48e7f251a2c8d, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &149066046
 GameObject:
   m_ObjectHideFlags: 0
@@ -8835,7 +9263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!65 &159721491
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10062,6 +10489,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7296818736855454420, guid: 1e702983913400042ac3fcd1173a6d37, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2073760699}
+    - targetCorrespondingSourceObject: {fileID: 7296818736855454420, guid: 1e702983913400042ac3fcd1173a6d37, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2073760701}
+    - targetCorrespondingSourceObject: {fileID: 7296818736855454420, guid: 1e702983913400042ac3fcd1173a6d37, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2073760700}
+    - targetCorrespondingSourceObject: {fileID: 7296818736855454420, guid: 1e702983913400042ac3fcd1173a6d37, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2073760705}
   m_SourcePrefab: {fileID: 100100000, guid: 1e702983913400042ac3fcd1173a6d37, type: 3}
 --- !u!1 &182123828
 GameObject:
@@ -10700,6 +11136,7 @@ GameObject:
   - component: {fileID: 195566297}
   - component: {fileID: 195566296}
   - component: {fileID: 195566298}
+  - component: {fileID: 195566299}
   m_Layer: 0
   m_Name: Floor_Main (1)
   m_TagString: Untagged
@@ -10802,6 +11239,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 70.14021, y: 101.3253, z: 10.729457}
   m_Center: {x: 0.012069702, y: -0.66265297, z: -5.264728}
+--- !u!114 &195566299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195566294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 7cb6d19b357ea40b1be5b5c7dc6a87c7, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!4 &196932982
 Transform:
   m_ObjectHideFlags: 0
@@ -11305,7 +11774,7 @@ MonoBehaviour:
   exitPoint: {fileID: 1807005572}
   arrivalSpeed: 3
   departureSpeed: 4
-  doorOpenDuration: 5
+  doorOpenDuration: 8
   initialDelay: 2
 --- !u!4 &201443230 stripped
 Transform:
@@ -11594,6 +12063,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208830262}
   m_Mesh: {fileID: 4300012, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &213662550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 213662551}
+  m_Layer: 0
+  m_Name: BoardingSpot_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &213662551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213662550}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.028380824, y: -0.6377001, z: 4.130459}
+  m_LocalScale: {x: 0.9188641, y: 1, z: 1.1111109}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201443230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &218298915
 GameObject:
   m_ObjectHideFlags: 0
@@ -11974,6 +12474,7 @@ GameObject:
   - component: {fileID: 1833574088}
   - component: {fileID: 221832648}
   - component: {fileID: 221832647}
+  - component: {fileID: 1833574089}
   m_Layer: 0
   m_Name: Floor_Plane (1)
   m_TagString: Untagged
@@ -13712,6 +14213,112 @@ Transform:
   m_Children: []
   m_Father: {fileID: 307650709}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &257651774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4978816779655408403, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+  m_PrefabInstance: {fileID: 993294710}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &257651775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257651774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &257651776
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257651774}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &257651780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257651774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
 --- !u!4 &258912678
 Transform:
   m_ObjectHideFlags: 0
@@ -15229,6 +15836,72 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.299246, y: 5.299246, z: 30.039627}
   m_Center: {x: -2.7105054e-20, y: -0.0000001192094, z: 15.019814}
+--- !u!1001 &281488546
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2306769892806513762, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_Name
+      value: npc_csl_00_character_02f_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -61.711266
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.050222
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -191.38983
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2306769892806513762, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1465951778}
+    - targetCorrespondingSourceObject: {fileID: 2306769892806513762, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1465951777}
+    - targetCorrespondingSourceObject: {fileID: 2306769892806513762, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1465951782}
+  m_SourcePrefab: {fileID: 100100000, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
 --- !u!1 &282331560
 GameObject:
   m_ObjectHideFlags: 0
@@ -15544,6 +16217,7 @@ GameObject:
   - component: {fileID: 287922067}
   - component: {fileID: 287922066}
   - component: {fileID: 287922068}
+  - component: {fileID: 287922069}
   m_Layer: 0
   m_Name: Floor_Main (3)
   m_TagString: Untagged
@@ -15646,6 +16320,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 70.14021, y: 101.3253, z: 10.729457}
   m_Center: {x: 0.012069702, y: -0.66265297, z: -5.264728}
+--- !u!114 &287922069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287922064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 2436ff76ed3354e96b07738b9ce76bca, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &287968343
 GameObject:
   m_ObjectHideFlags: 0
@@ -17101,7 +17807,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!114 &308796748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17268,7 +17973,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!65 &308796752
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18306,6 +19010,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332911484}
   m_Mesh: {fileID: 4300012, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &333085733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 333085734}
+  m_Layer: 0
+  m_Name: BoardingSpot_8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &333085734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333085733}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.028380293, y: -0.6377001, z: 7.181092}
+  m_LocalScale: {x: 0.9188641, y: 1, z: 1.1111109}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201443230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &339359481
 GameObject:
   m_ObjectHideFlags: 0
@@ -18669,7 +19404,7 @@ GameObject:
   - component: {fileID: 343365132}
   - component: {fileID: 343365134}
   m_Layer: 0
-  m_Name: Stair
+  m_Name: Stair_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20159,6 +20894,7 @@ GameObject:
   - component: {fileID: 370307498}
   - component: {fileID: 370307497}
   - component: {fileID: 370307499}
+  - component: {fileID: 477367506}
   m_Layer: 0
   m_Name: Floor_Main (2)
   m_TagString: Untagged
@@ -22130,6 +22866,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 69.827324, y: 24.271843, z: 2.6525893}
   m_Center: {x: 34.913662, y: 2.137598, z: 0.07438415}
+--- !u!1 &397548073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 397548074}
+  m_Layer: 0
+  m_Name: BoardingSpot_6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &397548074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397548073}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.028380824, y: -0.6377001, z: 2.880803}
+  m_LocalScale: {x: 0.9188641, y: 1, z: 1.1111109}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201443230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &397591691
 GameObject:
   m_ObjectHideFlags: 0
@@ -22219,6 +22986,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397591691}
   m_Mesh: {fileID: 4300012, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &398063606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 398063607}
+  m_Layer: 0
+  m_Name: Train_2_Boarding_Point_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &398063607
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398063606}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 648020541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &400208602
 GameObject:
   m_ObjectHideFlags: 0
@@ -23029,6 +23827,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411780519}
   m_Mesh: {fileID: 4300010, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &414989014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 414989015}
+  m_Layer: 0
+  m_Name: StairWP_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &414989015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414989014}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.689, y: 15.212, z: -191.15265}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &417076556
 GameObject:
   m_ObjectHideFlags: 0
@@ -26681,6 +27510,72 @@ Transform:
   - {fileID: 1533716762}
   m_Father: {fileID: 283301591}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &475855856
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2306769892806513762, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_Name
+      value: npc_csl_00_character_02f_03 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -71.08903
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.040222
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -194.0276
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118912421045735128, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2306769892806513762, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1611255257}
+    - targetCorrespondingSourceObject: {fileID: 2306769892806513762, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1611255256}
+    - targetCorrespondingSourceObject: {fileID: 2306769892806513762, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1611255261}
+  m_SourcePrefab: {fileID: 100100000, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
 --- !u!1 &476418301
 GameObject:
   m_ObjectHideFlags: 0
@@ -26867,6 +27762,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 307650709}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &477367506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370307496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 5ec4e53ead9e543eba66c2892b9f998d, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1001 &479802509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27140,7 +28067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!114 &479802517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27307,7 +28233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!65 &479802521
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31259,6 +32184,7 @@ GameObject:
   - component: {fileID: 550454423}
   - component: {fileID: 550454422}
   - component: {fileID: 550454424}
+  - component: {fileID: 550454425}
   m_Layer: 0
   m_Name: Floor_Main (3)
   m_TagString: Untagged
@@ -31361,6 +32287,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 70.14021, y: 101.3253, z: 10.729457}
   m_Center: {x: 0.012069702, y: -0.66265297, z: -5.264728}
+--- !u!114 &550454425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550454420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 74eb4807141064ea0843d23d316f0f2a, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &552996299
 GameObject:
   m_ObjectHideFlags: 0
@@ -32423,6 +33381,7 @@ GameObject:
   - component: {fileID: 572176420}
   - component: {fileID: 572176419}
   - component: {fileID: 572176421}
+  - component: {fileID: 572176422}
   m_Layer: 0
   m_Name: Floor_Main (3)
   m_TagString: Untagged
@@ -32525,6 +33484,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 70.14021, y: 101.3253, z: 10.729457}
   m_Center: {x: 0.012069702, y: -0.66265297, z: -5.264728}
+--- !u!114 &572176422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572176417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: b858dcb4e721e44f5a5363b1fae7f8d4, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1001 &576188015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32584,6 +33575,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4629455581231081546, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 83636800}
+    - targetCorrespondingSourceObject: {fileID: 4629455581231081546, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 83636803}
+    - targetCorrespondingSourceObject: {fileID: 4629455581231081546, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 83636802}
+    - targetCorrespondingSourceObject: {fileID: 4629455581231081546, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 83636801}
   m_SourcePrefab: {fileID: 100100000, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
 --- !u!1 &581472247 stripped
 GameObject:
@@ -32624,6 +33624,107 @@ MonoBehaviour:
   breathAmount: 0.008
   swaySpeed: 0.35
   swayAmount: 0.4
+--- !u!114 &581472251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581472247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
+--- !u!114 &581472252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581472247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &581472253
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581472247}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &586990131
 GameObject:
   m_ObjectHideFlags: 0
@@ -32959,6 +34060,7 @@ GameObject:
   - component: {fileID: 593175699}
   - component: {fileID: 593175698}
   - component: {fileID: 593175700}
+  - component: {fileID: 593175701}
   m_Layer: 0
   m_Name: Floor_Main (4)
   m_TagString: Untagged
@@ -33061,6 +34163,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 70.14021, y: 101.3253, z: 10.729457}
   m_Center: {x: 0.012069702, y: -0.66265297, z: -5.264728}
+--- !u!114 &593175701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593175696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: a5367631855a142ff9016fa9382aedb9, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &597320190
 GameObject:
   m_ObjectHideFlags: 0
@@ -33341,6 +34475,37 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &597633380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 597633381}
+  m_Layer: 0
+  m_Name: Train_2_Boarding_Point_11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &597633381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597633380}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 1.244}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 648020541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &600677039 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1767192434, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
@@ -33571,6 +34736,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 602488584}
+  - component: {fileID: 602488585}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -33601,6 +34767,38 @@ Transform:
   - {fileID: 2142096371}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &602488585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602488583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: e5decbb89818443abbe39c4bf41a2478, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &603035273
 GameObject:
   m_ObjectHideFlags: 0
@@ -36075,6 +37273,42 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
       insertIndex: -1
       addedObject: {fileID: 892023917}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 742122640}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1961212835}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 997747293}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 913425220}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 398063607}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2117483654}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1381759995}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 139802526}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1563855368}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 715181113}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 597633381}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1790435389}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7151354651062435120, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
       insertIndex: -1
@@ -36139,7 +37373,7 @@ MonoBehaviour:
   exitPoint: {fileID: 6728370}
   arrivalSpeed: 3
   departureSpeed: 4
-  doorOpenDuration: 5
+  doorOpenDuration: 8
   initialDelay: 2
 --- !u!114 &648020546
 MonoBehaviour:
@@ -37523,6 +38757,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2125064448}
+    - targetCorrespondingSourceObject: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2125064450}
+    - targetCorrespondingSourceObject: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2125064449}
+    - targetCorrespondingSourceObject: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2125064454}
   m_SourcePrefab: {fileID: 100100000, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
 --- !u!1 &662522644
 GameObject:
@@ -38180,7 +39423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!114 &667863149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38347,7 +39589,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!65 &667863153
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38426,6 +39667,7 @@ GameObject:
   - component: {fileID: 669670727}
   - component: {fileID: 669670726}
   - component: {fileID: 669670728}
+  - component: {fileID: 669670729}
   m_Layer: 0
   m_Name: Floor_Main (3)
   m_TagString: Untagged
@@ -38528,6 +39770,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 70.14021, y: 101.3253, z: 10.729457}
   m_Center: {x: 0.012069702, y: -0.66265297, z: -5.264728}
+--- !u!114 &669670729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669670724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 1f8147e468e0543d8b03048880651939, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &671096378
 GameObject:
   m_ObjectHideFlags: 0
@@ -39923,6 +41197,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4978816779655408403, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1911197225}
+    - targetCorrespondingSourceObject: {fileID: 4978816779655408403, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1911197227}
+    - targetCorrespondingSourceObject: {fileID: 4978816779655408403, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1911197226}
+    - targetCorrespondingSourceObject: {fileID: 4978816779655408403, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1911197231}
   m_SourcePrefab: {fileID: 100100000, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
 --- !u!1 &707404603
 GameObject:
@@ -40687,6 +41970,143 @@ Transform:
   m_Children: []
   m_Father: {fileID: 101137109}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &715181112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 715181113}
+  m_Layer: 0
+  m_Name: Train_2_Boarding_Point_10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &715181113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715181112}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.137, y: 0, z: -1.193}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 648020541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &721287207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4629455581231081546, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+  m_PrefabInstance: {fileID: 1899885232}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &721287208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721287207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &721287209
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721287207}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &721287213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721287207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
 --- !u!1 &721304177
 GameObject:
   m_ObjectHideFlags: 0
@@ -41389,6 +42809,7 @@ GameObject:
   - component: {fileID: 734148723}
   - component: {fileID: 734148722}
   - component: {fileID: 734148724}
+  - component: {fileID: 734148725}
   m_Layer: 0
   m_Name: Floor_Plane
   m_TagString: Untagged
@@ -41473,6 +42894,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 70, y: 89.00061, z: 6.3238737e-13}
   m_Center: {x: 0, y: 5.4996967, z: 3.9077696e-14}
+--- !u!114 &734148725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734148721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: b89250b28646148b588acee56f55cd78, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &736287638
 GameObject:
   m_ObjectHideFlags: 0
@@ -41658,6 +43111,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740993181}
   m_Mesh: {fileID: 4300014, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &742122639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 742122640}
+  m_Layer: 0
+  m_Name: Train_2_Boarding_Point_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &742122640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742122639}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 8.52}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 648020541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &742273662
 GameObject:
   m_ObjectHideFlags: 0
@@ -41951,6 +43435,72 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!1001 &747091028
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7218713972142075397, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -57.93178
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218713972142075397, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.050221
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218713972142075397, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -188.28816
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218713972142075397, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218713972142075397, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218713972142075397, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218713972142075397, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218713972142075397, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218713972142075397, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218713972142075397, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027057966121039039, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+      propertyPath: m_Name
+      value: npc_csl_00_character_01f_02 (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8027057966121039039, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1794845827}
+    - targetCorrespondingSourceObject: {fileID: 8027057966121039039, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1794845826}
+    - targetCorrespondingSourceObject: {fileID: 8027057966121039039, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1794845831}
+  m_SourcePrefab: {fileID: 100100000, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
 --- !u!1 &748444223
 GameObject:
   m_ObjectHideFlags: 0
@@ -42959,6 +44509,107 @@ MonoBehaviour:
   breathAmount: 0.008
   swaySpeed: 0.35
   swayAmount: 0.4
+--- !u!114 &765939367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765939365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
+--- !u!114 &765939368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765939365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &765939369
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765939365}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &766557680
 GameObject:
   m_ObjectHideFlags: 0
@@ -43543,6 +45194,126 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782598524}
   m_Mesh: {fileID: 4300000, guid: 6e6d75cc5867e814b84bc7c5e0e12bec, type: 3}
+--- !u!1 &782834471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 782834472}
+  m_Layer: 0
+  m_Name: BoardingSpot_9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &782834472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782834471}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.7500032, y: -0.6377001, z: -2.1543806}
+  m_LocalScale: {x: 0.9188641, y: 1, z: 1.1111109}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201443230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &783039895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 783039896}
+  - component: {fileID: 783039898}
+  - component: {fileID: 783039897}
+  m_Layer: 0
+  m_Name: Cealing (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &783039896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783039895}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 108.6, y: 92.5, z: 12.6}
+  m_LocalScale: {x: 1, y: 0.4615203, z: 1.0000007}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 63986101}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!23 &783039897
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783039895}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c87cff654c066af4a93f54a99eef815a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &783039898
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783039895}
+  m_Mesh: {fileID: 4300022, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
 --- !u!4 &787141898
 Transform:
   m_ObjectHideFlags: 0
@@ -44872,6 +46643,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807712006}
   m_Mesh: {fileID: 4300012, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &807733166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 807733167}
+  m_Layer: 0
+  m_Name: StairWP_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &807733167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807733166}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -22.198, y: 16.222, z: -191.15265}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &813100739
 Transform:
   m_ObjectHideFlags: 0
@@ -45733,6 +47535,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823889961}
   m_Mesh: {fileID: 4300012, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &828324494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 828324495}
+  m_Layer: 0
+  m_Name: BoardingSpot_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &828324495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828324494}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.028381882, y: -0.6377001, z: -3.542057}
+  m_LocalScale: {x: 0.9188641, y: 1, z: 1.1111109}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201443230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &831568188
 GameObject:
   m_ObjectHideFlags: 0
@@ -46838,6 +48671,107 @@ MonoBehaviour:
   breathAmount: 0.008
   swaySpeed: 0.35
   swayAmount: 0.4
+--- !u!114 &857415700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857415698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
+--- !u!114 &857415701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857415698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &857415702
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857415698}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!43 &858001101
 Mesh:
   m_ObjectHideFlags: 0
@@ -48560,6 +50494,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 857415699}
+    - targetCorrespondingSourceObject: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 857415702}
+    - targetCorrespondingSourceObject: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 857415701}
+    - targetCorrespondingSourceObject: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 857415700}
   m_SourcePrefab: {fileID: 100100000, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
 --- !u!1001 &889573450
 PrefabInstance:
@@ -48620,6 +50563,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2306769892806513762, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1200755122}
+    - targetCorrespondingSourceObject: {fileID: 2306769892806513762, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1200755125}
+    - targetCorrespondingSourceObject: {fileID: 2306769892806513762, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1200755124}
+    - targetCorrespondingSourceObject: {fileID: 2306769892806513762, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1200755123}
   m_SourcePrefab: {fileID: 100100000, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
 --- !u!1 &891273416
 GameObject:
@@ -49885,7 +51837,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!65 &907741123
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49919,6 +51870,112 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac62c882595f4e70a6338623ac7428b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableTrash
+--- !u!1 &911192068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+  m_PrefabInstance: {fileID: 144706313}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &911192069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911192068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &911192070
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911192068}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &911192074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911192068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
 --- !u!4 &911315814
 Transform:
   m_ObjectHideFlags: 0
@@ -50201,6 +52258,37 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &913425219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 913425220}
+  m_Layer: 0
+  m_Name: Train_2_Boarding_Point_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &913425220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913425219}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2.34}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 648020541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &914511033
 Mesh:
   m_ObjectHideFlags: 0
@@ -51566,6 +53654,112 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &942519075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6174326141219191701, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+  m_PrefabInstance: {fileID: 129664906}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &942519076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942519075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &942519077
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942519075}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &942519081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942519075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
 --- !u!1 &944256715
 GameObject:
   m_ObjectHideFlags: 0
@@ -54212,6 +56406,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 101137109}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &993294710
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4978816779655408403, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+      propertyPath: m_Name
+      value: npc_csl_00_character_02m_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644030507746144681, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -61.81101
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644030507746144681, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.050222
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644030507746144681, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -190.09358
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644030507746144681, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644030507746144681, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644030507746144681, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644030507746144681, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644030507746144681, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644030507746144681, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644030507746144681, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4978816779655408403, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 257651776}
+    - targetCorrespondingSourceObject: {fileID: 4978816779655408403, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 257651775}
+    - targetCorrespondingSourceObject: {fileID: 4978816779655408403, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 257651780}
+  m_SourcePrefab: {fileID: 100100000, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
 --- !u!1 &997655769
 GameObject:
   m_ObjectHideFlags: 0
@@ -54326,6 +56586,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15000296, y: 69.8515, z: 35.32134}
   m_Center: {x: -2.5749993, y: 23.463028, z: 17.66067}
+--- !u!1 &997747292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 997747293}
+  m_Layer: 0
+  m_Name: Train_2_Boarding_Point_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &997747293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997747292}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 4.55}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 648020541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &997800197
 GameObject:
   m_ObjectHideFlags: 0
@@ -57843,6 +60134,72 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073864829}
   m_Mesh: {fileID: 4300018, guid: 6e6d75cc5867e814b84bc7c5e0e12bec, type: 3}
+--- !u!1001 &1078761972
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_Name
+      value: npc_csl_00_character_01f_03 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -68.77394
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.040222
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -196.18878
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682633802629659838, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1213694493}
+    - targetCorrespondingSourceObject: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1213694492}
+    - targetCorrespondingSourceObject: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1213694497}
+  m_SourcePrefab: {fileID: 100100000, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
 --- !u!1 &1079312733
 GameObject:
   m_ObjectHideFlags: 0
@@ -58120,6 +60477,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5726847344798059793, guid: 7ff7e096ac295fb4b84d7d2a573bd046, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1242461849}
+    - targetCorrespondingSourceObject: {fileID: 5726847344798059793, guid: 7ff7e096ac295fb4b84d7d2a573bd046, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1242461851}
+    - targetCorrespondingSourceObject: {fileID: 5726847344798059793, guid: 7ff7e096ac295fb4b84d7d2a573bd046, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1242461850}
   m_SourcePrefab: {fileID: 100100000, guid: 7ff7e096ac295fb4b84d7d2a573bd046, type: 3}
 --- !u!1 &1081945914
 GameObject:
@@ -60106,6 +62469,112 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127312992}
   m_Mesh: {fileID: 4300018, guid: 6e6d75cc5867e814b84bc7c5e0e12bec, type: 3}
+--- !u!1 &1130923197 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+  m_PrefabInstance: {fileID: 2110209201}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1130923198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130923197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &1130923199
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130923197}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1130923203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130923197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
 --- !u!1 &1134620524
 GameObject:
   m_ObjectHideFlags: 0
@@ -63106,6 +65575,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173142769}
   m_Mesh: {fileID: 4300012, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &1174134237
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1174134238}
+  m_Layer: 0
+  m_Name: BoardingSpot_10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1174134238
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174134237}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 1.1000066, y: -0.6377001, z: -2.1543803}
+  m_LocalScale: {x: 0.9188641, y: 1, z: 1.1111109}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201443230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1178000040
 GameObject:
   m_ObjectHideFlags: 0
@@ -63754,6 +66254,7 @@ GameObject:
   - component: {fileID: 1183439586}
   - component: {fileID: 1183439585}
   - component: {fileID: 1183439587}
+  - component: {fileID: 1183439588}
   m_Layer: 0
   m_Name: Floor_Main (1)
   m_TagString: Untagged
@@ -63841,6 +66342,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 70.14021, y: 101.3253, z: 10.729457}
   m_Center: {x: 0.012069702, y: -0.66265297, z: -5.264728}
+--- !u!114 &1183439588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183439584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: da6e92ff99a7a425cb20a3a4fa4f862b, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &1185102591
 GameObject:
   m_ObjectHideFlags: 0
@@ -65069,6 +67602,107 @@ MonoBehaviour:
   breathAmount: 0.008
   swaySpeed: 0.35
   swayAmount: 0.4
+--- !u!114 &1200755123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200755121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
+--- !u!114 &1200755124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200755121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &1200755125
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200755121}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1201235631
 GameObject:
   m_ObjectHideFlags: 0
@@ -66131,6 +68765,112 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.299246, y: 5.2992454, z: 30.039625}
   m_Center: {x: 0, y: -0.00000011920939, z: 15.019813}
+--- !u!1 &1213694491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
+  m_PrefabInstance: {fileID: 1078761972}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1213694492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213694491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &1213694493
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213694491}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1213694497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213694491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
 --- !u!1 &1214638590
 GameObject:
   m_ObjectHideFlags: 0
@@ -66513,6 +69253,7 @@ GameObject:
   - component: {fileID: 1218501795}
   - component: {fileID: 1218501797}
   - component: {fileID: 1218501796}
+  - component: {fileID: 1218501798}
   m_Layer: 0
   m_Name: Floor_Plane (1)
   m_TagString: Untagged
@@ -66591,6 +69332,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218501794}
   m_Mesh: {fileID: 4300002, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!114 &1218501798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218501794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: f6309f9d7182d46f6bfe8d83dbd698df, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &1220125505
 GameObject:
   m_ObjectHideFlags: 0
@@ -67517,6 +70290,36 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 144247224}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1529936794}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1557447033}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 828324495}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1898204124}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 397548074}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 213662551}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 333085734}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 782834472}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1174134238}
+    - targetCorrespondingSourceObject: {fileID: 7527036181701830538, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 2130162148}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7151354651062435120, guid: ef55e89dec6ee751f9f98d52198da308, type: 3}
@@ -67818,6 +70621,9 @@ MonoBehaviour:
   chestLookWeight: 0.18
   neckLookWeight: 0.32
   headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
   animateBody: 1
   strideFrequency: 1.35
   limbPoseWeight: 0.85
@@ -67827,6 +70633,48 @@ MonoBehaviour:
   torsoCounterTwist: 4
   armSwingAmount: 0.42
   legSwingAmount: 0.32
+--- !u!114 &1242461850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242461847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &1242461851
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242461847}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1244119747
 GameObject:
   m_ObjectHideFlags: 0
@@ -71568,6 +74416,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8027057966121039039, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1565959161}
+    - targetCorrespondingSourceObject: {fileID: 8027057966121039039, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1565959163}
+    - targetCorrespondingSourceObject: {fileID: 8027057966121039039, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1565959162}
+    - targetCorrespondingSourceObject: {fileID: 8027057966121039039, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1565959167}
   m_SourcePrefab: {fileID: 100100000, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
 --- !u!1 &1313371409
 GameObject:
@@ -72460,7 +75317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!65 &1323011863
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -76144,7 +79000,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!1 &1380730434
+--- !u!1 &1381759994
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76152,109 +79008,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1380730438}
-  - component: {fileID: 1380730437}
-  - component: {fileID: 1380730436}
-  - component: {fileID: 1380730435}
+  - component: {fileID: 1381759995}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Train_2_Boarding_Point_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!23 &1380730435
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1380730434}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 216005e4656255b478fc717f4e01e511, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1380730436
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1380730434}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &1380730437
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1380730434}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1380730438
+--- !u!4 &1381759995
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1380730434}
+  m_GameObject: {fileID: 1381759994}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 163.42146, y: -253.96669, z: 397.856}
-  m_LocalScale: {x: 63.667995, y: 55.436356, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: -6.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2142096371}
-  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+  m_Father: {fileID: 648020541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1382619400
 GameObject:
   m_ObjectHideFlags: 0
@@ -77423,6 +80199,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3281755754987455352, guid: 2a706093cdcc8d24f8b31d830f678399, type: 3}
       insertIndex: -1
       addedObject: {fileID: 123949441}
+    - targetCorrespondingSourceObject: {fileID: 3281755754987455352, guid: 2a706093cdcc8d24f8b31d830f678399, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 123949444}
+    - targetCorrespondingSourceObject: {fileID: 3281755754987455352, guid: 2a706093cdcc8d24f8b31d830f678399, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 123949443}
+    - targetCorrespondingSourceObject: {fileID: 3281755754987455352, guid: 2a706093cdcc8d24f8b31d830f678399, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 123949442}
   m_SourcePrefab: {fileID: 100100000, guid: 2a706093cdcc8d24f8b31d830f678399, type: 3}
 --- !u!1 &1402177466
 GameObject:
@@ -79446,6 +82231,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6174326141219191701, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1815166276}
+    - targetCorrespondingSourceObject: {fileID: 6174326141219191701, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1815166278}
+    - targetCorrespondingSourceObject: {fileID: 6174326141219191701, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1815166277}
+    - targetCorrespondingSourceObject: {fileID: 6174326141219191701, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1815166282}
   m_SourcePrefab: {fileID: 100100000, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
 --- !u!1 &1439758170
 GameObject:
@@ -80068,6 +82862,7 @@ GameObject:
   - component: {fileID: 1442289856}
   - component: {fileID: 1442289855}
   - component: {fileID: 1442289857}
+  - component: {fileID: 1442289858}
   m_Layer: 0
   m_Name: Floor_Main (2)
   m_TagString: Untagged
@@ -80170,6 +82965,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 70.14021, y: 101.325294, z: 10.729456}
   m_Center: {x: 0.012069702, y: -0.6626529, z: -5.2647276}
+--- !u!114 &1442289858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442289853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 89812a3627c0749138433f54661aa8b3, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &1442301255
 GameObject:
   m_ObjectHideFlags: 0
@@ -80182,6 +83009,7 @@ GameObject:
   - component: {fileID: 1442301258}
   - component: {fileID: 1442301257}
   - component: {fileID: 1442301259}
+  - component: {fileID: 1442301260}
   m_Layer: 0
   m_Name: Floor_Main (3)
   m_TagString: Untagged
@@ -80284,6 +83112,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 70.14021, y: 101.3253, z: 10.729457}
   m_Center: {x: 0.012069702, y: -0.66265297, z: -5.264728}
+--- !u!114 &1442301260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442301255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: cc982046f2d984162a20eadeea33c36d, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &1442498610
 GameObject:
   m_ObjectHideFlags: 0
@@ -80834,6 +83694,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449326251}
   m_Mesh: {fileID: 4300012, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &1451406180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1451406181}
+  m_Layer: 0
+  m_Name: TrainExitWaypoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1451406181
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451406180}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -72.34057, y: 16.588, z: -211.145}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1452638947
 GameObject:
   m_ObjectHideFlags: 0
@@ -81506,6 +84397,112 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465618171}
   m_Mesh: {fileID: 4300012, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &1465951776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2306769892806513762, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+  m_PrefabInstance: {fileID: 281488546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1465951777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465951776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &1465951778
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465951776}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1465951782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465951776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
 --- !u!43 &1468162664
 Mesh:
   m_ObjectHideFlags: 0
@@ -82481,7 +85478,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!114 &1482249408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82648,7 +85644,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!65 &1482249412
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -83485,6 +86480,7 @@ GameObject:
   - component: {fileID: 1500415653}
   - component: {fileID: 1500415652}
   - component: {fileID: 1500415654}
+  - component: {fileID: 1500415655}
   m_Layer: 0
   m_Name: Floor_Main (3)
   m_TagString: Untagged
@@ -83587,6 +86583,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 70.14021, y: 101.3253, z: 10.729457}
   m_Center: {x: 0.012069702, y: -0.66265297, z: -5.264728}
+--- !u!114 &1500415655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500415650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: e8e65cf5d6df64b7e89c8328a1f0cd18, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!4 &1500545638
 Transform:
   m_ObjectHideFlags: 0
@@ -84701,6 +87729,7 @@ GameObject:
   - component: {fileID: 1518155092}
   - component: {fileID: 1518155091}
   - component: {fileID: 1518155093}
+  - component: {fileID: 1518155094}
   m_Layer: 0
   m_Name: Floor_Main
   m_TagString: Untagged
@@ -84803,6 +87832,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 70.14021, y: 101.3253, z: 10.729457}
   m_Center: {x: 0.012069702, y: -0.66265297, z: -5.264728}
+--- !u!114 &1518155094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518155089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 3926c07bfb8f84425aff160899b08212, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &1521347085
 GameObject:
   m_ObjectHideFlags: 0
@@ -85594,6 +88655,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529576159}
   m_Mesh: {fileID: 4300000, guid: 6e6d75cc5867e814b84bc7c5e0e12bec, type: 3}
+--- !u!1 &1529936793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1529936794}
+  m_Layer: 0
+  m_Name: BoardingSpot_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1529936794
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529936793}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.028381882, y: -0.6377001, z: -4.6446915}
+  m_LocalScale: {x: 0.9188641, y: 1, z: 1.1111109}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201443230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1531039427
 GameObject:
   m_ObjectHideFlags: 0
@@ -85809,6 +88901,7 @@ GameObject:
   - component: {fileID: 1533811921}
   - component: {fileID: 1533811920}
   - component: {fileID: 1533811922}
+  - component: {fileID: 1533811923}
   m_Layer: 0
   m_Name: Floor_Main (4)
   m_TagString: Untagged
@@ -85911,6 +89004,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 70.14021, y: 101.3253, z: 10.729457}
   m_Center: {x: 0.012069702, y: -0.66265297, z: -5.264728}
+--- !u!114 &1533811923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533811918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: e652db74ba17a46bebe2e417469bfa29, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &1534447303
 GameObject:
   m_ObjectHideFlags: 0
@@ -86114,6 +89239,112 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535148930}
   m_Mesh: {fileID: 4300014, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &1535604285 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+  m_PrefabInstance: {fileID: 1759588173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1535604286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535604285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &1535604287
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535604285}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1535604291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535604285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
 --- !u!1 &1537319495
 GameObject:
   m_ObjectHideFlags: 0
@@ -87514,6 +90745,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555255452}
   m_Mesh: {fileID: 4300012, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &1557447032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1557447033}
+  m_Layer: 0
+  m_Name: BoardingSpot_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1557447033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557447032}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.028382413, y: -0.6377001, z: -8.412034}
+  m_LocalScale: {x: 0.9188641, y: 1, z: 1.1111109}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201443230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1558000435
 GameObject:
   m_ObjectHideFlags: 0
@@ -87804,6 +91066,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 307650709}
   m_LocalEulerAnglesHint: {x: -89.981, y: 0, z: -90.00001}
+--- !u!1 &1563855367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563855368}
+  m_Layer: 0
+  m_Name: Train_2_Boarding_Point_9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563855368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563855367}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: -1.94}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 648020541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1564125267
 Transform:
   m_ObjectHideFlags: 0
@@ -87841,6 +91134,107 @@ MonoBehaviour:
   breathAmount: 0.008
   swaySpeed: 0.35
   swayAmount: 0.4
+--- !u!114 &1565959162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565959160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &1565959163
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565959160}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1565959167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565959160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
 --- !u!1 &1566941266
 GameObject:
   m_ObjectHideFlags: 0
@@ -90012,6 +93406,112 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606127826}
   m_Mesh: {fileID: 4300016, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &1611255255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2306769892806513762, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
+  m_PrefabInstance: {fileID: 475855856}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1611255256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611255255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &1611255257
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611255255}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1611255261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611255255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
 --- !u!1 &1616726725
 GameObject:
   m_ObjectHideFlags: 0
@@ -90896,6 +94396,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8921330990437803623, guid: cf2b27186d52fd6438fd5fc2791f3f3d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 581472248}
+    - targetCorrespondingSourceObject: {fileID: 8921330990437803623, guid: cf2b27186d52fd6438fd5fc2791f3f3d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 581472253}
+    - targetCorrespondingSourceObject: {fileID: 8921330990437803623, guid: cf2b27186d52fd6438fd5fc2791f3f3d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 581472252}
+    - targetCorrespondingSourceObject: {fileID: 8921330990437803623, guid: cf2b27186d52fd6438fd5fc2791f3f3d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 581472251}
   m_SourcePrefab: {fileID: 100100000, guid: cf2b27186d52fd6438fd5fc2791f3f3d, type: 3}
 --- !u!1 &1629935791
 GameObject:
@@ -93259,7 +96768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!114 &1660609535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93426,7 +96934,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!65 &1660609539
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -95837,7 +99344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!65 &1715762875
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -96923,6 +100429,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 308438768}
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+--- !u!1001 &1759588173
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_Name
+      value: npc_csl_00_character_01f_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -60.69177
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.050222
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -188.97879
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1535604287}
+    - targetCorrespondingSourceObject: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1535604286}
+    - targetCorrespondingSourceObject: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1535604291}
+  m_SourcePrefab: {fileID: 100100000, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
 --- !u!4 &1760059909
 Transform:
   m_ObjectHideFlags: 0
@@ -98246,6 +101818,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789703005}
   m_Mesh: {fileID: 4300014, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &1790435388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1790435389}
+  m_Layer: 0
+  m_Name: Train_2_Boarding_Point_12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1790435389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790435388}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 648020541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1792183307
 GameObject:
   m_ObjectHideFlags: 0
@@ -98690,6 +102293,112 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &1794845825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8027057966121039039, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
+  m_PrefabInstance: {fileID: 747091028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1794845826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794845825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &1794845827
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794845825}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1794845831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794845825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
 --- !u!1 &1796631561
 GameObject:
   m_ObjectHideFlags: 0
@@ -99506,6 +103215,107 @@ MonoBehaviour:
   breathAmount: 0.008
   swaySpeed: 0.35
   swayAmount: 0.4
+--- !u!114 &1815166277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815166275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &1815166278
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815166275}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1815166282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815166275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
 --- !u!1 &1819456434
 GameObject:
   m_ObjectHideFlags: 0
@@ -100169,6 +103979,7 @@ GameObject:
   - component: {fileID: 1831633666}
   - component: {fileID: 1831633665}
   - component: {fileID: 1831633667}
+  - component: {fileID: 1831633668}
   m_Layer: 0
   m_Name: Floor_Main (4)
   m_TagString: Untagged
@@ -100271,6 +104082,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 70.14021, y: 101.3253, z: 10.729457}
   m_Center: {x: 0.012069702, y: -0.66265297, z: -5.264728}
+--- !u!114 &1831633668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831633663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 292c2ad1b1ebc45f69963b5534416c43, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &1832073783
 GameObject:
   m_ObjectHideFlags: 0
@@ -100437,6 +104280,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 307650709}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1833574089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221832646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 9a42bd0393d8b4068bba9734cb30e5df, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!4 &1836055697
 Transform:
   m_ObjectHideFlags: 0
@@ -100774,7 +104649,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!65 &1837756712
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -100820,6 +104694,7 @@ GameObject:
   - component: {fileID: 1839733645}
   - component: {fileID: 1839733644}
   - component: {fileID: 1839733646}
+  - component: {fileID: 1839733647}
   m_Layer: 0
   m_Name: Floor_Main
   m_TagString: Untagged
@@ -100907,6 +104782,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 70.14021, y: 101.3253, z: 10.729457}
   m_Center: {x: 0.012069702, y: -0.66265297, z: -5.264728}
+--- !u!114 &1839733647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839733643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: ae7214ff0456346a8b171ed771829850, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!4 &1840836336
 Transform:
   m_ObjectHideFlags: 0
@@ -101574,13 +105481,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871610543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 84.9, y: 92.40103, z: 63.081955}
+  m_LocalRotation: {x: -0.4470788, y: -0, z: -0, w: 0.8944946}
+  m_LocalPosition: {x: 84.90013, y: 85.7, z: 40.82}
   m_LocalScale: {x: 1, y: 1.0000007, z: 1.0000007}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 63986101}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -53.113, y: 0, z: 0}
 --- !u!23 &1871610545
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -102314,6 +106221,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880826440}
   m_Mesh: {fileID: 4300022, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &1883180546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1883180547}
+  m_Layer: 0
+  m_Name: ' StairWP_1'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1883180547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883180546}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -23.559, y: 15.508, z: -191.15265}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1884441918
 Mesh:
   m_ObjectHideFlags: 0
@@ -103601,6 +107539,103 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &1898204123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1898204124}
+  m_Layer: 0
+  m_Name: BoardingSpot_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1898204124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898204123}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.028381618, y: -0.6377001, z: -2.1543806}
+  m_LocalScale: {x: 0.9188641, y: 1, z: 1.1111109}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201443230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1899885232
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4629455581231081546, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+      propertyPath: m_Name
+      value: npc_csl_00_character_02f_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437236723971666672, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -60.12572
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437236723971666672, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.050222
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437236723971666672, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -190.7058
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437236723971666672, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437236723971666672, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437236723971666672, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437236723971666672, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437236723971666672, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437236723971666672, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437236723971666672, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4629455581231081546, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 721287209}
+    - targetCorrespondingSourceObject: {fileID: 4629455581231081546, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 721287208}
+    - targetCorrespondingSourceObject: {fileID: 4629455581231081546, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 721287213}
+  m_SourcePrefab: {fileID: 100100000, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
 --- !u!1 &1900731292
 GameObject:
   m_ObjectHideFlags: 0
@@ -103720,14 +107755,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e2d9df824e5e432d98f1ab558c9dfb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashCollector
-  totalTrash: 22
-  counterText: {fileID: 0}
-  OnAllCollected:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  collected: 0
-  completed: 0
 --- !u!65 &1900938511
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -104422,6 +108449,107 @@ MonoBehaviour:
   breathAmount: 0.008
   swaySpeed: 0.35
   swayAmount: 0.4
+--- !u!114 &1911197226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911197224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &1911197227
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911197224}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1911197231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911197224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
 --- !u!1 &1911711071
 GameObject:
   m_ObjectHideFlags: 0
@@ -104968,7 +109096,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!114 &1915140088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105413,7 +109540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!114 &1917914839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107394,6 +111520,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956174844}
   m_Mesh: {fileID: 4300016, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &1957328113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1957328114}
+  m_Layer: 0
+  m_Name: StairWP_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1957328114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957328113}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.056, y: 17.741, z: -191.15265}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1959302676
 GameObject:
   m_ObjectHideFlags: 0
@@ -107483,6 +111640,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959302676}
   m_Mesh: {fileID: 4300012, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &1961212834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1961212835}
+  m_Layer: 0
+  m_Name: Train_2_Boarding_Point_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1961212835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961212834}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 6.97}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 648020541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1961215651
 Mesh:
   m_ObjectHideFlags: 0
@@ -109147,7 +113335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!114 &1987721045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109314,7 +113501,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!65 &1987721049
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -111590,6 +115776,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3348641785564449632, guid: b97a930929a95154b85d0742ab015eb9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 765939366}
+    - targetCorrespondingSourceObject: {fileID: 3348641785564449632, guid: b97a930929a95154b85d0742ab015eb9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 765939369}
+    - targetCorrespondingSourceObject: {fileID: 3348641785564449632, guid: b97a930929a95154b85d0742ab015eb9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 765939368}
+    - targetCorrespondingSourceObject: {fileID: 3348641785564449632, guid: b97a930929a95154b85d0742ab015eb9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 765939367}
   m_SourcePrefab: {fileID: 100100000, guid: b97a930929a95154b85d0742ab015eb9, type: 3}
 --- !u!1 &2049682917
 GameObject:
@@ -112679,6 +116874,207 @@ MonoBehaviour:
   breathAmount: 0.008
   swaySpeed: 0.35
   swayAmount: 0.4
+--- !u!114 &2073760700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073760698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &2073760701
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073760698}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2073760705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073760698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
+--- !u!1 &2073857188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2073857190}
+  - component: {fileID: 2073857189}
+  m_Layer: 0
+  m_Name: TrainPassengerDirector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2073857189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073857188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b697092a1847411bb6a43111aec7812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrainPassengerDirector
+  train1: {fileID: 201443229}
+  train2: {fileID: 648020545}
+  train1BoardingPoints:
+  - {fileID: 144247224}
+  - {fileID: 1529936794}
+  - {fileID: 1557447033}
+  - {fileID: 828324495}
+  - {fileID: 1898204124}
+  - {fileID: 397548074}
+  - {fileID: 213662551}
+  - {fileID: 333085734}
+  - {fileID: 782834472}
+  - {fileID: 1174134238}
+  train2BoardingPoints:
+  - {fileID: 742122640}
+  - {fileID: 1961212835}
+  - {fileID: 997747293}
+  - {fileID: 913425220}
+  - {fileID: 398063607}
+  - {fileID: 2117483654}
+  - {fileID: 1381759995}
+  - {fileID: 139802526}
+  - {fileID: 1563855368}
+  - {fileID: 715181113}
+  - {fileID: 597633381}
+  - {fileID: 1790435389}
+  exitWaypoint: {fileID: 1451406181}
+  stairWaypoints:
+  - {fileID: 414989015}
+  - {fileID: 1883180547}
+  - {fileID: 807733167}
+  - {fileID: 1957328114}
+  train1Passengers:
+  - {fileID: 721287208}
+  - {fileID: 1465951777}
+  - {fileID: 911192069}
+  - {fileID: 1794845826}
+  - {fileID: 1535604286}
+  - {fileID: 257651775}
+  - {fileID: 1213694492}
+  - {fileID: 1130923198}
+  - {fileID: 942519076}
+  - {fileID: 1611255256}
+  train2Passengers:
+  - {fileID: 857415701}
+  - {fileID: 2125064449}
+  - {fileID: 1565959162}
+  - {fileID: 123949443}
+  - {fileID: 765939368}
+  - {fileID: 581472252}
+  - {fileID: 83636802}
+  - {fileID: 1815166277}
+  - {fileID: 1200755124}
+  - {fileID: 1911197226}
+  - {fileID: 2073760700}
+  - {fileID: 1242461850}
+--- !u!4 &2073857190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073857188}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -71.96072, y: 15.2823, z: -214.52733}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2078138219
 GameObject:
   m_ObjectHideFlags: 0
@@ -114273,7 +118669,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a656c96899489d8b8e2a4ac46d1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItem
-  rb: {fileID: 0}
 --- !u!65 &2098276575
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -115250,6 +119645,72 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109672760}
   m_Mesh: {fileID: 4300012, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1001 &2110209201
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_Name
+      value: npc_csl_00_character_01f_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -69.923134
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.040222
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -195.78806
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451934990809124845, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1130923199}
+    - targetCorrespondingSourceObject: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1130923198}
+    - targetCorrespondingSourceObject: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1130923203}
+  m_SourcePrefab: {fileID: 100100000, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
 --- !u!1 &2116008652
 GameObject:
   m_ObjectHideFlags: 0
@@ -115339,6 +119800,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116008652}
   m_Mesh: {fileID: 4300022, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!1 &2117483653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2117483654}
+  m_Layer: 0
+  m_Name: Train_2_Boarding_Point_6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2117483654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117483653}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: -7.97}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 648020541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2118817112
 GameObject:
   m_ObjectHideFlags: 0
@@ -115552,6 +120044,107 @@ MonoBehaviour:
   breathAmount: 0.008
   swaySpeed: 0.35
   swayAmount: 0.4
+--- !u!114 &2125064449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125064447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19119fee8437f48b8875fa02c0967ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTrainPassenger
+  boardingPoint: {fileID: 0}
+  fate: 0
+  exitWaypoint: {fileID: 0}
+  stairWaypoints: []
+  walkSpeed: 1.8
+  stairSpeed: 0.7
+  arrivalRadius: 0.55
+  fadeOutDuration: 1.4
+--- !u!195 &2125064450
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125064447}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2125064454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125064447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ea6ea5241c4f97b5ab7ba51ed7f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScene3Wanderer
+  animator: {fileID: 0}
+  useNavMeshWhenAvailable: 1
+  wanderRadius: 6
+  minWanderLeg: 2
+  maxWanderLeg: 5
+  walkSpeed: 1.05
+  acceleration: 2.4
+  turnSpeed: 4.5
+  stoppingDistance: 0.45
+  pauseMin: 0.65
+  pauseMax: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundProbeHeight: 2.5
+  groundProbeDistance: 6
+  minGroundNormalY: 0.45
+  groundOffset: 0.02
+  obstacleProbeHeight: 0.75
+  obstacleProbeRadius: 0.22
+  obstacleProbeDistance: 1.15
+  lookAround: 1
+  interestingLookTargets: []
+  lookIntervalMin: 1.2
+  lookIntervalMax: 3.2
+  maxLookYaw: 70
+  maxLookPitch: 20
+  lookDistance: 4
+  headTurnSpeed: 3.5
+  chestLookWeight: 0.18
+  neckLookWeight: 0.32
+  headLookWeight: 0.58
+  externalControl: 0
+  externalSpeed: 0
+  freezeAnimation: 0
+  animateBody: 1
+  strideFrequency: 1.35
+  limbPoseWeight: 0.85
+  legPoseWeight: 0.5
+  hipBob: 0.035
+  hipSway: 0.018
+  torsoCounterTwist: 4
+  armSwingAmount: 0.42
+  legSwingAmount: 0.32
 --- !u!1 &2127482493
 GameObject:
   m_ObjectHideFlags: 0
@@ -116788,7 +121381,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 656424387}
-  - {fileID: 1380730438}
   - {fileID: 2024345650}
   m_Father: {fileID: 602488584}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -117130,3 +121722,19 @@ SceneRoots:
   - {fileID: 848959397}
   - {fileID: 1936674306}
   - {fileID: 6728370}
+  - {fileID: 1899885232}
+  - {fileID: 281488546}
+  - {fileID: 144706313}
+  - {fileID: 747091028}
+  - {fileID: 1759588173}
+  - {fileID: 993294710}
+  - {fileID: 1078761972}
+  - {fileID: 2110209201}
+  - {fileID: 129664906}
+  - {fileID: 475855856}
+  - {fileID: 2073857190}
+  - {fileID: 1451406181}
+  - {fileID: 414989015}
+  - {fileID: 1883180547}
+  - {fileID: 807733167}
+  - {fileID: 1957328114}
