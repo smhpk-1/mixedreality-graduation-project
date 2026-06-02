@@ -109,26 +109,35 @@ public class NPCTrainPassenger : MonoBehaviour
     {
         CurrentState = State.WalkToBoard;
 
-        // Wanderer'ı dış kontrole al; NavMesh'i kapat (path-based yürüyüş)
+        // Wanderer'ı dış kontrole al
         if (wanderer != null)
         {
             wanderer.externalControl = true;
             wanderer.externalSpeed   = walkSpeed;
             wanderer.freezeAnimation = false;
         }
+
+        // 1) FAZ 1: NPC kendi konumundan ilk waypoint'e NavMesh ile gitsin
+        //    (NavMesh duvarları respect eder — NPC duvardan geçmez)
+        Transform firstWP = (boardingPath != null && boardingPath.Length > 0)
+                            ? boardingPath[0] : boardingPoint;
+        if (firstWP != null)
+            yield return ApproachViaNavMesh(firstWP, walkSpeed);
+
+        // 2) FAZ 2: NavMesh'i kapat, geri kalan waypoint'leri straight-line yürü
+        //    (Path kullanıcı tarafından çizildi, kapıdan geçtiği biliniyor)
         if (nav != null) nav.enabled = false;
 
-        // 1) Biniş yolu waypoint'lerini sırayla yürü
         if (boardingPath != null)
         {
-            for (int i = 0; i < boardingPath.Length; i++)
+            for (int i = 1; i < boardingPath.Length; i++) // i=1: ilki zaten yürüdük
             {
                 if (boardingPath[i] == null) continue;
                 yield return WalkToWorld(boardingPath[i], walkSpeed);
             }
         }
 
-        // 2) Son adım: kendi boarding spot'una
+        // 3) Son adım: kendi boarding spot'una
         yield return WalkToWorld(boardingPoint, walkSpeed);
 
         // 3) Trene parent et — NPC trenle birlikte hareket eder
@@ -182,6 +191,105 @@ public class NPCTrainPassenger : MonoBehaviour
 
         CurrentState = State.Done;
         yield return FadeAndDestroy();
+    }
+
+    // ── Yardımcı: hedefe NavMesh ile yaklaş (duvarları respect eder) ────
+    // NPC'nin bulunduğu yerden ilk waypoint'e gitmek için kullanılır.
+    // NavMesh yoksa veya path geçersizse, fallback olarak DirectStep'e döner.
+    private IEnumerator ApproachViaNavMesh(Transform target, float speed)
+    {
+        if (target == null) yield break;
+        if (nav == null) nav = GetComponent<NavMeshAgent>();
+
+        if (nav == null)
+        {
+            yield return WalkToWorld(target, speed);
+            yield break;
+        }
+
+        nav.enabled = true;
+
+        // NavMesh dışındaysak en yakın noktaya snap
+        if (!nav.isOnNavMesh)
+        {
+            if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 3f, NavMesh.AllAreas))
+                transform.position = hit.position;
+        }
+
+        if (!nav.isOnNavMesh)
+        {
+            // Hala NavMesh'te değil — düz yürü
+            yield return WalkToWorld(target, speed);
+            yield break;
+        }
+
+        // KRİTİK: wandering pause'undan kalmış isStopped/path durumunu temizle
+        nav.isStopped       = false;
+        nav.updatePosition  = true;
+        nav.updateRotation  = false;
+        nav.ResetPath();
+        nav.speed           = speed;
+        nav.stoppingDistance = 0.1f;
+        nav.SetDestination(target.position);
+
+        // Path hesaplanmasını bekle (pathPending iken velocity 0 olur, kayma olmasın)
+        float pathWaitTimeout = 1f;
+        while (nav.pathPending && pathWaitTimeout > 0f)
+        {
+            pathWaitTimeout -= Time.deltaTime;
+            if (wanderer != null) wanderer.externalSpeed = 0f; // path hazırlanırken sabit dur
+            yield return null;
+        }
+
+        // Path hazır olmasına rağmen geçersizse direkt fallback'e geç (duvarları zorlama)
+        if (nav.pathStatus == NavMeshPathStatus.PathInvalid)
+        {
+            nav.enabled = false;
+            yield return WalkToWorld(target, speed);
+            yield break;
+        }
+
+        float timeout = 25f;
+        while (FlatDist(transform.position, target.position) > arrivalRadius)
+        {
+            timeout -= Time.deltaTime;
+            if (timeout <= 0f) break;
+
+            // Path runtime'da geçersiz olduysa kır
+            if (!nav.pathPending && nav.pathStatus == NavMeshPathStatus.PathInvalid)
+                break;
+
+            // Partial path'in sonundaysa fallback (NavMesh oraya ulaşamıyor)
+            if (!nav.pathPending && nav.pathStatus == NavMeshPathStatus.PathPartial &&
+                nav.remainingDistance <= nav.stoppingDistance + 0.05f)
+                break;
+
+            // KRİTİK: NavMeshAgent updateRotation=false olduğu için hareket yönüne
+            // dönmeyi manuel yap (yoksa NPC geri/yan gidiyormuş gibi görünür)
+            Vector3 vel = nav.velocity;
+            vel.y = 0f;
+            if (vel.sqrMagnitude > 0.04f) // > 0.2 m/s
+            {
+                Quaternion targetRot = Quaternion.LookRotation(vel.normalized);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, 10f * Time.deltaTime);
+            }
+            else
+            {
+                // Velocity çok düşükse desiredVelocity'ye dön (path başında)
+                Vector3 desired = nav.desiredVelocity;
+                desired.y = 0f;
+                if (desired.sqrMagnitude > 0.04f)
+                {
+                    Quaternion targetRot = Quaternion.LookRotation(desired.normalized);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, 10f * Time.deltaTime);
+                }
+            }
+
+            if (wanderer != null)
+                wanderer.externalSpeed = Mathf.Max(nav.velocity.magnitude, 0.4f);
+
+            yield return null;
+        }
     }
 
     // ── Yardımcı: bir Transform'a düz çizgide yürü ───────────────────────
