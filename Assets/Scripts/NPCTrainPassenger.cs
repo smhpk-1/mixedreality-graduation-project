@@ -38,6 +38,7 @@ public class NPCTrainPassenger : MonoBehaviour
     public float stairSpeed      = 1.2f;
     public float arrivalRadius   = 0.55f;
     public float fadeOutDuration = 1.4f;
+    public float fadeInDuration  = 1.4f;
 
     public enum State
     {
@@ -51,11 +52,22 @@ public class NPCTrainPassenger : MonoBehaviour
     private Renderer[]        renderers;
     private Transform         boardingTrainTransform;
 
+    // NPC'nin ilk kez boarding'e başladığı andaki konum — reset'te bu konuma geri döner
+    private Vector3    initialPosition;
+    private Quaternion initialRotation;
+    private bool       initialPositionCaptured = false;
+
+    // NPC'nin orijinal localScale'i — parent/unparent sonrası geri yüklemek için
+    private Vector3 originalLocalScale = Vector3.one;
+
     private void Awake()
     {
         wanderer  = GetComponent<NPCScene3Wanderer>();
         renderers = GetComponentsInChildren<Renderer>(true);
         nav       = GetComponent<NavMeshAgent>();
+
+        // Orijinal localScale'i kaydet (genelde 1,1,1)
+        originalLocalScale = transform.localScale;
     }
 
     // ── Dışarıdan tetikleyiciler ─────────────────────────────────────────
@@ -68,6 +80,16 @@ public class NPCTrainPassenger : MonoBehaviour
             Debug.LogWarning($"[NPCTrainPassenger] {name}: boardingPoint atanmamış!", this);
             return;
         }
+
+        // İLK boarding'de NPC'nin tam o andaki konumunu yakala —
+        // reset'te bu noktaya geri döner. Sonraki cycle'larda da aynı konum kullanılır.
+        if (!initialPositionCaptured)
+        {
+            initialPosition = transform.position;
+            initialRotation = transform.rotation;
+            initialPositionCaptured = true;
+        }
+
         boardingTrainTransform = trainTransform;
         StartCoroutine(BoardingCoroutine());
     }
@@ -83,11 +105,12 @@ public class NPCTrainPassenger : MonoBehaviour
     {
         if (CurrentState == State.Done) return;
 
-        // Sadece trene bindiyse fade-out. Hâlâ yoldaysa wandering'e geri dön.
+        // Trene binmemişse: wandering'e dön
         if (CurrentState != State.InsideTrain)
         {
             StopAllCoroutines();
             transform.SetParent(null, worldPositionStays: true);
+            transform.localScale = originalLocalScale;
             if (wanderer != null)
             {
                 wanderer.externalControl = false;
@@ -99,9 +122,24 @@ public class NPCTrainPassenger : MonoBehaviour
             return;
         }
 
-        CurrentState = State.Done;
+        // Trene binmiş: trenden ayrıl, sahne dışına teleport et (LOD'a dokunma)
         StopAllCoroutines();
-        StartCoroutine(FadeAndDestroy());
+        transform.SetParent(null, worldPositionStays: true);
+        transform.localScale = originalLocalScale; // non-uniform parent scale bug'ını düzelt
+        if (nav != null) nav.enabled = false;
+        if (wanderer != null) wanderer.freezeAnimation = true;
+        transform.position = HiddenPosition; // sahne dışı
+        CurrentState = State.Done;
+    }
+
+    // NPC saklanırken konacağı sahne dışı nokta (yerin çok altı)
+    private static readonly Vector3 HiddenPosition = new Vector3(0f, -10000f, 0f);
+
+    /// <summary>Director çağırır: NPC kendi orijinal konumuna teleport + fade in.</summary>
+    public void ResetForNextCycle()
+    {
+        StopAllCoroutines();
+        StartCoroutine(ResetCoroutine());
     }
 
     // ── Coroutine: Binme ─────────────────────────────────────────────────
@@ -190,7 +228,10 @@ public class NPCTrainPassenger : MonoBehaviour
         }
 
         CurrentState = State.Done;
-        yield return FadeAndDestroy();
+        if (nav != null) nav.enabled = false;
+        if (wanderer != null) wanderer.freezeAnimation = true;
+        transform.position = HiddenPosition;
+        yield break;
     }
 
     // ── Yardımcı: hedefe NavMesh ile yaklaş (duvarları respect eder) ────
@@ -328,16 +369,60 @@ public class NPCTrainPassenger : MonoBehaviour
         transform.position = step;
     }
 
-    // ── Yardımcı: Fade + Destroy ─────────────────────────────────────────
-    private IEnumerator FadeAndDestroy()
+    // ── Yardımcı: Fade Out (görünmez yap ama destroy ETME) ──────────────
+    private IEnumerator FadeOut()
     {
-        float[] startAlphas = new float[renderers.Length];
+        EnableTransparency();
+        float[] startAlphas = SnapshotAlphas();
+
+        float elapsed = 0f;
+        while (elapsed < fadeOutDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = 1f - Mathf.Clamp01(elapsed / fadeOutDuration);
+            SetAlphas(startAlphas, t);
+            yield return null;
+        }
+        SetAlphas(startAlphas, 0f); // tamamen invisible
+    }
+
+    // ── Yardımcı: Fade In (invisible → görünür) ─────────────────────────
+    private IEnumerator FadeIn()
+    {
+        EnableTransparency();
+
+        float elapsed = 0f;
+        while (elapsed < fadeInDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / fadeInDuration);
+            for (int i = 0; i < renderers.Length; i++)
+            {
+                if (renderers[i] == null) continue;
+                Material mat = renderers[i].material;
+                if (mat.HasProperty("_BaseColor"))
+                {
+                    Color c = mat.GetColor("_BaseColor");
+                    c.a = t;
+                    mat.SetColor("_BaseColor", c);
+                }
+                else
+                {
+                    Color c = mat.color;
+                    c.a = t;
+                    mat.color = c;
+                }
+            }
+            yield return null;
+        }
+    }
+
+    private void EnableTransparency()
+    {
         for (int i = 0; i < renderers.Length; i++)
         {
             if (renderers[i] == null) continue;
             Material mat = renderers[i].material;
-            Color c = mat.HasProperty("_BaseColor") ? mat.GetColor("_BaseColor") : mat.color;
-            startAlphas[i] = c.a;
             if (mat.HasProperty("_Surface"))
             {
                 mat.SetFloat("_Surface", 1f);
@@ -350,33 +435,67 @@ public class NPCTrainPassenger : MonoBehaviour
             }
             mat.renderQueue = 3000;
         }
+    }
 
-        float elapsed = 0f;
-        while (elapsed < fadeOutDuration)
+    private float[] SnapshotAlphas()
+    {
+        float[] arr = new float[renderers.Length];
+        for (int i = 0; i < renderers.Length; i++)
         {
-            elapsed += Time.deltaTime;
-            float t = 1f - Mathf.Clamp01(elapsed / fadeOutDuration);
-            for (int i = 0; i < renderers.Length; i++)
+            if (renderers[i] == null) continue;
+            Material mat = renderers[i].material;
+            Color c = mat.HasProperty("_BaseColor") ? mat.GetColor("_BaseColor") : mat.color;
+            arr[i] = c.a;
+        }
+        return arr;
+    }
+
+    private void SetAlphas(float[] startAlphas, float t)
+    {
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            if (renderers[i] == null) continue;
+            Material mat = renderers[i].material;
+            if (mat.HasProperty("_BaseColor"))
             {
-                if (renderers[i] == null) continue;
-                Material mat = renderers[i].material;
-                if (mat.HasProperty("_BaseColor"))
-                {
-                    Color c = mat.GetColor("_BaseColor");
-                    c.a = startAlphas[i] * t;
-                    mat.SetColor("_BaseColor", c);
-                }
-                else
-                {
-                    Color c = mat.color;
-                    c.a = startAlphas[i] * t;
-                    mat.color = c;
-                }
+                Color c = mat.GetColor("_BaseColor");
+                c.a = startAlphas[i] * t;
+                mat.SetColor("_BaseColor", c);
             }
-            yield return null;
+            else
+            {
+                Color c = mat.color;
+                c.a = startAlphas[i] * t;
+                mat.color = c;
+            }
+        }
+    }
+
+    // ── Coroutine: Reset (BASİT — sahne dışından kendi yerine teleport) ──
+    private IEnumerator ResetCoroutine()
+    {
+        // Trenden ayrıl (güvenlik)
+        transform.SetParent(null, worldPositionStays: true);
+        transform.localScale = originalLocalScale; // her ihtimale karşı scale restore
+
+        // Kendi orijinal konumuna teleport (sahne dışından geri gelir)
+        if (initialPositionCaptured)
+        {
+            transform.position = initialPosition;
+            transform.rotation = initialRotation;
         }
 
-        Destroy(gameObject);
+        // Wandering moduna geri dön — bir sonraki tren gelince StartBoarding tetiklenir
+        if (wanderer != null)
+        {
+            wanderer.externalControl = false;
+            wanderer.externalSpeed   = 0f;
+            wanderer.freezeAnimation = false;
+        }
+        if (nav != null) nav.enabled = true;
+
+        CurrentState = State.Wandering;
+        yield break;
     }
 
     private static float FlatDist(Vector3 a, Vector3 b)

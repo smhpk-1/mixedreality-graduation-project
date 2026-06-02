@@ -49,9 +49,23 @@ public class TrainPassengerDirector : MonoBehaviour
     [Tooltip("Train 2'ye binecek NPC'ler (12 adet)")]
     public NPCTrainPassenger[] train2Passengers;
 
+    [Header("NPC Cycle (sonsuz döngü)")]
+    [Tooltip("True: NPC'ler tren ile gidince anında görünmez olur, " +
+             "kısa süre sonra kendi konumlarına teleport olup tekrar görünür olurlar. " +
+             "False: tek seferlik, NPC'ler kalıcı yok olur.")]
+    public bool loopForever = true;
+    [Tooltip("Tren NPC'lerle gittikten kaç saniye sonra NPC'ler tekrar konumlarında belirsin. " +
+             "Tren bir sonraki döngüsünde durağa varmadan ÖNCE bitmiş olmalı (yoksa NPC'ler hazır olmaz).")]
+    public float cycleResetDelay = 5f;
+    [Tooltip("Reset sırasında her NPC arası gecikme (0 = hepsi aynı anda belirir)")]
+    public float npcSpawnInterval = 0f;
+
     // İzleme: hangi tren şu an "tüm yolcular bindi mi?" diye bekleniyor
     private bool watchingTrain1Boarding = false;
     private bool watchingTrain2Boarding = false;
+    // İzleme: hangi grup şu an "hepsi Done mı, reset zamanlandı mı?"
+    private bool train1ResetScheduled = false;
+    private bool train2ResetScheduled = false;
 
     private void Start()
     {
@@ -89,8 +103,12 @@ public class TrainPassengerDirector : MonoBehaviour
         if (train2 != null) train2.waitForPassengers = true;
 
         // ── Event aboneliği ──────────────────────────────────────────────
+        // Her iki tren de aynı davranır: durakta NPC'ler biner, exit'te NPC'ler kaybolur, döngü tekrarlar
         if (train1 != null)
+        {
             train1.OnArrivedAtStop += OnTrain1ArrivedAtStop;
+            train1.OnReachedExit   += OnTrain1ReachedExit;
+        }
 
         if (train2 != null)
         {
@@ -112,10 +130,14 @@ public class TrainPassengerDirector : MonoBehaviour
         return list.ToArray();
     }
 
+
     private void OnDestroy()
     {
         if (train1 != null)
+        {
             train1.OnArrivedAtStop -= OnTrain1ArrivedAtStop;
+            train1.OnReachedExit   -= OnTrain1ReachedExit;
+        }
 
         if (train2 != null)
         {
@@ -124,62 +146,106 @@ public class TrainPassengerDirector : MonoBehaviour
         }
     }
 
-    // ── Her frame: boarding tamamlandı mı kontrol et ─────────────────────
+    // ── Her frame: boarding & reset tetikleyicileri ──────────────────────
     private void Update()
     {
-        if (watchingTrain1Boarding && AllInsideTrain(train1Passengers))
+        if (watchingTrain1Boarding && AllInState(train1Passengers, NPCTrainPassenger.State.InsideTrain))
         {
             watchingTrain1Boarding = false;
             train1?.SignalReadyToClose();
         }
-        if (watchingTrain2Boarding && AllInsideTrain(train2Passengers))
+        if (watchingTrain2Boarding && AllInState(train2Passengers, NPCTrainPassenger.State.InsideTrain))
         {
             watchingTrain2Boarding = false;
             train2?.SignalReadyToClose();
         }
+
+        // Cycle: tüm NPC'ler Done state'inde mi → reset zamanla
+        if (loopForever)
+        {
+            if (!train1ResetScheduled && train1Passengers != null && train1Passengers.Length > 0
+                && AllInState(train1Passengers, NPCTrainPassenger.State.Done))
+            {
+                train1ResetScheduled = true;
+                StartCoroutine(ResetGroupAfterDelay(train1Passengers, cycleResetDelay,
+                    () => train1ResetScheduled = false));
+            }
+            if (!train2ResetScheduled && train2Passengers != null && train2Passengers.Length > 0
+                && AllInState(train2Passengers, NPCTrainPassenger.State.Done))
+            {
+                train2ResetScheduled = true;
+                StartCoroutine(ResetGroupAfterDelay(train2Passengers, cycleResetDelay,
+                    () => train2ResetScheduled = false));
+            }
+        }
     }
 
-    private static bool AllInsideTrain(NPCTrainPassenger[] passengers)
+    private static bool AllInState(NPCTrainPassenger[] passengers, NPCTrainPassenger.State state)
     {
-        if (passengers == null || passengers.Length == 0) return true;
+        if (passengers == null || passengers.Length == 0) return false;
         foreach (var npc in passengers)
         {
             if (npc == null) continue;
-            if (npc.CurrentState != NPCTrainPassenger.State.InsideTrain)
-                return false;
+            if (npc.CurrentState != state) return false;
         }
         return true;
     }
 
-    // ── Train 1: iki duraklı senaryo ──────────────────────────────────────
-    private void OnTrain1ArrivedAtStop(int stopCount)
+    private System.Collections.IEnumerator ResetGroupAfterDelay(
+        NPCTrainPassenger[] group, float delay, System.Action onDone)
     {
-        if (stopCount == 1)
+        yield return new UnityEngine.WaitForSeconds(delay);
+
+        // Her NPC arasında npcSpawnInterval kadar bekleyerek fade-in'leri stagger et
+        for (int i = 0; i < group.Length; i++)
         {
-            foreach (var npc in train1Passengers)
-                npc?.StartBoarding(train1.transform);
-            watchingTrain1Boarding = true;
+            if (group[i] == null) continue;
+            group[i].ResetForNextCycle();
+            yield return new UnityEngine.WaitForSeconds(npcSpawnInterval);
         }
-        else if (stopCount == 2)
+
+        // KRİTİK FIX: tüm NPC'ler Done state'inden çıkana kadar bekle, sonra flag'i serbest bırak
+        // (Yoksa Update Done görüp tekrar reset zamanlar → sonsuz tekrar reset bug'ı)
+        while (true)
         {
-            foreach (var npc in train1Passengers)
-                npc?.StartExiting(BuildTrain1ExitPath());
-            // 2. durakta kimse binmediği için kapı bekleme süresi kısa olsun
-            Invoke(nameof(SignalTrain1ReadyToClose), 1f);
+            bool anyStillDone = false;
+            foreach (var npc in group)
+            {
+                if (npc == null) continue;
+                if (npc.CurrentState == NPCTrainPassenger.State.Done)
+                {
+                    anyStillDone = true;
+                    break;
+                }
+            }
+            if (!anyStillDone) break;
+            yield return null;
         }
+
+        onDone?.Invoke();
     }
 
-    private void SignalTrain1ReadyToClose() => train1?.SignalReadyToClose();
+    // ── Train 1 & Train 2: aynı davranış ─────────────────────────────────
+    // Her duruşta: wandering durumundaki tüm NPC'ler boarding'e başlar
+    // Her exit'te: trene binmiş tüm NPC'ler kaybolur (trenle gitmiş sayılır)
+    private void OnTrain1ArrivedAtStop(int stopCount)
+    {
+        foreach (var npc in train1Passengers)
+            npc?.StartBoarding(train1.transform);
+        watchingTrain1Boarding = true;
+    }
 
-    // ── Train 2: tek yön senaryosu ────────────────────────────────────────
+    private void OnTrain1ReachedExit()
+    {
+        foreach (var npc in train1Passengers)
+            npc?.DespawnWithTrain();
+    }
+
     private void OnTrain2ArrivedAtStop(int stopCount)
     {
-        if (stopCount == 1)
-        {
-            foreach (var npc in train2Passengers)
-                npc?.StartBoarding(train2.transform);
-            watchingTrain2Boarding = true;
-        }
+        foreach (var npc in train2Passengers)
+            npc?.StartBoarding(train2.transform);
+        watchingTrain2Boarding = true;
     }
 
     private void OnTrain2ReachedExit()
