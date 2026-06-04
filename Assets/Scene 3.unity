@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 1261127}
   - component: {fileID: 1261126}
   - component: {fileID: 1261125}
-  - component: {fileID: 1261124}
   m_Layer: 0
   m_Name: DecalsA (49)
   m_TagString: Untagged
@@ -138,18 +137,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1261124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1261125
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2369,7 +2356,6 @@ GameObject:
   - component: {fileID: 43290077}
   - component: {fileID: 43290076}
   - component: {fileID: 43290075}
-  - component: {fileID: 43290074}
   m_Layer: 0
   m_Name: DecalsA (33)
   m_TagString: Untagged
@@ -2377,18 +2363,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &43290074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 43290073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &43290075
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2798,6 +2772,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6050456093760686271, guid: 1125ade159568774fabaea18648529ce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 44847537}
+    - targetCorrespondingSourceObject: {fileID: 6050456093760686271, guid: 1125ade159568774fabaea18648529ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 44847541}
     - targetCorrespondingSourceObject: {fileID: 2945005319374020956, guid: 1125ade159568774fabaea18648529ce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1253791154}
@@ -2807,6 +2784,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2945005319374020956, guid: 1125ade159568774fabaea18648529ce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1253791152}
+    - targetCorrespondingSourceObject: {fileID: 2945005319374020956, guid: 1125ade159568774fabaea18648529ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1253791157}
     - targetCorrespondingSourceObject: {fileID: 1371856932270232830, guid: 1125ade159568774fabaea18648529ce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 44847531}
@@ -2822,6 +2802,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1371856932270232830, guid: 1125ade159568774fabaea18648529ce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 44847538}
+    - targetCorrespondingSourceObject: {fileID: 1371856932270232830, guid: 1125ade159568774fabaea18648529ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 44847540}
   m_SourcePrefab: {fileID: 100100000, guid: 1125ade159568774fabaea18648529ce, type: 3}
 --- !u!1 &44847522 stripped
 GameObject:
@@ -2858,7 +2841,6 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_Colliders:
   - {fileID: 44847533}
-  - {fileID: 44847534}
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
@@ -2919,12 +2901,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 44847523}
   m_VelocityDamping: 1
@@ -2932,13 +2914,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -3086,12 +3068,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 44847524}
   m_VelocityDamping: 1
@@ -3099,13 +3081,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -3244,6 +3226,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac62c882595f4e70a6338623ac7428b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableTrash
+--- !u!114 &44847540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44847525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
+--- !u!114 &44847541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44847522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!1 &46124711
 GameObject:
   m_ObjectHideFlags: 0
@@ -3457,7 +3463,6 @@ GameObject:
   - component: {fileID: 54286548}
   - component: {fileID: 54286547}
   - component: {fileID: 54286546}
-  - component: {fileID: 54286545}
   m_Layer: 0
   m_Name: DecalsA (72)
   m_TagString: Untagged
@@ -3465,18 +3470,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &54286545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 54286544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &54286546
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3958,7 +3951,6 @@ GameObject:
   - component: {fileID: 60406138}
   - component: {fileID: 60406137}
   - component: {fileID: 60406136}
-  - component: {fileID: 60406135}
   m_Layer: 0
   m_Name: DecalsA (32)
   m_TagString: Untagged
@@ -3966,18 +3958,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &60406135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 60406134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &60406136
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5148,7 +5128,6 @@ GameObject:
   - component: {fileID: 77401556}
   - component: {fileID: 77401555}
   - component: {fileID: 77401554}
-  - component: {fileID: 77401553}
   m_Layer: 0
   m_Name: DecalsA (24)
   m_TagString: Untagged
@@ -5156,18 +5135,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &77401553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77401552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &77401554
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5259,23 +5226,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4629455581231081546, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
   m_PrefabInstance: {fileID: 576188015}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &83636800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83636799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b8a209d91d24d7e9d495c6c26f6f40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCIdlePose
-  armLowerAngle: 70
-  breathSpeed: 0.7
-  breathAmount: 0.008
-  swaySpeed: 0.35
-  swayAmount: 0.4
 --- !u!114 &83636801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6222,7 +6172,6 @@ GameObject:
   - component: {fileID: 108060734}
   - component: {fileID: 108060733}
   - component: {fileID: 108060732}
-  - component: {fileID: 108060731}
   m_Layer: 0
   m_Name: DecalsA (60)
   m_TagString: Untagged
@@ -6230,18 +6179,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &108060731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108060730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &108060732
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7223,7 +7160,6 @@ GameObject:
   - component: {fileID: 123169708}
   - component: {fileID: 123169707}
   - component: {fileID: 123169706}
-  - component: {fileID: 123169705}
   m_Layer: 0
   m_Name: DecalsA (64)
   m_TagString: Untagged
@@ -7231,18 +7167,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &123169705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123169704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &123169706
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7319,23 +7243,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3281755754987455352, guid: 2a706093cdcc8d24f8b31d830f678399, type: 3}
   m_PrefabInstance: {fileID: 1401265687}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &123949441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123949440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b8a209d91d24d7e9d495c6c26f6f40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCIdlePose
-  armLowerAngle: 70
-  breathSpeed: 0.7
-  breathAmount: 0.008
-  swaySpeed: 0.35
-  swayAmount: 0.4
 --- !u!114 &123949442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8642,7 +8549,6 @@ GameObject:
   - component: {fileID: 153110789}
   - component: {fileID: 153110788}
   - component: {fileID: 153110787}
-  - component: {fileID: 153110786}
   m_Layer: 0
   m_Name: DecalsA (51)
   m_TagString: Untagged
@@ -8650,18 +8556,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &153110786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153110785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &153110787
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9096,6 +8990,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6017427612744027884, guid: 3aabd8b880e393c41bb80c078fa94711, type: 3}
       insertIndex: -1
       addedObject: {fileID: 159721493}
+    - targetCorrespondingSourceObject: {fileID: 6017427612744027884, guid: 3aabd8b880e393c41bb80c078fa94711, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 159721495}
   m_SourcePrefab: {fileID: 100100000, guid: 3aabd8b880e393c41bb80c078fa94711, type: 3}
 --- !u!1 &159721486 stripped
 GameObject:
@@ -9177,12 +9074,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
@@ -9190,13 +9087,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -9302,6 +9199,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac62c882595f4e70a6338623ac7428b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableTrash
+--- !u!114 &159721495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159721486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!1 &159934628
 GameObject:
   m_ObjectHideFlags: 0
@@ -10494,9 +10403,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7296818736855454420, guid: 1e702983913400042ac3fcd1173a6d37, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2073760699}
-    - targetCorrespondingSourceObject: {fileID: 7296818736855454420, guid: 1e702983913400042ac3fcd1173a6d37, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2073760701}
     - targetCorrespondingSourceObject: {fileID: 7296818736855454420, guid: 1e702983913400042ac3fcd1173a6d37, type: 3}
       insertIndex: -1
@@ -11497,7 +11403,6 @@ GameObject:
   - component: {fileID: 197486533}
   - component: {fileID: 197486532}
   - component: {fileID: 197486531}
-  - component: {fileID: 197486530}
   m_Layer: 0
   m_Name: DecalsA (61)
   m_TagString: Untagged
@@ -11505,18 +11410,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &197486530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197486529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &197486531
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12233,7 +12126,6 @@ GameObject:
   - component: {fileID: 220659055}
   - component: {fileID: 220659054}
   - component: {fileID: 220659053}
-  - component: {fileID: 220659052}
   m_Layer: 0
   m_Name: DecalsA (89)
   m_TagString: Untagged
@@ -12241,18 +12133,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &220659052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 220659051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &220659053
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12588,7 +12468,6 @@ GameObject:
   - component: {fileID: 221877035}
   - component: {fileID: 221877034}
   - component: {fileID: 221877033}
-  - component: {fileID: 221877032}
   m_Layer: 0
   m_Name: DecalsA (23)
   m_TagString: Untagged
@@ -12596,18 +12475,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &221877032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221877031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &221877033
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13135,7 +13002,6 @@ GameObject:
   - component: {fileID: 233652433}
   - component: {fileID: 233652432}
   - component: {fileID: 233652431}
-  - component: {fileID: 233652430}
   m_Layer: 0
   m_Name: DecalsA (57)
   m_TagString: Untagged
@@ -13143,18 +13009,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &233652430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233652429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &233652431
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13606,6 +13460,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 69.827324, y: 24.271843, z: 2.6525893}
   m_Center: {x: 34.913662, y: 2.137598, z: 0.07438415}
+--- !u!115 &240229549
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: TrashGrabAutoMarker
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
 --- !u!1 &244414692
 GameObject:
   m_ObjectHideFlags: 0
@@ -13968,7 +13837,6 @@ GameObject:
   - component: {fileID: 249977842}
   - component: {fileID: 249977841}
   - component: {fileID: 249977840}
-  - component: {fileID: 249977839}
   m_Layer: 0
   m_Name: DecalsA (56)
   m_TagString: Untagged
@@ -13976,18 +13844,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &249977839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 249977838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &249977840
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15407,7 +15263,6 @@ GameObject:
   - component: {fileID: 277336111}
   - component: {fileID: 277336110}
   - component: {fileID: 277336109}
-  - component: {fileID: 277336108}
   m_Layer: 0
   m_Name: DecalsA (101)
   m_TagString: Untagged
@@ -15415,18 +15270,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &277336108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 277336107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &277336109
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17638,6 +17481,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5192368016331079986, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 308796756}
+    - targetCorrespondingSourceObject: {fileID: 5192368016331079986, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 308796760}
     - targetCorrespondingSourceObject: {fileID: 5939444911379134308, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1047371327}
@@ -17647,6 +17493,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5939444911379134308, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1047371325}
+    - targetCorrespondingSourceObject: {fileID: 5939444911379134308, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1047371330}
     - targetCorrespondingSourceObject: {fileID: 9206258772825817827, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 308796750}
@@ -17662,6 +17511,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9206258772825817827, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 308796757}
+    - targetCorrespondingSourceObject: {fileID: 9206258772825817827, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 308796759}
   m_SourcePrefab: {fileID: 100100000, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
 --- !u!1 &308796741 stripped
 GameObject:
@@ -17698,7 +17550,6 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_Colliders:
   - {fileID: 308796752}
-  - {fileID: 308796753}
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
@@ -17759,12 +17610,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 308796742}
   m_VelocityDamping: 1
@@ -17772,13 +17623,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -17926,12 +17777,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 308796743}
   m_VelocityDamping: 1
@@ -17939,13 +17790,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -18084,6 +17935,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac62c882595f4e70a6338623ac7428b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableTrash
+--- !u!114 &308796759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308796744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
+--- !u!114 &308796760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308796741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!4 &308997960
 Transform:
   m_ObjectHideFlags: 0
@@ -18762,7 +18637,6 @@ GameObject:
   - component: {fileID: 331657944}
   - component: {fileID: 331657943}
   - component: {fileID: 331657942}
-  - component: {fileID: 331657941}
   m_Layer: 0
   m_Name: DecalsA (73)
   m_TagString: Untagged
@@ -18770,18 +18644,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &331657941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331657940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &331657942
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20078,7 +19940,6 @@ GameObject:
   - component: {fileID: 360308123}
   - component: {fileID: 360308122}
   - component: {fileID: 360308121}
-  - component: {fileID: 360308120}
   m_Layer: 0
   m_Name: DecalsA (71)
   m_TagString: Untagged
@@ -20086,18 +19947,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &360308120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 360308119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &360308121
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21691,7 +21540,6 @@ GameObject:
   - component: {fileID: 381103735}
   - component: {fileID: 381103734}
   - component: {fileID: 381103733}
-  - component: {fileID: 381103732}
   m_Layer: 0
   m_Name: DecalsA (43)
   m_TagString: Untagged
@@ -21699,18 +21547,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &381103732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381103731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &381103733
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23276,7 +23112,6 @@ GameObject:
   - component: {fileID: 405610246}
   - component: {fileID: 405610245}
   - component: {fileID: 405610244}
-  - component: {fileID: 405610243}
   m_Layer: 0
   m_Name: DecalsA (38)
   m_TagString: Untagged
@@ -23284,18 +23119,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &405610243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 405610242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &405610244
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25293,7 +25116,6 @@ GameObject:
   - component: {fileID: 432159077}
   - component: {fileID: 432159076}
   - component: {fileID: 432159075}
-  - component: {fileID: 432159074}
   m_Layer: 0
   m_Name: DecalsA (36)
   m_TagString: Untagged
@@ -25301,18 +25123,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &432159074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 432159073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &432159075
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25395,7 +25205,6 @@ GameObject:
   - component: {fileID: 433827613}
   - component: {fileID: 433827612}
   - component: {fileID: 433827611}
-  - component: {fileID: 433827610}
   m_Layer: 0
   m_Name: DecalsA (35)
   m_TagString: Untagged
@@ -25403,18 +25212,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &433827610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 433827609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &433827611
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25775,7 +25572,6 @@ GameObject:
   - component: {fileID: 443339998}
   - component: {fileID: 443339997}
   - component: {fileID: 443339996}
-  - component: {fileID: 443339995}
   m_Layer: 0
   m_Name: DecalsA (80)
   m_TagString: Untagged
@@ -25783,18 +25579,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &443339995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 443339994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &443339996
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27910,6 +27694,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3802344691026843448, guid: 3b70239e577309b4b9e9cd193e820170, type: 3}
       insertIndex: -1
       addedObject: {fileID: 479802525}
+    - targetCorrespondingSourceObject: {fileID: 3802344691026843448, guid: 3b70239e577309b4b9e9cd193e820170, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 479802529}
     - targetCorrespondingSourceObject: {fileID: 1721152368296840683, guid: 3b70239e577309b4b9e9cd193e820170, type: 3}
       insertIndex: -1
       addedObject: {fileID: 479802519}
@@ -27925,6 +27712,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1721152368296840683, guid: 3b70239e577309b4b9e9cd193e820170, type: 3}
       insertIndex: -1
       addedObject: {fileID: 479802526}
+    - targetCorrespondingSourceObject: {fileID: 1721152368296840683, guid: 3b70239e577309b4b9e9cd193e820170, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 479802528}
   m_SourcePrefab: {fileID: 100100000, guid: 3b70239e577309b4b9e9cd193e820170, type: 3}
 --- !u!1 &479802510 stripped
 GameObject:
@@ -27961,7 +27751,6 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_Colliders:
   - {fileID: 479802521}
-  - {fileID: 479802522}
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
@@ -28022,12 +27811,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 479802511}
   m_VelocityDamping: 1
@@ -28035,13 +27824,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -28189,12 +27978,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 479802512}
   m_VelocityDamping: 1
@@ -28202,13 +27991,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -28347,6 +28136,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac62c882595f4e70a6338623ac7428b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableTrash
+--- !u!114 &479802528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479802513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
+--- !u!114 &479802529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479802510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!1 &481464662
 GameObject:
   m_ObjectHideFlags: 0
@@ -29745,12 +29558,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
@@ -29758,13 +29571,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -30466,7 +30279,6 @@ GameObject:
   - component: {fileID: 518745656}
   - component: {fileID: 518745655}
   - component: {fileID: 518745654}
-  - component: {fileID: 518745653}
   m_Layer: 0
   m_Name: DecalsA (26)
   m_TagString: Untagged
@@ -30474,18 +30286,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &518745653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518745652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &518745654
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33622,9 +33422,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4629455581231081546, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 83636800}
-    - targetCorrespondingSourceObject: {fileID: 4629455581231081546, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 83636803}
     - targetCorrespondingSourceObject: {fileID: 4629455581231081546, guid: 705225bb2a214a448b1dd2aefedb1af6, type: 3}
       insertIndex: -1
@@ -33638,40 +33435,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8921330990437803623, guid: cf2b27186d52fd6438fd5fc2791f3f3d, type: 3}
   m_PrefabInstance: {fileID: 1627456709}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &581472248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581472247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b8a209d91d24d7e9d495c6c26f6f40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCIdlePose
-  armLowerAngle: 70
-  breathSpeed: 0.7
-  breathAmount: 0.008
-  swaySpeed: 0.35
-  swayAmount: 0.4
---- !u!114 &581472250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581472247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b8a209d91d24d7e9d495c6c26f6f40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCIdlePose
-  armLowerAngle: 70
-  breathSpeed: 0.7
-  breathAmount: 0.008
-  swaySpeed: 0.35
-  swayAmount: 0.4
 --- !u!114 &581472251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34255,7 +34018,6 @@ GameObject:
   - component: {fileID: 597320194}
   - component: {fileID: 597320193}
   - component: {fileID: 597320192}
-  - component: {fileID: 597320191}
   m_Layer: 0
   m_Name: DecalsA (19)
   m_TagString: Untagged
@@ -34263,18 +34025,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &597320191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 597320190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &597320192
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34685,7 +34435,6 @@ GameObject:
   - component: {fileID: 602259449}
   - component: {fileID: 602259448}
   - component: {fileID: 602259447}
-  - component: {fileID: 602259446}
   m_Layer: 0
   m_Name: DecalsA (88)
   m_TagString: Untagged
@@ -34693,18 +34442,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &602259446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 602259445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &602259447
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34948,7 +34685,6 @@ GameObject:
   - component: {fileID: 604530736}
   - component: {fileID: 604530735}
   - component: {fileID: 604530734}
-  - component: {fileID: 604530733}
   m_Layer: 0
   m_Name: DecalsA (4)
   m_TagString: Untagged
@@ -34956,18 +34692,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &604530733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604530732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &604530734
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37175,7 +36899,6 @@ GameObject:
   - component: {fileID: 645634783}
   - component: {fileID: 645634782}
   - component: {fileID: 645634781}
-  - component: {fileID: 645634780}
   m_Layer: 0
   m_Name: DecalsA (37)
   m_TagString: Untagged
@@ -37183,18 +36906,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &645634780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 645634779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &645634781
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37563,7 +37274,6 @@ GameObject:
   - component: {fileID: 649808108}
   - component: {fileID: 649808107}
   - component: {fileID: 649808106}
-  - component: {fileID: 649808105}
   m_Layer: 0
   m_Name: DecalsA (100)
   m_TagString: Untagged
@@ -37571,18 +37281,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &649808105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 649808104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &649808106
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38310,7 +38008,6 @@ GameObject:
   - component: {fileID: 656906553}
   - component: {fileID: 656906552}
   - component: {fileID: 656906551}
-  - component: {fileID: 656906550}
   m_Layer: 0
   m_Name: DecalsA (65)
   m_TagString: Untagged
@@ -38318,18 +38015,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &656906550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 656906549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &656906551
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38679,7 +38364,6 @@ GameObject:
   - component: {fileID: 659515400}
   - component: {fileID: 659515399}
   - component: {fileID: 659515398}
-  - component: {fileID: 659515397}
   m_Layer: 0
   m_Name: DecalsA (83)
   m_TagString: Untagged
@@ -38687,18 +38371,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &659515397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659515396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &659515398
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38843,9 +38515,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2125064448}
-    - targetCorrespondingSourceObject: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2125064450}
     - targetCorrespondingSourceObject: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
       insertIndex: -1
@@ -38896,7 +38565,6 @@ GameObject:
   - component: {fileID: 662522648}
   - component: {fileID: 662522647}
   - component: {fileID: 662522646}
-  - component: {fileID: 662522645}
   m_Layer: 0
   m_Name: DecalsA (17)
   m_TagString: Untagged
@@ -38904,18 +38572,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &662522645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662522644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &662522646
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39330,6 +38986,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5192368016331079986, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 667863157}
+    - targetCorrespondingSourceObject: {fileID: 5192368016331079986, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 667863161}
     - targetCorrespondingSourceObject: {fileID: 5939444911379134308, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 781604473}
@@ -39339,6 +38998,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5939444911379134308, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 781604471}
+    - targetCorrespondingSourceObject: {fileID: 5939444911379134308, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 781604476}
     - targetCorrespondingSourceObject: {fileID: 9206258772825817827, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 667863151}
@@ -39354,6 +39016,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9206258772825817827, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 667863158}
+    - targetCorrespondingSourceObject: {fileID: 9206258772825817827, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 667863160}
   m_SourcePrefab: {fileID: 100100000, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
 --- !u!1 &667863142 stripped
 GameObject:
@@ -39390,7 +39055,6 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_Colliders:
   - {fileID: 667863153}
-  - {fileID: 667863154}
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
@@ -39451,12 +39115,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 667863143}
   m_VelocityDamping: 1
@@ -39464,13 +39128,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -39618,12 +39282,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 667863144}
   m_VelocityDamping: 1
@@ -39631,13 +39295,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -39776,6 +39440,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac62c882595f4e70a6338623ac7428b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableTrash
+--- !u!114 &667863160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667863145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
+--- !u!114 &667863161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667863142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!1 &669670724
 GameObject:
   m_ObjectHideFlags: 0
@@ -40812,7 +40500,6 @@ GameObject:
   - component: {fileID: 691374987}
   - component: {fileID: 691374986}
   - component: {fileID: 691374985}
-  - component: {fileID: 691374984}
   m_Layer: 0
   m_Name: DecalsA (74)
   m_TagString: Untagged
@@ -40820,18 +40507,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &691374984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 691374983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &691374985
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41315,9 +40990,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4978816779655408403, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1911197225}
     - targetCorrespondingSourceObject: {fileID: 4978816779655408403, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1911197227}
@@ -44416,7 +44088,6 @@ GameObject:
   - component: {fileID: 762021231}
   - component: {fileID: 762021230}
   - component: {fileID: 762021229}
-  - component: {fileID: 762021228}
   m_Layer: 0
   m_Name: DecalsA (1)
   m_TagString: Untagged
@@ -44424,18 +44095,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &762021228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762021227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &762021229
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -44518,7 +44177,6 @@ GameObject:
   - component: {fileID: 763080454}
   - component: {fileID: 763080453}
   - component: {fileID: 763080452}
-  - component: {fileID: 763080451}
   m_Layer: 0
   m_Name: DecalsA (8)
   m_TagString: Untagged
@@ -44526,18 +44184,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &763080451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763080450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &763080452
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -44614,23 +44260,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3348641785564449632, guid: b97a930929a95154b85d0742ab015eb9, type: 3}
   m_PrefabInstance: {fileID: 2048724783}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &765939366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 765939365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b8a209d91d24d7e9d495c6c26f6f40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCIdlePose
-  armLowerAngle: 70
-  breathSpeed: 0.7
-  breathAmount: 0.008
-  swaySpeed: 0.35
-  swayAmount: 0.4
 --- !u!114 &765939367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45140,12 +44769,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
@@ -45153,13 +44782,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -45220,6 +44849,18 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &781604476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15837880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!1 &782598524
 GameObject:
   m_ObjectHideFlags: 0
@@ -48095,7 +47736,6 @@ GameObject:
   - component: {fileID: 843050206}
   - component: {fileID: 843050205}
   - component: {fileID: 843050204}
-  - component: {fileID: 843050203}
   m_Layer: 0
   m_Name: DecalsA (22)
   m_TagString: Untagged
@@ -48103,18 +47743,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &843050203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843050202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &843050204
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -48432,7 +48060,6 @@ GameObject:
   - component: {fileID: 851103825}
   - component: {fileID: 851103824}
   - component: {fileID: 851103823}
-  - component: {fileID: 851103822}
   m_Layer: 0
   m_Name: DecalsA (39)
   m_TagString: Untagged
@@ -48440,18 +48067,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &851103822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 851103821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &851103823
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -48712,7 +48327,6 @@ GameObject:
   - component: {fileID: 856505216}
   - component: {fileID: 856505215}
   - component: {fileID: 856505214}
-  - component: {fileID: 856505213}
   m_Layer: 0
   m_Name: DecalsA (77)
   m_TagString: Untagged
@@ -48720,18 +48334,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &856505213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 856505212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &856505214
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -48808,23 +48410,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
   m_PrefabInstance: {fileID: 889467654}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &857415699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 857415698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b8a209d91d24d7e9d495c6c26f6f40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCIdlePose
-  armLowerAngle: 70
-  breathSpeed: 0.7
-  breathAmount: 0.008
-  swaySpeed: 0.35
-  swayAmount: 0.4
 --- !u!114 &857415700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50530,7 +50115,6 @@ GameObject:
   - component: {fileID: 887157404}
   - component: {fileID: 887157403}
   - component: {fileID: 887157402}
-  - component: {fileID: 887157401}
   m_Layer: 0
   m_Name: DecalsA (27)
   m_TagString: Untagged
@@ -50538,18 +50122,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &887157401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 887157400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &887157402
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -50679,9 +50251,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 857415699}
-    - targetCorrespondingSourceObject: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 857415702}
     - targetCorrespondingSourceObject: {fileID: 4675573491783898455, guid: b737903a0cefa1e4aa4c22e91c6ec5dd, type: 3}
       insertIndex: -1
@@ -50746,9 +50315,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2306769892806513762, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1200755122}
     - targetCorrespondingSourceObject: {fileID: 2306769892806513762, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1200755125}
@@ -51846,6 +51412,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6581174277814260144, guid: 0e59768c6a70bd04ebc78cdfb1b7f085, type: 3}
       insertIndex: -1
       addedObject: {fileID: 907741125}
+    - targetCorrespondingSourceObject: {fileID: 6581174277814260144, guid: 0e59768c6a70bd04ebc78cdfb1b7f085, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 907741127}
   m_SourcePrefab: {fileID: 100100000, guid: 0e59768c6a70bd04ebc78cdfb1b7f085, type: 3}
 --- !u!1 &907741117 stripped
 GameObject:
@@ -51932,12 +51501,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 907741118}
   m_VelocityDamping: 1
@@ -51945,13 +51514,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -52057,6 +51626,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac62c882595f4e70a6338623ac7428b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableTrash
+--- !u!114 &907741127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907741117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!1 &911192068 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
@@ -53380,7 +52961,6 @@ GameObject:
   - component: {fileID: 927280266}
   - component: {fileID: 927280265}
   - component: {fileID: 927280264}
-  - component: {fileID: 927280263}
   m_Layer: 0
   m_Name: DecalsA (46)
   m_TagString: Untagged
@@ -53388,18 +52968,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &927280263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 927280262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &927280264
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -54073,7 +53641,6 @@ GameObject:
   - component: {fileID: 946166244}
   - component: {fileID: 946166243}
   - component: {fileID: 946166242}
-  - component: {fileID: 946166241}
   m_Layer: 0
   m_Name: DecalsA (50)
   m_TagString: Untagged
@@ -54081,18 +53648,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &946166241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 946166240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &946166242
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -56229,7 +55784,6 @@ GameObject:
   - component: {fileID: 984168579}
   - component: {fileID: 984168578}
   - component: {fileID: 984168577}
-  - component: {fileID: 984168576}
   m_Layer: 0
   m_Name: DecalsA (16)
   m_TagString: Untagged
@@ -56237,18 +55791,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &984168576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984168575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &984168577
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58315,7 +57857,6 @@ GameObject:
   - component: {fileID: 1038744860}
   - component: {fileID: 1038744859}
   - component: {fileID: 1038744858}
-  - component: {fileID: 1038744857}
   m_Layer: 0
   m_Name: DecalsA (59)
   m_TagString: Untagged
@@ -58323,18 +57864,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1038744857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038744856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1038744858
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58694,7 +58223,6 @@ GameObject:
   - component: {fileID: 1045303692}
   - component: {fileID: 1045303691}
   - component: {fileID: 1045303690}
-  - component: {fileID: 1045303689}
   m_Layer: 0
   m_Name: DecalsA (30)
   m_TagString: Untagged
@@ -58702,18 +58230,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1045303689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1045303688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1045303690
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58965,12 +58481,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
@@ -58978,13 +58494,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -59045,6 +58561,18 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1047371330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047371322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!1 &1048911138
 GameObject:
   m_ObjectHideFlags: 0
@@ -59234,7 +58762,6 @@ GameObject:
   - component: {fileID: 1051256572}
   - component: {fileID: 1051256571}
   - component: {fileID: 1051256570}
-  - component: {fileID: 1051256569}
   m_Layer: 0
   m_Name: DecalsA (62)
   m_TagString: Untagged
@@ -59242,18 +58769,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1051256569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051256568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1051256570
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60513,7 +60028,6 @@ GameObject:
   - component: {fileID: 1079424643}
   - component: {fileID: 1079424642}
   - component: {fileID: 1079424641}
-  - component: {fileID: 1079424640}
   m_Layer: 0
   m_Name: DecalsA (52)
   m_TagString: Untagged
@@ -60521,18 +60035,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1079424640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079424639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1079424641
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60660,9 +60162,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5726847344798059793, guid: 7ff7e096ac295fb4b84d7d2a573bd046, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1242461848}
     - targetCorrespondingSourceObject: {fileID: 5726847344798059793, guid: 7ff7e096ac295fb4b84d7d2a573bd046, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1242461849}
@@ -61078,7 +60577,6 @@ GameObject:
   - component: {fileID: 1092439461}
   - component: {fileID: 1092439460}
   - component: {fileID: 1092439459}
-  - component: {fileID: 1092439458}
   m_Layer: 0
   m_Name: DecalsA (29)
   m_TagString: Untagged
@@ -61086,18 +60584,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1092439458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1092439457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1092439459
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63918,7 +63404,6 @@ GameObject:
   - component: {fileID: 1151977872}
   - component: {fileID: 1151977871}
   - component: {fileID: 1151977870}
-  - component: {fileID: 1151977869}
   m_Layer: 0
   m_Name: DecalsA (66)
   m_TagString: Untagged
@@ -63926,18 +63411,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1151977869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151977868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1151977870
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64894,12 +64367,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
@@ -64907,13 +64380,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -65920,7 +65393,6 @@ GameObject:
   - component: {fileID: 1179187295}
   - component: {fileID: 1179187294}
   - component: {fileID: 1179187293}
-  - component: {fileID: 1179187292}
   m_Layer: 0
   m_Name: DecalsA (14)
   m_TagString: Untagged
@@ -65928,18 +65400,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1179187292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179187291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1179187293
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -66673,7 +66133,6 @@ GameObject:
   - component: {fileID: 1187949467}
   - component: {fileID: 1187949466}
   - component: {fileID: 1187949465}
-  - component: {fileID: 1187949464}
   m_Layer: 0
   m_Name: DecalsA (40)
   m_TagString: Untagged
@@ -66681,18 +66140,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1187949464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187949463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1187949465
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -67775,23 +67222,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2306769892806513762, guid: be6cb4f0791ad3a4a80b41c3177f0aba, type: 3}
   m_PrefabInstance: {fileID: 889573450}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1200755122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200755121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b8a209d91d24d7e9d495c6c26f6f40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCIdlePose
-  armLowerAngle: 70
-  breathSpeed: 0.7
-  breathAmount: 0.008
-  swaySpeed: 0.35
-  swayAmount: 0.4
 --- !u!114 &1200755123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67905,7 +67335,6 @@ GameObject:
   - component: {fileID: 1201235635}
   - component: {fileID: 1201235634}
   - component: {fileID: 1201235633}
-  - component: {fileID: 1201235632}
   m_Layer: 0
   m_Name: DecalsA (34)
   m_TagString: Untagged
@@ -67913,18 +67342,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1201235632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1201235631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1201235633
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -69999,7 +69416,6 @@ GameObject:
   - component: {fileID: 1229830060}
   - component: {fileID: 1229830059}
   - component: {fileID: 1229830058}
-  - component: {fileID: 1229830057}
   m_Layer: 0
   m_Name: DecalsA (5)
   m_TagString: Untagged
@@ -70007,18 +69423,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1229830057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1229830056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1229830058
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -70749,23 +70153,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5726847344798059793, guid: 7ff7e096ac295fb4b84d7d2a573bd046, type: 3}
   m_PrefabInstance: {fileID: 1081351133}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1242461848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1242461847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b8a209d91d24d7e9d495c6c26f6f40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCIdlePose
-  armLowerAngle: 70
-  breathSpeed: 0.7
-  breathAmount: 0.008
-  swaySpeed: 0.35
-  swayAmount: 0.4
 --- !u!114 &1242461849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71200,12 +70587,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
@@ -71213,13 +70600,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -71280,6 +70667,18 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1253791157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253791149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!1 &1254393922
 GameObject:
   m_ObjectHideFlags: 0
@@ -72592,7 +71991,6 @@ GameObject:
   - component: {fileID: 1277668494}
   - component: {fileID: 1277668493}
   - component: {fileID: 1277668492}
-  - component: {fileID: 1277668491}
   m_Layer: 0
   m_Name: DecalsA (3)
   m_TagString: Untagged
@@ -72600,18 +71998,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1277668491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1277668490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1277668492
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -72998,7 +72384,6 @@ GameObject:
   - component: {fileID: 1290708467}
   - component: {fileID: 1290708466}
   - component: {fileID: 1290708465}
-  - component: {fileID: 1290708464}
   m_Layer: 0
   m_Name: DecalsA (105)
   m_TagString: Untagged
@@ -73006,18 +72391,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1290708464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1290708463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1290708465
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -73920,7 +73293,6 @@ GameObject:
   - component: {fileID: 1307078266}
   - component: {fileID: 1307078265}
   - component: {fileID: 1307078264}
-  - component: {fileID: 1307078263}
   m_Layer: 0
   m_Name: DecalsA (18)
   m_TagString: Untagged
@@ -73928,18 +73300,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1307078263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307078262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1307078264
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -74620,9 +73980,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8027057966121039039, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1565959161}
-    - targetCorrespondingSourceObject: {fileID: 8027057966121039039, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1565959163}
     - targetCorrespondingSourceObject: {fileID: 8027057966121039039, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
       insertIndex: -1
@@ -74642,7 +73999,6 @@ GameObject:
   - component: {fileID: 1313371413}
   - component: {fileID: 1313371412}
   - component: {fileID: 1313371411}
-  - component: {fileID: 1313371410}
   m_Layer: 0
   m_Name: DecalsA (6)
   m_TagString: Untagged
@@ -74650,18 +74006,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1313371410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1313371409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1313371411
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -74858,7 +74202,6 @@ GameObject:
   - component: {fileID: 1314628035}
   - component: {fileID: 1314628034}
   - component: {fileID: 1314628033}
-  - component: {fileID: 1314628032}
   m_Layer: 0
   m_Name: DecalsA (63)
   m_TagString: Untagged
@@ -74866,18 +74209,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1314628032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314628031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1314628033
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -75350,6 +74681,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7311506559397099704, guid: 28487c63b217ac342935299e9014381e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1323011865}
+    - targetCorrespondingSourceObject: {fileID: 7311506559397099704, guid: 28487c63b217ac342935299e9014381e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1323011867}
   m_SourcePrefab: {fileID: 100100000, guid: 28487c63b217ac342935299e9014381e, type: 3}
 --- !u!1 &1323011858 stripped
 GameObject:
@@ -75431,12 +74765,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
@@ -75444,13 +74778,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -75556,6 +74890,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac62c882595f4e70a6338623ac7428b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableTrash
+--- !u!114 &1323011867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323011858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!1 &1324302634
 GameObject:
   m_ObjectHideFlags: 0
@@ -80404,9 +79750,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3281755754987455352, guid: 2a706093cdcc8d24f8b31d830f678399, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 123949441}
-    - targetCorrespondingSourceObject: {fileID: 3281755754987455352, guid: 2a706093cdcc8d24f8b31d830f678399, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 123949444}
     - targetCorrespondingSourceObject: {fileID: 3281755754987455352, guid: 2a706093cdcc8d24f8b31d830f678399, type: 3}
       insertIndex: -1
@@ -80974,7 +80317,6 @@ GameObject:
   - component: {fileID: 1413010411}
   - component: {fileID: 1413010410}
   - component: {fileID: 1413010409}
-  - component: {fileID: 1413010408}
   m_Layer: 0
   m_Name: DecalsA (53)
   m_TagString: Untagged
@@ -80982,18 +80324,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1413010408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1413010407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1413010409
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -81827,7 +81157,6 @@ GameObject:
   - component: {fileID: 1428704638}
   - component: {fileID: 1428704637}
   - component: {fileID: 1428704636}
-  - component: {fileID: 1428704635}
   m_Layer: 0
   m_Name: DecalsA (54)
   m_TagString: Untagged
@@ -81835,18 +81164,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1428704635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428704634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1428704636
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -82434,9 +81751,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6174326141219191701, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1815166276}
     - targetCorrespondingSourceObject: {fileID: 6174326141219191701, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1815166278}
@@ -84112,7 +83426,6 @@ GameObject:
   - component: {fileID: 1458886916}
   - component: {fileID: 1458886915}
   - component: {fileID: 1458886914}
-  - component: {fileID: 1458886913}
   m_Layer: 0
   m_Name: DecalsA (106)
   m_TagString: Untagged
@@ -84120,18 +83433,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1458886913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458886912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1458886914
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -84303,7 +83604,6 @@ GameObject:
   - component: {fileID: 1462058715}
   - component: {fileID: 1462058714}
   - component: {fileID: 1462058713}
-  - component: {fileID: 1462058712}
   m_Layer: 0
   m_Name: DecalsA (44)
   m_TagString: Untagged
@@ -84311,18 +83611,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1462058712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462058711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1462058713
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -85452,6 +84740,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3802344691026843448, guid: 3b70239e577309b4b9e9cd193e820170, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1482249416}
+    - targetCorrespondingSourceObject: {fileID: 3802344691026843448, guid: 3b70239e577309b4b9e9cd193e820170, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1482249420}
     - targetCorrespondingSourceObject: {fileID: 1721152368296840683, guid: 3b70239e577309b4b9e9cd193e820170, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1482249410}
@@ -85467,6 +84758,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1721152368296840683, guid: 3b70239e577309b4b9e9cd193e820170, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1482249417}
+    - targetCorrespondingSourceObject: {fileID: 1721152368296840683, guid: 3b70239e577309b4b9e9cd193e820170, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1482249419}
   m_SourcePrefab: {fileID: 100100000, guid: 3b70239e577309b4b9e9cd193e820170, type: 3}
 --- !u!1 &1482249401 stripped
 GameObject:
@@ -85503,7 +84797,6 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_Colliders:
   - {fileID: 1482249412}
-  - {fileID: 1482249413}
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
@@ -85564,12 +84857,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 1482249402}
   m_VelocityDamping: 1
@@ -85577,13 +84870,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -85731,12 +85024,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 1482249403}
   m_VelocityDamping: 1
@@ -85744,13 +85037,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -85889,6 +85182,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac62c882595f4e70a6338623ac7428b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableTrash
+--- !u!114 &1482249419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482249404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
+--- !u!114 &1482249420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482249401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!1 &1485766561
 GameObject:
   m_ObjectHideFlags: 0
@@ -86393,7 +85710,6 @@ GameObject:
   - component: {fileID: 1495009427}
   - component: {fileID: 1495009426}
   - component: {fileID: 1495009425}
-  - component: {fileID: 1495009424}
   m_Layer: 0
   m_Name: DecalsA (99)
   m_TagString: Untagged
@@ -86401,18 +85717,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1495009424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495009423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1495009425
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -87480,6 +86784,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512159186}
   m_Mesh: {fileID: 4300012, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!114 &1512583679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965857248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!1 &1513089540
 GameObject:
   m_ObjectHideFlags: 0
@@ -87691,7 +87007,6 @@ GameObject:
   - component: {fileID: 1516394557}
   - component: {fileID: 1516394556}
   - component: {fileID: 1516394555}
-  - component: {fileID: 1516394554}
   m_Layer: 0
   m_Name: DecalsA (107)
   m_TagString: Untagged
@@ -87699,18 +87014,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1516394554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516394553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1516394555
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -88143,7 +87446,6 @@ GameObject:
   - component: {fileID: 1522429380}
   - component: {fileID: 1522429379}
   - component: {fileID: 1522429378}
-  - component: {fileID: 1522429377}
   m_Layer: 0
   m_Name: DecalsA (94)
   m_TagString: Untagged
@@ -88151,18 +87453,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1522429377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522429376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1522429378
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -88245,7 +87535,6 @@ GameObject:
   - component: {fileID: 1523627017}
   - component: {fileID: 1523627016}
   - component: {fileID: 1523627015}
-  - component: {fileID: 1523627014}
   m_Layer: 0
   m_Name: DecalsA (68)
   m_TagString: Untagged
@@ -88253,18 +87542,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1523627014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1523627013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1523627015
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -88459,7 +87736,6 @@ GameObject:
   - component: {fileID: 1527062837}
   - component: {fileID: 1527062836}
   - component: {fileID: 1527062835}
-  - component: {fileID: 1527062834}
   m_Layer: 0
   m_Name: DecalsA (9)
   m_TagString: Untagged
@@ -88467,18 +87743,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1527062834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527062833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1527062835
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -90313,7 +89577,6 @@ GameObject:
   - component: {fileID: 1547126066}
   - component: {fileID: 1547126065}
   - component: {fileID: 1547126064}
-  - component: {fileID: 1547126063}
   m_Layer: 0
   m_Name: DecalsA (98)
   m_TagString: Untagged
@@ -90321,18 +89584,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1547126063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1547126062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1547126064
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -91297,23 +90548,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8027057966121039039, guid: d34700a5f6d359546bc65c95236d3535, type: 3}
   m_PrefabInstance: {fileID: 1312564894}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1565959161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565959160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b8a209d91d24d7e9d495c6c26f6f40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCIdlePose
-  armLowerAngle: 70
-  breathSpeed: 0.7
-  breathAmount: 0.008
-  swaySpeed: 0.35
-  swayAmount: 0.4
 --- !u!114 &1565959162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94573,12 +93807,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8921330990437803623, guid: cf2b27186d52fd6438fd5fc2791f3f3d, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 581472250}
-    - targetCorrespondingSourceObject: {fileID: 8921330990437803623, guid: cf2b27186d52fd6438fd5fc2791f3f3d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 581472248}
-    - targetCorrespondingSourceObject: {fileID: 8921330990437803623, guid: cf2b27186d52fd6438fd5fc2791f3f3d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 581472253}
     - targetCorrespondingSourceObject: {fileID: 8921330990437803623, guid: cf2b27186d52fd6438fd5fc2791f3f3d, type: 3}
@@ -96081,7 +95309,6 @@ GameObject:
   - component: {fileID: 1658296132}
   - component: {fileID: 1658296131}
   - component: {fileID: 1658296130}
-  - component: {fileID: 1658296129}
   m_Layer: 0
   m_Name: DecalsA (47)
   m_TagString: Untagged
@@ -96089,18 +95316,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1658296129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658296128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1658296130
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -96361,7 +95576,6 @@ GameObject:
   - component: {fileID: 1658901949}
   - component: {fileID: 1658901948}
   - component: {fileID: 1658901947}
-  - component: {fileID: 1658901946}
   m_Layer: 0
   m_Name: DecalsA (15)
   m_TagString: Untagged
@@ -96369,18 +95583,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1658901946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658901945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1658901947
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -96577,7 +95779,6 @@ GameObject:
   - component: {fileID: 1660184629}
   - component: {fileID: 1660184628}
   - component: {fileID: 1660184627}
-  - component: {fileID: 1660184626}
   m_Layer: 0
   m_Name: DecalsA (69)
   m_TagString: Untagged
@@ -96585,18 +95786,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1660184626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1660184625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1660184627
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -96739,6 +95928,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6050456093760686271, guid: 1125ade159568774fabaea18648529ce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1660609543}
+    - targetCorrespondingSourceObject: {fileID: 6050456093760686271, guid: 1125ade159568774fabaea18648529ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1660609547}
     - targetCorrespondingSourceObject: {fileID: 2945005319374020956, guid: 1125ade159568774fabaea18648529ce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 503753911}
@@ -96748,6 +95940,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2945005319374020956, guid: 1125ade159568774fabaea18648529ce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 503753909}
+    - targetCorrespondingSourceObject: {fileID: 2945005319374020956, guid: 1125ade159568774fabaea18648529ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1512583679}
     - targetCorrespondingSourceObject: {fileID: 1371856932270232830, guid: 1125ade159568774fabaea18648529ce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1660609537}
@@ -96763,6 +95958,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1371856932270232830, guid: 1125ade159568774fabaea18648529ce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1660609544}
+    - targetCorrespondingSourceObject: {fileID: 1371856932270232830, guid: 1125ade159568774fabaea18648529ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1660609546}
   m_SourcePrefab: {fileID: 100100000, guid: 1125ade159568774fabaea18648529ce, type: 3}
 --- !u!1 &1660609528 stripped
 GameObject:
@@ -96799,7 +95997,6 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_Colliders:
   - {fileID: 1660609539}
-  - {fileID: 1660609540}
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
@@ -96860,12 +96057,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 1660609529}
   m_VelocityDamping: 1
@@ -96873,13 +96070,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -97027,12 +96224,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 1660609530}
   m_VelocityDamping: 1
@@ -97040,13 +96237,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -97185,6 +96382,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac62c882595f4e70a6338623ac7428b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableTrash
+--- !u!114 &1660609546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660609531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
+--- !u!114 &1660609547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660609528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!1 &1667666830
 GameObject:
   m_ObjectHideFlags: 0
@@ -98870,7 +98091,6 @@ GameObject:
   - component: {fileID: 1709188142}
   - component: {fileID: 1709188141}
   - component: {fileID: 1709188140}
-  - component: {fileID: 1709188139}
   m_Layer: 0
   m_Name: DecalsA (55)
   m_TagString: Untagged
@@ -98878,18 +98098,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1709188139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1709188138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1709188140
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -99388,6 +98596,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6017427612744027884, guid: 3aabd8b880e393c41bb80c078fa94711, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1715762877}
+    - targetCorrespondingSourceObject: {fileID: 6017427612744027884, guid: 3aabd8b880e393c41bb80c078fa94711, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1715762879}
   m_SourcePrefab: {fileID: 100100000, guid: 3aabd8b880e393c41bb80c078fa94711, type: 3}
 --- !u!1 &1715762870 stripped
 GameObject:
@@ -99469,12 +98680,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
@@ -99482,13 +98693,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -99594,6 +98805,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac62c882595f4e70a6338623ac7428b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableTrash
+--- !u!114 &1715762879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715762870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!1 &1719027268
 GameObject:
   m_ObjectHideFlags: 0
@@ -100275,7 +99498,6 @@ GameObject:
   - component: {fileID: 1747082360}
   - component: {fileID: 1747082359}
   - component: {fileID: 1747082358}
-  - component: {fileID: 1747082357}
   m_Layer: 0
   m_Name: DecalsA (45)
   m_TagString: Untagged
@@ -100283,18 +99505,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1747082357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747082356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1747082358
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -101306,7 +100516,6 @@ GameObject:
   - component: {fileID: 1772101802}
   - component: {fileID: 1772101801}
   - component: {fileID: 1772101800}
-  - component: {fileID: 1772101799}
   m_Layer: 0
   m_Name: DecalsA (102)
   m_TagString: Untagged
@@ -101314,18 +100523,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1772101799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772101798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1772101800
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -102110,7 +101307,6 @@ GameObject:
   - component: {fileID: 1792183311}
   - component: {fileID: 1792183310}
   - component: {fileID: 1792183309}
-  - component: {fileID: 1792183308}
   m_Layer: 0
   m_Name: DecalsA (20)
   m_TagString: Untagged
@@ -102118,18 +101314,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1792183308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792183307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1792183309
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -103480,23 +102664,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6174326141219191701, guid: 80e578b2d7250b542b1c305c12391f3e, type: 3}
   m_PrefabInstance: {fileID: 1439670212}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1815166276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1815166275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b8a209d91d24d7e9d495c6c26f6f40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCIdlePose
-  armLowerAngle: 70
-  breathSpeed: 0.7
-  breathAmount: 0.008
-  swaySpeed: 0.35
-  swayAmount: 0.4
 --- !u!114 &1815166277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103610,7 +102777,6 @@ GameObject:
   - component: {fileID: 1819456438}
   - component: {fileID: 1819456437}
   - component: {fileID: 1819456436}
-  - component: {fileID: 1819456435}
   m_Layer: 0
   m_Name: DecalsA (25)
   m_TagString: Untagged
@@ -103618,18 +102784,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1819456435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1819456434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1819456436
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -104755,6 +103909,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8603840721837392886, guid: 8c73ee66eb0a2644e8f76952547b360e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1837756714}
+    - targetCorrespondingSourceObject: {fileID: 8603840721837392886, guid: 8c73ee66eb0a2644e8f76952547b360e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1837756716}
   m_SourcePrefab: {fileID: 100100000, guid: 8c73ee66eb0a2644e8f76952547b360e, type: 3}
 --- !u!1 &1837756704 stripped
 GameObject:
@@ -104841,12 +103998,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 1837756705}
   m_VelocityDamping: 1
@@ -104854,13 +104011,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -104966,6 +104123,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac62c882595f4e70a6338623ac7428b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableTrash
+--- !u!114 &1837756716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837756704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!1 &1839733643
 GameObject:
   m_ObjectHideFlags: 0
@@ -105534,7 +104703,6 @@ GameObject:
   - component: {fileID: 1864997149}
   - component: {fileID: 1864997148}
   - component: {fileID: 1864997147}
-  - component: {fileID: 1864997146}
   m_Layer: 0
   m_Name: DecalsA (104)
   m_TagString: Untagged
@@ -105542,18 +104710,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1864997146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1864997145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1864997147
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -106725,7 +105881,6 @@ GameObject:
   - component: {fileID: 1885048355}
   - component: {fileID: 1885048354}
   - component: {fileID: 1885048353}
-  - component: {fileID: 1885048352}
   m_Layer: 0
   m_Name: DecalsA (75)
   m_TagString: Untagged
@@ -106733,18 +105888,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1885048352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885048351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1885048353
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -106916,7 +106059,6 @@ GameObject:
   - component: {fileID: 1885830227}
   - component: {fileID: 1885830226}
   - component: {fileID: 1885830225}
-  - component: {fileID: 1885830224}
   m_Layer: 0
   m_Name: DecalsA (48)
   m_TagString: Untagged
@@ -106924,18 +106066,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1885830224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885830223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1885830225
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -107931,7 +107061,6 @@ GameObject:
   - component: {fileID: 1900731296}
   - component: {fileID: 1900731295}
   - component: {fileID: 1900731294}
-  - component: {fileID: 1900731293}
   m_Layer: 0
   m_Name: DecalsA (42)
   m_TagString: Untagged
@@ -107939,18 +107068,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1900731293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1900731292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1900731294
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -108727,23 +107844,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4978816779655408403, guid: ce2548dbc81851b488075bf19a61322a, type: 3}
   m_PrefabInstance: {fileID: 705504027}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1911197225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1911197224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b8a209d91d24d7e9d495c6c26f6f40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCIdlePose
-  armLowerAngle: 70
-  breathSpeed: 0.7
-  breathAmount: 0.008
-  swaySpeed: 0.35
-  swayAmount: 0.4
 --- !u!114 &1911197226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108857,7 +107957,6 @@ GameObject:
   - component: {fileID: 1911711075}
   - component: {fileID: 1911711074}
   - component: {fileID: 1911711073}
-  - component: {fileID: 1911711072}
   m_Layer: 0
   m_Name: DecalsA (58)
   m_TagString: Untagged
@@ -108865,18 +107964,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1911711072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1911711071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1911711073
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -109206,6 +108293,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5192368016331079986, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1915140091}
+    - targetCorrespondingSourceObject: {fileID: 5192368016331079986, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1915140097}
     - targetCorrespondingSourceObject: {fileID: 5939444911379134308, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1915140093}
@@ -109215,6 +108305,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5939444911379134308, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1915140088}
+    - targetCorrespondingSourceObject: {fileID: 5939444911379134308, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1915140096}
   m_SourcePrefab: {fileID: 100100000, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
 --- !u!1 &1915140081 stripped
 GameObject:
@@ -109301,12 +108394,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 1915140082}
   m_VelocityDamping: 1
@@ -109314,13 +108407,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -109512,12 +108605,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
@@ -109525,13 +108618,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -109592,6 +108685,30 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1915140096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664834611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
+--- !u!114 &1915140097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915140081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!1001 &1917914829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -109660,6 +108777,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5291729976599543850, guid: c31078b066cf3c34facd078bf6e8375b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1917914839}
+    - targetCorrespondingSourceObject: {fileID: 5291729976599543850, guid: c31078b066cf3c34facd078bf6e8375b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1917914842}
   m_SourcePrefab: {fileID: 100100000, guid: c31078b066cf3c34facd078bf6e8375b, type: 3}
 --- !u!1 &1917914830 stripped
 GameObject:
@@ -109746,12 +108866,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 1917914831}
   m_VelocityDamping: 1
@@ -109759,13 +108879,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -109855,6 +108975,18 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 7254889642574862046, guid: c31078b066cf3c34facd078bf6e8375b, type: 3}
   m_PrefabInstance: {fileID: 1917914829}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1917914842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917914830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!4 &1923245525
 Transform:
   m_ObjectHideFlags: 0
@@ -113083,7 +112215,6 @@ GameObject:
   - component: {fileID: 1980499518}
   - component: {fileID: 1980499517}
   - component: {fileID: 1980499516}
-  - component: {fileID: 1980499515}
   m_Layer: 0
   m_Name: DecalsA (67)
   m_TagString: Untagged
@@ -113091,18 +112222,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1980499515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980499514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1980499516
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -113185,7 +112304,6 @@ GameObject:
   - component: {fileID: 1981942331}
   - component: {fileID: 1981942330}
   - component: {fileID: 1981942329}
-  - component: {fileID: 1981942328}
   m_Layer: 0
   m_Name: DecalsA (81)
   m_TagString: Untagged
@@ -113193,18 +112311,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1981942328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1981942327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1981942329
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -113460,6 +112566,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5192368016331079986, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1987721053}
+    - targetCorrespondingSourceObject: {fileID: 5192368016331079986, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1987721057}
     - targetCorrespondingSourceObject: {fileID: 5939444911379134308, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1159966015}
@@ -113469,6 +112578,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5939444911379134308, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1159966013}
+    - targetCorrespondingSourceObject: {fileID: 5939444911379134308, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2014688309}
     - targetCorrespondingSourceObject: {fileID: 9206258772825817827, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1987721047}
@@ -113484,6 +112596,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9206258772825817827, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1987721054}
+    - targetCorrespondingSourceObject: {fileID: 9206258772825817827, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1987721056}
   m_SourcePrefab: {fileID: 100100000, guid: 7e477852a3db8a74a8e8b85ff29c5ebe, type: 3}
 --- !u!1 &1987721038 stripped
 GameObject:
@@ -113520,7 +112635,6 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_Colliders:
   - {fileID: 1987721049}
-  - {fileID: 1987721050}
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
@@ -113581,12 +112695,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 1987721039}
   m_VelocityDamping: 1
@@ -113594,13 +112708,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -113748,12 +112862,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 1987721040}
   m_VelocityDamping: 1
@@ -113761,13 +112875,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -113906,6 +113020,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac62c882595f4e70a6338623ac7428b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableTrash
+--- !u!114 &1987721056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987721041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
+--- !u!114 &1987721057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987721038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!1 &1989866669
 GameObject:
   m_ObjectHideFlags: 0
@@ -114006,7 +113144,6 @@ GameObject:
   - component: {fileID: 1990286495}
   - component: {fileID: 1990286494}
   - component: {fileID: 1990286493}
-  - component: {fileID: 1990286492}
   m_Layer: 0
   m_Name: DecalsA (70)
   m_TagString: Untagged
@@ -114014,18 +113151,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1990286492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990286491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1990286493
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -114820,6 +113945,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013027173}
   m_Mesh: {fileID: 4300012, guid: a22f4670abbc96a4e948880e74dd94ac, type: 3}
+--- !u!114 &2014688309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309309428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!4 &2017336350
 Transform:
   m_ObjectHideFlags: 0
@@ -115263,7 +114400,6 @@ GameObject:
   - component: {fileID: 2036427810}
   - component: {fileID: 2036427809}
   - component: {fileID: 2036427808}
-  - component: {fileID: 2036427807}
   m_Layer: 0
   m_Name: DecalsA (31)
   m_TagString: Untagged
@@ -115271,18 +114407,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &2036427807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036427806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &2036427808
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -115567,7 +114691,6 @@ GameObject:
   - component: {fileID: 2038465051}
   - component: {fileID: 2038465050}
   - component: {fileID: 2038465049}
-  - component: {fileID: 2038465048}
   m_Layer: 0
   m_Name: DecalsA (76)
   m_TagString: Untagged
@@ -115575,18 +114698,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &2038465048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2038465047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &2038465049
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -116112,9 +115223,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3348641785564449632, guid: b97a930929a95154b85d0742ab015eb9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 765939366}
     - targetCorrespondingSourceObject: {fileID: 3348641785564449632, guid: b97a930929a95154b85d0742ab015eb9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 765939369}
@@ -116898,7 +116006,6 @@ GameObject:
   - component: {fileID: 2070320503}
   - component: {fileID: 2070320502}
   - component: {fileID: 2070320501}
-  - component: {fileID: 2070320500}
   m_Layer: 0
   m_Name: DecalsA (78)
   m_TagString: Untagged
@@ -116906,18 +116013,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &2070320500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2070320499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &2070320501
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -117196,23 +116291,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7296818736855454420, guid: 1e702983913400042ac3fcd1173a6d37, type: 3}
   m_PrefabInstance: {fileID: 181384214}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2073760699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2073760698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b8a209d91d24d7e9d495c6c26f6f40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCIdlePose
-  armLowerAngle: 70
-  breathSpeed: 0.7
-  breathAmount: 0.008
-  swaySpeed: 0.35
-  swayAmount: 0.4
 --- !u!114 &2073760700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118851,6 +117929,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6017427612744027884, guid: 3aabd8b880e393c41bb80c078fa94711, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2098276577}
+    - targetCorrespondingSourceObject: {fileID: 6017427612744027884, guid: 3aabd8b880e393c41bb80c078fa94711, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2098276579}
   m_SourcePrefab: {fileID: 100100000, guid: 3aabd8b880e393c41bb80c078fa94711, type: 3}
 --- !u!1 &2098276570 stripped
 GameObject:
@@ -118932,12 +118013,12 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
@@ -118945,13 +118026,13 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_TightenRotation: 0.5
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -119057,6 +118138,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac62c882595f4e70a6338623ac7428b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableTrash
+--- !u!114 &2098276579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098276570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 240229549}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashGrabAutoMarker
 --- !u!1 &2101750832
 GameObject:
   m_ObjectHideFlags: 0
@@ -119263,7 +118356,6 @@ GameObject:
   - component: {fileID: 2103598504}
   - component: {fileID: 2103598503}
   - component: {fileID: 2103598502}
-  - component: {fileID: 2103598501}
   m_Layer: 0
   m_Name: DecalsA (28)
   m_TagString: Untagged
@@ -119271,18 +118363,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &2103598501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2103598500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &2103598502
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -119479,7 +118559,6 @@ GameObject:
   - component: {fileID: 2104920445}
   - component: {fileID: 2104920444}
   - component: {fileID: 2104920443}
-  - component: {fileID: 2104920442}
   m_Layer: 0
   m_Name: DecalsA (21)
   m_TagString: Untagged
@@ -119487,18 +118566,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &2104920442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2104920441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &2104920443
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -120197,7 +119264,6 @@ GameObject:
   - component: {fileID: 2118817116}
   - component: {fileID: 2118817115}
   - component: {fileID: 2118817114}
-  - component: {fileID: 2118817113}
   m_Layer: 0
   m_Name: DecalsA (103)
   m_TagString: Untagged
@@ -120205,18 +119271,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &2118817113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2118817112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &2118817114
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -120382,23 +119436,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5014500871186048516, guid: cca7ca7fef4016648a7396ddd83e4967, type: 3}
   m_PrefabInstance: {fileID: 661796016}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2125064448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125064447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b8a209d91d24d7e9d495c6c26f6f40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCIdlePose
-  armLowerAngle: 70
-  breathSpeed: 0.7
-  breathAmount: 0.008
-  swaySpeed: 0.35
-  swayAmount: 0.4
 --- !u!114 &2125064449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120714,7 +119751,6 @@ GameObject:
   - component: {fileID: 2130149465}
   - component: {fileID: 2130149464}
   - component: {fileID: 2130149463}
-  - component: {fileID: 2130149462}
   m_Layer: 0
   m_Name: DecalsA (86)
   m_TagString: Untagged
@@ -120722,18 +119758,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &2130149462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130149461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &2130149463
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -121116,7 +120140,6 @@ GameObject:
   - component: {fileID: 2134014171}
   - component: {fileID: 2134014170}
   - component: {fileID: 2134014169}
-  - component: {fileID: 2134014168}
   m_Layer: 0
   m_Name: DecalsA (85)
   m_TagString: Untagged
@@ -121124,18 +120147,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &2134014168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134014167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94ce5ba77fa1d45ba7c6a0df113ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &2134014169
 MeshRenderer:
   m_ObjectHideFlags: 0

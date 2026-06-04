@@ -65,12 +65,36 @@ public class FixTrashItemsForVR
         grab.trackRotation        = true;
         grab.throwOnDetach        = true;
         grab.forceGravityOnDetach = true;
-        grab.attachEaseInTime     = 0.15f;
-        grab.useDynamicAttach     = true; // El'in tam pozisyonunda yakala
+        grab.attachEaseInTime     = 0.0f;   // Anında — ease yok, titreşim azalır
+        grab.useDynamicAttach     = false;  // Hand merkezine gelsin, ray ucunda kalmasın
+        grab.smoothPosition       = true;   // Titreşimi azalt
+        grab.smoothRotation       = true;
+        grab.smoothPositionAmount = 8f;
+        grab.smoothRotationAmount = 8f;
+        grab.tightenPosition      = 0.5f;
+        grab.tightenRotation      = 0.5f;
 
         // "Grab edildi mi?" işaretleyicisini ekle (cart sabit çöpleri toplamasın diye)
         if (go.GetComponent<TrashGrabAutoMarker>() == null)
             Undo.AddComponent<TrashGrabAutoMarker>(go);
+
+        // KRİTİK: önce mevcut listede başka grab'a ait collider'lar varsa onları KALDIRl
+        // (eski FixTrashItemsForVR yanlışlıkla eklemiş olabilir)
+        for (int i = grab.colliders.Count - 1; i >= 0; i--)
+        {
+            var existing = grab.colliders[i];
+            if (existing == null)
+            {
+                grab.colliders.RemoveAt(i);
+                continue;
+            }
+            var ownerGrab = existing.GetComponentInParent<XRGrabInteractable>();
+            if (ownerGrab != null && ownerGrab != grab)
+            {
+                Debug.LogWarning($"[FixTrashItemsForVR] {go.name}: '{existing.name}' başka grab'a ait, listeden kaldırıldı.");
+                grab.colliders.RemoveAt(i);
+            }
+        }
 
         // Collider'ları grab'ın listesine ekle — AMA başka bir grab interactable'a ait olanları atla
         var colliders = go.GetComponentsInChildren<Collider>(true);
@@ -79,7 +103,6 @@ public class FixTrashItemsForVR
             if (col == null) continue;
 
             // Bu collider başka bir XRGrabInteractable'ın subtree'sinde mi?
-            // (örn. su şişesi içinde "kapak" ayrı grab interactable ise — onun collider'ını alma)
             var ownerGrab = col.GetComponentInParent<XRGrabInteractable>();
             if (ownerGrab != null && ownerGrab != grab) continue; // başka grab'ın
 
