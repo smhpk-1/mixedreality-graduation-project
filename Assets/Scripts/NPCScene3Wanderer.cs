@@ -116,11 +116,21 @@ public class NPCScene3Wanderer : MonoBehaviour
             animator = GetComponentInChildren<Animator>();
 
         if (animator != null)
+        {
             animator.applyRootMotion = false;
+            // VR'da animator culling'in her zaman çalışmasını garantile
+            animator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
+        }
 
-        NPCIdlePose idlePose = GetComponent<NPCIdlePose>();
-        if (idlePose != null)
-            idlePose.enabled = false;
+        // NPCIdlePose VR build'de timing sorunu yaratıyor — children dahil hepsini kapat
+        NPCIdlePose[] idlePoses = GetComponentsInChildren<NPCIdlePose>(true);
+        foreach (var ip in idlePoses)
+            if (ip != null) ip.enabled = false;
+
+        // Z eulerAngles'ı sıfırla — NPCIdlePose'un bırakmış olabileceği eğikliği temizle
+        Vector3 euler = transform.localEulerAngles;
+        euler.z = 0f;
+        transform.localEulerAngles = euler;
 
         CaptureHumanoidPose();
     }
@@ -182,9 +192,8 @@ public class NPCScene3Wanderer : MonoBehaviour
             agent = gameObject.AddComponent<NavMeshAgent>();
 
         agent.speed = walkSpeed;
-        // Yüksek acceleration: NavMeshAgent fiziksel hızı hemen toplasın,
-        // procedural walk ile senkron başlasın (kaymayı önler)
-        agent.acceleration = 60f;
+        // VR'da makul acceleration — çok yüksek (60) jitter ve overshoot yapıyor
+        agent.acceleration = 12f;
         agent.angularSpeed = 360f;
         agent.stoppingDistance = stoppingDistance;
         agent.autoBraking = true;
@@ -553,12 +562,19 @@ public class NPCScene3Wanderer : MonoBehaviour
         if (!hasHumanoidPose || freezeAnimation)
             return;
 
+        // VR güvenlik: currentSpeed NaN/Infinity olursa sıfırla (procedural walk bozulmasın)
+        if (float.IsNaN(currentSpeed) || float.IsInfinity(currentSpeed))
+            currentSpeed = 0f;
+
         ResetPose();
 
-        // Motion ramp-up'ı hızlandır: NPC 0.4 m/s civarı bir hareket bile yaptığında
-        // bacaklar tam salınımda olsun. Çok düşük hızda (yavaşlama anı) doğal olarak söner.
-        // Bu, NPC hareket etmeye başladığı an "tam yürüyüş" gibi görünmesini sağlar (ayak kayma yok).
+        // chest.localScale'i her frame 1'e zorla (NPCIdlePose bunu modifiye etmiş olabilir)
+        if (chest.bone != null)
+            chest.bone.localScale = Vector3.one;
+
+        // Motion ramp-up
         float speedRatio = currentSpeed / Mathf.Max(0.01f, walkSpeed);
+        speedRatio = Mathf.Clamp(speedRatio, 0f, 2f); // güvenlik klempi
         float motion = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.05f, 0.35f, speedRatio));
         if (animateBody)
             ApplyProceduralWalk(motion);
