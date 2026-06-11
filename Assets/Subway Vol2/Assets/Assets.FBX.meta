@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: 6e6d75cc5867e814b84bc7c5e0e12bec
+timeCreated: 1472925277
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Camera
+    100004: Metalbench
+    100006: MetalTrashCan
+    100008: NewsPaperStand
+    100010: SingA
+    100012: SingB
+    100014: SingC
+    100016: SingD
+    100018: SingE
+    100020: SingF
+    100022: SingG
+    100024: VendingMachine
+    400000: //RootNode
+    400002: Camera
+    400004: Metalbench
+    400006: MetalTrashCan
+    400008: NewsPaperStand
+    400010: SingA
+    400012: SingB
+    400014: SingC
+    400016: SingD
+    400018: SingE
+    400020: SingF
+    400022: SingG
+    400024: VendingMachine
+    2300000: Camera
+    2300002: Metalbench
+    2300004: MetalTrashCan
+    2300006: NewsPaperStand
+    2300008: SingA
+    2300010: SingB
+    2300012: SingC
+    2300014: SingD
+    2300016: SingE
+    2300018: SingF
+    2300020: SingG
+    2300022: VendingMachine
+    3300000: Camera
+    3300002: Metalbench
+    3300004: MetalTrashCan
+    3300006: NewsPaperStand
+    3300008: SingA
+    3300010: SingB
+    3300012: SingC
+    3300014: SingD
+    3300016: SingE
+    3300018: SingF
+    3300020: SingG
+    3300022: VendingMachine
+    4300000: Metalbench
+    4300002: MetalTrashCan
+    4300004: SingB
+    4300006: SingD
+    4300008: SingF
+    4300010: SingE
+    4300012: SingG
+    4300014: SingA
+    4300016: SingC
+    4300018: Camera
+    4300020: NewsPaperStand
+    4300022: VendingMachine
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 6
+    secondaryUVAreaDistortion: 10
+    secondaryUVHardAngle: 110
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
