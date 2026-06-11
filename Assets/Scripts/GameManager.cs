@@ -48,6 +48,9 @@ namespace ConveyorShift
         [SerializeField] private string nextSceneName = "Scene 2";
 
         private GameState currentState = GameState.WorkState;
+
+        /// <summary>Dışarıdan okunabilir durum (örn. FactoryMusicDirector müzikal geçişler için dinler).</summary>
+        public GameState CurrentState => currentState;
         private Coroutine activeRoutine;
 
         private void Awake()

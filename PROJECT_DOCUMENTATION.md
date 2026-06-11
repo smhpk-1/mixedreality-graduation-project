@@ -66,6 +66,17 @@ This project is a mixed reality (MR) experience designed for the Meta Quest 3S, 
 - CubeGrabAudio.cs
 - AnomalyCube.cs
 - AnomalyMovement.cs
+- FactoryMusicDirector.cs
+
+**Sound Design — "Studio as a Compositional Tool":**
+Scene 1's score is generated at runtime from the factory's own machine recordings (`Resources/scene_1_sound_design`), following Brian Eno's studio-as-instrument philosophy:
+
+- **Ostinato:** A percussive transient is sliced from the machine recordings and looped on a sample-accurate DSP grid (76 BPM, 16-step pattern) — the factory's mechanical heartbeat (root, low fifth, octave accents, sparse offbeat ticks).
+- **Tape loops (Music for Airports technique):** Long tonal slices of the machine recordings are pitched to a drone chord and re-triggered at deliberately incommensurate periods (21.3s / 26.7s / 33.1s / 39.9s), so the layers never realign — an ever-shifting ambient texture.
+- **Labor as melody:** Each correctly sorted cube plays a machine-derived note quantized to the next 16th of the grid, walking a minor pentatonic scale; the register rises as the 30-cube quota progresses, building musically toward the anomaly. Red and blue cubes speak a fifth apart. Wrong sorts trigger a dissonant (minor-second) but rhythmically quantized cluster.
+- **The anomaly:** When the GameManager leaves WorkState, the ostinato (the rhythm of labor) fades out over ~6 seconds while the tape loops (the dream) swell — the machine stops, the daydream remains.
+
+The system (`FactoryMusicDirector`) bootstraps itself when scene1 loads; no scene setup is required. Raw machine ambience loops in the scene are automatically ducked so the composition reads clearly.
 
 ---
 

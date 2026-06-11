@@ -68,8 +68,17 @@ public class BinCollector : MonoBehaviour
     void HandleCorrect(GameObject cube)
     {
         Debug.Log("Correct! " + cube.name + " in " + gameObject.name);
-        
-        if (correctSound != null) audioSource.PlayOneShot(correctSound);
+
+        // Müzikal mod: doğru küp, ostinato grid'ine kuantize pentatonik nota çalar
+        if (FactoryMusicDirector.Instance != null)
+        {
+            FactoryMusicDirector.Instance.PlayCorrectNote(transform.position,
+                cube.name.Contains("Red"));
+        }
+        else if (correctSound != null)
+        {
+            audioSource.PlayOneShot(correctSound);
+        }
 
         // Notify ScoreBoard
         var scoreBoard = FindFirstObjectByType<FactoryScoreBoard>();
@@ -85,7 +94,15 @@ public class BinCollector : MonoBehaviour
     {
         Debug.Log("WRONG! " + cube.name + " in " + gameObject.name);
 
-        if (wrongSound != null) audioSource.PlayOneShot(wrongSound);
+        // Müzikal mod: yanlış küp disonan ama ritmik bir cluster çalar
+        if (FactoryMusicDirector.Instance != null)
+        {
+            FactoryMusicDirector.Instance.PlayWrongNote(transform.position);
+        }
+        else if (wrongSound != null)
+        {
+            audioSource.PlayOneShot(wrongSound);
+        }
 
         // Notify ScoreBoard
         var scoreBoard = FindFirstObjectByType<FactoryScoreBoard>();
