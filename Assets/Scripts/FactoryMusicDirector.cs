@@ -41,10 +41,19 @@ public class FactoryMusicDirector : MonoBehaviour
     public int stepsPerBar = 16;
 
     [Header("Mix Seviyeleri")]
-    [Range(0f, 1f)] public float ostinatoVolume  = 0.55f;
-    [Range(0f, 1f)] public float tapeLoopVolume  = 0.40f;
-    [Range(0f, 1f)] public float steamVolume     = 0.30f;
-    [Range(0f, 1f)] public float noteVolume      = 0.85f;
+    [Range(0f, 1f)] public float ostinatoVolume  = 0.65f;
+    [Range(0f, 1f)] public float tapeLoopVolume  = 0.45f;
+    [Range(0f, 1f)] public float steamVolume     = 0.35f;
+    [Range(0f, 1f)] public float noteVolume      = 1f;
+
+    [Header("Mekansal Ses (3D)")]
+    [Tooltip("Katman seslerinin tam volume duyulduğu mesafe — yaklaştıkça ses bu mesafeye kadar artar")]
+    public float layerMinDistance = 2.5f;
+    [Tooltip("Katman seslerinin tamamen söndüğü mesafe")]
+    public float layerMaxDistance = 35f;
+    [Tooltip("Kutu (bin) notalarının tam volume mesafesi — oyuncu kutunun başındayken net duyulsun")]
+    public float noteMinDistance = 4f;
+    public float noteMaxDistance = 30f;
 
     [Tooltip("Sahnedeki ham makine ambiyans loop'ları bu çarpanla kısılır ki kompozisyon duyulsun")]
     [Range(0f, 1f)] public float ambienceDuck = 0.35f;
@@ -65,10 +74,17 @@ public class FactoryMusicDirector : MonoBehaviour
     private const double ScheduleLookahead = 0.6; // saniye — DSP planlama penceresi
 
     // ── Kesilmiş "enstrümanlar" ──────────────────────────────────────────
-    private AudioClip hitSlice;     // machine_4 transient'i — perküsyon/nota
+    private AudioClip hitSlice;     // machine_4 transient'i — perküsyon (kısa)
+    private AudioClip noteSlice;    // aynı transient, uzun kuyruklu — melodi notaları
     private AudioClip tickSlice;    // machine_1 transient'i — hafif offbeat
     private AudioClip steamSlice;   // machine_7'den nefes
     private AudioClip[] tapeSlices; // uzun tonal dilimler (Eno loop'ları)
+
+    // ── Mekansal çapalar: sesler sahnedeki gerçek makine objelerinden çıkar ──
+    private Transform anchorHit;    // machine_4 objesinin konumu — ostinato vuruşları
+    private Transform anchorTick;   // konveyör — offbeat tikleri
+    private Transform anchorSteam;  // machine_7 objesi — buhar nefesi
+    private readonly List<Transform> tapeAnchors = new List<Transform>();
 
     // ── Sequencer durumu ────────────────────────────────────────────────
     private double dspStartTime;
@@ -132,7 +148,7 @@ public class FactoryMusicDirector : MonoBehaviour
         }
 
         BuildSourcePool();
-        DuckExistingAmbience();
+        ScanAnchorsAndDuckAmbience();
 
         stepDuration = 60.0 / bpm / 4.0; // 16'lık süre
         dspStartTime = AudioSettings.dspTime + 0.4;
@@ -163,15 +179,16 @@ public class FactoryMusicDirector : MonoBehaviour
             nextStepIndex++;
         }
 
-        // 2. Eno tape loop'larını planla (her katman kendi periyodunda)
+        // 2. Eno tape loop'larını planla — her katman kendi periyodunda,
+        //    odaya dağılmış FARKLI makine objelerinden duyulur
         float tapeVol = tapeLoopVolume * (1f + 0.5f * (1f - rhythmWeight));
         for (int i = 0; i < LoopPeriods.Length; i++)
         {
+            Transform anchor = tapeAnchors.Count > 0 ? tapeAnchors[i % tapeAnchors.Count] : null;
             while (nextLoopTimes[i] < horizon)
             {
-                ScheduleOneShot(tapeSlices[i % tapeSlices.Length], nextLoopTimes[i],
-                                SemitoneToPitch(LoopSemitones[i]), tapeVol,
-                                transform.position, spatial: false);
+                ScheduleAnchored(tapeSlices[i % tapeSlices.Length], nextLoopTimes[i],
+                                 SemitoneToPitch(LoopSemitones[i]), tapeVol, anchor);
                 nextLoopTimes[i] += LoopPeriods[i];
             }
         }
@@ -186,26 +203,26 @@ public class FactoryMusicDirector : MonoBehaviour
         long bar      = step / stepsPerBar;
         float vol     = ostinatoVolume * rhythmWeight;
 
-        // Ana vuruşlar: 1 ve 9 — root; 5 ve 13 — kalın beşli (mekanik piston)
+        // Ana vuruşlar machine_4 objesinden: 1 ve 9 — root; 5 ve 13 — kalın beşli (piston)
         if (stepInBar == 0)
-            ScheduleOneShot(hitSlice, time, SemitoneToPitch(-12), vol, transform.position, false);
+            ScheduleAnchored(hitSlice, time, SemitoneToPitch(-12), vol, anchorHit);
         else if (stepInBar == 8)
-            ScheduleOneShot(hitSlice, time, SemitoneToPitch(-12), vol * 0.9f, transform.position, false);
+            ScheduleAnchored(hitSlice, time, SemitoneToPitch(-12), vol * 0.9f, anchorHit);
         else if (stepInBar == 4 || stepInBar == 12)
-            ScheduleOneShot(hitSlice, time, SemitoneToPitch(-17), vol * 0.8f, transform.position, false);
+            ScheduleAnchored(hitSlice, time, SemitoneToPitch(-17), vol * 0.8f, anchorHit);
 
-        // Offbeat tikleri: zayıf 16'lıklarda seyrek, hafif rastgele (insan eli değmemiş makine değil)
+        // Offbeat tikleri konveyörden: zayıf 16'lıklarda seyrek, hafif rastgele
         if (stepInBar % 4 == 2 && rng.NextDouble() < 0.7)
-            ScheduleOneShot(tickSlice, time, SemitoneToPitch(rng.NextDouble() < 0.5 ? 0 : 7),
-                            vol * 0.35f, transform.position, false);
+            ScheduleAnchored(tickSlice, time, SemitoneToPitch(rng.NextDouble() < 0.5 ? 0 : 7),
+                             vol * 0.35f, anchorTick);
 
         // Bar kapanışı aksanı: son 16'lıkta oktav üstü kısa vuruş
         if (stepInBar == stepsPerBar - 1 && bar % 2 == 1)
-            ScheduleOneShot(hitSlice, time, SemitoneToPitch(0), vol * 0.5f, transform.position, false);
+            ScheduleAnchored(hitSlice, time, SemitoneToPitch(0), vol * 0.5f, anchorHit);
 
-        // Steam nefesi: her steamEveryBars bar'da bir, bar başında
+        // Steam nefesi machine_7 objesinden: her steamEveryBars bar'da bir
         if (stepInBar == 0 && bar % steamEveryBars == 0 && bar > 0)
-            ScheduleOneShot(steamSlice, time, 1f, steamVolume, transform.position, false);
+            ScheduleAnchored(steamSlice, time, 1f, steamVolume, anchorSteam);
     }
 
     // ── BinCollector API: kuantize notalar ──────────────────────────────
@@ -220,32 +237,42 @@ public class FactoryMusicDirector : MonoBehaviour
                                                : (rng.NextDouble() < 0.5 ? 2 : -2);
         melodyIndex = Mathf.Clamp(melodyIndex, 0, Pentatonic.Length * 2 - 1);
 
-        // Emek ilerledikçe register yükselir: 0-30 küp → 0..+12 yarım ton taban
-        int rise = Mathf.RoundToInt(Mathf.Clamp01(correctCount / 30f) * 12f);
+        // Emek ilerledikçe register yükselir: 0-30 küp → 0..+7 yarım ton taban
+        int rise = Mathf.RoundToInt(Mathf.Clamp01(correctCount / 30f) * 7f);
 
         int degree   = Pentatonic[melodyIndex % Pentatonic.Length];
         int octave   = (melodyIndex / Pentatonic.Length) * 12;
         int redBlue  = isRedCube ? 7 : 0; // kırmızı küpler beşli yukarıda konuşur
 
+        // Pitch tavanı: çok tizleşirse dilim aşırı kısalır ve duyulmaz olur.
+        // +15 yarım tonu aşan notaları oktav aşağı sar.
+        int semis = degree + octave + rise + redBlue;
+        while (semis > 15) semis -= 12;
+
         double t = NextGridTime(quantizeTo: 1); // bir sonraki 16'lık
-        ScheduleOneShot(hitSlice, t, SemitoneToPitch(degree + octave + rise + redBlue),
-                        noteVolume, worldPos, spatial: true);
+        ScheduleNote(noteSlice, t, semis, noteVolume, worldPos);
 
         // Her 5. doğru küpte küçük bir "onay" ek notası — beşli paralel
         if (correctCount % 5 == 0)
-            ScheduleOneShot(hitSlice, t + stepDuration * 2,
-                            SemitoneToPitch(degree + octave + rise + redBlue + 7),
-                            noteVolume * 0.6f, worldPos, spatial: true);
+            ScheduleNote(noteSlice, t + stepDuration * 2,
+                         semis - 5, noteVolume * 0.7f, worldPos);
     }
 
     /// <summary>Yanlış sıralama — disonan ama ritmik cluster (küçük ikili), grid'e kuantize.</summary>
     public void PlayWrongNote(Vector3 worldPos)
     {
         double t = NextGridTime(quantizeTo: 2); // bir sonraki 8'lik
-        ScheduleOneShot(hitSlice, t, SemitoneToPitch(-11), noteVolume, worldPos, true);
-        ScheduleOneShot(hitSlice, t, SemitoneToPitch(-10), noteVolume * 0.8f, worldPos, true);
-        ScheduleOneShot(tickSlice, t + stepDuration, SemitoneToPitch(-23),
-                        noteVolume * 0.7f, worldPos, true);
+        ScheduleNote(noteSlice, t, -11, noteVolume, worldPos);
+        ScheduleNote(noteSlice, t, -10, noteVolume * 0.8f, worldPos);
+        ScheduleNote(noteSlice, t + stepDuration, -23, noteVolume * 0.7f, worldPos);
+    }
+
+    /// <summary>Kutu notası: kutunun konumundan, yakın mesafede tam volume duyulur.</summary>
+    private void ScheduleNote(AudioClip clip, double dspTime, int semitones,
+                              float volume, Vector3 worldPos)
+    {
+        ScheduleOneShot(clip, dspTime, SemitoneToPitch(semitones), volume,
+                        worldPos, true, noteMinDistance, noteMaxDistance);
     }
 
     /// <summary>Bir sonraki grid noktasının DSP zamanı (quantizeTo: kaç 16'lıkta bir).</summary>
@@ -259,8 +286,21 @@ public class FactoryMusicDirector : MonoBehaviour
 
     // ── Ses planlama altyapısı ──────────────────────────────────────────
 
+    /// <summary>Sahnedeki bir objeden (çapadan) çıkan 3D ses planlar. Çapa yoksa 2D düşer.</summary>
+    private void ScheduleAnchored(AudioClip clip, double dspTime, float pitch,
+                                  float volume, Transform anchor)
+    {
+        if (anchor != null)
+            ScheduleOneShot(clip, dspTime, pitch, volume, anchor.position, true,
+                            layerMinDistance, layerMaxDistance);
+        else
+            ScheduleOneShot(clip, dspTime, pitch, volume, Vector3.zero, false,
+                            layerMinDistance, layerMaxDistance);
+    }
+
     private void ScheduleOneShot(AudioClip clip, double dspTime, float pitch,
-                                 float volume, Vector3 pos, bool spatial)
+                                 float volume, Vector3 pos, bool spatial,
+                                 float minDist, float maxDist)
     {
         if (clip == null) return;
         AudioSource src = NextFreeSource();
@@ -269,6 +309,8 @@ public class FactoryMusicDirector : MonoBehaviour
         src.pitch        = pitch;
         src.volume       = volume;
         src.spatialBlend = spatial ? 1f : 0f;
+        src.minDistance  = minDist;
+        src.maxDistance  = maxDist;
         src.PlayScheduled(dspTime);
     }
 
@@ -300,15 +342,39 @@ public class FactoryMusicDirector : MonoBehaviour
         }
     }
 
-    private void DuckExistingAmbience()
+    private void ScanAnchorsAndDuckAmbience()
     {
-        // Sahnedeki ham makine loop'larını kıs — kompozisyonun kaynak malzemesi
-        // zaten onlar; ikisi aynı anda tam seste çamur olur.
+        // Sahnedeki ham makine loop'larını bul: hem mekansal çapa olarak kullan
+        // (kompozisyon o objelerden duyulacak), hem de seslerini kıs —
+        // kaynak malzeme zaten onlar; ikisi aynı anda tam seste çamur olur.
         foreach (var src in FindObjectsByType<AudioSource>(FindObjectsSortMode.None))
         {
             if (src.transform.IsChildOf(transform)) continue;
-            if (src.loop && src.clip != null && src.clip.name.StartsWith("machine"))
+            if (src.clip == null || !src.loop) continue;
+
+            string n = src.clip.name.Replace(" ", "");
+            if      (n.StartsWith("machine_4")) anchorHit   = src.transform;
+            else if (n.StartsWith("machine_7")) anchorSteam = src.transform;
+            else if (n.StartsWith("conveyor"))  anchorTick  = src.transform;
+
+            if (n.StartsWith("machine_3") || n.StartsWith("machine_1"))
+                tapeAnchors.Add(src.transform);
+
+            if (n.StartsWith("machine"))
                 src.volume *= ambienceDuck;
+        }
+
+        // Eksik çapalar için yedekler — ses kaynaksız (2D) kalmasın
+        if (anchorHit  == null) anchorHit  = anchorTick ?? (tapeAnchors.Count > 0 ? tapeAnchors[0] : null);
+        if (anchorTick == null) anchorTick = anchorHit;
+        if (anchorSteam == null) anchorSteam = anchorHit;
+        if (tapeAnchors.Count == 0 && anchorHit != null) tapeAnchors.Add(anchorHit);
+
+        // Tape katmanları odada dağılsın: çapa sayısı azsa steam/konveyörü de kat
+        if (tapeAnchors.Count < LoopPeriods.Length)
+        {
+            if (anchorSteam != null && !tapeAnchors.Contains(anchorSteam)) tapeAnchors.Add(anchorSteam);
+            if (anchorTick  != null && !tapeAnchors.Contains(anchorTick))  tapeAnchors.Add(anchorTick);
         }
     }
 
@@ -336,6 +402,11 @@ public class FactoryMusicDirector : MonoBehaviour
 
         // Perküsif vuruş: machine_4 içindeki en güçlü transient'ten ~180ms
         hitSlice  = SliceAtLoudestTransient(machineHit ?? machineTonalA, 0.18f, "OstinatoHit");
+
+        // Melodi notası: aynı transient ama uzun kuyruklu (~600ms) —
+        // pitch yukarı kaydırılınca bile duyulur uzunlukta kalır
+        noteSlice = SliceAtLoudestTransient(machineHit ?? machineTonalA, 0.6f, "BinNote");
+        if (noteSlice == null) noteSlice = hitSlice;
 
         // Tik: machine_1 transient'i, daha kısa ve hafif
         tickSlice = SliceAtLoudestTransient(machineTonalB ?? machineHit ?? machineTonalA, 0.09f, "OstinatoTick");
