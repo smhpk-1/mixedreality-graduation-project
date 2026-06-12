@@ -1,16 +1,18 @@
-# The Shift - Conceptual Background
+# Mind Palace - Conceptual Background
 
 ## 1. Central Question
 
 How can virtual reality and interactive sound make the relationship between alienation, escape, repetition, and creative agency physically perceptible?
 
-**The Shift** does not attempt to clinically simulate or diagnose maladaptive daydreaming. It uses maladaptive daydreaming as a conceptual lens for an immersive narrative about the need to escape an unsatisfying reality and the difficulty of keeping that escape separate from the habits and systems that produced it.
+**Mind Palace** does not attempt to clinically simulate or diagnose maladaptive daydreaming. It uses maladaptive daydreaming as a conceptual lens for an immersive narrative about the need to escape an unsatisfying reality and the difficulty of keeping that escape separate from the habits and systems that produced it. **The Shift** is the title of the first factory scene, not the whole project.
 
 ## 2. Maladaptive Daydreaming and Immersion
 
 Maladaptive daydreaming describes intense and elaborate fantasy activity that can interfere with everyday life. The concept is relevant to VR because both daydreaming and VR can produce a strong feeling of presence inside an alternate world.
 
 The project uses this parallel critically. VR gives the player a daydream they can physically inhabit, but the experience does not present immersion as automatically liberating. The fantasy becomes attractive precisely because the factory is restrictive. As the fantasy continues, the structures of the factory reappear in altered forms.
+
+The project also frames maladaptive daydreaming through everydayness. The pressure is not only spectacular oppression; it is the mundane, quotidian repetition of shifts, commutes, cleanup, recovery, entertainment, and return. Capitalism organizes the work-leisure cycle so that even rest can become scheduled, productive, or compensatory. In **Mind Palace**, daydreaming emerges as an attempt to escape that ordinary cycle, but the fantasy gradually inherits the same rhythms.
 
 ## 3. Alienation, Labor, and Measured Time
 
@@ -43,7 +45,7 @@ That contrast remains important, but the final project rejects a simple conclusi
 
 | Later scene | What returns inside the fantasy |
 |---|---|
-| Metro | Chore, waiting, commuting, repeated social behavior |
+| Metro | Compulsory cleanup work, waiting, commuting, repeated social behavior |
 | Concert | Spectacle, structured participation, looped production, clock time |
 
 The final arc is therefore not reality versus fantasy. It is a study of how reality inhabits fantasy.
@@ -74,7 +76,7 @@ The player's gestures produce color-linked synth voices without correct or incor
 
 ### Metro: Sound Absorbs the World
 
-Objects and characters become musical sources. Even cleanup enters the shared harmonic grid. The station demonstrates how a system can make every action coherent and beautiful while still remaining a system.
+Objects and characters become musical sources. Even compulsory cleanup enters the shared harmonic grid. The station demonstrates how a system can make every action coherent and beautiful while still remaining a system.
 
 ### Concert: Sound Captures
 
@@ -98,7 +100,7 @@ The player is never only a passive victim of the systems in the experience.
 
 - They perform the factory task.
 - They damage the playground through play.
-- They voluntarily clean the metro.
+- They are positioned as a cleaner and perform compulsory cleanup in the metro.
 - They construct the sequencer that becomes the clock.
 
 This complicity is essential. The project asks how agency can exist inside structures that shape the available choices. The finale is effective because the clock is not imposed from outside; the player assembles it while pursuing creative control.
@@ -110,9 +112,10 @@ This complicity is essential. The project asks how agency can exist inside struc
 - **Andre Breton and surrealism:** transformation through subconscious association.
 - **Brian Eno:** the studio as compositional tool, generative systems, and incommensurate tape loops.
 - **Kid A Mnesia Exhibition:** spatial, exploratory music experience and nonlinear environmental storytelling.
+- **Dancer in the Dark:** musical fantasy as a response to labor, suffering, and constrained everyday life.
 
 ## 10. Final Thesis
 
-**The Shift** begins by asking whether imagination can free a person from repetitive labor. It ends with a more difficult proposition:
+**Mind Palace** begins by asking whether imagination can free a person from repetitive labor. It ends with a more difficult proposition:
 
 > Imagination can create real agency and relief, but escape remains vulnerable to the rhythms, rewards, and clocks of the world it leaves behind.

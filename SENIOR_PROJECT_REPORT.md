@@ -1,7 +1,11 @@
-# Senior Project Final Report: The Shift
+# Senior Project Final Report: Mind Palace
 ## Exploring Maladaptive Daydreaming, Alienation, and Repetition through Interactive VR Sound
 
 **Author:** Semiha Paksoy
+
+**Project title:** Mind Palace
+
+**Scene 1 title:** The Shift
 
 **Course:** MUS 442 - Senior Project II
 
@@ -11,6 +15,10 @@
 
 **Project category:** Sound Installation and Multimedia Project
 
+**Project supervisor:** Tolga Tüzün
+
+**Course instructors / advisor jury named in the 2025-2026 guideline:** Tolga Tüzün, Oğuz Usman, Enis Gümüş, Yiğit Özatalay, Cem Ömeroğlu, Semin Tunalı
+
 **Date:** June 12, 2026
 
 **Repository:** <https://github.com/smhpk-1/mixedreality-graduation-project>
@@ -19,7 +27,7 @@
 
 ## 1. Abstract
 
-**The Shift** is a sound-centered virtual reality narrative for Meta Quest 3S that explores maladaptive daydreaming, capitalist alienation, repetition, and creative agency. The player begins as a factory worker sorting thirty red and blue cubes under a quota. An impossible green cube interrupts the system and opens a daydream. The player then moves through a colorful playground, a cyclic metro station, and an outdoor concert before returning to the factory.
+**Mind Palace** is a sound-centered virtual reality narrative for Meta Quest 3S that explores maladaptive daydreaming, capitalist alienation, repetition, and creative agency. The first scene is titled **The Shift**: the player begins as a factory worker sorting thirty red and blue cubes under a quota. An impossible green cube interrupts the system and opens a daydream. The player then moves through a colorful playground, a cyclic metro station, and an outdoor concert before returning to the factory.
 
 The project began during MUS 441 as a two-scene contrast between oppressive labor and liberating play. During MUS 442, it developed into a four-scene circular narrative. The final version complicates the original idea of escape: the playground offers real creative freedom, but routine gradually returns through cleanup work, commuting cycles, musical repetition, and the hidden clock structure of a twelve-step sequencer. In the finale, the player constructs a musical loop that transforms into the factory clock and begins a subtly altered second shift.
 
@@ -37,7 +45,9 @@ The intended final experience is approximately fifteen minutes, depending on pla
 
 ## 3. Motivation
 
-Repetitive work can produce a feeling of separation from one's time, actions, and creativity. Daydreaming can become a way to recover a sense of freedom and authorship, but escape is not necessarily outside the structures that made it necessary.
+Repetitive work can produce a feeling of separation from one's time, actions, and creativity. The project is especially interested in the mundane, everyday, and quotidian pressure of the work-leisure cycle: capitalism organizes labor, recovery, entertainment, and exhaustion so tightly that even leisure can begin to feel like another managed interval. In this frame, maladaptive daydreaming is not treated as a random fantasy habit, but as a pressured response to ordinary life becoming repetitive, surveilled, and emotionally depleted.
+
+Daydreaming can become a way to recover a sense of freedom and authorship, but escape is not necessarily outside the structures that made it necessary.
 
 VR was chosen because it makes this conflict bodily. The player does not only observe a worker sorting objects; they perform the task. They do not only hear that the fantasy is creative; they repaint walls and compose loops through physical gestures. The same interaction can therefore carry different meanings depending on the system around it.
 
@@ -49,7 +59,7 @@ The project uses maladaptive daydreaming as a conceptual lens, not as a clinical
 
 The factory draws from Marx's concept of alienated labor. The player has no relationship to the purpose of the cubes and no control over the system. They are reduced to sorting correctly, and progress is measured as a quota.
 
-The wall clock, conveyor belt, score display, reports, and binary bins turn time and action into external demands. Even the musical reward for correct work belongs to the factory's system.
+The wall clock, conveyor belt, reports, quota logic, and binary bins turn time and action into external demands. Even the musical reward for correct work belongs to the factory's system.
 
 ### 4.2 Surrealism and Recontextualization
 
@@ -66,7 +76,7 @@ This dream logic allows one gesture to be read differently across the narrative.
 
 The MUS 441 version proposed a strong contrast between the factory and the playground. The MUS 442 version extends this idea so that the fantasy develops its own routines.
 
-The metro contains voluntary cleanup work and a visible commuter cycle. The concert offers the strongest creative agency, but that agency is organized into twelve repeating positions. The player's completed composition becomes the mechanism that returns them to the factory.
+The metro contains compulsory cleanup work and a visible commuter cycle. The player is positioned as a cleaner, not as someone freely choosing a helpful side activity. The concert offers the strongest creative agency, but that agency is organized into twelve repeating positions. The player's completed composition becomes the mechanism that returns them to the factory.
 
 The final project therefore does not argue that imagination is false or useless. It argues that imagination is shaped by the reality it escapes.
 
@@ -82,13 +92,13 @@ The interaction is intentionally simple and repetitive. Its purpose is to establ
 
 The player enters a compact dream space containing twenty colored cubes. The cube is no longer an object to classify. Each color has a synth voice, and throwing cubes at the walls repaints the room.
 
-There is no correct color arrangement. The player creates a temporary audiovisual composition through movement. However, repeated impact also damages the room. After twenty total wall hits, the final wall and then the room collapse. At that moment, the enclosed sound world opens into procedural city rumble and passing traffic before Scene 3.
+There is no correct color arrangement. The player creates a temporary audiovisual composition through movement. However, repeated impact also damages the room. After twenty total wall hits, the final wall and then the room collapse visually. The collapse itself is not represented by a prominent destruction sound in the current build; instead, the enclosed sound world gives way to procedural city rumble and street ambience before Scene 3.
 
 ## 5.3 Scene 3: The Platform
 
 The player arrives at a metro station where trains and commuters repeat an autonomous cycle. NPCs wander, approach authored boarding paths, enter through sliding doors, travel away, and later return to their original positions.
 
-Trash is scattered across the station. The player can collect it using a cleanup cart that follows when needed. Each collected item adds a quantized note to the station score. After twenty pieces, the project advances to Scene 4. A transition cube also exists as an alternate route.
+Trash is scattered across the station. The player is given the role of a cleaner and must collect it using a cleanup cart that follows when needed. Each collected item adds a quantized note to the station score. After twenty pieces, the project advances to Scene 4. A transition cube also exists as an alternate route.
 
 The metro is the narrative turning point. The fantasy is still musical and visually different from the factory, but waiting, commuting, and work have returned.
 
@@ -127,7 +137,7 @@ Each cube color is associated with a synth recording. The loop plays while the c
 
 Audio loudness is normalized across the five source recordings to keep one color from dominating the scene.
 
-`StreetAmbienceDirector` repairs the street's environmental playback and makes the collapse an audible transition. It converts unnaturally looping animal and voice clips into intermittent events, supplies procedural shop-radio and electrical sounds, and fades in city rumble and car passes once the room opens.
+`StreetAmbienceDirector` repairs the street's environmental playback and makes the post-collapse transition feel broader without claiming a loud wall-destruction cue. It converts unnaturally looping animal and voice clips into intermittent events, supplies procedural shop-radio and electrical sounds, and fades in city rumble once the room opens.
 
 ## 6.4 Scene 3: The Station as Ensemble
 
@@ -207,7 +217,7 @@ The first semester established:
 - basic spatial and interaction sound;
 - the original conceptual contrast between alienation and creative freedom.
 
-The MUS 441 submission used the working title **Mind Palace** and documented a two-scene experience.
+The MUS 441 submission used **Mind Palace** as the whole project title and documented a two-scene experience. In the final MUS 442 version, **Mind Palace** remains the project title, while **The Shift** is the title of the first factory scene.
 
 ### 8.2 MUS 442: Expanding and Revising the Thesis
 
@@ -261,22 +271,12 @@ No formal user study has been completed. Evaluation has primarily taken the form
 
 **Semiha Paksoy** conceived the project, developed its narrative and conceptual framework, designed its interactions and sound systems, implemented and integrated the Unity systems, assembled scenes, tested the Quest build, and produced the project documentation.
 
-The project uses third-party Unity asset packages and source recordings as production resources. Their project-specific behavior, interaction logic, procedural music systems, spatialization, scene roles, and narrative integration were authored for **The Shift**.
+The project uses third-party Unity asset packages and source recordings as production resources. Their project-specific behavior, interaction logic, procedural music systems, spatialization, scene roles, and narrative integration were authored for **Mind Palace**.
 
-## 12. Current Finalization Status
+## 12. First-Person Submission Note
 
-The full project architecture and intended finale are implemented. Before the presentation build is considered final, the following checks remain:
+**Because Mind Palace is designed as a first-person VR experience, a submitted video can document representative moments but cannot contain the whole work. The Bilgi Learn submission should therefore be understood as evidence and guidance for the experience, while the complete artistic form requires wearing the headset, occupying the player's position, and performing the interactions personally.**
 
-- install and save the radial sequencer, performing band, and audience into Scene 4;
-- decide whether to disable the active direct-transition cubes in Scene 1 and Scene 2;
-- decide whether Scene 1 anomaly timing should remain spawn-count based or follow the correct-sort score;
-- verify the full four-scene loop on Meta Quest 3S;
-- complete the cross-scene audio master pass;
-- improve Scene 4 drum sounds;
-- confirm NPC reliability in a long device session;
-- prepare the required final recording and presentation materials.
-
-These tasks are tracked in [MUS442_SUBMISSION_CHECKLIST.md](MUS442_SUBMISSION_CHECKLIST.md).
 
 ## 13. Conclusion
 
@@ -284,7 +284,7 @@ The first version of the project asked whether imagination could provide freedom
 
 The project answers through a sequence of embodied transformations. Sorting becomes throwing, throwing becomes cleaning, cleaning becomes composition, and composition becomes a clock. Sound connects these transformations and makes the loop perceptible before it becomes explicit.
 
-**The Shift** treats escape as real, valuable, and fragile. The player reaches creative agency, but that agency is not outside history, labor, or time. At the end, the factory returns. It sounds different because the player has heard what lies inside its rhythm.
+**Mind Palace** treats escape as real, valuable, and fragile. The player reaches creative agency, but that agency is not outside history, labor, or time. At the end, the factory returns. It sounds different because the player has heard what lies inside its rhythm.
 
 ## 14. References
 
@@ -295,3 +295,4 @@ The project answers through a sequence of embodied transformations. Sorting beco
 5. Somer, E. (2002). "Maladaptive Daydreaming: A Qualitative Inquiry." *Journal of Contemporary Psychotherapy*.
 6. Unity Technologies. Unity documentation and XR Interaction Toolkit documentation.
 7. Meta. Meta Quest developer documentation.
+8. von Trier, L. (Director). (2000). *Dancer in the Dark* [Film]. Zentropa Entertainments.

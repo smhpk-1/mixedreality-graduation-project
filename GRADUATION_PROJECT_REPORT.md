@@ -1,12 +1,20 @@
-# The Shift - MUS 442 Final Submission Dossier
+# Mind Palace - MUS 442 Final Submission Dossier
 
 **Author:** Semiha Paksoy
+
+**Project title:** Mind Palace
+
+**Scene 1 title:** The Shift
 
 **Course:** MUS 442 - Senior Project II
 
 **Category:** Sound Installation and Multimedia Project
 
 **Platform:** Meta Quest 3S
+
+**Project supervisor:** Tolga Tüzün
+
+**Course instructors / advisor jury named in the 2025-2026 guideline:** Tolga Tüzün, Oğuz Usman, Enis Gümüş, Yiğit Özatalay, Cem Ömeroğlu, Semin Tunalı
 
 **Date:** June 12, 2026
 
@@ -16,7 +24,7 @@ A factory worker escapes into a musical daydream, only to build a creative loop 
 
 ## Final Thesis
 
-The project began as a contrast between monotonous labor and liberating imagination. Its final form is more ambivalent: imagination creates real agency and relief, but the routines, rewards, and time structures of reality gradually return inside the fantasy.
+The project began as a contrast between monotonous labor and liberating imagination. Its final form is more ambivalent: capitalism turns everyday life into a managed work-leisure cycle, and the pressure of that mundane, quotidian repetition pushes the protagonist toward maladaptive daydreaming. Imagination creates real agency and relief, but the routines, rewards, and time structures of reality gradually return inside the fantasy.
 
 ## Four-Scene Arc
 
@@ -24,7 +32,7 @@ The project began as a contrast between monotonous labor and liberating imaginat
 |---|---|---|---|
 | The Shift | Sort 30 cubes | Labor creates quantized notes inside a machine score | Establish alienation and measured work |
 | Colorful Playground | Throw colored sound cubes at walls | Color becomes timbre and gesture becomes performance | Offer creative release |
-| The Platform | Collect trash while trains and commuters loop | Station objects and cleanup form a generative score | Let routine re-enter the daydream |
+| The Platform | Clean trash while trains and commuters loop | Station objects and compulsory cleanup form a generative score | Let routine re-enter the daydream |
 | Concert / The Loop | Fill a 12-step radial sequencer | Player loop replaces concert, then becomes ticking | Reveal creative repetition as the clock |
 
 ## What Changed During MUS 442
@@ -49,6 +57,8 @@ Sound is the project's main narrative system.
 - The metro turns architecture, NPCs, trains, announcements, and trash collection into one spatial generative ensemble.
 - The concert lets the player replace a precomposed spectacle with a personal loop, then transforms that loop into clock time.
 
+**Because Mind Palace is a first-person VR project, video documentation can show the structure but cannot fully substitute for the headset experience. The work has to be experienced personally through the player's embodied position and actions.**
+
 ## Technical Contribution
 
 - Unity 6, OpenXR, XR Interaction Toolkit, XR Hands, Android
@@ -65,26 +75,12 @@ Sound is the project's main narrative system.
 
 1. Correct and incorrect sorting feedback in the factory.
 2. Green anomaly cube transition.
-3. Colored cube wall painting and room collapse.
+3. Colored cube wall painting and visual room collapse.
 4. Metro train arrival, NPC boarding, trash melody, and commuter reset.
 5. Sequencer placement and concert ducking.
 6. Clock reveal and return to the faster, detuned second shift.
 
-## Current Finalization Checks
 
-The current `main` scene file contains the concert environment and synchronized stem system. The newest radial sequencer, performing band, and audience modules are implemented through scripts and editor tools and must be installed, saved, and verified in Scene 4 before the final presentation APK.
-
-The remaining checks are:
-
-- Scene 4 integration and full-loop verification;
-- decision on the active Scene 1 and Scene 2 shortcut cubes;
-- decision on Scene 1 spawn-count versus correct-sort progression;
-- complete Quest 3S regression test;
-- cross-scene loudness pass;
-- Scene 4 drum improvement;
-- final presentation recording and materials.
-
-See [MUS442_SUBMISSION_CHECKLIST.md](MUS442_SUBMISSION_CHECKLIST.md) for the working checklist.
 
 ## Documentation Set
 
@@ -97,4 +93,4 @@ See [MUS442_SUBMISSION_CHECKLIST.md](MUS442_SUBMISSION_CHECKLIST.md) for the wor
 
 ## Authorship
 
-The project was conceived, designed, implemented, composed, assembled, tested, and documented by **Semiha Paksoy**. Third-party assets are used as production resources; the project-specific systems, interaction design, sound behavior, scene logic, and narrative integration were created for **The Shift**.
+The project was conceived, designed, implemented, composed, assembled, tested, and documented by **Semiha Paksoy**. Third-party assets are used as production resources; the project-specific systems, interaction design, sound behavior, scene logic, and narrative integration were created for **Mind Palace**.

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="560" viewBox="0 0 1400 560" font-family="Helvetica, Arial, sans-serif">
   <rect width="1400" height="560" fill="white"/>
-  <text x="700" y="40" text-anchor="middle" font-size="26" font-weight="bold" fill="#111">The Shift — Musical Arc of the Four-Scene Loop</text>
+  <text x="700" y="40" text-anchor="middle" font-size="26" font-weight="bold" fill="#111">Mind Palace - Musical Arc of the Four-Scene Loop</text>
 
   <!-- Scene boxes -->
   <g stroke="#222" stroke-width="2" fill="#f4f4f4">
@@ -34,7 +34,7 @@
     <text x="1220" y="122" text-anchor="middle" font-size="20" font-weight="bold">SCENE 4 · The Loop</text>
     <text x="1220" y="150" text-anchor="middle" font-size="16">DSP-synced concert stems</text>
     <text x="1220" y="174" text-anchor="middle" font-size="16">12-slot radial sequencer</text>
-    <text x="1220" y="198" text-anchor="middle" font-size="16">0.25 s/step → player composes</text>
+    <text x="1220" y="198" text-anchor="middle" font-size="16">0.25 s/step - player composes</text>
     <text x="1220" y="222" text-anchor="middle" font-size="16">Each slot mutes 1/12 of concert</text>
     <text x="1220" y="246" text-anchor="middle" font-size="16">Finale: steps slow to 1.0 s</text>
   </g>
@@ -54,8 +54,8 @@
   <!-- clock transformation box -->
   <rect x="430" y="330" width="540" height="120" rx="10" fill="#fff" stroke="#222" stroke-width="2" stroke-dasharray="8 5"/>
   <text x="700" y="365" text-anchor="middle" font-size="19" font-weight="bold" fill="#111">CLOCK REVEAL — composition becomes the timekeeper</text>
-  <text x="700" y="393" text-anchor="middle" font-size="16" fill="#111">step interval 0.25 s → 1.0 s · tones → mechanical ticks · 12 slots → hour positions</text>
-  <text x="700" y="419" text-anchor="middle" font-size="16" fill="#111">playhead → red second hand · frozen hands at 9:00 — shift start</text>
+  <text x="700" y="393" text-anchor="middle" font-size="16" fill="#111">step interval 0.25 s -> 1.0 s; tones -> mechanical ticks; 12 slots -> hour positions</text>
+  <text x="700" y="419" text-anchor="middle" font-size="16" fill="#111">playhead -> red second hand; frozen hands at 9:00 - shift start</text>
 
   <!-- return path -->
   <g stroke="#993333" stroke-width="3" fill="none">

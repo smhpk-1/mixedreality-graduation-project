@@ -1,15 +1,19 @@
-# The Shift
+# Mind Palace
 
-**The Shift** is a sound-centered virtual reality narrative for Meta Quest 3S. It explores maladaptive daydreaming, capitalist alienation, routine, and creative agency through a circular journey across four interactive scenes.
+**Mind Palace** is a sound-centered virtual reality narrative for Meta Quest 3S. It explores maladaptive daydreaming, capitalist alienation, routine, and creative agency through a circular journey across four interactive scenes.
 
-The project began under the working title **Mind Palace** as a two-scene contrast between an oppressive factory and a liberating playground. During MUS 442 Senior Project II, it developed into a more ambivalent story: the daydream first offers freedom, then gradually reproduces chores, repetition, spectacle, and time. In the finale, the musical loop created by the player reveals itself as the factory clock and returns the player to the beginning.
+The first scene is titled **The Shift**. During MUS 442 Senior Project II, the project developed from a two-scene contrast into a more ambivalent story: the daydream first offers freedom, then gradually reproduces compulsory work, repetition, spectacle, and time. In the finale, the musical loop created by the player reveals itself as the factory clock and returns the player to the beginning.
 
 ## Project Identity
 
 - **Author:** Semiha Paksoy
+- **Project title:** Mind Palace
+- **Scene 1 title:** The Shift
 - **Course:** MUS 442 - Senior Project II
 - **Academic year:** 2025-2026
 - **Category:** Sound Installation and Multimedia Project
+- **Project supervisor:** Tolga Tüzün
+- **Course instructors / advisor jury named in the 2025-2026 guideline:** Tolga Tüzün, Oğuz Usman, Enis Gümüş, Yiğit Özatalay, Cem Ömeroğlu, Semin Tunalı
 - **Platform:** Meta Quest 3S, Android
 - **Engine:** Unity 6 (`6000.2.10f1`)
 - **XR stack:** OpenXR, XR Interaction Toolkit, XR Hands, Unity Input System
@@ -25,7 +29,7 @@ The player begins as a worker sorting cubes under a quota. An impossible cube in
 |---|---|---|
 | Factory | Sort cubes correctly | Labor, conformity, measured output |
 | Playground | Throw cubes to paint and sound the room | Release, play, creative agency |
-| Metro | Collect trash while watching commuters loop | Routine returning inside fantasy |
+| Metro | Clean trash while watching commuters loop | Compulsory work returning inside fantasy |
 | Concert | Build a musical loop that becomes a clock | Creativity captured by repetition |
 
 The experience does not present daydreaming as simply good or bad. It treats escape as necessary and imaginative, while asking what happens when escape becomes another closed loop.
@@ -44,13 +48,13 @@ The factory's generative score is built at runtime from machine recordings. A me
 
 Twenty colored cubes replace the factory's restricted red/blue system. Each color has a synth voice. Grabbing and throwing cubes creates sound and repaints reactive walls. After 20 total wall hits, the room collapses and the player enters the metro.
 
-The scene reframes the cube from a product to be classified into an instrument for play. When the room collapses, repaired street sources, procedural city rumble, and passing-car sounds open the enclosed playground into the city.
+The scene reframes the cube from a product to be classified into an instrument for play. When the room collapses visually, repaired street sources and procedural city rumble open the enclosed playground into the city.
 
 ### 3. `Assets/Scene 3.unity` - The Platform
 
 A subway train arrives, opens its sliding doors, exchanges passengers, departs, and returns. NPCs wander using NavMesh, then use authored waypoint chains to board and exit the train. They reappear at their original positions so the commuter cycle can repeat.
 
-The player can collect 20 pieces of trash with a following cleanup cart. Its generated interior trigger accepts only previously grabbed, released trash and uses continuous collision detection to make deposits reliable. Each collected item adds a quantized note to the metro score. A transition cube also exists as an alternate progression route.
+The player is positioned as a cleaner and must collect 20 pieces of trash with a following cleanup cart. Its generated interior trigger accepts only previously grabbed, released trash and uses continuous collision detection to make deposits reliable. Each collected item adds a quantized note to the metro score. A transition cube also exists as an alternate progression route.
 
 ### 4. `Assets/Scene 4.unity` - The Concert / The Loop
 
@@ -81,13 +85,6 @@ The factory and metro systems use sample-accurate DSP scheduling, pentatonic pit
 - Responsive concert band and audience behavior linked to the finale
 - Four-scene Android build flow with a complete circular narrative
 
-## Important Finalization Note
-
-The Scene 4 radial sequencer, performing band, and audience systems are implemented in runtime scripts and editor setup tools. They must be installed into and verified in the serialized Scene 4 using `Tools > Scene 4 > Add Radial Sequencer`, `Place Band NPCs`, and `Place Audience NPCs` before the final APK is considered presentation-ready.
-
-The serialized Scene 1 and Scene 2 files also contain active direct-transition cubes that bypass their intended tasks. These should be deliberately kept as presentation shortcuts or disabled for the final narrative build.
-
-The remaining final polish items are tracked in [PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md) and [MUS442_SUBMISSION_CHECKLIST.md](MUS442_SUBMISSION_CHECKLIST.md).
 
 ## Documentation Map
 
@@ -98,7 +95,7 @@ The remaining final polish items are tracked in [PROJECT_DOCUMENTATION.md](PROJE
 - [STORYBOARD.md](STORYBOARD.md) - scene-by-scene player experience
 - [CONCEPTUAL_BACKGROUND.md](CONCEPTUAL_BACKGROUND.md) - theoretical framework and symbolism
 - [MUS442_SUBMISSION_CHECKLIST.md](MUS442_SUBMISSION_CHECKLIST.md) - final delivery and presentation checklist
-- `PresentationMaterials/` - archived MUS 441 first-semester submission materials
+- `PresentationMaterials/` - MUS 442 final report, deck, musical system map, and archived MUS 441 materials
 
 ## Opening the Project
 
@@ -117,6 +114,7 @@ The remaining final polish items are tracked in [PROJECT_DOCUMENTATION.md](PROJE
 - Breton, A. (1924). *Manifesto of Surrealism*.
 - Eno, B. (1978). *Ambient 1: Music for Airports*.
 - Radiohead and Epic Games. (2021). *Kid A Mnesia Exhibition*.
+- von Trier, L. (Director). (2000). *Dancer in the Dark* [Film]. Zentropa Entertainments.
 
 ---
 

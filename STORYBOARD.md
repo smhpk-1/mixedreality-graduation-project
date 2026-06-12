@@ -1,6 +1,6 @@
-# The Shift - Final Storyboard
+# Mind Palace - Final Storyboard
 
-This storyboard describes the intended final MUS 442 presentation flow. Each step combines visual action, player interaction, sound, and narrative purpose.
+This storyboard describes the intended final MUS 442 presentation flow for **Mind Palace**. Each step combines visual action, player interaction, sound, and narrative purpose. **The Shift** is the title of Scene 1.
 
 ## Scene 1: The Shift
 
@@ -82,7 +82,7 @@ This storyboard describes the intended final MUS 442 presentation flow. Each ste
 
 **Action:** The player continues playing until the environment gives way.
 
-**Sound:** Playground tones are overtaken by structural collapse, then the enclosed room opens into city rumble, intermittent street voices, and passing traffic.
+**Sound:** Playground tones thin out as the collapse happens visually; the current build does not feature a prominent destruction sound. The enclosed room instead opens into city rumble and intermittent street ambience.
 
 **Purpose:** Show that even a liberating space cannot remain permanently open or stable.
 
@@ -108,15 +108,15 @@ This storyboard describes the intended final MUS 442 presentation flow. Each ste
 
 **Purpose:** Make the loop visible as a social and spatial routine.
 
-### 3. Cleanup
+### 3. Compulsory Cleanup
 
 **Visual:** Litter is scattered across the platform and a cleanup cart waits nearby.
 
-**Action:** The player grabs trash and deposits it into the cart. The cart follows only when the player moves far enough away.
+**Action:** The player is positioned as a cleaner, grabs trash, and deposits it into the cart. The cart follows only when the player moves far enough away.
 
 **Sound:** Every collected item adds a quantized pentatonic note; every fifth item adds a confirmation interval.
 
-**Purpose:** Let labor return in a voluntary, musical, and apparently harmless form.
+**Purpose:** Let labor return in a musical but compulsory form inside the daydream.
 
 ### 4. Reappearance
 

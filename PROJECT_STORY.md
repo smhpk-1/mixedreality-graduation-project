@@ -1,4 +1,4 @@
-# The Shift - Project Story
+# Mind Palace - Project Story
 
 ## Logline
 
@@ -6,9 +6,9 @@ A factory worker escapes a repetitive shift through a vivid daydream, only to di
 
 ## Narrative Premise
 
-**The Shift** is told without dialogue from the player character. Its story is carried by space, repeated gestures, environmental cycles, and sound.
+**Mind Palace** is told without dialogue from the player character. Its story is carried by space, repeated gestures, environmental cycles, and sound. The first factory scene is titled **The Shift**.
 
-The first-semester version of the project was structured as a binary contrast: factory reality versus playground freedom. The final version keeps that contrast but extends it. The daydream develops through two additional spaces, the metro and the concert, so that escape becomes progressively less innocent. Labor returns as voluntary cleanup, repetition returns as the train cycle, and creative agency becomes a sequenced loop. The ending does not cancel the value of imagination; it reveals how difficult it is to keep imagination outside the systems that shaped the need to escape.
+The first-semester version of the project was structured as a binary contrast: factory reality versus playground freedom. The final version keeps that contrast but extends it. The daydream develops through two additional spaces, the metro and the concert, so that escape becomes progressively less innocent. Labor returns as compulsory cleanup, repetition returns as the train cycle, and creative agency becomes a sequenced loop. The ending does not cancel the value of imagination; it reveals how difficult it is to keep imagination outside the systems that shaped the need to escape.
 
 ## Dramatic Arc
 
@@ -56,7 +56,7 @@ A dim industrial room containing a conveyor belt, dispensers, sorting bins, mach
 
 - **Arrival:** The player wakes at the workstation with no explanation.
 - **Instruction through design:** Red and blue cubes arrive and matching bins imply the task.
-- **Routine:** Correct sorts are rewarded; mistakes are rejected. The score rises with progress.
+- **Routine:** Correct sorts are rewarded; mistakes are rejected. Musical feedback rises with progress.
 - **Quota:** Thirty cubes turn physical repetition into a measurable shift.
 - **Anomaly:** Green cubes appear, but there is no green bin and therefore no valid action within the factory's logic.
 - **Leap:** Touching an anomaly cube loads the playground.
@@ -81,7 +81,7 @@ A compact surreal room filled with twenty cubes in five colors. The walls are da
 
 ### Sound and Meaning
 
-The same object that produced labor in Scene 1 now produces timbre, gesture, and color. The player can create a loose performance without a prescribed correct result. However, the scene still needs repeated impacts to progress. The first trace of a new system is already forming inside the freedom. As the room opens, intermittent street voices, city rumble, and passing traffic carry the dream toward ordinary public life.
+The same object that produced labor in Scene 1 now produces timbre, gesture, and color. The player can create a loose performance without a prescribed correct result. However, the scene still needs repeated impacts to progress. The first trace of a new system is already forming inside the freedom. As the room opens, intermittent street voices and city rumble carry the dream toward ordinary public life.
 
 ## Scene 3: The Platform
 
@@ -93,13 +93,13 @@ An underground metro station with fluorescent lights, benches, PA speakers, rail
 
 - **Arrival in the middle distance:** The fantasy becomes quieter and more ordinary.
 - **Observation:** Trains arrive and depart; NPCs wander, board, leave, and return.
-- **Chore:** The player can collect trash and place it into a cart that follows when needed.
+- **Compulsory task:** The player is positioned as a cleaner and must collect trash into a cart that follows when needed.
 - **Visible loop:** The same commuters reappear at their initial positions after traveling away.
 - **Progression:** Collecting twenty pieces of trash advances to the concert. A transition cube is also present as an alternate route.
 
 ### Sound and Meaning
 
-The station itself performs the score. Benches, fluorescent lights, rails, trash cans, commuters, tunnel ambience, PA announcements, and the player's cleanup actions are synchronized into one generative composition. The task is more voluntary and musical than factory labor, but it is still labor. The daydream is beginning to reproduce the world it escaped.
+The station itself performs the score. Benches, fluorescent lights, rails, trash cans, commuters, tunnel ambience, PA announcements, and the player's cleanup actions are synchronized into one generative composition. The task is more musical than factory labor, but it is not voluntary; it assigns the player a worker's role inside the fantasy. The daydream is beginning to reproduce the world it escaped.
 
 ## Scene 4: The Concert / The Loop
 

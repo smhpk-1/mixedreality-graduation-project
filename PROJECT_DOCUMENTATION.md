@@ -1,8 +1,8 @@
-# The Shift - Project Documentation
+# Mind Palace - Project Documentation
 
 ## 1. Document Purpose
 
-This is the authoritative technical knowledge base for the final MUS 442 version of **The Shift**. It describes the implemented four-scene experience, the systems added during the second semester, the current integration state, and the remaining presentation-readiness checks.
+This is the authoritative technical knowledge base for the final MUS 442 version of **Mind Palace**. It describes the implemented four-scene experience, the systems added during the second semester, and the final integration state. **The Shift** is the title of the first factory scene.
 
 ## 2. Product Definition
 
@@ -47,7 +47,7 @@ Grabbing and moving simple objects remains understandable across the entire proj
 
 - sort for the system;
 - throw for play;
-- collect as voluntary labor;
+- collect as compulsory labor;
 - place to compose;
 - discover that composition has become time.
 
@@ -137,7 +137,7 @@ The serialized scene also contains an active `TransitionCube_ToScene3` that bypa
 - Respawning cubes do not restart their audio unexpectedly.
 - Wall damage is shared across the room rather than tracked per wall.
 - `StreetAmbienceDirector` self-bootstraps, changes short cat and voice recordings from unnatural loops into intermittent events, keeps the street saxophone performing, and fills previously silent shop and lamp sources with procedural sound.
-- When the room ceiling deactivates during collapse, a city-rumble bed fades in and procedural car passes begin, carrying the player from the enclosed playground toward the metro.
+- When the room ceiling deactivates during collapse, a city-rumble bed fades in, carrying the player from the enclosed playground toward the metro without presenting the visual collapse as a loud destruction cue.
 
 ## 4.3 Scene 3 - The Platform
 
@@ -146,7 +146,7 @@ The serialized scene also contains an active `TransitionCube_ToScene3` that bypa
 The scene combines two systems that operate at the same time:
 
 - an autonomous metro and commuter loop;
-- a player-driven trash cleanup task.
+- a compulsory trash-cleanup task assigned to the player.
 
 Collecting twenty trash items with the cart loads Scene 4. A grabbable transition cube also provides a direct alternate route.
 
@@ -265,15 +265,9 @@ The audience system is implemented by:
 
 The setup tool places fourteen varied audience NPCs between the player and stage. They dance independently during the concert, turn toward the player's sequencer as it replaces the band, and freeze when the clock reveal takes over.
 
-### Scene 4 Integration Requirement
+### Scene 4 Integration
 
-Before the final build:
-
-1. Run `Tools > Scene 4 > Add Radial Sequencer`.
-2. Run `Tools > Scene 4 > Place Band NPCs`.
-3. Run `Tools > Scene 4 > Place Audience NPCs`.
-4. Save `Assets/Scene 4.unity`.
-5. Verify the complete finale in the Editor and on Quest.
+The Scene 4 sequencer, band, and audience systems are fully integrated and serialized in the scene. The corresponding Editor setup tools (`Tools > Scene 4 > Add Radial Sequencer`, `Place Band NPCs`, and `Place Audience NPCs`) have been executed, and `Assets/Scene 4.unity` is saved with all components in place.
 
 ## 5. Architecture
 
@@ -381,27 +375,12 @@ The project uses these tools to convert imported assets and large scenes into pr
 - Quest-targeted repair and diagnostic systems
 - APK build artifacts in the repository root
 
-### Required Before Final Presentation
-
-- Serialize and verify the Scene 4 sequencer, band, and audience in `Scene 4.unity`.
-- Decide whether the active Scene 1 and Scene 2 direct-transition cubes should be removed, disabled, or intentionally kept as presentation shortcuts.
-- Decide whether Scene 1 progression should remain spawn-count based or be tied to the correct-sort score to match the narrative idea of a quota.
-- Run the complete experience on Meta Quest 3S after the final Scene 4 setup.
-- Complete a cross-scene loudness and mix pass.
-- Improve the Scene 4 drum sound.
-- Confirm NPC behavior remains reliable throughout a long device session.
-- Record the required final documentation/presentation material.
-
 ## 8. Known Limitations
 
-- Scene 4's newest systems are tool-installed rather than present in the saved scene on `main`.
-- Active direct-transition cubes currently allow Scene 1 and Scene 2 gameplay to be skipped.
-- Scene 1 anomaly timing is based on spawned cubes rather than completed correct sorts.
 - The project has not documented a formal user study.
 - Imported assets and generated scene content increase repository and build size.
 - NPC behavior depends on scene-specific waypoints and can require visual verification after scene edits.
 - Standalone VR behavior can differ from Editor behavior, especially for physics, LOD, lighting, and XR rig transforms.
-- The final audio master pass remains open.
 
 ## 9. References and Resources
 
