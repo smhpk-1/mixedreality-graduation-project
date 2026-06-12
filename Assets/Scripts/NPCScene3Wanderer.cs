@@ -81,6 +81,8 @@ public class NPCScene3Wanderer : MonoBehaviour
     private NavMeshAgent agent;
     private bool usingNavMesh;
     private bool targetReady;
+    private float groundCheckTimer;
+    private float baseOffsetTarget;
     private Vector3 homePosition;
     private Vector3 targetPosition;
     private float waitTimer;
@@ -146,6 +148,12 @@ public class NPCScene3Wanderer : MonoBehaviour
 
     private void Start()
     {
+        // ÖNCE gerçek zemine otur. Sahnede havada yerleştirilmiş olabilir;
+        // NavMesh snap'i görsel zemini DEĞİL navmesh düzlemini bulur ve manuel
+        // moddaki maxStepHeight koruması 0.7m üstü ilk inişi de reddeder —
+        // bu yüzden NPC hiçbir zaman "düşmüyordu". Tek yetkili iniş burası.
+        NPCGrounding.SnapToGround(transform, groundOffset);
+
         homePosition = transform.position;
         targetSegmentSpeed = walkSpeed;
         usingNavMesh = TryUseNavMesh();
@@ -210,6 +218,15 @@ public class NPCScene3Wanderer : MonoBehaviour
         agent.radius = 0.28f;
         agent.height = 1.75f;
 
+        // FLOATING FIX: baseOffset hiç set edilmiyordu — runtime'da eklenen
+        // agent'ın default'u bu rig için yanlış. Üstelik navmesh düzlemi görsel
+        // zeminin üstünde durabilir (bake voxel hatası). Gerçek zemini ölçüp
+        // baseOffset'i öyle ayarla ki ayaklar navmesh'e değil ZEMİNE bassın.
+        agent.baseOffset = 0f;
+        if (NPCGrounding.TryGetGroundY(transform.position, transform, out float groundY))
+            agent.baseOffset = Mathf.Clamp(groundY + groundOffset - hit.position.y, -0.5f, 0.1f);
+        baseOffsetTarget = agent.baseOffset;
+
         return agent.isOnNavMesh;
     }
 
@@ -237,6 +254,21 @@ public class NPCScene3Wanderer : MonoBehaviour
 
         if (!targetReady)
             PickNewDestination();
+
+        // Sürekli zemin düzeltmesi: navmesh düzlemi ile görsel zemin arasındaki
+        // fark platform boyunca değişebilir — baseOffset'i ölçüme doğru yumuşakça çek
+        groundCheckTimer -= Time.deltaTime;
+        if (groundCheckTimer <= 0f)
+        {
+            groundCheckTimer = 0.4f;
+            if (NPCGrounding.TryGetGroundY(transform.position, transform, out float gy))
+            {
+                float delta = (gy + groundOffset) - transform.position.y;
+                if (Mathf.Abs(delta) < 1f) // büyük farklar zemin değil (köprü/çukur) — yok say
+                    baseOffsetTarget = Mathf.Clamp(agent.baseOffset + delta, -0.5f, 0.1f);
+            }
+        }
+        agent.baseOffset = Mathf.MoveTowards(agent.baseOffset, baseOffsetTarget, 0.5f * Time.deltaTime);
 
         agent.isStopped = false;
         Vector3 desired = agent.desiredVelocity;
