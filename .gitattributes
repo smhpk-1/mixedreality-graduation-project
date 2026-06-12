@@ -31,3 +31,4 @@
 *.fbm/** filter=lfs diff=lfs merge=lfs -text
 *.unitypackage filter=lfs diff=lfs merge=lfs -text
 *.apk filter=lfs diff=lfs merge=lfs -text
+"PresentationMaterials/Original Recording from Headset.mp4" filter=lfs diff=lfs merge=lfs -text
