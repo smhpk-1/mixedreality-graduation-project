@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 /// <summary>
 /// Hybrid concert audio: bazı stem'ler 2D stereo (kulaklıktan direkt),
@@ -102,5 +103,33 @@ public class ConcertAudioDirector : MonoBehaviour
     {
         foreach (var stem in stems)
             stem.runtimeSource?.UnPause();
+    }
+
+    /// <summary>
+    /// Tüm stem'leri verilen sürede yavaşça söndürüp durdurur.
+    /// Sequencer finali konser müziğini bununla eritir.
+    /// </summary>
+    public void FadeOutAll(float duration)
+    {
+        StartCoroutine(FadeOutRoutine(duration));
+    }
+
+    private IEnumerator FadeOutRoutine(float duration)
+    {
+        float[] startVolumes = new float[stems.Length];
+        for (int i = 0; i < stems.Length; i++)
+            startVolumes[i] = stems[i].runtimeSource != null ? stems[i].runtimeSource.volume : 0f;
+
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            float k = 1f - Mathf.Clamp01(t / duration);
+            for (int i = 0; i < stems.Length; i++)
+                if (stems[i].runtimeSource != null)
+                    stems[i].runtimeSource.volume = startVolumes[i] * k;
+            yield return null;
+        }
+        Stop();
     }
 }
