@@ -68,13 +68,13 @@ public class TrashCart : MonoBehaviour
 
     private void Awake()
     {
-        // Cart fiziği — kinematic (oyuncuya çarpıp itilmesin)
+        // Cart fiziği — kinematic (oyuncuya çarpıp itilmesin).
+        // KRİTİK: Rigidbody YOKSA EKLE — child collider'ların (InteriorTrigger)
+        // OnTrigger olayları ancak root'ta rigidbody varsa bu script'e ulaşır.
         var rb = GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.isKinematic = true;
-            rb.useGravity  = false;
-        }
+        if (rb == null) rb = gameObject.AddComponent<Rigidbody>();
+        rb.isKinematic = true;
+        rb.useGravity  = false;
     }
 
     private void Start()
