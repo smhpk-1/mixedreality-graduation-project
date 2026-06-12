@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 /// <summary>
 /// Hybrid concert audio: bazı stem'ler 2D stereo (kulaklıktan direkt),
@@ -37,6 +38,22 @@ public class ConcertAudioDirector : MonoBehaviour
     [Header("Ayarlar")]
     public bool  playOnAwake = true;
     public float startDelay  = 0f;
+
+    [Header("Ducking")]
+    [Tooltip("Duck hedefine yumuşak geçiş süresi (saniye). Sequencer doldukça konser kısılır.")]
+    public float duckSmoothTime = 1.5f;
+
+    // Sequencer dolduğunda konser yerini oyuncunun loop'una bırakır:
+    // her dolu slot konseri 1/12 kısar, 12 slotta konser tamamen susar.
+    private float duckTarget  = 1f;
+    private float duckCurrent = 1f;
+    private bool  fadingOut;
+
+    /// <summary>
+    /// Sahnedeki grubun "çalma" şiddeti (0-1): duck ve final fade dahil.
+    /// NPCMusicianPerformer bunu okur — müzik kısıldıkça grup yavaşlar, durur.
+    /// </summary>
+    public float PerformanceLevel { get; private set; } = 1f;
 
     private void Awake()
     {
@@ -77,6 +94,27 @@ public class ConcertAudioDirector : MonoBehaviour
         if (playOnAwake) Play();
     }
 
+    private void Update()
+    {
+        // Duck hedefine yumuşak yaklaşım — fade-out sırasında karışma
+        if (fadingOut || Mathf.Approximately(duckCurrent, duckTarget)) return;
+        duckCurrent = Mathf.MoveTowards(duckCurrent, duckTarget,
+                                        Time.deltaTime / Mathf.Max(0.01f, duckSmoothTime));
+        PerformanceLevel = duckCurrent;
+        foreach (var stem in stems)
+            if (stem.runtimeSource != null)
+                stem.runtimeSource.volume = stem.volume * duckCurrent;
+    }
+
+    /// <summary>
+    /// Konser seviyesi hedefi (0-1). Sequencer her dolduğunda azaltılır —
+    /// oyuncunun loop'u sahnedeki grubun yerini alır.
+    /// </summary>
+    public void SetDuckTarget(float value)
+    {
+        duckTarget = Mathf.Clamp01(value);
+    }
+
     /// <summary>Tüm stem'leri DSP clock ile senkron başlatır.</summary>
     public void Play()
     {
@@ -102,5 +140,36 @@ public class ConcertAudioDirector : MonoBehaviour
     {
         foreach (var stem in stems)
             stem.runtimeSource?.UnPause();
+    }
+
+    /// <summary>
+    /// Tüm stem'leri verilen sürede yavaşça söndürüp durdurur.
+    /// Sequencer finali konser müziğini bununla eritir.
+    /// </summary>
+    public void FadeOutAll(float duration)
+    {
+        StartCoroutine(FadeOutRoutine(duration));
+    }
+
+    private IEnumerator FadeOutRoutine(float duration)
+    {
+        fadingOut = true; // duck Update'i devre dışı — fade tek kontrol olsun
+        float[] startVolumes = new float[stems.Length];
+        for (int i = 0; i < stems.Length; i++)
+            startVolumes[i] = stems[i].runtimeSource != null ? stems[i].runtimeSource.volume : 0f;
+
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            float k = 1f - Mathf.Clamp01(t / duration);
+            PerformanceLevel = duckCurrent * k; // grup da fade ile birlikte söner
+            for (int i = 0; i < stems.Length; i++)
+                if (stems[i].runtimeSource != null)
+                    stems[i].runtimeSource.volume = startVolumes[i] * k;
+            yield return null;
+        }
+        PerformanceLevel = 0f;
+        Stop();
     }
 }

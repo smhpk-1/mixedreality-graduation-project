@@ -47,11 +47,59 @@
 **Audio:** The audio is entirely up to the player's decision. By using the cubes—each assigned a different synth tone—the player creates their own unique soundscape, celebrating the freedom of the playground.
 
 ### Step 5: The Breakthrough
-**Visual:** As the user continues to play, they realize that throwing multiple cubes at the same wall causes that wall to slowly rumble. After 10 consecutive hits, the wall collapses and sinks into the ground, triggering the transition to the next space.
-**Action:** The user focuses their playful throws on a single wall to break it down and progress.
-**Audio:** A crumbling, heavy stone-grinding sound plays as the wall sinks, fading out the energetic playground sounds and leading into the transition.
+**Visual:** As the user continues to play, the walls slowly rumble and sink a little with each impact. After 20 cube hits in total across all walls, the room gives way: the struck wall collapses, the ceiling and remaining walls follow, and the cubes themselves dissolve along with the room, triggering the transition to the next space.
+**Action:** The user keeps throwing cubes at the walls until the entire room breaks down.
+**Audio:** A crumbling, heavy stone-grinding sound plays as the room sinks, fading out the energetic playground sounds and leading into the transition.
 
 ---
 
-## Scene 3: [Title Pending]
-(To be defined in future updates as the user transitions from the colorful playground into the next experience.)
+## Scene 3: The Platform
+
+### Step 1: The Descent
+**Visual:** The user finds themselves on an underground metro platform. Fluorescent lights hum overhead, benches line the wall, and commuter NPCs wander the platform, waiting. A train arrives, its doors slide open, passengers board and exit, and it departs again — an endless cycle.
+**Action:** The user takes in the space: the daydream has landed somewhere quieter, more ordinary, suspended between freedom and routine.
+**Audio:** A generative ambient score grows out of the station itself — bench drones, fluorescent hum, rail ostinatos, the murmur of NPCs — all locked to one musical grid. PA announcements accompany the train's arrivals and departures.
+
+### Step 2: The Chore
+**Visual:** Litter is scattered across the platform. A cleaning cart stands nearby. The user discovers that trash can be picked up and tossed into the cart.
+**Action:** The user tidies the platform piece by piece — voluntarily doing janitorial work inside their own daydream.
+**Audio:** Each collected piece of trash plays a quantized melody note, folding even the cleanup into the station's score.
+
+### Step 3: The Cycle
+**Visual:** The train keeps returning. The same NPCs board, depart, and reappear at their original positions — the loop is visible now, if the user cares to notice.
+**Action:** The user watches the cycle repeat, free to board nothing and go nowhere.
+**Audio:** The generative score continues unbroken; the train cycle adds its own recurring sonic events.
+
+### Step 4: The Way Out
+**Visual:** A glowing anomalous cube waits on the platform — the same kind of impossible object that broke the factory's logic.
+**Action:** The user grabs the cube and is carried deeper into the daydream, toward the concert.
+**Audio:** The station score continues until the moment of transition.
+
+---
+
+## Scene 4: The Concert / The Loop
+
+### Step 1: The Stage
+**Visual:** An open-air concert at night — stage, speaker stacks, drum kit, instruments. The music is alive and everywhere: some of it inside the user's head, some pouring spatially from the speakers and instruments on stage.
+**Action:** The user walks the grounds, finally inside the daydream's promised reward: pure spectacle, pure pleasure.
+**Audio:** Synchronized stems play in a hybrid mix — 2D stereo layers in the headset, 3D spatial layers from the stage objects.
+
+### Step 2: The Instrument
+**Visual:** Near the stage floats a luminous ring — twelve slots arranged in a circle, a glowing hand sweeping around it. Twelve colored orbs hover in front of it, each humming its own synth voice when held.
+**Action:** The user grabs orbs and places them into the ring's slots. Each placed orb joins the loop, its tone triggered every time the sweeping hand passes.
+**Audio:** Placed tones play instantly on the beat, quantized to a tight grid. With every slot the user fills, the concert's music yields a little — the user's own loop is gradually replacing the band.
+
+### Step 3: The Masterpiece
+**Visual:** All twelve slots filled, the ring pulses with the user's complete composition. The concert has gone quiet; only the user's creation plays.
+**Action:** The user stands before the loop they built, listening to it revolve.
+**Audio:** The user's twelve-step loop, alone, at full presence.
+
+### Step 4: The Recognition
+**Visual:** The loop begins to slow. Color drains from the ring — white face, black rim. Numbers fade in over the slots: 1 through 12. The sweeping hand thins into a red second hand. Frozen hour and minute hands appear, reading 9:00. The orbs the user placed shrink into gray hour markers. It was never an instrument. It has twelve slots. It was always the clock.
+**Action:** The user reaches for an orb — and can no longer take it back. The loop doesn't belong to them anymore.
+**Audio:** One by one, the user's tones are replaced by a dry mechanical tick. The tempo settles at exactly one tick per second. Tick. Tock.
+
+### Step 5: The Return
+**Visual:** Darkness closes in around the user until only the ticking remains. Then: the factory. The conveyor. The cubes. The wall clock. The shift begins again — but something in the machines hums slightly out of tune now, and the belt runs a touch faster.
+**Action:** The user is back at their workstation. There is sorting to do.
+**Audio:** The factory's generative score returns, subtly degraded — detuned tape loops, a faster pulse. The loop is the same. The loop is never the same.

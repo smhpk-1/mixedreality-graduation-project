@@ -14,6 +14,7 @@ namespace MusicSpace
     public class DestructibleWall : MonoBehaviour
     {
         [Header("Destruction Settings")]
+        [Tooltip("TÜM duvarlara toplam kaç küp çarpınca yıkım başlar (duvar başına değil)")]
         public int requiredHits = 20;
         public string nextSceneName = "Scene 3";
         
@@ -34,7 +35,11 @@ namespace MusicSpace
         // Static counter shared across all DestructibleWall instances
         private static int totalWallsDestroyed = 0;
         private static bool ceilingCollapsed = false;
-        
+
+        // Tüm duvarların ortak vuruş sayacı — hangi duvara çarparsa çarpsın artar
+        private static int totalHitsAllWalls = 0;
+        private static bool collapseTriggered = false;
+
         private int currentHits = 0;
         private bool isDestroyed = false;
         private bool isShaking = false;
@@ -50,6 +55,8 @@ namespace MusicSpace
         {
             totalWallsDestroyed = 0;
             ceilingCollapsed = false;
+            totalHitsAllWalls = 0;
+            collapseTriggered = false;
         }
 
         private void Initialize()
@@ -70,15 +77,18 @@ namespace MusicSpace
             // Initialize on first call — handles AddComponent + TakeDamage in same frame
             Initialize();
             
-            if (isDestroyed) return;
+            if (isDestroyed || collapseTriggered) return;
 
+            // Sayaç tüm duvarlar için ortak: hangi duvara çarparsa çarpsın toplam artar
             currentHits++;
-            int remaining = requiredHits - currentHits;
-            Debug.Log($"[DestructibleWall] {gameObject.name} hit! {currentHits}/{requiredHits} (remaining: {remaining})");
+            totalHitsAllWalls++;
+            int remaining = requiredHits - totalHitsAllWalls;
+            Debug.Log($"[DestructibleWall] {gameObject.name} hit! Toplam: {totalHitsAllWalls}/{requiredHits} (remaining: {remaining})");
 
-            if (currentHits >= requiredHits)
+            if (totalHitsAllWalls >= requiredHits)
             {
-                // Final hit — collapse wall
+                // Final hit — son çarpılan duvar yıkılır, oda çöküşü onu takip eder
+                collapseTriggered = true;
                 isDestroyed = true;
                 Debug.Log($"[DestructibleWall] {gameObject.name} DESTROYED!");
                 StartCoroutine(CollapseWall());
@@ -145,6 +155,9 @@ namespace MusicSpace
                 transform.localPosition = basePosition + randomOffset;
                 yield return null;
             }
+
+            // Duvarlar giderken küpler de gitsin — sahnedeki tüm oyun küplerini temizle
+            DestroyAllPlaygroundCubes();
 
             // 2. Sink into the floor (3 seconds)
             float sinkTime = 3.0f;
@@ -307,6 +320,20 @@ namespace MusicSpace
             Debug.Log("[DestructibleWall] Room fully collapsed! City environment revealed.");
         }
         
+        /// <summary>
+        /// Sahnedeki tüm oyun küplerini yok eder — duvarlar yıkılırken küpler de gider.
+        /// Elde tutulan küpler için önce grab bırakılır (XRGrabInteractable destroy'u tolere eder).
+        /// </summary>
+        private void DestroyAllPlaygroundCubes()
+        {
+            PlaygroundCube[] cubes = FindObjectsByType<PlaygroundCube>(FindObjectsSortMode.None);
+            Debug.Log($"[DestructibleWall] Destroying {cubes.Length} playground cubes with the walls");
+            foreach (PlaygroundCube cube in cubes)
+            {
+                Destroy(cube.gameObject);
+            }
+        }
+
         /// <summary>
         /// Sinks an object downward over time and then deactivates it.
         /// </summary>

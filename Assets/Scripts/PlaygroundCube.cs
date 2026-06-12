@@ -32,6 +32,13 @@ namespace MusicSpace
         // ========================================
         private const float GLOBAL_LOOP_VOLUME = 0.7f;      // Grab sound volume (0.0 - 1.0)
         private const float GLOBAL_COLLISION_VOLUME = 1.0f; // Collision sound volume (0.0 - 1.0)
+
+        // Klipler arası yükseklik farkını dengeleme: tüm renkler bu RMS hedefine çekilir
+        private const float TARGET_LOOP_RMS = 0.18f;
+        // Küp bırakılınca loop'un yavaşça sönme süresi (saniye)
+        private const float RELEASE_FADE_DURATION = 1.2f;
+        // Duvarın "yanıt" tonunun sönme süresi (saniye)
+        private const float WALL_TONE_DURATION = 1.6f;
         
         [Header("Physics-Based Audio")]
         [Tooltip("Minimum pitch when velocity is low")]
@@ -52,6 +59,9 @@ namespace MusicSpace
         private AudioSource loopAudioSource;    // For looping grab sound
         private AudioSource collisionAudioSource; // For collision one-shots
         private bool hasHitWall = false;
+        private float volumeNormalizer = 1f;    // klip yüksekliğini dengeleyen çarpan
+        private Coroutine loopFadeCoroutine;
+        private Coroutine collisionFadeCoroutine;
 
         private void Awake()
         {
@@ -98,6 +108,30 @@ namespace MusicSpace
             {
                 LoadSoundForColor();
             }
+
+            // Klipler arası ses yüksekliği farkını dengele
+            ComputeVolumeNormalizer();
+        }
+
+        /// <summary>
+        /// Klibin RMS yüksekliğini ölçüp hedef seviyeye çeken çarpanı hesaplar —
+        /// renk kayıtlarının yükseklikleri birbirinden çok farklı olduğu için şart.
+        /// </summary>
+        private void ComputeVolumeNormalizer()
+        {
+            if (loopSound == null) return;
+
+            // İlk ~4 saniye ölçüm için yeterli
+            int sampleCount = Mathf.Min(loopSound.samples, loopSound.frequency * 4) * loopSound.channels;
+            float[] data = new float[sampleCount];
+            if (!loopSound.GetData(data, 0)) return; // sıkıştırılmış klip okunamayabilir
+
+            double sum = 0;
+            for (int i = 0; i < data.Length; i++) sum += data[i] * data[i];
+            float rms = Mathf.Sqrt((float)(sum / data.Length));
+
+            if (rms > 0.0001f)
+                volumeNormalizer = Mathf.Clamp(TARGET_LOOP_RMS / rms, 0.3f, 3f);
         }
         
         /// <summary>
@@ -169,11 +203,11 @@ namespace MusicSpace
 
         private void OnRelease(SelectExitEventArgs args)
         {
-            // Don't stop immediately - let the sound finish its current playback
-            // Just disable looping so it plays to the end then stops
-            LetSoundFinish();
+            // Küp elden çıktığı anda loop yavaşça fade out olarak biter —
+            // baştan başlamaz, aniden de kesilmez
+            FadeOutLoopSound(RELEASE_FADE_DURATION);
         }
-        
+
         /// <summary>
         /// Start playing the looping sound assigned to this cube's color
         /// </summary>
@@ -181,35 +215,58 @@ namespace MusicSpace
         {
             if (loopAudioSource != null && loopSound != null)
             {
+                // Devam eden bir fade varsa iptal et — tam sesle yeniden başla
+                if (loopFadeCoroutine != null)
+                {
+                    StopCoroutine(loopFadeCoroutine);
+                    loopFadeCoroutine = null;
+                }
                 loopAudioSource.clip = loopSound;
-                loopAudioSource.volume = GLOBAL_LOOP_VOLUME;
+                loopAudioSource.volume = GLOBAL_LOOP_VOLUME * volumeNormalizer;
                 loopAudioSource.pitch = 1f;
                 loopAudioSource.loop = true; // Enable looping while grabbed
                 loopAudioSource.Play();
             }
         }
-        
+
         /// <summary>
-        /// Let the sound finish playing (disable loop, don't stop immediately)
+        /// Loop sesini verilen sürede yavaşça söndürüp durdurur.
         /// </summary>
-        private void LetSoundFinish()
+        private void FadeOutLoopSound(float duration)
         {
-            if (loopAudioSource != null && loopAudioSource.isPlaying)
-            {
-                // Just disable looping - the sound will play to the end then stop naturally
-                loopAudioSource.loop = false;
-            }
+            if (loopAudioSource == null || !loopAudioSource.isPlaying) return;
+            if (loopFadeCoroutine != null) StopCoroutine(loopFadeCoroutine);
+            loopFadeCoroutine = StartCoroutine(FadeAndStop(loopAudioSource, duration));
         }
-        
+
         /// <summary>
         /// Stop the looping sound immediately
         /// </summary>
         private void StopLoopSound()
         {
+            if (loopFadeCoroutine != null)
+            {
+                StopCoroutine(loopFadeCoroutine);
+                loopFadeCoroutine = null;
+            }
             if (loopAudioSource != null && loopAudioSource.isPlaying)
             {
                 loopAudioSource.Stop();
             }
+        }
+
+        private IEnumerator FadeAndStop(AudioSource source, float duration)
+        {
+            float startVolume = source.volume;
+            float elapsed = 0f;
+            while (elapsed < duration && source.isPlaying)
+            {
+                elapsed += Time.deltaTime;
+                source.volume = Mathf.Lerp(startVolume, 0f, elapsed / duration);
+                yield return null;
+            }
+            source.Stop();
+            source.volume = startVolume;
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -241,16 +298,17 @@ namespace MusicSpace
             if (wall != null && velocity >= minVelocityForWallChange)
             {
                 hasHitWall = true;
-                
+
                 // Stop the loop sound when hitting wall
                 StopLoopSound();
-                
+
                 // Color change and DestructibleWall damage are handled by
                 // ColorReactiveWall.OnCollisionEnter — no need to call here
-                
-                // Play collision sound with full intensity for wall hits
-                PlayCollisionSound(velocity, 1f);
-                
+
+                // Duvar küpün rengini aldığı gibi sesini de alır: küpün tonu
+                // çarpma noktasından duvardan sönerek yankılanır
+                SpawnWallTone(collision, velocity);
+
                 // Respawn cube after delay
                 StartCoroutine(RespawnAfterDelay());
             }
@@ -262,30 +320,70 @@ namespace MusicSpace
         }
 
         /// <summary>
+        /// Duvarın "yanıtı": küpün tonu çarpma noktasında ayrı bir kaynaktan çalar,
+        /// hız bazlı pitch ile, ve sönerek biter. Küpten bağımsız obje olduğu için
+        /// küp respawn olunca ses spawn noktasına taşınmaz.
+        /// </summary>
+        private void SpawnWallTone(Collision collision, float velocity)
+        {
+            if (loopSound == null) return;
+
+            Vector3 contactPoint = collision.contactCount > 0
+                ? collision.GetContact(0).point
+                : transform.position;
+
+            float normalizedVelocity = Mathf.Clamp01(velocity / maxVelocityForPitch);
+            float pitch  = Mathf.Lerp(minPitch, maxPitch, normalizedVelocity);
+            float volume = GLOBAL_COLLISION_VOLUME * volumeNormalizer
+                           * Mathf.Lerp(minVolumeMultiplier, 1f, normalizedVelocity);
+
+            var go = new GameObject("WallTone_" + colorName);
+            go.transform.position = contactPoint;
+            var src = go.AddComponent<AudioSource>();
+            src.playOnAwake = false;
+            src.loop = false;
+            src.spatialBlend = 1f;
+            src.rolloffMode = AudioRolloffMode.Linear;
+            src.minDistance = 1f;
+            src.maxDistance = 20f;
+            src.clip = loopSound;
+            src.pitch = pitch;
+            src.volume = volume;
+            src.Play();
+
+            // Kendi kendini söndürüp yok eder — küpün yaşam döngüsünden bağımsız
+            go.AddComponent<WallToneFader>().fadeDuration = WALL_TONE_DURATION;
+        }
+
+        /// <summary>
         /// Play collision sound with physics-based parameter manipulation
+        /// (yer/küp çarpmaları — kısa, sönerek biten dokunuşlar)
         /// </summary>
         /// <param name="velocity">Impact velocity</param>
         /// <param name="volumeScale">Additional volume scaling (0-1)</param>
         private void PlayCollisionSound(float velocity, float volumeScale = 1f)
         {
             if (loopSound == null || collisionAudioSource == null) return;
-            
+
             // Normalize velocity for parameter calculation
             float normalizedVelocity = Mathf.Clamp01(velocity / maxVelocityForPitch);
-            
+
             // Physics-based pitch: faster impact = higher pitch
             float pitch = Mathf.Lerp(minPitch, maxPitch, normalizedVelocity);
-            
+
             // Physics-based volume: harder impact = louder
             float volumeMultiplier = Mathf.Lerp(minVolumeMultiplier, 1f, normalizedVelocity);
-            float finalVolume = GLOBAL_COLLISION_VOLUME * volumeMultiplier * volumeScale;
-            
+            float finalVolume = GLOBAL_COLLISION_VOLUME * volumeNormalizer * volumeMultiplier * volumeScale;
+
             // Apply parameters
             collisionAudioSource.pitch = pitch;
             collisionAudioSource.volume = finalVolume;
-            
-            // Play the sound as one-shot (use the same clip as the loop)
-            collisionAudioSource.PlayOneShot(loopSound);
+
+            // Uzun klip baştan sona çalmasın: çal ve kısa sürede söndür
+            collisionAudioSource.clip = loopSound;
+            collisionAudioSource.Play();
+            if (collisionFadeCoroutine != null) StopCoroutine(collisionFadeCoroutine);
+            collisionFadeCoroutine = StartCoroutine(FadeAndStop(collisionAudioSource, 0.6f));
         }
 
         private IEnumerator RespawnAfterDelay()
@@ -299,9 +397,16 @@ namespace MusicSpace
         /// </summary>
         public void ResetCube()
         {
-            // Stop any playing sounds
+            // Tüm sesleri kesin olarak sustur — respawn olan küp bir daha
+            // ele alınana kadar SESSİZ kalır (ses karmaşası olmasın)
             StopLoopSound();
-            
+            if (collisionFadeCoroutine != null)
+            {
+                StopCoroutine(collisionFadeCoroutine);
+                collisionFadeCoroutine = null;
+            }
+            if (collisionAudioSource != null) collisionAudioSource.Stop();
+
             // Reset position and rotation
             transform.position = spawnPosition;
             transform.rotation = Quaternion.identity;
@@ -323,5 +428,38 @@ namespace MusicSpace
             Gizmos.DrawWireSphere(spawnPosition, 0.05f);
         }
 #endif
+    }
+
+    /// <summary>
+    /// Duvardaki yanıt tonunu kendi kendine söndürür ve objeyi yok eder.
+    /// Küpten bağımsız çalışır — küp respawn olsa veya yok edilse bile ses
+    /// doğru yerden söner.
+    /// </summary>
+    public class WallToneFader : MonoBehaviour
+    {
+        public float fadeDuration = 1.6f;
+
+        private AudioSource source;
+        private float startVolume;
+        private float elapsed;
+
+        private void Start()
+        {
+            source = GetComponent<AudioSource>();
+            if (source == null) { Destroy(gameObject); return; }
+            startVolume = source.volume;
+        }
+
+        private void Update()
+        {
+            if (source == null) return;
+            elapsed += Time.deltaTime;
+            if (elapsed >= fadeDuration || !source.isPlaying)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            source.volume = startVolume * (1f - elapsed / fadeDuration);
+        }
     }
 }
