@@ -70,15 +70,72 @@ The player is free to explore and interact without rules or quotas. The goal is 
 
 ---
 
-## Audio & Story Progression
-- Audio is tightly integrated with the story, evolving with the user's actions and the progression of scenes.
-- Each scene features unique soundscapes and interaction-driven audio feedback, enhancing immersion and narrative flow.
+## Scene 3: The Platform
+
+**The Platform** is the daydream's middle distance — no longer the factory, not yet the spectacle. An underground metro station where the fantasy starts to feel suspiciously ordinary.
+
+### Setting
+- An underground metro platform: benches, fluorescent lights, PA speakers, a cleaning cart
+- A subway train that arrives, opens its doors, exchanges passengers, and departs in an endless cycle
+- Commuter NPCs that wander the platform and board/exit the train, reappearing at their original positions each cycle
+
+### Story Beats
+- **The Arrival:** The player lands in a quieter register of the daydream — a liminal, transitional space.
+- **The Chore:** Litter is scattered across the platform. The player can collect it and toss it into the cleaning cart — voluntarily performing janitorial labor inside their own fantasy. The escape has started reproducing work.
+- **The Cycle:** The train returns again and again; the same passengers board, leave, and reappear. The loop is now visible in the world itself, for anyone willing to see it.
+- **The Way Out:** An anomalous cube — the same impossible object that broke the factory — carries the player onward to the concert.
+
+### Interaction
+- Grab trash and deposit it into the cart (each piece plays a quantized melody note)
+- Observe the autonomous train and NPC boarding cycle
+- Grab the transition cube to progress
+
+### Audio
+- A generative ambient score emerges from the station's own objects — bench tape-loop pads, fluorescent hum drones, rail ostinatos, trash-can tick patterns, NPC hum/murmur voices — all locked to a single musical grid in A minor pentatonic
+- PA speakers play announcements tied to train arrivals and departures
+
+### Purpose
+- Marks the daydream's quiet decay: the fantasy now contains waiting, routine, and chores
+- Plants the loop motif (the train cycle) that Scene 4 will close
 
 ---
 
-## Future Scenes
-- The story will continue to evolve, introducing new environments, mechanics, and narrative beats as development progresses.
-- This document will be updated with additional scenes and story details as they are designed and implemented.
+## Scene 4: The Concert / The Loop
+
+**The Concert** is the daydream's climax and its trap. The spectacle the whole escape was promising — and the place where the player builds their own way back to the factory.
+
+### Setting
+- An open-air concert at night: stage, speaker stacks, drum kit, instruments
+- Hybrid stem-based audio: some layers 2D stereo in the headset, some 3D spatial from stage objects, all DSP-clock synchronized
+- Near the stage: a floating radial sequencer — a luminous ring with twelve slots and a sweeping playhead — and twelve glowing sample orbs hovering in front of it
+
+### Story Beats
+- **The Spectacle:** The player arrives inside the reward — music everywhere, no tasks, no rules.
+- **The Instrument:** The floating ring invites play. The player grabs sample orbs (each humming its own synth voice) and places them into the slots. Every placed tone joins the loop, and with each filled slot the concert's music yields — the player's own loop is gradually replacing the band.
+- **The Masterpiece:** With all twelve slots filled, only the player's creation plays. They have composed the scene's finale themselves.
+- **The Recognition:** The loop slows. Colors drain to a white face and black rim; numbers 1–12 surface over the filled slots; the playhead thins into a red second hand; frozen hands appear at 9:00 — shift start. The sequencer always had twelve slots. It was always the clock. The player's tones collapse one by one into a mechanical tick, and the orbs can no longer be taken back.
+- **The Return:** Darkness closes in around the ticking, and the player wakes at the factory workstation. The shift begins again — the machines hum slightly out of tune now, the belt runs a touch faster. The loop is the same. The loop is never the same.
+
+### Interaction
+- Grab and place sample orbs into the sequencer slots (controllers, XR Interaction Toolkit)
+- Rearrange or remove orbs freely — until the reveal, when the loop stops belonging to the player
+- The reveal triggers after the completed loop plays through in full
+
+### Audio
+- Concert stems duck progressively as slots fill — creative agency literally displaces the spectacle
+- Sequencer tones are procedurally synthesized (six timbres in A minor pentatonic) and quantized to a DSP-clock grid
+- The reveal decelerates the loop to exactly one step per second and replaces every tone with a tick — the project's central image rendered in sound
+
+### Purpose
+- Closes the narrative circle: factory → daydream → creative release → clock → factory
+- Argues the project's thesis in mechanics rather than words: even escape and creativity, once made circular and productive, become another clock — and the player builds it with their own hands
+
+---
+
+## Audio & Story Progression
+- Audio is tightly integrated with the story, evolving with the user's actions and the progression of scenes.
+- Each scene features unique soundscapes and interaction-driven audio feedback, enhancing immersion and narrative flow.
+- On the return to Scene 1, the factory score is subtly degraded (detuned tape loops, a slightly faster pulse) — the loop never repeats exactly.
 
 ---
 

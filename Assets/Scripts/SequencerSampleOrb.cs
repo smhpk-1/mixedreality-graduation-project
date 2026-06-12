@@ -112,6 +112,13 @@ public class SequencerSampleOrb : MonoBehaviour
 
     private void Update()
     {
+        if (state == State.Held)
+        {
+            // Invite the player: empty slots glow, brightest within snap range
+            if (sequencer != null)
+                sequencer.HighlightEmptySlots(transform.position, snapRadius);
+            return;
+        }
         if (state != State.Floating) return;
         // Gentle idle bob around home
         float y = Mathf.Sin(Time.time * bobSpeed * 2f * Mathf.PI * 0.2f + bobPhase) * bobAmplitude;
@@ -129,11 +136,13 @@ public class SequencerSampleOrb : MonoBehaviour
         }
         state = State.Held;
         previewSource.Play();
+        SendHaptic(args.interactorObject, 0.3f, 0.05f);
     }
 
     private void OnRelease(SelectExitEventArgs args)
     {
         previewSource.Stop();
+        if (sequencer != null) sequencer.ClearSlotHighlights();
 
         // Back under our control — no free physics
         rb.linearVelocity = Vector3.zero;
@@ -141,16 +150,27 @@ public class SequencerSampleOrb : MonoBehaviour
         rb.isKinematic = true;
 
         int slot = sequencer != null ? sequencer.NearestEmptySlot(transform.position, snapRadius) : -1;
-        if (slot >= 0)
+        // FillSlot can refuse if another orb claimed the slot this same frame
+        if (slot >= 0 && sequencer.FillSlot(slot, this))
         {
             slotIndex = slot;
-            sequencer.FillSlot(slot, this);
+            SendHaptic(args.interactorObject, 0.5f, 0.08f);
             glideCoroutine = StartCoroutine(GlideTo(sequencer.GetSlotAnchor(slot), State.Slotted));
         }
         else
         {
             glideCoroutine = StartCoroutine(GlideTo(null, State.Floating));
         }
+    }
+
+    /// <summary>Short haptic pulse on the controller holding/releasing this orb.</summary>
+    private static void SendHaptic(UnityEngine.XR.Interaction.Toolkit.Interactors.IXRInteractor interactor,
+                                   float amplitude, float duration)
+    {
+        if (interactor == null || interactor.transform == null) return;
+        var player = interactor.transform
+            .GetComponentInParent<UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics.HapticImpulsePlayer>();
+        if (player != null) player.SendHapticImpulse(amplitude, duration);
     }
 
     /// <summary>Glide to a slot anchor (target != null) or back home (target == null).</summary>

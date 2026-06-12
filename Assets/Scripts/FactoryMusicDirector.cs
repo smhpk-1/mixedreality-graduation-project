@@ -37,6 +37,14 @@ public class FactoryMusicDirector : MonoBehaviour
     [Tooltip("Fabrika temposu (BPM) — ağır, mekanik bir yürüyüş")]
     public float bpm = 76f;
 
+    /// <summary>
+    /// Scene 4 finali döngüyü kapattıysa true (SequencerFinaleDirector set eder).
+    /// İkinci vardiya: tempo bir tık daha hızlı, tape loop'ların yarısı hafif
+    /// falsolu — döngü her turda biraz daha bozuluyor. Oyuncu fark etmeyebilir;
+    /// zaten mesele de bu.
+    /// </summary>
+    public static bool SecondShift = false;
+
     [Tooltip("Pattern uzunluğu (16'lık adım sayısı)")]
     public int stepsPerBar = 16;
 
@@ -152,6 +160,9 @@ public class FactoryMusicDirector : MonoBehaviour
         BuildSourcePool();
         ScanAnchorsAndDuckAmbience();
 
+        // İkinci vardiya: bant biraz daha hızlı akar
+        if (SecondShift) bpm += 6f;
+
         stepDuration = 60.0 / bpm / 4.0; // 16'lık süre
         dspStartTime = AudioSettings.dspTime + 0.4;
         nextStepIndex = 0;
@@ -189,8 +200,11 @@ public class FactoryMusicDirector : MonoBehaviour
             Transform anchor = tapeAnchors.Count > 0 ? tapeAnchors[i % tapeAnchors.Count] : null;
             while (nextLoopTimes[i] < horizon)
             {
+                // İkinci vardiyada tek sayılı loop'lar çeyrek ton falsolu —
+                // aynı fabrika, ama artık bir şey "yanlış" tınlıyor
+                double detune = (SecondShift && (i & 1) == 1) ? 0.4 : 0.0;
                 ScheduleAnchored(tapeSlices[i % tapeSlices.Length], nextLoopTimes[i],
-                                 SemitoneToPitch(LoopSemitones[i]), tapeVol, anchor);
+                                 SemitoneToPitch(LoopSemitones[i] + detune), tapeVol, anchor);
                 nextLoopTimes[i] += LoopPeriods[i];
             }
         }

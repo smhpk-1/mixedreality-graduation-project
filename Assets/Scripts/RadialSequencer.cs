@@ -57,6 +57,8 @@ public class RadialSequencer : MonoBehaviour
     public System.Action OnLoopWrapped;
     /// <summary>Fired when a slot becomes filled (slot index).</summary>
     public System.Action<int> OnSlotFilled;
+    /// <summary>Fired when a slot becomes empty again (slot index).</summary>
+    public System.Action<int> OnSlotFreed;
 
     // ── Slot state ──────────────────────────────────────────────────────
     public class Slot
@@ -219,12 +221,19 @@ public class RadialSequencer : MonoBehaviour
 
     public Transform GetSlotAnchor(int index) => slots[index].anchor;
 
-    public void FillSlot(int index, SequencerSampleOrb orb)
+    /// <summary>
+    /// Claim a slot for an orb. Returns false if another orb got there first
+    /// (e.g. two orbs released near the same slot in the same frame) — the
+    /// caller should send its orb back home in that case.
+    /// </summary>
+    public bool FillSlot(int index, SequencerSampleOrb orb)
     {
-        if (slots[index].occupant != null) return;
+        if (slots[index].occupant != null) return false;
         slots[index].occupant = orb;
         FilledCount++;
         OnSlotFilled?.Invoke(index);
+        PlayPlacementTone(slots[index]);
+        return true;
     }
 
     public void FreeSlot(int index)
@@ -232,6 +241,67 @@ public class RadialSequencer : MonoBehaviour
         if (slots[index].occupant == null) return;
         slots[index].occupant = null;
         FilledCount--;
+        OnSlotFreed?.Invoke(index);
+    }
+
+    /// <summary>
+    /// Instant confirmation: the newly placed orb's tone plays once on the
+    /// next grid step, so placement feels musical instead of waiting up to a
+    /// full revolution for the playhead to arrive.
+    /// </summary>
+    private void PlayPlacementTone(Slot slot)
+    {
+        if (!running || slot.occupant == null || slot.occupant.toneClip == null) return;
+
+        double now = AudioSettings.dspTime;
+        double t = lastStepDsp + stepInterval; // next unscheduled grid point
+        while (t < now + 0.05) t += stepInterval;
+
+        var src = NextPooledSource();
+        src.transform.position = slot.anchor.position;
+        src.clip   = slot.occupant.toneClip;
+        src.volume = stepVolume;
+        src.pitch  = 1f;
+        src.PlayScheduled(t);
+        StartCoroutine(PulsePad(slot, (float)(t - now), false));
+    }
+
+    // ── Slot highlighting (while the player holds an orb) ───────────────
+
+    /// <summary>
+    /// Glow the empty slots while an orb is held: a soft invitation on all of
+    /// them, full brightness within snap range of the held orb.
+    /// </summary>
+    public void HighlightEmptySlots(Vector3 holderPos, float snapRadius)
+    {
+        if (tickDominance > 0.01f) return; // the clock no longer invites
+
+        var block = new MaterialPropertyBlock();
+        for (int i = 0; i < slots.Length; i++)
+        {
+            var s = slots[i];
+            if (s.pad == null || s.occupant != null) continue;
+            float d = Vector3.Distance(holderPos, s.anchor.position);
+            float strength = d <= snapRadius
+                ? 1f
+                : 0.25f * Mathf.Clamp01(1.5f - d * 0.4f);
+            s.pad.GetPropertyBlock(block);
+            block.SetColor("_EmissionColor", new Color(0.7f, 0.7f, 0.9f) * (0.15f + strength * 0.8f));
+            s.pad.SetPropertyBlock(block);
+        }
+    }
+
+    /// <summary>Turn off the empty-slot glow (orb released).</summary>
+    public void ClearSlotHighlights()
+    {
+        var block = new MaterialPropertyBlock();
+        foreach (var s in slots)
+        {
+            if (s.pad == null || s.occupant != null) continue;
+            s.pad.GetPropertyBlock(block);
+            block.SetColor("_EmissionColor", Color.black);
+            s.pad.SetPropertyBlock(block);
+        }
     }
 
     /// <summary>All orbs currently sitting in slots (for the finale to freeze/desaturate).</summary>

@@ -39,6 +39,16 @@ public class ConcertAudioDirector : MonoBehaviour
     public bool  playOnAwake = true;
     public float startDelay  = 0f;
 
+    [Header("Ducking")]
+    [Tooltip("Duck hedefine yumuşak geçiş süresi (saniye). Sequencer doldukça konser kısılır.")]
+    public float duckSmoothTime = 1.5f;
+
+    // Sequencer dolduğunda konser yerini oyuncunun loop'una bırakır:
+    // her dolu slot konseri 1/12 kısar, 12 slotta konser tamamen susar.
+    private float duckTarget  = 1f;
+    private float duckCurrent = 1f;
+    private bool  fadingOut;
+
     private void Awake()
     {
         foreach (var stem in stems)
@@ -76,6 +86,26 @@ public class ConcertAudioDirector : MonoBehaviour
     private void Start()
     {
         if (playOnAwake) Play();
+    }
+
+    private void Update()
+    {
+        // Duck hedefine yumuşak yaklaşım — fade-out sırasında karışma
+        if (fadingOut || Mathf.Approximately(duckCurrent, duckTarget)) return;
+        duckCurrent = Mathf.MoveTowards(duckCurrent, duckTarget,
+                                        Time.deltaTime / Mathf.Max(0.01f, duckSmoothTime));
+        foreach (var stem in stems)
+            if (stem.runtimeSource != null)
+                stem.runtimeSource.volume = stem.volume * duckCurrent;
+    }
+
+    /// <summary>
+    /// Konser seviyesi hedefi (0-1). Sequencer her dolduğunda azaltılır —
+    /// oyuncunun loop'u sahnedeki grubun yerini alır.
+    /// </summary>
+    public void SetDuckTarget(float value)
+    {
+        duckTarget = Mathf.Clamp01(value);
     }
 
     /// <summary>Tüm stem'leri DSP clock ile senkron başlatır.</summary>
@@ -116,6 +146,7 @@ public class ConcertAudioDirector : MonoBehaviour
 
     private IEnumerator FadeOutRoutine(float duration)
     {
+        fadingOut = true; // duck Update'i devre dışı — fade tek kontrol olsun
         float[] startVolumes = new float[stems.Length];
         for (int i = 0; i < stems.Length; i++)
             startVolumes[i] = stems[i].runtimeSource != null ? stems[i].runtimeSource.volume : 0f;

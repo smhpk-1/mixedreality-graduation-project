@@ -58,8 +58,32 @@ public class SequencerFinaleDirector : MonoBehaviour
         concert = FindFirstObjectByType<ConcertAudioDirector>();
     }
 
-    private void OnEnable()  { GetComponent<RadialSequencer>().OnLoopWrapped += HandleLoopWrapped; }
-    private void OnDisable() { GetComponent<RadialSequencer>().OnLoopWrapped -= HandleLoopWrapped; }
+    private void OnEnable()
+    {
+        var seq = GetComponent<RadialSequencer>();
+        seq.OnLoopWrapped += HandleLoopWrapped;
+        seq.OnSlotFilled  += HandleSlotChanged;
+        seq.OnSlotFreed   += HandleSlotChanged;
+    }
+
+    private void OnDisable()
+    {
+        var seq = GetComponent<RadialSequencer>();
+        seq.OnLoopWrapped -= HandleLoopWrapped;
+        seq.OnSlotFilled  -= HandleSlotChanged;
+        seq.OnSlotFreed   -= HandleSlotChanged;
+    }
+
+    /// <summary>
+    /// Each filled slot ducks the concert by 1/12 — the player's loop
+    /// gradually replaces the band. With all 12 slots filled, only the
+    /// player's own creation remains... and that's when the trap closes.
+    /// </summary>
+    private void HandleSlotChanged(int _)
+    {
+        if (revealStarted || concert == null) return;
+        concert.SetDuckTarget(1f - sequencer.FilledCount / (float)sequencer.slotCount);
+    }
 
     private void HandleLoopWrapped()
     {
@@ -130,7 +154,9 @@ public class SequencerFinaleDirector : MonoBehaviour
         // 3. Stand before it. Tick. Tock.
         yield return new WaitForSeconds(tickingHold);
 
-        // 4. The return
+        // 4. The return — and Scene 1 will remember this happened
+        FactoryMusicDirector.SecondShift = true;
+
         if (useBlackout) yield return StartCoroutine(GrowBlackout());
         else yield return new WaitForSeconds(1f);
 
