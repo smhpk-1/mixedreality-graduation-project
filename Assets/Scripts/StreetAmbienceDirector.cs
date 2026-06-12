@@ -261,13 +261,8 @@ public class StreetAmbienceDirector : MonoBehaviour
 
     private void BuildCityBed()
     {
-        bedSource = gameObject.AddComponent<AudioSource>();
-        bedSource.clip = ProceduralStreet.WindAmbience();
-        bedSource.loop = true;
-        bedSource.playOnAwake = false;
-        bedSource.spatialBlend = 0f; // rüzgar yönsüz AMBIYANSTIR — belirli bir kaynaktan gelmez
-        bedSource.volume = 0f;       // oda çökünce fade-in
-        bedSource.Play();
+        // Rüzgar bed'i KALDIRILDI (kullanıcı isteği). bedSource artık oluşturulmaz.
+        // FadeInBed bedSource null olduğunda sessizce atlar.
 
         carSource = gameObject.AddComponent<AudioSource>();
         carSource.playOnAwake = false;
@@ -281,6 +276,9 @@ public class StreetAmbienceDirector : MonoBehaviour
 
     private IEnumerator FadeInBed()
     {
+        // Rüzgar bed'i kaldırıldı — bedSource yoksa hiçbir şey yapma.
+        if (bedSource == null) yield break;
+
         float t = 0f;
         while (t < cityFadeIn)
         {
