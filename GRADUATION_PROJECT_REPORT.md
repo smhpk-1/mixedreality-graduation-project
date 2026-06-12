@@ -99,6 +99,55 @@ After leaving the factory environment, the player enters The Colorful Playground
 
 ---
 
+### 4.3 Scene 3: The Platform (The Quiet Decay)
+
+**Narrative Overview**  
+The third scene relocates the daydream to an underground metro platform — a deliberately ordinary, liminal space. A subway train arrives, exchanges NPC passengers, and departs in an endless cycle, with the same passengers reappearing at their original positions each loop. Litter is scattered across the platform, and a cleaning cart follows the player. The fantasy has begun to reproduce the very structures the player escaped: waiting, routine, and voluntary labor.
+
+**Mechanics & Interaction**
+*   **The Train Cycle:** `SubwayTrainController.cs` runs the arrival/departure loop with sliding doors; `TrainPassengerDirector.cs` and `NPCTrainPassenger.cs` choreograph NPC boarding and exiting via waypoint chains.
+*   **Ambient Life:** `NPCScene3Wanderer.cs` drives commuters wandering the platform with procedural, bone-driven walk animation (no Animator Controllers), grounded by a unified floor-snapping system (`NPCGrounding.cs`).
+*   **Trash Cleanup:** The player may collect 20 pieces of trash into the following cart (`TrashCart.cs`); each deposit plays a quantized melody note. Completing the chore — or grabbing an anomalous cube — transitions to Scene 4.
+
+**Symbolism**
+*   **The Cyclic Train:** The loop made visible: the same passengers, the same departures, going nowhere.
+*   **Voluntary Chores:** The player tidies their own daydream — escapism re-inventing labor from within.
+*   **Generative Muzak:** The station itself hums a pleasant, endless score (`MetroMusicDirector.cs`) — comfort indistinguishable from sedation.
+
+**Key Scripts**
+*   `SubwayTrainController.cs`, `TrainPassengerDirector.cs`, `NPCTrainPassenger.cs`, `NPCScene3Wanderer.cs`, `NPCGrounding.cs`, `TrashCart.cs`, `MetroMusicDirector.cs`.
+
+---
+
+### 4.4 Scene 4: The Concert / The Loop (The Trap)
+
+**Narrative Overview**  
+The final scene delivers the daydream's promised reward: an open-air concert at night, performed by an NPC band before a dancing crowd. Near the stage floats a radial sequencer — a luminous ring of twelve slots with a sweeping playhead — surrounded by twelve glowing sound orbs. The player composes: each orb placed into a slot joins a musical loop, and with every filled slot the concert's music yields to the player's own creation. When the twelfth slot is filled and the loop plays through, the instrument reveals what it has always been: a clock. The tempo decelerates to exactly one tick per second, the playhead thins into a red second hand, numbers 1–12 surface over the filled slots, frozen hands appear at 9:00 — shift start — and the player is returned to the factory.
+
+**Mechanics & Interaction**
+*   **The Radial Sequencer:** `RadialSequencer.cs` runs a DSP-clock-scheduled 12-step loop with procedurally synthesized timbres; `SequencerSampleOrb.cs` provides grabbable, slot-snapping sound orbs with audible previews.
+*   **Displacement of the Band:** Each filled slot ducks the concert stems by one twelfth (`ConcertAudioDirector.cs`); the NPC musicians (`NPCMusicianPerformer.cs`) visibly wind down and freeze as their music disappears, and the audience (`NPCAudienceMember.cs`) turns away from the stage toward the player's creation.
+*   **The Reveal & Return:** `SequencerFinaleDirector.cs` decelerates the loop, collapses every placed tone into a mechanical tick, drains the ring into the Scene 1 wall-clock palette, and returns the player to `scene1` — where the factory score now plays subtly degraded (faster, detuned).
+
+**Symbolism**
+*   **Twelve Slots:** The clock face hidden in plain sight — the player's creativity was always being arranged into clock positions.
+*   **Replacing the Band:** Creative agency displaces spectacle, only to discover it has built the instrument of its own return to labor-time.
+*   **The Frozen Crowd:** At the reveal, band and audience freeze mid-pose — a tableau of stopped workers facing the clock the player built.
+*   **The Degraded Return:** Scene 1 returns slightly faster and out of tune: the loop is the same; the loop is never the same.
+
+**Thematic Arc**
+
+| | Scene 1 | Scene 2 | Scene 3 | Scene 4 |
+|---|---------|---------|---------|---------|
+| **Space** | Factory | Playground | Metro platform | Concert |
+| **Mode** | Labor | Play | Waiting | Creation |
+| **The loop** | Imposed | Broken | Observed | Self-built |
+
+**Key Scripts**
+*   `RadialSequencer.cs`, `SequencerSampleOrb.cs`, `SequencerFinaleDirector.cs`, `ConcertAudioDirector.cs`, `NPCMusicianPerformer.cs`, `NPCAudienceMember.cs`.
+
+---
+
 ## 5. Technical Implementation
 
 ### 5.1 Platform & Tools

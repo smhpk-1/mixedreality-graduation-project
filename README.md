@@ -63,6 +63,53 @@ After touching the Anomaly Cube, players are transported to a bright, surreal pl
 - Full physics-based throwing mechanics
 - Persistent color changes
 - Unique audio feedback per color and material
+- Room collapse after 20 total wall hits, revealing a city street leading to the metro
+
+</details>
+
+### Scene 3: The Platform
+> *An underground metro station — the daydream's quiet middle distance*
+
+<details>
+<summary>Click to expand details</summary>
+
+The daydream lands somewhere suspiciously ordinary: a metro platform where a train arrives, exchanges passengers, and departs in an endless cycle. The player can tidy the platform — voluntarily doing janitorial work inside their own fantasy.
+
+**Gameplay:**
+- Watch NPC commuters wander, board, and exit the cycling train
+- Collect 20 pieces of scattered trash into a player-following cleaning cart
+- Each collected piece plays a quantized melody note
+- Grab the anomalous cube to continue
+
+**Key Features:**
+- Autonomous train with sliding doors and waypoint-based NPC boarding
+- Generative ambient score from the station's own objects (benches, lamps, rails, NPCs)
+- PA announcements tied to train events
+- Procedural NPC walk animation, blob shadows, unified floor grounding
+
+</details>
+
+### Scene 4: The Concert / The Loop
+> *The daydream's climax — and its trap*
+
+<details>
+<summary>Click to expand details</summary>
+
+An open-air concert at night: a live NPC band plays the stage, a crowd dances. Near the stage floats a radial sequencer — twelve slots, a sweeping playhead — and twelve glowing sample orbs.
+
+**Gameplay:**
+- Grab sample orbs (each hums its own synth voice) and place them into the sequencer slots
+- Each filled slot makes your loop louder and the concert quieter — you are replacing the band
+- Complete all twelve slots and let your loop play
+
+**The Twist:**
+The sequencer has twelve slots. It was always a clock. The loop decelerates to one tick per second, your tones collapse into a mechanical tick, numbers 1–12 surface over the slots you filled, frozen hands appear at 9:00 — shift start — and you are returned to the factory. The loop closes: factory → daydream → creation → clock → factory.
+
+**Key Features:**
+- Hybrid stem audio (2D stereo + 3D spatial, DSP-clock synced)
+- DSP-scheduled 12-step radial sequencer with procedural synth timbres
+- NPC musicians and audience that wind down as your loop takes over
+- The clock reveal and the return to Scene 1 (which comes back subtly degraded)
 
 </details>
 
@@ -85,22 +132,26 @@ After touching the Anomaly Cube, players are transported to a bright, surreal pl
 
 ```
 Assets/
+├── scene1.unity        # Scene 1: The Shift (factory)
+├── Scene 2.unity       # Scene 2: The Colorful Playground (+ city street)
+├── Scene 3.unity       # Scene 3: The Platform (metro)
+├── Scene 4.unity       # Scene 4: The Concert / The Loop
 ├── Materials/          # Materials and shaders
-├── Prefabs/           # Reusable prefabs
-├── Resources/         # Runtime-loaded assets
-├── Scenes/            # Unity scene files
-├── Scripts/           # C# game scripts
-│   ├── GameManager.cs
-│   ├── ObjectSpawner.cs
-│   ├── ConveyorBelt.cs
-│   ├── BinCollector.cs
-│   ├── ColorReactiveWall.cs
-│   ├── PlaygroundCube.cs
-│   ├── AnomalyCube.cs
-│   └── ...
-├── Settings/          # Project settings
-└── XR/                # XR configuration
+├── Prefabs/            # Reusable prefabs
+├── Resources/          # Runtime-loaded assets (sound design, blob shadow)
+├── npc_casual_set_00/  # Humanoid NPC character set (Scenes 3 & 4)
+├── Scripts/            # ~80 C# runtime scripts
+│   ├── GameManager.cs / ConveyorBelt.cs / BinCollector.cs   (Scene 1)
+│   ├── PlaygroundCube.cs / DestructibleWall.cs              (Scene 2)
+│   ├── SubwayTrainController.cs / TrashCart.cs              (Scene 3)
+│   ├── RadialSequencer.cs / ConcertAudioDirector.cs         (Scene 4)
+│   ├── FactoryMusicDirector.cs / MetroMusicDirector.cs      (generative audio)
+│   └── Editor/         # Scene setup & placement tools (Tools menu)
+├── Settings/           # Project settings
+└── XR/                 # XR configuration
 ```
+
+> Note: scenes live at the `Assets/` root — there is no `Assets/Scenes/` folder.
 
 ---
 

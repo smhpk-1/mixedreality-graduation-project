@@ -16,11 +16,12 @@ VR narrative experience for **Meta Quest 3S**, built in **Unity 6 (6000.2.10f1)*
 
 ## Docs
 
-- `README.md`, `PROJECT_DOCUMENTATION.md` (PRD + per-scene docs), `PROJECT_STORY.md`, `STORYBOARD.md` — note: Scene 3/4 sections are still missing/"pending" in the story/storyboard docs.
+- `README.md`, `PROJECT_DOCUMENTATION.md` (PRD + per-scene docs), `PROJECT_STORY.md`, `STORYBOARD.md` — all four scenes are documented in all four files.
 - `GRADUATION_PROJECT_REPORT.md`, `SENIOR_PROJECT_REPORT.md` — report drafts.
 
 ## Notes
 
 - Built APK `theshift1.apk` and IL2CPP symbols folder sit in the repo root.
 - Remote: https://github.com/smhpk-1/mixedreality-graduation-project
-- Recent work (June 2026): Scene 3 NPC train boarding fixes, cyclic train loop, VR diagnostics (`NPCDiagnostics`, `VRDebugLogger`).
+- Recent work (June 2026): Scene 4 finale (radial sequencer "clock in disguise" + NPC band/audience, see `RadialSequencer`, `SequencerFinaleDirector`, `NPCMusicianPerformer`, `NPCAudienceMember`); Scene 3 NPC grounding unified in `NPCGrounding` (initial floor snap + NavMeshAgent baseOffset management + waypoint fine-grounding); trash counting moved to cart deposit; Scene 2 street ambience (`StreetAmbienceDirector`).
+- Scene 4 placement tools must be run once in the editor: Tools > Scene 4 > Add Radial Sequencer / Place Band NPCs / Place Audience NPCs.
