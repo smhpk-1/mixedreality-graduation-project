@@ -23,16 +23,22 @@ public class TrashCart : MonoBehaviour
     [Tooltip("Takip edilecek hedef (oyuncu). Boş bırakırsan XR Origin otomatik bulunur.")]
     public Transform player;
 
-    [Tooltip("Oyuncuya göre yerel offset: X=sağ, Z=ileri/geri. Y kilitli (zemin).")]
+    [Tooltip("ESKİ — artık kullanılmıyor. Yaw'a bağlı offset her kafa dönüşünde cart'ı yüzün önüne savuruyordu.")]
     public Vector3 followOffset = new Vector3(0.7f, 0f, 0.3f);
 
-    [Tooltip("Takip yumuşaklığı — yüksek = hızlı yetişir, düşük = yumuşak gecikir")]
-    public float followSpeed = 3f;
+    [Tooltip("Cart peşinden yürürken hızı (m/sn)")]
+    public float followSpeed = 1.6f;
 
     [Tooltip("Oyuncudan bu mesafeden uzaklaşırsa cart anında yetişsin (teleport)")]
-    public float maxDistance = 4f;
+    public float maxDistance = 7f;
 
-    [Tooltip("Cart oyuncunun baktığı yöne dönsün mü? (tekerlekler ileri doğru görünür)")]
+    [Tooltip("Cart oyuncudan bu mesafede durur — görüşü kapatmaz ama el uzanır")]
+    public float followDistance = 1.5f;
+
+    [Tooltip("Oyuncu bundan fazla uzaklaşınca cart takibe başlar (ölü bölge — kafa dönüşünde KIPIRDAMAZ)")]
+    public float startFollowDistance = 2.8f;
+
+    [Tooltip("Cart hareket ettiği yöne dönsün mü? (kafa yaw'ına asla bağlanmaz)")]
     public bool faceWithPlayer = true;
 
     [Header("Çöp Toplama")]
@@ -97,34 +103,48 @@ public class TrashCart : MonoBehaviour
         audioSource.spatialBlend = 1f; // 3D ses
     }
 
+    private bool following; // ölü bölge takip durumu
+
     private void LateUpdate()
     {
         if (player == null) return;
 
-        // Oyuncunun YZ rotation'ına göre offset hesapla (sadece Y rotation kullan, eğilmesin)
-        float yaw = player.eulerAngles.y;
-        Quaternion playerYaw = Quaternion.Euler(0f, yaw, 0f);
-        Vector3 worldOffset = playerYaw * followOffset;
-        Vector3 desired = player.position + worldOffset;
-        desired.y = lockedY; // Zemine kilitli
+        // Evcil hayvan takibi: kafa/gövde DÖNÜŞÜ cart'ı asla oynatmaz.
+        // Sadece oyuncu YÜRÜYÜP uzaklaşınca peşinden gelir, followDistance'ta durur.
+        Vector3 p = player.position; p.y = lockedY;
+        Vector3 c = transform.position; c.y = lockedY;
+        Vector3 toCart = c - p;
+        float dist = toCart.magnitude;
+        Vector3 dirFromPlayer = dist > 0.01f ? toCart / dist : transform.forward;
 
-        // Mesafe çok büyükse teleport
-        float dist = Vector3.Distance(new Vector3(transform.position.x, lockedY, transform.position.z),
-                                      desired);
+        // Çok uzak kaldıysa ışınlan (oyuncunun olduğu tarafa, followDistance kadar yakına)
         if (dist > maxDistance)
         {
-            transform.position = desired;
-        }
-        else
-        {
-            transform.position = Vector3.Lerp(transform.position, desired, followSpeed * Time.deltaTime);
+            transform.position = p + dirFromPlayer * followDistance;
+            following = false;
+            return;
         }
 
-        // Cart'ın yönü
-        if (faceWithPlayer)
+        if (!following && dist > startFollowDistance)
+            following = true;
+
+        if (!following) return;
+
+        // Hedef: oyuncuya followDistance kalana dek aynı doğrultuda yaklaş
+        Vector3 target = p + dirFromPlayer * followDistance;
+        Vector3 next = Vector3.MoveTowards(c, target, followSpeed * Time.deltaTime);
+        Vector3 moveDir = next - c;
+        transform.position = new Vector3(next.x, lockedY, next.z);
+
+        // Gerçek bir el arabası gibi gittiği yöne dönsün
+        if (faceWithPlayer && moveDir.sqrMagnitude > 0.000001f)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, playerYaw, followSpeed * Time.deltaTime);
+            Quaternion face = Quaternion.LookRotation(moveDir.normalized, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, face, 5f * Time.deltaTime);
         }
+
+        if (Vector3.Distance(next, target) < 0.05f)
+            following = false; // vardı — oyuncu tekrar uzaklaşana kadar kıpırdama
     }
 
     // ── Çöp düştüğünde tetiklenen olay ───────────────────────────────────
@@ -216,14 +236,17 @@ public class TrashCart : MonoBehaviour
         SceneManager.LoadScene(nextSceneName);
     }
 
-    // ── Gizmo: Inspector'da cart'ın gideceği konum görünsün ──────────────
+    // ── Gizmo: Inspector'da takip mesafeleri görünsün ────────────────────
     private void OnDrawGizmosSelected()
     {
         if (player == null) return;
 
-        float yaw = player.eulerAngles.y;
-        Quaternion playerYaw = Quaternion.Euler(0f, yaw, 0f);
-        Vector3 desired = player.position + playerYaw * followOffset;
+        Gizmos.color = new Color(0f, 1f, 0.5f, 0.6f);
+        Gizmos.DrawWireSphere(player.position, followDistance);
+        Gizmos.color = new Color(1f, 0.7f, 0f, 0.6f);
+        Gizmos.DrawWireSphere(player.position, startFollowDistance);
+
+        Vector3 desired = transform.position;
         desired.y = Application.isPlaying ? lockedY : transform.position.y;
 
         Gizmos.color = Color.green;
