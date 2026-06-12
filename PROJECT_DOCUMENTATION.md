@@ -151,6 +151,11 @@ The system (`FactoryMusicDirector`) bootstraps itself when scene1 loads; no scen
   - Further optimize for performance and user experience.
   - Prepare for user testing and feedback collection.
 
+### **Project Backlog**
+- [ ] Refine the NPC behavior so their movement, placement, and scene logic feel reliable and believable in VR.
+- [ ] Complete a full-project audio master pass. Sound levels should remain consistent when moving from scene to scene, with perceived loudness balanced to a similar LUFS target across the experience.
+- [ ] Replace and improve the drum sounds in Scene 4 so the concert sequence has a stronger rhythmic identity and better sonic impact.
+
 ---
 
 ## 5. Folder Structure Overview
