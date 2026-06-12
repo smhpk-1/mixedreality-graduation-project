@@ -313,6 +313,24 @@ public class RadialSequencer : MonoBehaviour
         return list;
     }
 
+    /// <summary>
+    /// Appear animation support: flashes the slot pads one by one around the
+    /// circle — the ring "draws itself" like a clock face being inscribed.
+    /// </summary>
+    public void FlashSlotsSequential(float interval)
+    {
+        StartCoroutine(FlashSlotsRoutine(interval));
+    }
+
+    private IEnumerator FlashSlotsRoutine(float interval)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            StartCoroutine(PulsePad(slots[i], 0f, false));
+            yield return new WaitForSeconds(interval);
+        }
+    }
+
     // ── Clock reveal API (used by SequencerFinaleDirector) ──────────────
 
     /// <summary>
@@ -602,6 +620,21 @@ public static class SequencerSound
             case 4:  return new Color(0.35f, 1.0f, 0.55f); // sub — green
             default: return new Color(1.0f, 1.0f, 0.85f); // chime — warm white
         }
+    }
+
+    /// <summary>PA chime before the stage announcement — soft two-tone, metro style.</summary>
+    public static AudioClip PaChime()
+    {
+        return Render("PaChime", 1.4f, t =>
+        {
+            float v = Mathf.Sin(2f * Mathf.PI * 880f * t) * Mathf.Exp(-t * 4f) * 0.6f; // A5
+            if (t > 0.45f)
+            {
+                float t2 = t - 0.45f;
+                v += Mathf.Sin(2f * Mathf.PI * 659.26f * t2) * Mathf.Exp(-t2 * 3.5f) * 0.6f; // E5
+            }
+            return v;
+        });
     }
 
     /// <summary>Short mechanical tick (tock = lower-pitched variant). The sound of the trap.</summary>

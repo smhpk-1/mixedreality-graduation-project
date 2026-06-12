@@ -67,6 +67,10 @@ public class NPCMusicianPerformer : MonoBehaviour
         // Kill any animation but keep the humanoid bone map alive
         anim.runtimeAnimatorController = null;
 
+        // Asset pack's low-LOD meshes are rig-broken — pin to LOD0 (Scene 3 fix)
+        foreach (var lod in GetComponentsInChildren<LODGroup>(true))
+            if (lod != null) lod.ForceLOD(0);
+
         hips   = anim.GetBoneTransform(HumanBodyBones.Hips);
         spine  = anim.GetBoneTransform(HumanBodyBones.Spine);
         chest  = anim.GetBoneTransform(HumanBodyBones.Chest);

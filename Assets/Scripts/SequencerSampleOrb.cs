@@ -193,6 +193,49 @@ public class SequencerSampleOrb : MonoBehaviour
     }
 
     /// <summary>
+    /// Reveal hook: the orb materializes — rises from the stage floor to its
+    /// home position while scaling up, glowing in. Called by
+    /// SequencerAppearDirector after the PA announcement. Not grabbable
+    /// until the rise completes.
+    /// </summary>
+    public void PlayAppearAnimation(float delay, float duration = 1.2f)
+    {
+        StartCoroutine(AppearRoutine(delay, duration));
+    }
+
+    private IEnumerator AppearRoutine(float delay, float duration)
+    {
+        state = State.Gliding;            // Update won't fight the animation
+        grab.enabled = false;
+        transform.localScale = Vector3.zero; // ilk frame'de görünmesin
+
+        // Start() bir frame sonra çalışır ve homePosition'ı cache'ler — onu bekle
+        yield return null;
+
+        Vector3 home = homePosition;
+        Vector3 from = home + Vector3.down * 1.2f;
+        transform.position = from;
+
+        yield return new WaitForSeconds(delay);
+
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            float k = Mathf.SmoothStep(0f, 1f, t / duration);
+            transform.position = Vector3.Lerp(from, home, k);
+            // Slight overshoot pop at the end
+            float s = Mathf.Min(1.08f, k * 1.2f);
+            transform.localScale = Vector3.one * (0.12f * s);
+            yield return null;
+        }
+        transform.position = home;
+        transform.localScale = Vector3.one * 0.12f;
+        grab.enabled = true;
+        state = State.Floating;
+    }
+
+    /// <summary>
     /// Finale hook: the orb stops being a toy. Color drains to clock-marker
     /// gray, the glow dies, it shrinks toward an hour-marker dot, and it can
     /// no longer be picked up. p = 0..1.

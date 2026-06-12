@@ -58,6 +58,11 @@ public class NPCAudienceMember : MonoBehaviour
         }
         anim.runtimeAnimatorController = null;
 
+        // Asset pack's low-LOD meshes are rig-broken (appear horizontal/airborne)
+        // — same device bug fixed for the Scene 3 wanderers. Pin to LOD0.
+        foreach (var lod in GetComponentsInChildren<LODGroup>(true))
+            if (lod != null) lod.ForceLOD(0);
+
         hips  = anim.GetBoneTransform(HumanBodyBones.Hips);
         spine = anim.GetBoneTransform(HumanBodyBones.Spine);
         head  = anim.GetBoneTransform(HumanBodyBones.Head);

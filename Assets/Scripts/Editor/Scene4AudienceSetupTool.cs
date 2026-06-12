@@ -23,7 +23,11 @@ namespace MusicSpace.Editor
         private const string Scene4Path = "Assets/Scene 4.unity";
         private const string CrowdRootName = "ConcertAudience";
         private const string PrefabFolder = "Assets/npc_casual_set_00/Prefabs/";
-        private const int CrowdSize = 14;
+        private const int CrowdSize = 36;
+
+        // The stage platform extends ~12m from the instruments' centroid toward
+        // the audience side — the crowd zone starts safely beyond that edge.
+        private const float CrowdStartDistance = 17f;
 
         private static readonly string[] CharacterPrefabs =
         {
@@ -67,12 +71,13 @@ namespace MusicSpace.Editor
             }
             stageCenter /= found;
 
-            // Crowd zone: between stage and the player spawn (terrain center)
+            // Crowd zone: IN FRONT of the stage, beyond the platform edge,
+            // between the stage and the player spawn (terrain center)
             Vector3 spawn = new Vector3(250f, stageCenter.y, 250f);
             Vector3 toSpawn = spawn - stageCenter;
             toSpawn.y = 0f;
             toSpawn = toSpawn.sqrMagnitude < 1f ? Vector3.back : toSpawn.normalized;
-            Vector3 crowdCenter = stageCenter + toSpawn * 9f;
+            Vector3 crowdCenter = stageCenter + toSpawn * CrowdStartDistance;
 
             var crowdRoot = new GameObject(CrowdRootName);
             var rng = new System.Random(1973);
@@ -88,10 +93,11 @@ namespace MusicSpace.Editor
                 npc.name = "Audience_" + i;
                 npc.transform.SetParent(crowdRoot.transform, true);
 
-                // Loose arcs: rows fan out away from the stage, jittered
-                int row = i / 5;
-                float across = ((i % 5) - 2f) * 1.6f + Jitter(rng, 0.6f);
-                float back = row * 2.2f + Jitter(rng, 0.7f);
+                // Loose arcs: rows of 9 fan out AWAY from the stage, jittered.
+                // Front row is widest-energy; rows behind spread slightly more.
+                int row = i / 9;
+                float across = ((i % 9) - 4f) * 1.7f * (1f + row * 0.12f) + Jitter(rng, 0.6f);
+                float back = row * 2.4f + Jitter(rng, 0.8f);
                 Vector3 right = Vector3.Cross(Vector3.up, -toSpawn);
                 Vector3 pos = crowdCenter + right * across + toSpawn * back;
                 pos.y = stageCenter.y; // runtime raycast refines
@@ -112,7 +118,8 @@ namespace MusicSpace.Editor
             EditorSceneManager.SaveScene(scene);
 
             EditorUtility.DisplayDialog("Concert Audience",
-                $"{CrowdSize} audience NPC placed in front of the stage.\n\n" +
+                $"{CrowdSize} audience NPC placed in front of the stage " +
+                $"(crowd starts {CrowdStartDistance}m from the instruments — off the platform).\n\n" +
                 "- They dance to the concert (bounce, sway, arms up)\n" +
                 "- As the player's sequencer takes over, they turn toward it\n" +
                 "- The clock reveal freezes them with the band",
