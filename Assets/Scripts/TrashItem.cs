@@ -19,6 +19,9 @@ public class TrashItem : MonoBehaviour
         rb.isKinematic = true;
         rb.useGravity  = false;
 
+        // Grab ayarlarını runtime'da garantiye al (elde titreşim fix'i)
+        TrashGrabVRConfig.Apply(gameObject);
+
         // XRGrabInteractable varsa grab/release olaylarına bağlan
         var grab = GetComponent<XRGrabInteractable>();
         if (grab != null)

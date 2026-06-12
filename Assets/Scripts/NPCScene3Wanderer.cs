@@ -24,6 +24,8 @@ public class NPCScene3Wanderer : MonoBehaviour
     public LayerMask obstacleMask = ~0;
     [Min(0.1f)] public float groundProbeHeight = 2.5f;
     [Min(0.1f)] public float groundProbeDistance = 6f;
+    [Tooltip("Zemin projeksiyonu bu kadar Y farkını aşarsa reddedilir — NPC peron kenarından raylara inmesin")]
+    [Min(0.1f)] public float maxStepHeight = 0.7f;
     [Range(0.1f, 1f)] public float minGroundNormalY = 0.45f;
     public float groundOffset = 0.02f;
     [Min(0.1f)] public float obstacleProbeHeight = 0.75f;
@@ -126,6 +128,13 @@ public class NPCScene3Wanderer : MonoBehaviour
         NPCIdlePose[] idlePoses = GetComponentsInChildren<NPCIdlePose>(true);
         foreach (var ip in idlePoses)
             if (ip != null) ip.enabled = false;
+
+        // VR FIX: Asset pack'in LOD eşikleri çok agresif (LOD0 için %70 ekran yüksekliği).
+        // Editor Ultra kalitede (lodBias 2) LOD0 görünür ama Android Medium'da (lodBias 0.7)
+        // NPC'ler neredeyse HER ZAMAN düşük LOD'da kalır — o mesh'ler bozuk bağlı
+        // (bind pose'da yatay/havada görünüyorlar). Cihaz-editor eşitliği için LOD0'a sabitle.
+        foreach (var lod in GetComponentsInChildren<LODGroup>(true))
+            if (lod != null) lod.ForceLOD(0);
 
         // Z eulerAngles'ı sıfırla — NPCIdlePose'un bırakmış olabileceği eğikliği temizle
         Vector3 euler = transform.localEulerAngles;
@@ -288,9 +297,18 @@ public class NPCScene3Wanderer : MonoBehaviour
         Vector3 nextPosition = transform.position + moveDir * currentSpeed * Time.deltaTime;
 
         if (TryProjectToGround(nextPosition, out Vector3 grounded))
+        {
             nextPosition = grounded;
+        }
         else
-            nextPosition.y = transform.position.y;
+        {
+            // Önünde geçerli zemin yok (peron kenarı / boşluk) — yürümeye devam etme,
+            // yeni hedef seç. Eski davranış (aynı Y'de devam) NPC'yi rayların üstünde
+            // havada yürütüyordu.
+            targetReady = false;
+            BeginPause();
+            return;
+        }
 
         if (FlatDistance(homePosition, nextPosition) > wanderRadius + 0.75f)
         {
@@ -329,10 +347,9 @@ public class NPCScene3Wanderer : MonoBehaviour
         for (int i = 0; i < 18; i++)
         {
             Vector3 candidate = RandomWanderPoint();
-            if (TryProjectToGround(candidate, out Vector3 grounded))
-                candidate = grounded;
-            else
-                candidate.y = transform.position.y;
+            if (!TryProjectToGround(candidate, out Vector3 grounded))
+                continue; // geçerli zemini olmayan hedef seçme (peron dışı / boşluk)
+            candidate = grounded;
 
             if (FlatDistance(candidate, transform.position) < minWanderLeg * 0.75f)
                 continue;
@@ -390,7 +407,10 @@ public class NPCScene3Wanderer : MonoBehaviour
                 return false;
             }
 
-            if (hit.normal.y >= minGroundNormalY)
+            // Büyük Y düşüşlerini reddet: peron kenarından ray yatağına "zemin" bulup
+            // NPC'yi raylara indirmesin (tracks peronun ~1m altında)
+            if (hit.normal.y >= minGroundNormalY &&
+                Mathf.Abs(hit.point.y - position.y) <= maxStepHeight)
             {
                 grounded = hit.point + Vector3.up * groundOffset;
                 return true;
@@ -559,6 +579,10 @@ public class NPCScene3Wanderer : MonoBehaviour
 
     private void LateUpdate()
     {
+        // VR güvenlik: kök transform hiçbir koşulda yan yatmamalı — X/Z eğilmesi
+        // tespit edilirse yaw'ı koruyarak dikleştir (cihazda görülen "yatık NPC" sigortası)
+        EnforceUpright();
+
         if (!hasHumanoidPose || freezeAnimation)
             return;
 
@@ -580,6 +604,18 @@ public class NPCScene3Wanderer : MonoBehaviour
             ApplyProceduralWalk(motion);
 
         ApplyLookPose();
+    }
+
+    private void EnforceUpright()
+    {
+        Vector3 fwd = transform.forward;
+        fwd.y = 0f;
+        if (fwd.sqrMagnitude < 0.0001f)
+            fwd = Vector3.forward;
+
+        Quaternion upright = Quaternion.LookRotation(fwd.normalized, Vector3.up);
+        if (Quaternion.Angle(transform.rotation, upright) > 3f)
+            transform.rotation = upright;
     }
 
     private void ResetPose()
