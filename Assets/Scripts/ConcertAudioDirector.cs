@@ -49,6 +49,12 @@ public class ConcertAudioDirector : MonoBehaviour
     private float duckCurrent = 1f;
     private bool  fadingOut;
 
+    /// <summary>
+    /// Sahnedeki grubun "çalma" şiddeti (0-1): duck ve final fade dahil.
+    /// NPCMusicianPerformer bunu okur — müzik kısıldıkça grup yavaşlar, durur.
+    /// </summary>
+    public float PerformanceLevel { get; private set; } = 1f;
+
     private void Awake()
     {
         foreach (var stem in stems)
@@ -94,6 +100,7 @@ public class ConcertAudioDirector : MonoBehaviour
         if (fadingOut || Mathf.Approximately(duckCurrent, duckTarget)) return;
         duckCurrent = Mathf.MoveTowards(duckCurrent, duckTarget,
                                         Time.deltaTime / Mathf.Max(0.01f, duckSmoothTime));
+        PerformanceLevel = duckCurrent;
         foreach (var stem in stems)
             if (stem.runtimeSource != null)
                 stem.runtimeSource.volume = stem.volume * duckCurrent;
@@ -156,11 +163,13 @@ public class ConcertAudioDirector : MonoBehaviour
         {
             t += Time.deltaTime;
             float k = 1f - Mathf.Clamp01(t / duration);
+            PerformanceLevel = duckCurrent * k; // grup da fade ile birlikte söner
             for (int i = 0; i < stems.Length; i++)
                 if (stems[i].runtimeSource != null)
                     stems[i].runtimeSource.volume = startVolumes[i] * k;
             yield return null;
         }
+        PerformanceLevel = 0f;
         Stop();
     }
 }
