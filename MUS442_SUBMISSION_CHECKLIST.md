@@ -65,7 +65,7 @@ The authoritative whole-process paper is [SENIOR_PROJECT_REPORT.md](SENIOR_PROJE
 - [ ] Replace or improve Scene 4 drum sounds.
 - [ ] Check concert stem synchronization and spatial source positions.
 - [ ] Confirm the final clock tick is clearly audible without being uncomfortable.
-- [ ] Document the procedural score design as the project's notation-like musical system map.
+- [x] Document the procedural score design as the project's notation-like musical system map (`PresentationMaterials/MUS442_Musical_System_Map.pdf`).
 
 ## Required Submission Materials Outside Markdown
 
@@ -74,8 +74,8 @@ The user requested this pass without generating website, PDF, or PNG outputs. Th
 - [ ] Final playable project or APK
 - [ ] Approximately 15-minute documentation or presentation recording, if required by the jury
 - [ ] Representative audio recording or screen capture of the full experience
-- [ ] Any notation, diagram, or musical system documentation requested by the advisor
-- [ ] Final presentation material in the format requested by the department
+- [x] Any notation, diagram, or musical system documentation requested by the advisor (`PresentationMaterials/MUS442_Musical_System_Map.pdf` + `.docx`, diagram sources in `PresentationMaterials/diagrams/`)
+- [x] Final presentation material in the format requested by the department (`PresentationMaterials/MUS442_Final_Report.pdf` + `.docx`, `PresentationMaterials/MUS442_Final_Presentation.pptx`) — pending advisor approval of the report
 
 ## Suggested Jury Demonstration Order
 

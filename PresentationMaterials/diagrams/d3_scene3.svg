@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="700" viewBox="0 0 1400 700" font-family="Helvetica, Arial, sans-serif">
+  <rect width="1400" height="700" fill="white"/>
+  <text x="700" y="40" text-anchor="middle" font-size="26" font-weight="bold" fill="#111">Scene 3 — The Station as Ensemble (58 BPM, A minor pentatonic)</text>
+
+  <!-- center: station platform schematic -->
+  <g>
+    <!-- layer rows: name | source object | period/pattern | pitch content -->
+    <g font-size="16" fill="#111">
+      <!-- header -->
+      <g font-weight="bold">
+        <text x="80"  y="100">Layer</text>
+        <text x="420" y="100">Sound source</text>
+        <text x="700" y="100">Time structure</text>
+        <text x="1020" y="100">Pitch content</text>
+      </g>
+      <line x1="70" y1="112" x2="1330" y2="112" stroke="#222" stroke-width="2"/>
+
+      <g>
+        <text x="80" y="148" font-weight="bold">1 · Rail ostinato</text>
+        <text x="420" y="148">Track objects</text>
+        <text x="700" y="148">16-step grid, sparse hits</text>
+        <text x="1020" y="148">Deep metallic A, low register</text>
+      </g>
+      <line x1="70" y1="166" x2="1330" y2="166" stroke="#ddd"/>
+
+      <g>
+        <text x="80" y="202" font-weight="bold">2 · Bench pads</text>
+        <text x="420" y="202">10 Metalbench objects</text>
+        <text x="700" y="202">Periods 19.7 → 59.3 s, free-running</text>
+        <text x="1020" y="202">Pentatonic dyads (table below)</text>
+      </g>
+      <line x1="70" y1="220" x2="1330" y2="220" stroke="#ddd"/>
+
+      <g>
+        <text x="80" y="256" font-weight="bold">3 · Lamp drone</text>
+        <text x="420" y="256">Fluorescent lighting fixtures</text>
+        <text x="700" y="256">Continuous hum</text>
+        <text x="1020" y="256">A2 + E3 + A3 (root, 5th, octave)</text>
+      </g>
+      <line x1="70" y1="274" x2="1330" y2="274" stroke="#ddd"/>
+
+      <g>
+        <text x="80" y="310" font-weight="bold">4 · Trash-can ticks</text>
+        <text x="420" y="310">Each MetalTrashCan</text>
+        <text x="700" y="310">Sparse 2-step pattern from index</text>
+        <text x="1020" y="310">Pentatonic, low register</text>
+      </g>
+      <line x1="70" y1="328" x2="1330" y2="328" stroke="#ddd"/>
+
+      <g>
+        <text x="80" y="364" font-weight="bold">5 · NPC voices</text>
+        <text x="420" y="364">Each commuter body</text>
+        <text x="700" y="364">Periods 11.3 / 13.7 / 17.9 / 19.3 / 23.7 / 29.3 s</text>
+        <text x="1020" y="364">Hum, murmur, whisper</text>
+      </g>
+      <line x1="70" y1="382" x2="1330" y2="382" stroke="#ddd"/>
+
+      <g>
+        <text x="80" y="418" font-weight="bold">6 · Tunnel rumble</text>
+        <text x="420" y="418">Tunnel mouths</text>
+        <text x="700" y="418">Continuous, distance-attenuated</text>
+        <text x="1020" y="418">Unpitched low noise</text>
+      </g>
+      <line x1="70" y1="436" x2="1330" y2="436" stroke="#ddd"/>
+
+      <g>
+        <text x="80" y="472" font-weight="bold">7 · PA announcements</text>
+        <text x="420" y="472">Platform speakers</text>
+        <text x="700" y="472">Triggered by train events + idle timer</text>
+        <text x="1020" y="472">TTS speech, ducked mix</text>
+      </g>
+      <line x1="70" y1="490" x2="1330" y2="490" stroke="#ddd"/>
+
+      <g>
+        <text x="80" y="526" font-weight="bold">8 · Trash melody</text>
+        <text x="420" y="526">Player action (cart deposit)</text>
+        <text x="700" y="526">Quantized to next 16th step</text>
+        <text x="1020" y="526">Rising pentatonic line, 2 octaves</text>
+      </g>
+      <line x1="70" y1="544" x2="1330" y2="544" stroke="#222" stroke-width="2"/>
+    </g>
+  </g>
+
+  <!-- bench dyad table -->
+  <text x="80" y="592" font-size="18" font-weight="bold" fill="#111">Bench dyads (semitones above A3 → pitches):</text>
+  <g font-size="16" fill="#111">
+    <text x="80"  y="624">{0, 7} = A3+E4</text>
+    <text x="320" y="624">{3, 12} = C4+A4</text>
+    <text x="570" y="624">{5, 12} = D4+A4</text>
+    <text x="820" y="624">{7, 15} = E4+C5</text>
+    <text x="1070" y="624">{10, 19} = G4+E5</text>
+  </g>
+  <text x="700" y="668" text-anchor="middle" font-size="15" fill="#666">Every layer is scheduled on the same dspTime grid but repeats at its own incommensurate period — coherent, never identical, like the commuter cycle itself.</text>
+</svg>

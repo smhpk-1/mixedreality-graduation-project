@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" font-family="Helvetica, Arial, sans-serif">
+  <rect width="1400" height="760" fill="white"/>
+  <text x="700" y="40" text-anchor="middle" font-size="26" font-weight="bold" fill="#111">Scene 4 — The Radial Sequencer is a Clock Face in Disguise</text>
+
+  <!-- LEFT: sequencer ring -->
+  <text x="360" y="92" text-anchor="middle" font-size="19" font-weight="bold" fill="#111">Sequencer mode — step 0.25 s, six synth timbres</text>
+  <circle cx="360" cy="400" r="230" fill="none" stroke="#222" stroke-width="3"/>
+  <!-- slots at clock positions: angle = -90 + i*30 deg; x=360+260cos, y=400+260sin for labels; pads at r=230 -->
+  <!-- pads -->
+  <g fill="#444">
+    <circle cx="360" cy="170" r="22"/><circle cx="475" cy="201" r="22"/><circle cx="559" cy="285" r="22"/>
+    <circle cx="590" cy="400" r="22"/><circle cx="559" cy="515" r="22"/><circle cx="475" cy="599" r="22"/>
+    <circle cx="360" cy="630" r="22"/><circle cx="245" cy="599" r="22"/><circle cx="161" cy="515" r="22"/>
+    <circle cx="130" cy="400" r="22"/><circle cx="161" cy="285" r="22"/><circle cx="245" cy="201" r="22"/>
+  </g>
+  <!-- note labels: orb i placed at slot i, pitch table from SequencerSound -->
+  <g font-size="17" font-weight="bold" fill="#fff" text-anchor="middle">
+    <text x="360" y="176">A3</text><text x="475" y="207">D4</text><text x="559" y="291">G4</text>
+    <text x="590" y="406">C5</text><text x="559" y="521">E5</text><text x="475" y="605">A5</text>
+    <text x="360" y="636">C4</text><text x="245" y="605">E4</text><text x="161" y="521">A4</text>
+    <text x="130" y="406">D5</text><text x="161" y="291">G5</text><text x="245" y="207">A3</text>
+  </g>
+  <!-- slot indices outside -->
+  <g font-size="14" fill="#777" text-anchor="middle">
+    <text x="360" y="135">slot 0</text><text x="497" y="172">1</text><text x="592" y="265">2</text>
+    <text x="630" y="405">3</text><text x="592" y="552">4</text><text x="497" y="645">5</text>
+    <text x="360" y="678">6</text><text x="223" y="645">7</text><text x="128" y="552">8</text>
+    <text x="90" y="405">9</text><text x="128" y="265">10</text><text x="223" y="172">11</text>
+  </g>
+  <!-- playhead -->
+  <line x1="360" y1="400" x2="463" y2="222" stroke="#333" stroke-width="4"/>
+  <circle cx="360" cy="400" r="8" fill="#333"/>
+  <text x="360" y="710" text-anchor="middle" font-size="15" fill="#444">Each placed orb sounds as the playhead passes its slot.</text>
+  <text x="360" y="732" text-anchor="middle" font-size="15" fill="#444">Pitch and timbre derive from orb index — A minor pentatonic above A3.</text>
+
+  <!-- arrow -->
+  <g stroke="#993333" stroke-width="4" fill="#993333">
+    <line x1="640" y1="400" x2="730" y2="400"/>
+    <polygon points="730,390 750,400 730,410"/>
+  </g>
+  <text x="695" y="375" text-anchor="middle" font-size="15" fill="#993333" font-weight="bold">finale</text>
+  <text x="695" y="435" text-anchor="middle" font-size="13" fill="#993333">0.25 s/step → 1.0 s/step</text>
+  <text x="695" y="453" text-anchor="middle" font-size="13" fill="#993333">tones → ticks</text>
+
+  <!-- RIGHT: clock -->
+  <text x="1040" y="92" text-anchor="middle" font-size="19" font-weight="bold" fill="#111">Clock mode — one tick per second, hands frozen at 9:00</text>
+  <circle cx="1040" cy="400" r="230" fill="#fafafa" stroke="#111" stroke-width="8"/>
+  <!-- hour numbers at same positions -->
+  <g font-size="22" font-weight="bold" fill="#111" text-anchor="middle">
+    <text x="1040" y="207">12</text><text x="1141" y="234">1</text><text x="1215" y="308">2</text>
+    <text x="1242" y="409">3</text><text x="1215" y="510">4</text><text x="1141" y="584">5</text>
+    <text x="1040" y="611">6</text><text x="939" y="584">7</text><text x="865" y="510">8</text>
+    <text x="838" y="409">9</text><text x="865" y="308">10</text><text x="939" y="234">11</text>
+  </g>
+  <!-- hands at 9:00 -->
+  <line x1="1040" y1="400" x2="905" y2="400" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <line x1="1040" y1="400" x2="1040" y2="225" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <!-- red second hand -->
+  <line x1="1040" y1="400" x2="1148" y2="240" stroke="#cc2222" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="1040" cy="400" r="9" fill="#111"/>
+  <text x="1040" y="710" text-anchor="middle" font-size="15" fill="#444">Slots become hour markers; the playhead becomes the red second hand.</text>
+  <text x="1040" y="732" text-anchor="middle" font-size="15" fill="#444">Tones are replaced by tick / tock — then Scene 1 reloads.</text>
+</svg>
