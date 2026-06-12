@@ -13,8 +13,8 @@ The first scene is titled **The Shift**. During MUS 442 Senior Project II, the p
 - **Academic year:** 2025-2026
 - **Category:** Sound Installation and Multimedia Project
 - **Project supervisor:** Tolga Tüzün
-- **Course instructors / advisor jury named in the 2025-2026 guideline:** Tolga Tüzün, Oğuz Usman, Enis Gümüş, Yiğit Özatalay, Cem Ömeroğlu, Semin Tunalı
 - **Platform:** Meta Quest 3S, Android
+
 - **Engine:** Unity 6 (`6000.2.10f1`)
 - **XR stack:** OpenXR, XR Interaction Toolkit, XR Hands, Unity Input System
 - **Render pipeline:** Universal Render Pipeline

@@ -14,8 +14,6 @@
 
 **Project supervisor:** Tolga Tüzün
 
-**Course instructors / advisor jury named in the 2025-2026 guideline:** Tolga Tüzün, Oğuz Usman, Enis Gümüş, Yiğit Özatalay, Cem Ömeroğlu, Semin Tunalı
-
 **Date:** June 12, 2026
 
 ## Project in One Sentence
