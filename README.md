@@ -1,194 +1,123 @@
-# 🎮 Mixed Reality Graduation Project
+# The Shift
 
-A surreal mixed reality experience exploring themes of **maladaptive daydreaming**, **capitalist alienation**, and **creative freedom** through immersive VR gameplay on the **Meta Quest 3S**.
+**The Shift** is a sound-centered virtual reality narrative for Meta Quest 3S. It explores maladaptive daydreaming, capitalist alienation, routine, and creative agency through a circular journey across four interactive scenes.
 
-![Unity](https://img.shields.io/badge/Unity-6000.2.10f1-black?logo=unity)
-![Platform](https://img.shields.io/badge/Platform-Meta%20Quest%203S-blue)
-![License](https://img.shields.io/badge/License-Educational-green)
+The project began under the working title **Mind Palace** as a two-scene contrast between an oppressive factory and a liberating playground. During MUS 442 Senior Project II, it developed into a more ambivalent story: the daydream first offers freedom, then gradually reproduces chores, repetition, spectacle, and time. In the finale, the musical loop created by the player reveals itself as the factory clock and returns the player to the beginning.
 
----
+## Project Identity
 
-## 📖 Overview
+- **Author:** Semiha Paksoy
+- **Course:** MUS 442 - Senior Project II
+- **Academic year:** 2025-2026
+- **Category:** Sound Installation and Multimedia Project
+- **Platform:** Meta Quest 3S, Android
+- **Engine:** Unity 6 (`6000.2.10f1`)
+- **XR stack:** OpenXR, XR Interaction Toolkit, XR Hands, Unity Input System
+- **Render pipeline:** Universal Render Pipeline
+- **Primary build:** `theshift1.apk`
+- **Repository:** <https://github.com/smhpk-1/mixedreality-graduation-project>
 
-This project is an interactive VR experience that takes players on a journey from an oppressive factory environment to a boundless, colorful playground—symbolizing the escape from monotony through imagination and creative expression.
+## Core Idea
 
-The experience is built using **Unity 6** with the **XR Interaction Toolkit** and features:
-- 🖐️ Full hand tracking support
-- 🎯 Controller-based interactions
-- 🏭 Procedurally generated environments
-- 🎨 Physics-based gameplay mechanics
-- 🔊 Immersive spatial audio
+The player begins as a worker sorting cubes under a quota. An impossible cube interrupts the system and opens a daydream. The same basic gestures are then transformed across the experience:
 
----
+| Scene | Player action | Meaning |
+|---|---|---|
+| Factory | Sort cubes correctly | Labor, conformity, measured output |
+| Playground | Throw cubes to paint and sound the room | Release, play, creative agency |
+| Metro | Collect trash while watching commuters loop | Routine returning inside fantasy |
+| Concert | Build a musical loop that becomes a clock | Creativity captured by repetition |
 
-## 🎬 Scenes
+The experience does not present daydreaming as simply good or bad. It treats escape as necessary and imaginative, while asking what happens when escape becomes another closed loop.
 
-### Scene 1: The Shift
-> *An industrial prologue representing capitalist monotony and alienation*
+## Scene Flow
 
-<details>
-<summary>Click to expand details</summary>
+All four scenes are enabled in build settings and live at the root of `Assets/`.
 
-The player awakens as a "worker" in a dark, oppressive factory. Their task: sort **red and blue cubes** from a conveyor belt into matching bins. The relentless ticking of a wall clock and reports on the walls reinforce the sense of endless, repetitive labor.
+### 1. `Assets/scene1.unity` - The Shift
 
-**Gameplay:**
-- Sort 30 cubes (red and blue) into correct bins
-- Experience the monotony of industrial labor
-- Discover the **Anomaly Cubes** that break the cycle
+The player sorts a run of 30 red and blue cubes from a conveyor belt into matching bins. Correct and incorrect sorting actions produce distinct quantized musical feedback. After the spawner produces the 30th standard cube, green anomaly cubes appear; touching one opens the daydream.
 
-**Key Features:**
-- Conveyor belt mechanics
-- Color-coded bin sorting
-- Atmospheric factory environment
-- Dramatic transition sequence
+The factory's generative score is built at runtime from machine recordings. A mechanical ostinato, spatial tape-loop layers, steam breaths, and the player's sorting notes share one DSP-clock grid.
 
-</details>
+### 2. `Assets/Scene 2.unity` - The Colorful Playground
 
-### Scene 2: The Colorful Playground
-> *A surreal space representing the unbounded imagination*
+Twenty colored cubes replace the factory's restricted red/blue system. Each color has a synth voice. Grabbing and throwing cubes creates sound and repaints reactive walls. After 20 total wall hits, the room collapses and the player enters the metro.
 
-<details>
-<summary>Click to expand details</summary>
+The scene reframes the cube from a product to be classified into an instrument for play. When the room collapses, repaired street sources, procedural city rumble, and passing-car sounds open the enclosed playground into the city.
 
-After touching the Anomaly Cube, players are transported to a bright, surreal playground—a physical manifestation of the daydreaming mind.
+### 3. `Assets/Scene 3.unity` - The Platform
 
-**Gameplay:**
-- Explore freely with no rules or quotas
-- Grab and throw 20 colorful cubes (5 colors × 4 each)
-- Watch walls transform to match cube colors
-- Create your own color compositions
+A subway train arrives, opens its sliding doors, exchanges passengers, departs, and returns. NPCs wander using NavMesh, then use authored waypoint chains to board and exit the train. They reappear at their original positions so the commuter cycle can repeat.
 
-**Key Features:**
-- Reactive walls with different materials (Metal, Wood, Glass, Concrete, Stone)
-- Full physics-based throwing mechanics
-- Persistent color changes
-- Unique audio feedback per color and material
+The player can collect 20 pieces of trash with a following cleanup cart. Its generated interior trigger accepts only previously grabbed, released trash and uses continuous collision detection to make deposits reliable. Each collected item adds a quantized note to the metro score. A transition cube also exists as an alternate progression route.
 
-</details>
+### 4. `Assets/Scene 4.unity` - The Concert / The Loop
 
----
+The player enters an outdoor concert with synchronized stereo and spatial stems, a performing band, and a responsive audience. The final interaction is a twelve-slot radial sequencer. The player places sound orbs into the ring, gradually replacing the concert with their own loop as the band slows and the crowd turns toward the player.
 
-## 🛠️ Technical Stack
+When the loop is complete, the sequencer slows, turns into a clock face at 9:00, and replaces the player's tones with mechanical ticking. The experience returns to the factory for a subtly faster and detuned second shift.
 
-| Component | Technology |
-|-----------|------------|
-| **Engine** | Unity 6 (6000.2.10f1) |
-| **Render Pipeline** | Built-in Render Pipeline |
-| **XR Framework** | OpenXR + XR Interaction Toolkit |
-| **Input System** | New Unity Input System |
-| **Target Device** | Meta Quest 3S |
-| **Platform** | Android |
+## Sound as Structure
 
----
+Sound is not an added layer; it carries the narrative.
 
-## 📁 Project Structure
+- **Scene 1:** labor becomes a quantized melody inside a machine-derived generative score.
+- **Scene 2:** color becomes timbre and physical play becomes performance.
+- **Scene 3:** station objects, commuters, announcements, trains, and collected trash form one spatial composition.
+- **Scene 4:** the player's loop competes with the concert, then becomes the clock that closes the story.
 
-```
-Assets/
-├── Materials/          # Materials and shaders
-├── Prefabs/           # Reusable prefabs
-├── Resources/         # Runtime-loaded assets
-├── Scenes/            # Unity scene files
-├── Scripts/           # C# game scripts
-│   ├── GameManager.cs
-│   ├── ObjectSpawner.cs
-│   ├── ConveyorBelt.cs
-│   ├── BinCollector.cs
-│   ├── ColorReactiveWall.cs
-│   ├── PlaygroundCube.cs
-│   ├── AnomalyCube.cs
-│   └── ...
-├── Settings/          # Project settings
-└── XR/                # XR configuration
-```
+The factory and metro systems use sample-accurate DSP scheduling, pentatonic pitch constraints, procedural synthesis, spatial sources, and deliberately incommensurate loop periods inspired by Brian Eno's tape-loop methods.
 
----
+## Technical Highlights
 
-## 🚀 Getting Started
+- Physics-based grab, throw, collision, sorting, cleanup, and placement interactions
+- Controller and hand-tracking support through the XR Interaction Toolkit
+- Procedural runtime generators and editor setup tools
+- DSP-clock synchronized generative and stem-based audio systems
+- Autonomous train, sliding doors, commuter wandering, boarding, exiting, and cyclic reset
+- Quest-focused fixes for physics, rig alignment, NPC LOD behavior, lighting, and blob shadows
+- Haptic placement feedback and progressive audio ducking in the concert finale
+- Responsive concert band and audience behavior linked to the finale
+- Four-scene Android build flow with a complete circular narrative
 
-### Prerequisites
-- Unity 6 (6000.2.10f1) or later
-- Meta Quest 3S device
-- Android Build Support module
-- OpenXR Plugin
+## Important Finalization Note
 
-### Installation
+The Scene 4 radial sequencer, performing band, and audience systems are implemented in runtime scripts and editor setup tools. They must be installed into and verified in the serialized Scene 4 using `Tools > Scene 4 > Add Radial Sequencer`, `Place Band NPCs`, and `Place Audience NPCs` before the final APK is considered presentation-ready.
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/mixedreality-graduation-project.git
-   ```
+The serialized Scene 1 and Scene 2 files also contain active direct-transition cubes that bypass their intended tasks. These should be deliberately kept as presentation shortcuts or disabled for the final narrative build.
 
-2. **Open in Unity**
-   - Launch Unity Hub
-   - Add project from disk
-   - Open with Unity 6
+The remaining final polish items are tracked in [PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md) and [MUS442_SUBMISSION_CHECKLIST.md](MUS442_SUBMISSION_CHECKLIST.md).
 
-3. **Configure XR Settings**
-   - Go to `Edit > Project Settings > XR Plug-in Management`
-   - Enable OpenXR for Android
-   - Add Meta Quest Support feature
+## Documentation Map
 
-4. **Build & Deploy**
-   - Switch platform to Android (`File > Build Settings`)
-   - Connect Quest 3S via USB
-   - Build and Run
+- [SENIOR_PROJECT_REPORT.md](SENIOR_PROJECT_REPORT.md) - authoritative MUS 442 final paper
+- [GRADUATION_PROJECT_REPORT.md](GRADUATION_PROJECT_REPORT.md) - concise final submission dossier
+- [PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md) - technical design, implementation, and development history
+- [PROJECT_STORY.md](PROJECT_STORY.md) - complete narrative treatment
+- [STORYBOARD.md](STORYBOARD.md) - scene-by-scene player experience
+- [CONCEPTUAL_BACKGROUND.md](CONCEPTUAL_BACKGROUND.md) - theoretical framework and symbolism
+- [MUS442_SUBMISSION_CHECKLIST.md](MUS442_SUBMISSION_CHECKLIST.md) - final delivery and presentation checklist
+- `PresentationMaterials/` - archived MUS 441 first-semester submission materials
 
----
+## Opening the Project
 
-## 🎮 Controls
+1. Install Unity `6000.2.10f1` with Android Build Support.
+2. Clone the repository and pull Git LFS assets.
+3. Open the project from Unity Hub.
+4. Confirm OpenXR is enabled for Android and Meta Quest support is active.
+5. Confirm the four root-level scene files are enabled in Build Settings.
+6. Run the Scene 4 setup tools and verify the full sequence in the Unity Editor.
+7. Build and test on Meta Quest 3S.
 
-| Action | Hand Tracking | Controllers |
-|--------|--------------|-------------|
-| Grab | Pinch gesture | Grip button |
-| Throw | Release pinch | Release grip |
-| Move | Walk in play space | Thumbstick |
+## References
 
----
-
-## 🎨 Conceptual Framework
-
-This project explores the psychological concept of **maladaptive daydreaming** as a lens for understanding:
-
-- **Capitalist Alienation**: The factory scene represents the monotony and lack of agency in industrial labor
-- **Escapism**: VR as a technological extension of the mind's capacity for immersive fantasy
-- **Creative Freedom**: The playground scene celebrates purposeless play and creative expression
-
-> *"VR can serve as a technological extension of the mind's capacity for immersive fantasy, providing a controlled, interactive space for users to explore alternate realities."*
-
----
-
-## 📚 References
-
-- Somer, E. (2002). *Maladaptive Daydreaming: A Qualitative Inquiry*. Journal of Contemporary Psychotherapy.
-- Marx, K. (1844). *Economic and Philosophic Manuscripts*.
+- Somer, E. (2002). "Maladaptive Daydreaming: A Qualitative Inquiry."
+- Marx, K. (1844). *Economic and Philosophic Manuscripts of 1844*.
 - Breton, A. (1924). *Manifesto of Surrealism*.
+- Eno, B. (1978). *Ambient 1: Music for Airports*.
+- Radiohead and Epic Games. (2021). *Kid A Mnesia Exhibition*.
 
 ---
 
-## 📄 Documentation
-
-- [Project Documentation](PROJECT_DOCUMENTATION.md) - Technical specifications and development log
-- [Project Story](PROJECT_STORY.md) - Narrative structure and scene details
-- [Conceptual Background](CONCEPTUAL_BACKGROUND.md) - Theoretical framework and symbolism
-
----
-
-## 👤 Author
-
-**Semiha PAKSOY**
-
-📚 **MUS441 - Senior Project I-II**  
-🎓 **2025-2026 Academic Year**
-
----
-
-## 📝 License
-
-This project is developed for educational purposes as part of the MUS441 Senior Project I-II course requirements.
-
----
-
-<p align="center">
-  <i>Breaking free from capitalist constraints through creative expression in virtual reality</i>
-</p>
+The player escapes the clock, composes a loop, and discovers that the loop was the clock.
