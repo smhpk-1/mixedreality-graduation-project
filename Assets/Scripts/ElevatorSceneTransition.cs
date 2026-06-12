@@ -29,6 +29,10 @@ namespace MusicSpace
 
         private bool playerInside = false;
 
+        // Asansör sesleri — prosedürel, dosya gerekmez
+        private AudioSource audioSrc;
+        private AudioClip dingClip, slideOpenClip, slideCloseClip, motorClip;
+
         private void Start()
         {
             Transform elevator = transform.parent;
@@ -43,12 +47,32 @@ namespace MusicSpace
                     elevWidth     = doorHalfWidth * 2f;
                 }
             }
+
+            // Ses kaynağı: kapıların ortasından, lokal 3D
+            audioSrc = gameObject.AddComponent<AudioSource>();
+            audioSrc.playOnAwake = false;
+            audioSrc.loop = false;
+            audioSrc.spatialBlend = 1f;
+            audioSrc.rolloffMode = AudioRolloffMode.Linear;
+            audioSrc.minDistance = 1.5f;
+            audioSrc.maxDistance = 14f;
+            audioSrc.dopplerLevel = 0f;
+
+            dingClip       = ProceduralStreet.ElevatorDing();
+            slideOpenClip  = ProceduralStreet.DoorSlide(doorOpenDuration);
+            slideCloseClip = ProceduralStreet.DoorSlide(doorCloseDuration);
+            motorClip      = ProceduralStreet.MotorHum(waitAfterClose);
         }
 
         public void OpenDoors()
         {
             if (doorsOpen || closing) return;
             doorsOpen = true;
+
+            // Varış zili — kapılar açılmadan hemen önce
+            if (audioSrc != null && dingClip != null)
+                audioSrc.PlayOneShot(dingClip, 0.7f);
+
             StartCoroutine(DoorOpenSequence());
         }
 
@@ -103,6 +127,10 @@ namespace MusicSpace
             // Hide seam while doors are open
             if (doorSeam != null) doorSeam.gameObject.SetActive(false);
 
+            // Kapı kayma sesi — animasyonla aynı sürede
+            if (audioSrc != null && slideOpenClip != null)
+                audioSrc.PlayOneShot(slideOpenClip, 0.6f);
+
             Vector3 leftStart = leftDoor.localPosition;
             Vector3 rightStart = rightDoor.localPosition;
 
@@ -136,6 +164,10 @@ namespace MusicSpace
             // Small pause before closing
             yield return new WaitForSeconds(0.3f);
 
+            // Kapanma kayma sesi
+            if (audioSrc != null && slideCloseClip != null)
+                audioSrc.PlayOneShot(slideCloseClip, 0.6f);
+
             Vector3 leftStart = leftDoor.localPosition;
             Vector3 rightStart = rightDoor.localPosition;
 
@@ -158,6 +190,10 @@ namespace MusicSpace
 
             // Show seam again once doors are fully closed
             if (doorSeam != null) doorSeam.gameObject.SetActive(true);
+
+            // Kabin hareketi: bekleme süresi boyunca motor uğultusu (fade'ler bake'li)
+            if (audioSrc != null && motorClip != null)
+                audioSrc.PlayOneShot(motorClip, 0.55f);
 
             // Wait 5 seconds, then transition
             yield return new WaitForSeconds(waitAfterClose);
