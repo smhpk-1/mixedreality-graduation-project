@@ -85,6 +85,9 @@ public class NPCTrainPassenger : MonoBehaviour
         // reset'te bu noktaya geri döner. Sonraki cycle'larda da aynı konum kullanılır.
         if (!initialPositionCaptured)
         {
+            // FLOATING FIX: konumu yakalamadan önce zemine otur. Havada
+            // yakalanan konum, her cycle reset'inde NPC'yi havaya geri koyuyordu.
+            NPCGrounding.SnapToGround(transform);
             initialPosition = transform.position;
             initialRotation = transform.rotation;
             initialPositionCaptured = true;
@@ -362,10 +365,19 @@ public class NPCTrainPassenger : MonoBehaviour
     // ── Yardımcı: düz çizgide adım at ────────────────────────────────────
     private void DirectStep(Vector3 target, float speed)
     {
-        // Y'yi koruyarak XZ düzleminde hareket et (yokuş/merdiven NPC'yi havada bırakmasın
-        // — merdiven waypoint'lerinin Y'leri sahnede doğru ayarlanmış olmalı, NPC waypoint
-        // Y'sini takip eder)
         Vector3 step = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+
+        // FLOATING FIX: waypoint Y'si kaba rotadır ("doğru ayarlanmış olmalı"
+        // varsayımı havada yürüyen NPC üretiyordu). Küçük farkları gerçek
+        // zemine yumuşakça oturt (±35cm). Daha büyük farklar bilinçli köprüdür
+        // (peron-tren boşluğu) — orada waypoint Y'sine güvenmeye devam et.
+        if (NPCGrounding.TryGetGroundY(step, transform, out float groundY))
+        {
+            float footY = groundY + 0.02f;
+            if (Mathf.Abs(footY - step.y) <= 0.35f)
+                step.y = Mathf.MoveTowards(step.y, footY, 2f * Time.deltaTime);
+        }
+
         transform.position = step;
     }
 
@@ -483,6 +495,9 @@ public class NPCTrainPassenger : MonoBehaviour
         {
             transform.position = initialPosition;
             transform.rotation = initialRotation;
+            // Güvenlik: teleport sonrası zemine otur (initialPosition eski bir
+            // build'de havada yakalanmış olabilir)
+            NPCGrounding.SnapToGround(transform);
         }
 
         // Wandering moduna geri dön — bir sonraki tren gelince StartBoarding tetiklenir
