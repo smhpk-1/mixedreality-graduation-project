@@ -101,6 +101,45 @@ public class TrashCart : MonoBehaviour
         }
         audioSource.playOnAwake = false;
         audioSource.spatialBlend = 1f; // 3D ses
+
+        EnsureInteriorTrigger();
+    }
+
+    /// <summary>
+    /// Sepetin İÇ HACMİNİ kaplayan trigger oluşturur. İnce "üst açıklık" trigger'ı
+    /// hızlı fırlatmalarda tünelleniyor (discrete collision frame atlıyor) ve içine
+    /// düşüp dibe oturan çöp trigger'ın altında kaldığı için hiç sayılmıyordu.
+    /// İç hacim trigger'ı sepette DURAN çöpü her frame yakalar (OnTriggerStay).
+    /// Alt sınırı yerden yüksek tutulur ki cart yerdeki çöplerin üzerinden
+    /// geçerken onları "toplamış" olmasın.
+    /// </summary>
+    private void EnsureInteriorTrigger()
+    {
+        if (transform.Find("InteriorTrigger") != null) return;
+
+        // Cart'ın görsel sınırlarını topla
+        var renderers = GetComponentsInChildren<Renderer>();
+        if (renderers.Length == 0) return;
+        Bounds b = renderers[0].bounds;
+        foreach (var r in renderers) b.Encapsulate(r.bounds);
+
+        var go = new GameObject("InteriorTrigger");
+        go.transform.SetParent(transform, false);
+
+        var box = go.AddComponent<BoxCollider>();
+        box.isTrigger = true;
+
+        // Üst yarı: sepet ağzından gövde ortasına kadar — yer seviyesine inmez
+        float bottom = Mathf.Lerp(b.min.y, b.max.y, 0.45f);
+        float top    = b.max.y + 0.15f; // ağzın hemen üstü de yakalansın
+        Vector3 worldCenter = new Vector3(b.center.x, (bottom + top) * 0.5f, b.center.z);
+        Vector3 worldSize   = new Vector3(b.size.x * 0.85f, top - bottom, b.size.z * 0.85f);
+
+        box.center = transform.InverseTransformPoint(worldCenter);
+        Vector3 ls = transform.lossyScale;
+        box.size = new Vector3(worldSize.x / Mathf.Max(0.001f, ls.x),
+                               worldSize.y / Mathf.Max(0.001f, ls.y),
+                               worldSize.z / Mathf.Max(0.001f, ls.z));
     }
 
     private bool following; // ölü bölge takip durumu
@@ -171,23 +210,21 @@ public class TrashCart : MonoBehaviour
         // FIX 2: Çöp en az bir kez grab edilmemişse SAYMA.
         // Aksi halde cart oyuncuyu takip ederken yerdeki sabit çöplerin üzerine geliyor
         // ve hepsini bir anda topluyor. Sadece "kullanıcı tarafından dokunulmuş" çöpleri kabul et.
-        if (grab != null && !HasBeenGrabbedBefore(grab))
+        var marker = trashRoot.GetComponent<TrashGrabbedMarker>();
+        if (grab != null && marker == null)
+        {
+            return;
+        }
+
+        // FIX 3: Bırakılalı en az 0.15s geçmiş olmalı. El değiştirme / regrip
+        // sırasındaki anlık deselect, cart oyuncunun dibinde olduğu için çöpü
+        // "eldeyken" toplatıyordu — alma anında sayım bu yüzden oluyordu.
+        if (marker != null && Time.time - marker.LastReleaseTime < 0.15f)
         {
             return;
         }
 
         CollectTrash(trashRoot);
-    }
-
-    /// <summary>
-    /// XRGrabInteractable'da "interactionsSelectedCount" history mevcut değil — onun yerine
-    /// item üzerinde marker bir component ararız (TrashItemWasGrabbed). Bu component grab
-    /// edildiğinde otomatik eklenir.
-    /// </summary>
-    private static bool HasBeenGrabbedBefore(
-        UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grab)
-    {
-        return grab.GetComponent<TrashGrabbedMarker>() != null;
     }
 
     /// <summary>
