@@ -23,6 +23,9 @@ public class GrabbableTrash : MonoBehaviour
 
         var grab = GetComponent<XRGrabInteractable>();
         grab.selectEntered.AddListener(_ => EnablePhysics());
+        // KRİTİK: XRI bırakınca rigidbody'nin İLK halini (kinematic) geri yüklüyor —
+        // çöp havada donup kalıyordu. Bırakışta fiziği zorla aç.
+        grab.selectExited.AddListener(_ => OnReleased());
     }
 
     private void EnablePhysics()
@@ -31,5 +34,20 @@ public class GrabbableTrash : MonoBehaviour
         rb.useGravity  = true;
         // Hızlı fırlatmada cart trigger'ını tünelleyip kaçmasın
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+    }
+
+    private void OnReleased()
+    {
+        EnablePhysics();
+        if (isActiveAndEnabled)
+            StartCoroutine(EnforceDropNextFrame());
+    }
+
+    // XRI'ın Drop() içindeki state restore'u listener'lardan sonra da dokunabiliyor —
+    // bir frame sonra tekrar zorla (sıralamadan bağımsız garanti)
+    private System.Collections.IEnumerator EnforceDropNextFrame()
+    {
+        yield return null;
+        if (rb != null) EnablePhysics();
     }
 }

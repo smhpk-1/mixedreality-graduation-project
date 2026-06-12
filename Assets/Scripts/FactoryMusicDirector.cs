@@ -54,6 +54,9 @@ public class FactoryMusicDirector : MonoBehaviour
     [Range(0f, 1f)] public float steamVolume     = 0.35f;
     [Range(0f, 1f)] public float noteVolume      = 1f;
 
+    [Tooltip("Sahne master'ı — loudness pass: tüm katmanlara uygulanır, sahneler arası denge trim'i")]
+    [Range(0f, 2f)] public float masterVolume = 1f;
+
     [Header("Mekansal Ses (3D)")]
     [Tooltip("Katman seslerinin tam volume duyulduğu mesafe — yaklaştıkça ses bu mesafeye kadar artar")]
     public float layerMinDistance = 2.5f;
@@ -327,7 +330,7 @@ public class FactoryMusicDirector : MonoBehaviour
         src.transform.position = pos;
         src.clip         = clip;
         src.pitch        = pitch;
-        src.volume       = volume;
+        src.volume       = volume * masterVolume;
         src.spatialBlend = spatial ? 1f : 0f;
         src.minDistance  = minDist;
         src.maxDistance  = maxDist;
@@ -381,7 +384,13 @@ public class FactoryMusicDirector : MonoBehaviour
                 tapeAnchors.Add(src.transform);
 
             if (n.StartsWith("machine"))
-                src.volume *= ambienceDuck;
+            {
+                // Loudness pass: ham makine loop'ları farklı seviyelerde kaydedilmiş
+                // (−18.7…−29.5 LUFS) — duck'ı ortak RMS zeminine göre uygula ki
+                // ambiyans yatağı her makinede aynı algılanan seviyede otursun
+                src.volume *= ambienceDuck * AudioMasterUtil.NormalizationGain(src.clip)
+                                           * masterVolume;
+            }
         }
 
         // Eksik çapalar için yedekler — ses kaynaksız (2D) kalmasın
@@ -505,6 +514,11 @@ public class FactoryMusicDirector : MonoBehaviour
             slice[i] *= i / (float)fadeInSamples;
         for (int i = 0; i < fadeOutSamples; i++)
             slice[count - 1 - i] *= i / (float)fadeOutSamples;
+
+        // Loudness pass: kaynak makineler farklı seviyelerde kaydedilmiş —
+        // her enstrüman dilimi ortak RMS referansına eşitlenir, mix oranları
+        // (ostinatoVolume vb.) bu eşit zemin üstünde anlamlı kalır
+        AudioMasterUtil.NormalizeToReference(slice);
 
         var clip = AudioClip.Create(name, count, 1, freq, false);
         clip.SetData(slice, 0);

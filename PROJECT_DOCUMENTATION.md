@@ -1,252 +1,411 @@
-# Mixed Reality Graduation Project - VR Project Documentation
+# The Shift - Project Documentation
 
-## 1. Project Overview (PRD)
+## 1. Document Purpose
 
-### **Vision**
-This project is a mixed reality (MR) experience designed for the Meta Quest 3S, focusing on immersive interaction and spatial computing. The user is placed in a dynamic virtual environment where they can interact with objects and systems using hand tracking and controllers, leveraging the latest XR technologies. The project aims to explore advanced user interaction paradigms, procedural content generation, and real-time feedback in a VR/MR context.
+This is the authoritative technical knowledge base for the final MUS 442 version of **The Shift**. It describes the implemented four-scene experience, the systems added during the second semester, the current integration state, and the remaining presentation-readiness checks.
 
-### **Target Platform**
-- **Device:** Meta Quest 3S
-- **OS:** Android
-- **Input:** Hand Tracking / Controllers (XR Interaction Toolkit)
+## 2. Product Definition
 
-### **Key Features**
-1. **Immersive Environment:**
-   - A detailed, interactive virtual space designed for exploration and interaction.
-   - Realistic lighting, materials, and spatial audio for enhanced immersion.
+### 2.1 Vision
 
-2. **XR Interaction System:**
-   - Full support for hand tracking and controller-based input using Unity's XR Interaction Toolkit.
-   - Intuitive grab, throw, and manipulation mechanics for virtual objects.
+Create a sound-centered VR narrative in which the player experiences a progression from imposed labor to apparent creative freedom, then recognizes how repetition and measured time return inside the fantasy.
 
-3. **Procedural Content Generation:**
-   - Runtime generation of objects, environments, or challenges to ensure replayability and variety.
+### 2.2 Target
 
-4. **Physics-Based Interactions:**
-   - Realistic physics for object movement, collisions, and environmental responses.
+| Area | Current configuration |
+|---|---|
+| Device | Meta Quest 3S |
+| Platform | Android, ARM64 |
+| Engine | Unity 6 `6000.2.10f1` |
+| Render pipeline | Universal Render Pipeline `17.2.0` |
+| XR runtime | OpenXR `1.15.1` |
+| Interaction | XR Interaction Toolkit `3.2.2` |
+| Hand support | XR Hands `1.7.0` |
+| Input | Unity Input System `1.14.2` |
+| Navigation | AI Navigation `2.0.12` |
+| Source language | C# |
+| Version control | Git and Git LFS |
 
-5. **Custom Editor Tools:**
-   - In-editor utilities for rapid scene and asset generation, supporting fast iteration and prototyping.
+### 2.3 Final Experience
 
-6. **Performance Optimization:**
-   - Efficient asset management, culling, and batching for smooth performance on standalone VR hardware.
+The build contains four root-level Unity scenes in this order:
 
----
+1. `Assets/scene1.unity`
+2. `Assets/Scene 2.unity`
+3. `Assets/Scene 3.unity`
+4. `Assets/Scene 4.unity`
 
-## 1.1 Scene 1: The Shift
+The intended complete flow is:
 
-**Narrative:**
-"The Shift" is the opening scene, set in a dark, oppressive factory that symbolizes capitalist monotony and alienation. The player, in the role of a worker, awakens at a conveyor belt and must sort red and blue cubes into matching bins. The endless ticking of a wall clock and reports on the walls reinforce the sense of routine and isolation. After 30 red and blue cubes are sorted, three glowing green "Anomaly Cubes" appear, breaking the cycle and triggering a transition to a surreal new world.
+`factory quota -> anomaly -> playground collapse -> metro cleanup/transition -> concert sequencer -> clock reveal -> second shift`
 
-**Key Scripts:**
-- GameManager.cs
-- ObjectSpawner.cs
-- ConveyorBelt.cs
-- BinCollector.cs
-- BinGenerator.cs
-- DispenserGenerator.cs
-- FactoryScoreBoard.cs
-- OfficeMessGenerator.cs
-- FactoryFloorGenerator.cs
-- WallClock.cs
-- RuntimeAtmosphereController.cs
-- SimpleRoomGenerator.cs
-- LightingOptimizer.cs
-- CubeCollisionSound.cs
-- CubeGrabAudio.cs
-- AnomalyCube.cs
-- AnomalyMovement.cs
-- FactoryMusicDirector.cs
+## 3. Design Principles
 
-**Sound Design — "Studio as a Compositional Tool":**
-Scene 1's score is generated at runtime from the factory's own machine recordings (`Resources/scene_1_sound_design`), following Brian Eno's studio-as-instrument philosophy:
+### 3.1 Reuse the Gesture, Change the Meaning
 
-- **Ostinato:** A percussive transient is sliced from the machine recordings and looped on a sample-accurate DSP grid (76 BPM, 16-step pattern) — the factory's mechanical heartbeat (root, low fifth, octave accents, sparse offbeat ticks).
-- **Tape loops (Music for Airports technique):** Long tonal slices of the machine recordings are pitched to a drone chord and re-triggered at deliberately incommensurate periods (21.3s / 26.7s / 33.1s / 39.9s), so the layers never realign — an ever-shifting ambient texture.
-- **Labor as melody:** Each correctly sorted cube plays a procedurally generated harmonic chime quantized to the next 16th of the grid, walking a minor pentatonic scale; the register rises as the 30-cube quota progresses, building musically toward the anomaly. Red and blue cubes speak a fifth apart. Wrong sorts trigger a harsh detuned-sawtooth double-buzz — confirmation and error are unmistakably distinct.
-- **The anomaly:** When the GameManager leaves WorkState, the ostinato (the rhythm of labor) fades out over ~6 seconds while the tape loops (the dream) swell — the machine stops, the daydream remains.
-- **The second shift:** If the player has completed the full loop (Scene 4's sequencer finale), the factory score returns subtly degraded — +6 BPM and quarter-tone detuned tape loops. The loop is the same; the loop is never the same.
+Grabbing and moving simple objects remains understandable across the entire project, but its meaning develops:
 
-The system (`FactoryMusicDirector`) bootstraps itself when scene1 loads; no scene setup is required. Raw machine ambience loops in the scene are automatically ducked so the composition reads clearly.
+- sort for the system;
+- throw for play;
+- collect as voluntary labor;
+- place to compose;
+- discover that composition has become time.
 
----
+### 3.2 Make Sound Functional
 
-## 1.2 Scene 2: The Colorful Playground
+Audio communicates state, rewards interaction, connects objects, and carries the narrative. Each scene has a distinct musical logic, but repeated pitch and timing ideas connect the scenes.
 
-**Narrative:**
-Scene 2 transports the player to a surreal, open playground featuring 20 large, colorful cubes scattered across the floor. The cubes come in 5 vibrant colors (Red, Blue, Green, Yellow, Purple) with 4 cubes of each color. Players can freely grab and throw these cubes at the reactive walls surrounding the room. When a cube hits a wall, the wall instantly changes to match the cube's color, creating a dynamic, ever-changing environment. This scene represents freedom, creativity, and the boundless imagination of daydreaming—a stark contrast to the oppressive factory of Scene 1.
+### 3.3 Build for Standalone VR
 
-After 20 cube hits in total across all walls, the room collapses (walls, ceiling, and floor sink away, and the cubes dissolve with them), revealing a city street at night. The player walks through this street — past shop windows, a saxophone-playing street musician, talking passersby, and a stray cat — to the metro entrance that leads to Scene 3.
+The project favors simple meshes, baked or non-realtime lighting, pooled audio sources, transform-driven NPC animation, procedural tools, and targeted device fixes over expensive realtime effects.
 
-**Key Scripts:**
-- Scene2TwentyColoredCubesGenerator.cs
-- Scene2RoomGenerator.cs
-- ColorReactiveWall.cs
-- DestructibleWall.cs
-- PlaygroundCube.cs
-- MetroEntranceCityGenerator.cs
-- PositionalAudioSource.cs
-- StreetAmbienceDirector.cs
+## 4. Scene Systems
 
-**Sound Design:**
-- Each cube color has its own synth voice; the loop plays while held and fades out smoothly on release. Clip loudness is RMS-normalized at load so all colors sit at the same level.
-- On a wall hit, the wall "absorbs" the cube's voice: the tone plays from the impact point with velocity-based pitch and decays away — the wall takes the cube's color and its sound.
-- Street phase (`StreetAmbienceDirector`, self-bootstrapping): recorded one-shots (cat, talking people) play at randomized intervals instead of looping; the saxophone street musician loops as a performance; empty sources receive procedural content (shop radio, street-lamp buzz); a distant city rumble bed fades in when the room collapses, with occasional procedural car passes.
+## 4.1 Scene 1 - The Shift
 
----
+### Player Flow
 
-## 1.3 Scene 3: The Platform (Metro Station)
+1. `ObjectSpawner` creates red and blue cubes.
+2. `ConveyorBelt` moves them toward the player.
+3. `BinCollector` checks whether a cube matches the bin.
+4. `ObjectSpawner` counts thirty spawned standard cubes.
+5. Green `AnomalyCube` objects appear after the thirtieth standard cube is spawned, independent of the correct-sort score.
+6. Grabbing an anomaly loads Scene 2.
 
-**Narrative:**
-An underground metro platform — the daydream's quiet middle distance. A subway train arrives, opens its doors, exchanges NPC passengers, and departs in an endless cycle; the NPCs reappear at their original positions each loop. Litter is scattered across the platform, and a player-following cleaning cart lets the player voluntarily perform janitorial labor inside their own fantasy. Collecting 20 pieces of trash transitions to Scene 4. A glowing anomalous cube offers the transition as well.
+The serialized scene also contains an active `PurpleTransitionSceneCube` that can load Scene 2 immediately. It currently functions as a shortcut and bypasses the intended work phase.
 
-**Key Systems:**
-- **Train cycle:** `SubwayTrainController` (sliding doors, `staticMode` option), `TrainPassengerDirector`, `NPCTrainPassenger` — boarding/exiting via **waypoint chains, not NavMesh** (NavMesh is only used while wandering on the platform).
-- **NPC wandering:** `NPCScene3Wanderer` — NavMesh wandering with procedural bone-driven walk animation (no Animator Controllers), head-look behavior, platform-edge protection.
-- **NPC grounding:** `NPCGrounding` (single authoritative floor query — initial snap, NavMeshAgent baseOffset management, waypoint fine-grounding), `NPCBlobShadow` (self-bootstrapping blob shadows; the scene has no realtime shadows, so NPCs would look airborne in VR without them), `Scene3LightProbeTool` (editor menu, Tools > Scene 3 — places a light-probe grid; requires a lighting rebake).
-- **Trash gameplay:** `TrashItem`, `GrabbableTrash`, `TrashCart` (player-following cart with an interior-volume deposit trigger; counts only thrown-in trash), `TrashGrabbedMarker`.
-- **Diagnostics:** `NPCDiagnostics`, `VRDebugLogger` (on-device debugging).
+### Main Runtime Scripts
 
-**Key Scripts:**
-- SubwayTrainController.cs
-- TrainPassengerDirector.cs
-- NPCTrainPassenger.cs
-- NPCScene3Wanderer.cs
-- NPCGrounding.cs
-- NPCBlobShadow.cs
-- TrashCart.cs / TrashItem.cs / GrabbableTrash.cs / TrashGrabbedMarker.cs
-- MetroMusicDirector.cs
-- Scene3ToScene4Cube.cs
+- `GameManager`
+- `ObjectSpawner`
+- `ConveyorBelt`
+- `BinCollector`
+- `BinGenerator`
+- `DispenserGenerator`
+- `FactoryFloorGenerator`
+- `MachineGenerator`
+- `OfficeMessGenerator`
+- `FactoryScoreBoard`
+- `WallClock`
+- `AnomalyCube`
+- `FactoryMusicDirector`
 
-**Sound Design — Generative Metro Score (`MetroMusicDirector`, self-bootstrapping):**
-Per-object ostinatos locked to one DSP grid in A minor pentatonic: bench tape-loop pads with incommensurate periods, trash-can tick patterns, fluorescent hum drones, a rail ostinato, NPC hum/murmur/whisper voices, and tunnel rumble. PA speakers play TTS announcements (`Resources/scene_3_sound_design`) hooked to train events. Each collected trash item plays a quantized melody note via the cart's `OnTrashCollected` event.
+### Factory Music System
 
----
+`FactoryMusicDirector` bootstraps automatically when `scene1` loads. It:
 
-## 1.4 Scene 4: The Concert / The Loop
+- loads recordings from `Resources/scene_1_sound_design`;
+- slices machine recordings into percussion, steam, and tonal tape material;
+- schedules a 76 BPM, sixteen-step ostinato on the Unity DSP clock;
+- retriggers tape layers at deliberately incommensurate periods;
+- spatializes layers from conveyor and machine objects;
+- creates quantized confirmation notes for correct sorting;
+- creates a distinct quantized buzz for incorrect sorting;
+- raises the melodic register as the player approaches the quota;
+- supports a `SecondShift` state that adds 6 BPM and slight detuning after the finale.
 
-**Narrative:**
-An open-air concert at night — the daydream's climax and its trap. The player arrives inside the spectacle: stage, speaker stacks, a live band of NPC musicians, a dancing crowd. Near the stage floats a radial sequencer — a luminous ring with twelve slots and a sweeping playhead — and twelve glowing sample orbs. As the player fills the slots, their loop gradually replaces the concert; when the loop completes, the sequencer reveals itself as the Scene 1 factory clock (twelve slots — it was always a clock), the playhead becomes the red second hand, frozen hands appear at 9:00, every placed tone collapses into a mechanical tick, and the player is returned to Scene 1.
+## 4.2 Scene 2 - The Colorful Playground
 
-**Key Systems:**
-- **Hybrid stem audio:** `ConcertAudioDirector` — some stems 2D stereo in the headset, some 3D spatial from stage objects, all DSP-clock synchronized (`PlayScheduled`). Supports progressive ducking (`SetDuckTarget`) and finale fade (`FadeOutAll`); exposes `PerformanceLevel` for visual systems.
-- **Radial sequencer:** `RadialSequencer` (self-building 12-slot ring, DSP-scheduled steps, pooled AudioSources, procedural timbres — no audio assets), `SequencerSampleOrb` (grabbable floating orbs, snap-to-slot, preview hum while held), `SequencerFinaleDirector` (the clock reveal, VR-safe blackout, return to scene1).
-- **NPC band:** `NPCMusicianPerformer` — bone-driven playing animation per role (drummer, guitarist, bassist, keyboardist); motion intensity follows `PerformanceLevel`, so the band winds down and freezes as the player's loop replaces the music.
-- **NPC audience:** `NPCAudienceMember` — randomized per-person crowd dancing (bounce, sway, arms-up); turns toward the sequencer as it takes over; freezes at the clock reveal.
-- **Stage generators:** `DrumKitGenerator`, `InstrumentGenerator`, `SaxophoneGenerator`, `StageSpeakerGenerator`.
+### Player Flow
 
-**Editor Tools (Tools menu):**
-- `Scene4SetupTool` — Tools > Setup Scene 4 for VR (XR Origin + Interaction Manager)
-- `Scene4SequencerSetupTool` — Tools > Scene 4 > Add Radial Sequencer
-- `Scene4BandSetupTool` — Tools > Scene 4 > Place Band NPCs
-- `Scene4AudienceSetupTool` — Tools > Scene 4 > Place Audience NPCs
+1. The player enters a room containing twenty colored cubes.
+2. `PlaygroundCube` plays a color-specific synth loop while held.
+3. Throwing a cube into a reactive wall changes the wall's color.
+4. `DestructibleWall` counts hits across all walls.
+5. After twenty total wall hits, the room collapses and Scene 3 loads.
 
-**Key Scripts:**
-- ConcertAudioDirector.cs
-- RadialSequencer.cs / SequencerSampleOrb.cs / SequencerFinaleDirector.cs
-- NPCMusicianPerformer.cs / NPCAudienceMember.cs
-- DrumKitGenerator.cs / InstrumentGenerator.cs / SaxophoneGenerator.cs / StageSpeakerGenerator.cs
+The serialized scene also contains an active `TransitionCube_ToScene3` that bypasses the collapse sequence.
 
----
+### Main Runtime Scripts
 
-## 2. Technical Specifications
+- `Scene2RoomGenerator`
+- `Scene2TwentyColoredCubesGenerator`
+- `PlaygroundCube`
+- `ColorReactiveWall`
+- `DestructibleWall`
+- `SceneTransitionCube`
+- `SaxophoneGenerator`
+- `AmbientAudioSource`
+- `StreetAmbienceDirector`
 
-### **Engine & Tools**
-- **Unity Version:** Unity 6 (6000.2.10f1)
-- **Render Pipeline:** Built-in Render Pipeline (Standard Shaders)
-- **Scripting:** C#
-- **Version Control:** Git (GitHub)
+### Audio and Interaction Details
 
-### **Key Packages**
-- **XR Plugin Management:** OpenXR (Meta Quest Support)
-- **XR Interaction Toolkit:** For VR rig and interactions.
-- **Input System:** New Unity Input System (replacing the old Input Manager).
+- Five color recordings are loaded from `Resources/scene_2_sound_design`.
+- Cube loop loudness is normalized by measuring RMS and applying a bounded gain correction.
+- Releasing a cube fades its held loop instead of stopping abruptly.
+- Wall-response tones fade separately from the held loop.
+- Respawning cubes do not restart their audio unexpectedly.
+- Wall damage is shared across the room rather than tracked per wall.
+- `StreetAmbienceDirector` self-bootstraps, changes short cat and voice recordings from unnatural loops into intermittent events, keeps the street saxophone performing, and fills previously silent shop and lamp sources with procedural sound.
+- When the room ceiling deactivates during collapse, a city-rumble bed fades in and procedural car passes begin, carrying the player from the enclosed playground toward the metro.
 
-### **Architecture**
-- **Editor Tools:** Custom Editor scripts in `Editor/` for procedural scene and asset generation.
-- **Runtime Scripts:** Modular scripts for object spawning, interaction logic, and physics.
-- **Self-bootstrapping audio directors:** `FactoryMusicDirector` (Scene 1), `StreetAmbienceDirector` (Scene 2), `MetroMusicDirector` (Scene 3) spawn themselves on scene load — no scene setup required.
-- **Asset Organization:** Scenes live at the `Assets/` root (`scene1.unity`, `Scene 2.unity`, `Scene 3.unity`, `Scene 4.unity` — NOT in `Assets/Scenes/`); scripts in `Assets/Scripts/` with editor tooling in `Assets/Scripts/Editor/`.
+## 4.3 Scene 3 - The Platform
 
----
+### Player Flow
 
-## 3. Development Log & Steps Taken
+The scene combines two systems that operate at the same time:
 
-### **Phase 1: Project Setup**
-1. **Repository Initialization:**
-   - Created a new Unity project and initialized a Git repository.
-   - Set up `.gitignore` to exclude build and cache folders.
-2. **XR Configuration:**
-   - Installed OpenXR and XR Interaction Toolkit.
-   - Configured XR Origin and camera rig for Quest 3S compatibility.
+- an autonomous metro and commuter loop;
+- a player-driven trash cleanup task.
 
-### **Phase 2: Environment & Tools**
-3. **Scene Generation:**
-   - Developed procedural scene generation scripts for rapid prototyping.
-   - Implemented custom lighting and material assignment for visual consistency.
-4. **Editor Utilities:**
-   - Created Editor scripts for batch asset creation and placement.
+Collecting twenty trash items with the cart loads Scene 4. A grabbable transition cube also provides a direct alternate route.
 
-### **Phase 3: Core Mechanics**
-5. **Interaction System:**
-   - Integrated hand tracking and controller input.
-   - Developed grab, throw, and manipulation mechanics for virtual objects.
-6. **Procedural Spawning:**
-   - Implemented runtime object spawning with randomization and constraints.
-7. **Physics Integration:**
-   - Applied Unity physics for realistic object behavior and collision handling.
+### Train and Passenger Architecture
 
-### **Phase 4: Polish & Optimization**
-8. **Performance Tuning:**
-   - Profiled and optimized scripts and assets for Quest 3S performance.
-   - Reduced draw calls and optimized material usage.
-9. **Visual & Audio Polish:**
-   - Enhanced lighting, post-processing, and spatial audio for immersion.
+`SubwayTrainController` controls:
 
-### **Phase 5: Deployment & Testing**
-10. **Build Configuration:**
-    - Switched build target to Android.
-    - Configured input system and build settings for Quest 3S.
-11. **Testing:**
-    - Deployed APK to device for real-world testing.
-    - Collected feedback and iterated on interaction and performance.
+- arrival from a start point;
+- stopping at the platform;
+- sliding door animation;
+- a minimum open-door duration;
+- optional waiting until all passengers have boarded;
+- departure and return for another cycle;
+- a `staticMode` for a stationary train.
 
-### **Phase 6: Narrative Completion (June 2026)**
-12. **Scene 3 stabilization:**
-    - NPC train boarding via waypoint chains, cyclic train loop, VR diagnostics.
-    - Unified NPC grounding (`NPCGrounding`) — initial floor snap, NavMeshAgent baseOffset management, waypoint fine-grounding.
-    - Trash counting moved strictly to cart deposit (interior trigger, release-age guard, continuous collision).
-13. **Scene 4 finale:**
-    - Radial sequencer ("a clock in disguise"), NPC band and audience, concert ducking, the clock reveal, and the return to Scene 1 — closing the narrative loop.
-14. **Audio completeness:**
-    - Distinct confirm/error tones in Scene 1; cube audio normalization and wall-response tones in Scene 2; street ambience fixes and enrichment on the walk to the metro.
+`NPCScene3Wanderer` handles normal platform wandering with NavMesh. When boarding begins, `NPCTrainPassenger`:
 
----
+1. uses NavMesh to approach the first authored waypoint;
+2. disables NavMesh;
+3. follows a waypoint chain through the door and into the train;
+4. parents itself to the train during travel;
+5. exits through another waypoint chain or disappears with the train;
+6. returns to its original position for the next cycle.
 
-## 4. Current Status
-- **Scenes:** All four scenes are implemented and connected in a full narrative loop (factory → playground → metro → concert → factory).
-- **Build:** Android build pipeline is configured and tested on Quest 3S (`theshift1.apk` in repo root).
-- **Next Steps:**
-  - On-device verification of the Scene 4 finale pacing and the NPC grounding fix.
-  - Run the Scene 4 placement tools (sequencer, band, audience) and rebuild lighting/probes where needed.
-  - Final user testing and report polish.
+`TrainPassengerDirector` coordinates passenger groups, boarding points, train waiting, exit behavior, and cyclic reset.
 
----
+### Trash Interaction
 
-## 5. Folder Structure Overview
-- **Assets/**: Main project assets — scenes at root, plus Materials, Prefabs, Resources, Scripts (with `Scripts/Editor/` tooling), `npc_casual_set_00/` character set
-- **Library/**: Unity-generated cache and build data (excluded from version control)
-- **Packages/**: Unity package manifest and lock files
-- **ProjectSettings/**: Unity project settings
-- **UserSettings/**: User-specific settings (not shared)
+`Scene3PhysicsBootstrap`, `TrashGrabVRConfig`, `TrashItem`, `GrabbableTrash`, and `TrashGrabbedMarker` normalize found trash assets into usable VR objects.
 
----
+`TrashCart`:
 
-## 6. References & Resources
-- Unity Documentation: https://docs.unity3d.com/
-- XR Interaction Toolkit: https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit
-- Meta Quest Developer: https://developer.oculus.com/
+- follows the player only after a distance threshold is crossed;
+- stays at ground height and avoids responding to head rotation;
+- creates an interior basket trigger from the cart's rendered bounds at runtime;
+- accepts only trash that has previously been grabbed, is no longer held, and has been released for at least 0.15 seconds;
+- uses continuous dynamic collision detection on normalized trash objects to reduce missed fast throws;
+- counts collected items;
+- loads Scene 4 after twenty accepted items.
 
----
+### Metro Music System
 
-*This documentation will be updated as the project progresses. Please refer to this file for the latest technical and design information.*
+`MetroMusicDirector` bootstraps automatically when Scene 3 loads. It uses a shared 58 BPM DSP grid in A minor pentatonic and treats the station as an ensemble:
+
+- rails play a low ostinato;
+- benches trigger dyads at incommensurate periods;
+- fluorescent lights produce chord drones;
+- trash cans play sparse tick patterns;
+- NPCs hum, murmur, or whisper from their moving bodies;
+- tunnel ends produce a rumble bed;
+- train events trigger brake hiss and PA announcements;
+- trash collection creates a quantized rising melody and completion arpeggio.
+
+### Quest-Specific Scene 3 Support
+
+- `NPCBlobShadow` creates inexpensive grounding shadows because realtime shadows are not used.
+- `Scene3LightProbeTool` places a probe grid for baked lighting.
+- `NPCDiagnostics` and `VRDebugLogger` support device-only debugging.
+- `Scene3PhysicsBootstrap` repairs missing physics and grab configuration at runtime.
+
+## 4.4 Scene 4 - The Concert / The Loop
+
+### Current Serialized Scene
+
+`Assets/Scene 4.unity` currently contains the concert environment and `ConcertAudioDirector`. The radial sequencer, performing band, and audience are implemented in scripts and editor tools but are not yet serialized into the scene on `main`.
+
+### Concert Audio
+
+`ConcertAudioDirector`:
+
+- creates one runtime `AudioSource` per stem;
+- supports both headset-centered 2D stereo and object-sourced 3D spatial modes;
+- starts every stem on one DSP-clock timestamp;
+- exposes a duck target used by the finale;
+- exposes a performance level that can drive band animation;
+- fades all stems during the clock reveal.
+
+### Radial Sequencer Finale
+
+The final system is implemented by:
+
+- `RadialSequencer`
+- `SequencerSampleOrb`
+- `SequencerFinaleDirector`
+- `Editor/Scene4SequencerSetupTool`
+
+The sequencer:
+
+- has twelve slots arranged as a disguised clock face;
+- previews each orb's synthesized tone while held;
+- snaps released orbs into nearby empty slots;
+- provides placement haptics and slot highlights;
+- schedules tones and the rotating playhead on the DSP clock;
+- reduces concert level by one twelfth per filled slot;
+- waits for two full completed loops;
+- slows to one step per second;
+- replaces tones with ticking;
+- reveals numbers, clock hands, and a 9:00 shift-start time;
+- blackens the view and reloads Scene 1.
+
+### Performing Band
+
+The band system is implemented by:
+
+- `NPCMusicianPerformer`
+- `Editor/Scene4BandSetupTool`
+
+Band roles include drummer, guitarist, bassist, and keyboardist. Their bone-driven performance intensity follows `ConcertAudioDirector.PerformanceLevel`, so the musicians slow and stop as the player's sequence replaces the concert.
+
+### Audience
+
+The audience system is implemented by:
+
+- `NPCAudienceMember`
+- `Editor/Scene4AudienceSetupTool`
+
+The setup tool places fourteen varied audience NPCs between the player and stage. They dance independently during the concert, turn toward the player's sequencer as it replaces the band, and freeze when the clock reveal takes over.
+
+### Scene 4 Integration Requirement
+
+Before the final build:
+
+1. Run `Tools > Scene 4 > Add Radial Sequencer`.
+2. Run `Tools > Scene 4 > Place Band NPCs`.
+3. Run `Tools > Scene 4 > Place Audience NPCs`.
+4. Save `Assets/Scene 4.unity`.
+5. Verify the complete finale in the Editor and on Quest.
+
+## 5. Architecture
+
+### 5.1 Runtime and Editor Separation
+
+Runtime behavior lives in `Assets/Scripts/`. Scene-construction and repair utilities live in `Assets/Scripts/Editor/`.
+
+At the final documentation pass on June 12, 2026, the current `main` workspace contains:
+
+- 69 runtime C# scripts;
+- 14 editor C# scripts;
+- approximately 16,000 lines of project C# code.
+
+Every current C# script has a committed Unity `.meta` file so its GUID remains stable across machines.
+
+### 5.2 Self-Bootstrapping Systems
+
+The following systems install themselves after the relevant scene loads:
+
+- `FactoryMusicDirector`
+- `StreetAmbienceDirector`
+- `MetroMusicDirector`
+- `NPCBlobShadow`
+- `Scene3PhysicsBootstrap`
+
+This reduces manual scene setup and repairs scene-wide behavior at runtime.
+
+### 5.3 Editor Tooling
+
+Important editor utilities include:
+
+- `Scene3SetupTool`
+- `Scene3LightProbeTool`
+- `TrainDoorBuilder`
+- `FixTrashItemsForVR`
+- `TrashCleanup`
+- `Scene4SetupTool`
+- `Scene4SequencerSetupTool`
+- `Scene4BandSetupTool`
+- `Scene4AudienceSetupTool`
+- `CleanMissingScripts`
+
+The project uses these tools to convert imported assets and large scenes into project-specific interactive systems.
+
+### 5.4 Scene Transitions
+
+| From | Trigger | Destination |
+|---|---|---|
+| Scene 1 | Grab anomaly cube after thirty standard cubes spawn | Scene 2 |
+| Scene 1 | Grab active direct-transition cube | Scene 2 |
+| Scene 2 | Reach twenty total wall hits and complete collapse | Scene 3 |
+| Scene 2 | Grab active direct-transition cube | Scene 3 |
+| Scene 3 | Collect twenty trash items | Scene 4 |
+| Scene 3 | Grab transition cube | Scene 4 |
+| Scene 4 | Complete sequencer and clock reveal | Scene 1 |
+
+## 6. Second-Semester Development
+
+### March 2026 - Extending Beyond the Playground
+
+- Added destructible reactive walls and room-collapse progression.
+- Added Scene 3 to build settings.
+- Began changing the project from a two-scene contrast into a multi-scene arc.
+
+### April 2026 - Replacing Scene 3 and Establishing Scene 4
+
+- Replaced the previous Scene 3 direction with a metro station.
+- Added metro entrance/city generation and Scene 3 VR setup.
+- Added train start, stop, exit, and sliding-door systems.
+- Added Scene 4 environment setup, stage speakers, instruments, and concert audio.
+
+### May 2026 - Making the Metro Alive
+
+- Added NPC wandering.
+- Added passenger boarding and exiting.
+- Replaced unreliable boarding navigation with authored waypoint chains.
+- Added train waiting and passenger cycle resets.
+- Added trash cleanup interaction and Scene 3-to-Scene 4 progression.
+
+### June 2026 - Sound, Device Reliability, and Finale
+
+- Added cyclic commuter behavior and VR diagnostics.
+- Added the generative factory and metro music systems.
+- Added Quest-specific NPC shadows, physics repair, LOD fixes, and rig corrections.
+- Added Scene 2 audio normalization and shared wall-hit collapse.
+- Added Scene 2 street-audio repair and a procedural city transition after the room collapses.
+- Added the radial sequencer clock finale and second-shift return.
+- Added band performance behavior linked to concert ducking.
+- Added a fourteen-person audience that turns toward the player's loop and freezes at the clock reveal.
+- Improved trash deposits with a generated cart-interior trigger, release-state checks, and continuous collision detection.
+
+## 7. Current Status
+
+### Implemented
+
+- Four scenes enabled in build settings
+- Complete narrative logic from Scene 1 through Scene 3
+- Factory interaction and generative score
+- Playground color/sound interaction and collapse
+- Metro train, doors, commuters, cleanup, transition, and generative score
+- Concert stem system
+- Scene 4 sequencer finale code and setup tool
+- Scene 4 performing band code and setup tool
+- Scene 4 audience code and setup tool
+- Quest-targeted repair and diagnostic systems
+- APK build artifacts in the repository root
+
+### Required Before Final Presentation
+
+- Serialize and verify the Scene 4 sequencer, band, and audience in `Scene 4.unity`.
+- Decide whether the active Scene 1 and Scene 2 direct-transition cubes should be removed, disabled, or intentionally kept as presentation shortcuts.
+- Decide whether Scene 1 progression should remain spawn-count based or be tied to the correct-sort score to match the narrative idea of a quota.
+- Run the complete experience on Meta Quest 3S after the final Scene 4 setup.
+- Complete a cross-scene loudness and mix pass.
+- Improve the Scene 4 drum sound.
+- Confirm NPC behavior remains reliable throughout a long device session.
+- Record the required final documentation/presentation material.
+
+## 8. Known Limitations
+
+- Scene 4's newest systems are tool-installed rather than present in the saved scene on `main`.
+- Active direct-transition cubes currently allow Scene 1 and Scene 2 gameplay to be skipped.
+- Scene 1 anomaly timing is based on spawned cubes rather than completed correct sorts.
+- The project has not documented a formal user study.
+- Imported assets and generated scene content increase repository and build size.
+- NPC behavior depends on scene-specific waypoints and can require visual verification after scene edits.
+- Standalone VR behavior can differ from Editor behavior, especially for physics, LOD, lighting, and XR rig transforms.
+- The final audio master pass remains open.
+
+## 9. References and Resources
+
+- Unity documentation: <https://docs.unity3d.com/>
+- XR Interaction Toolkit: <https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit>
+- Meta Quest developer documentation: <https://developers.meta.com/horizon/>
+- Project repository: <https://github.com/smhpk-1/mixedreality-graduation-project>

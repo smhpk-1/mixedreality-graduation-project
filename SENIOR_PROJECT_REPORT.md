@@ -1,235 +1,297 @@
-# Senior Project Report: Mixed Reality Experience
-## Exploring Maladaptive Daydreaming and Capitalist Alienation through VR
+# Senior Project Final Report: The Shift
+## Exploring Maladaptive Daydreaming, Alienation, and Repetition through Interactive VR Sound
 
-**Author:** Semiha PAKSOY  
-**Course:** MUS441 - Senior Project I-II  
-**Academic Year:** 2025-2026  
-**Date:** January 1, 2026
+**Author:** Semiha Paksoy
+
+**Course:** MUS 442 - Senior Project II
+
+**Academic year:** 2025-2026
+
+**Department:** Istanbul Bilgi University, Music Department
+
+**Project category:** Sound Installation and Multimedia Project
+
+**Date:** June 12, 2026
+
+**Repository:** <https://github.com/smhpk-1/mixedreality-graduation-project>
 
 ---
 
 ## 1. Abstract
 
-This senior project presents a Mixed Reality (MR) experience designed for the Meta Quest 3S, exploring the complex psychological phenomenon of **maladaptive daydreaming** and its relationship to **capitalist alienation**. The project leverages the immersive capabilities of Virtual Reality (VR) to create a bifurcated narrative experience that physically transports the user from a monotonous, oppressive industrial setting to a boundless, surreal playground. By juxtaposing these two distinct environments—"The Shift" and "The Colorful Playground"—the project critiques the rigidity of modern labor systems while celebrating the liberating, albeit isolating, power of human imagination. This report details the conceptual framework, technical implementation, creative process, and the specific design decisions made to translate abstract psychological theories into a tangible, interactive reality.
+**The Shift** is a sound-centered virtual reality narrative for Meta Quest 3S that explores maladaptive daydreaming, capitalist alienation, repetition, and creative agency. The player begins as a factory worker sorting thirty red and blue cubes under a quota. An impossible green cube interrupts the system and opens a daydream. The player then moves through a colorful playground, a cyclic metro station, and an outdoor concert before returning to the factory.
 
----
+The project began during MUS 441 as a two-scene contrast between oppressive labor and liberating play. During MUS 442, it developed into a four-scene circular narrative. The final version complicates the original idea of escape: the playground offers real creative freedom, but routine gradually returns through cleanup work, commuting cycles, musical repetition, and the hidden clock structure of a twelve-step sequencer. In the finale, the player constructs a musical loop that transforms into the factory clock and begins a subtly altered second shift.
 
-## 2. Introduction
+Sound is the primary narrative material. Each scene has a different musical relationship to the player: factory labor generates quantized feedback, colored cubes become instruments, the metro station becomes a distributed generative ensemble, and the concert is gradually replaced by a loop composed by the player. The project combines interactive composition, spatial audio, procedural synthesis, DSP-clock synchronization, VR interaction, autonomous characters, and environmental storytelling.
 
-### 2.1 Purpose & Vision
-The primary purpose of this project is to utilize Virtual Reality as a medium to simulate and explore the internal experience of maladaptive daydreaming. Unlike traditional media, VR offers a sense of *presence*, allowing users to inhabit the perspective of a worker caught between the crushing weight of external societal constraints and the vivid allure of internal creative freedom.
+## 2. Project Aim and Category
 
-The vision is to create a dynamic virtual environment where users interact with objects and systems using advanced hand tracking and controllers. The project aims to explore advanced user interaction paradigms, procedural content generation, and real-time feedback in a VR/MR context.
+The project was developed in the **Sound Installation and Multimedia Project** category. Its central aim is to demonstrate how an interactive audiovisual environment can communicate an argument through embodied action and musical structure rather than through dialogue or linear exposition.
 
-### 2.2 Motivation
-Modern capitalist societies often foster feelings of alienation and monotony, particularly within industrial or repetitive work environments. For many individuals, daydreaming serves not just as a distraction, but as a critical coping mechanism—a form of psychological resistance to reclaim agency in a world that demands conformity. This project seeks to visualize this psychological escape, using VR technology to blur the lines between "reality" (the factory) and "fantasy" (the playground), making the internal struggle external and visible.
+The project asks:
 
-### 2.3 Problem Statement
-How can immersive technology be used to represent abstract psychological concepts like alienation, dissociation, and escapism? Traditional storytelling can describe these states, but VR can induce them. This project addresses this challenge by creating a spatial narrative that physically transports the user from a restrictive, rule-bound environment to one of limitless possibility, forcing them to experience the jarring transition between these two states of being.
+> How can VR and interactive sound make the relationship between alienation, escape, repetition, and creative agency physically perceptible?
 
----
+The intended final experience is approximately fifteen minutes, depending on player behavior and exploration.
 
-## 3. Conceptual & Theoretical Framework
+## 3. Motivation
 
-### 3.1 Maladaptive Daydreaming
-**Maladaptive daydreaming** is a psychological concept describing extensive fantasy activity that replaces human interaction and/or interferes with academic, interpersonal, or vocational functioning. Individuals experiencing maladaptive daydreaming often become deeply absorbed in vivid, elaborate inner worlds, sometimes as a coping mechanism for stress, trauma, or dissatisfaction with reality.
+Repetitive work can produce a feeling of separation from one's time, actions, and creativity. Daydreaming can become a way to recover a sense of freedom and authorship, but escape is not necessarily outside the structures that made it necessary.
 
-*   **Key Characteristics:** Intense, immersive, narrative-driven daydreams; difficulty controlling the urge to daydream; use of daydreaming as an escape from real-world problems.
-*   **Relevance to VR:** VR serves as a technological extension of the mind’s capacity for immersive fantasy, providing a controlled, interactive space for users to explore alternate realities. The project leverages this parallel, intentionally blurring the line between healthy escapism and maladaptive detachment.
+VR was chosen because it makes this conflict bodily. The player does not only observe a worker sorting objects; they perform the task. They do not only hear that the fantasy is creative; they repaint walls and compose loops through physical gestures. The same interaction can therefore carry different meanings depending on the system around it.
 
-### 3.2 Capitalism, Alienation, and Escapism
-Drawing from Marxist theory, the project explores the concept of **alienation**—the detachment of workers from the products of their labor, from the act of production, and from their own humanity.
-*   **The Factory as Metaphor:** The industrial setting represents the capitalist machine. The user is reduced to a function (sorting cubes), governed by rigid quotas and the symbolic presence of time. Time does not operate as a gameplay mechanic, but as an atmospheric tool that reinforces pressure, surveillance, and monotony. The labor is repetitive, meaningless, and isolating.
-*   **Escapism as Resistance:** The transition to the surreal world represents the mind’s attempt to escape rigid and repetitive systems. Instead of continuing a meaningless task, the user enters a space where actions are not judged by productivity, but by freedom and play.
+The project uses maladaptive daydreaming as a conceptual lens, not as a clinical simulation or diagnosis. It is concerned with immersive fantasy as both relief and risk: a space of imagination that can also become closed, repetitive, and detached.
 
-### 3.3 Surrealism and the Subconscious
-The project adopts a surrealist aesthetic to represent the inner world. This aesthetic aims to create a dreamlike and fluid experience that partially departs from the rigid logic of the real world. By deliberately stretching physical and visual expectations—through color-reactive walls, anomalous objects, and unconventional interactions—the experience reflects the fluid and ever-changing nature of the subconscious mind.
+## 4. Conceptual Framework
 
----
+### 4.1 Alienated Labor
 
-## 4. Project Narrative & Design
+The factory draws from Marx's concept of alienated labor. The player has no relationship to the purpose of the cubes and no control over the system. They are reduced to sorting correctly, and progress is measured as a quota.
 
-The experience is structured into two contrasting scenes, representing the duality of the protagonist's mind.
+The wall clock, conveyor belt, score display, reports, and binary bins turn time and action into external demands. Even the musical reward for correct work belongs to the factory's system.
 
-### 4.1 Scene 1: The Shift (The Reality)
+### 4.2 Surrealism and Recontextualization
 
-**Narrative Overview**  
-"The Shift" is an industrial prologue representing the monotony and alienation of the capitalist system. The player is cast as a "worker," isolated from the outside world in a dim, oppressive factory where time is tracked only by a mechanical wall clock.
+The experience uses surreal transformation by preserving familiar objects while changing their function:
 
-**Mechanics & Interaction**
-*   **The Routine:** Red and blue cubes are spawned from wall-mounted dispensers and move along a conveyor belt. The user must grab and sort them into matching bins using the Meta Quest 3S controllers.
-*   **The Quota:** The user is tasked with sorting 30 cubes as part of the repetitive routine. After this phase, glowing green anomaly cubes appear. Grabbing one of these anomaly cubes triggers the transition to the second scene.
+- cubes move from products to toys, anomalies, and musical units;
+- walls move from boundaries to canvases and then collapse;
+- a metro station becomes an ensemble;
+- a musical sequencer becomes a clock.
 
-**Symbolism**
-*   **Industrial Monotony:** The dark, oppressive factory represents capitalist alienation.
-*   **Routine & Alienation:** The act of sorting mirrors the lack of agency in industrial labor.
-*   **The Anomaly:** The glowing green cubes represent a disruption of the established system. In an environment built around red and blue cubes and their corresponding bins, the appearance of green cubes that cannot be placed into any bin reveals the system’s limitations and suggests the possibility of stepping outside its rules.
+This dream logic allows one gesture to be read differently across the narrative.
 
-**Key Scripts**
-*   `GameManager.cs`, `ObjectSpawner.cs`, `ConveyorBelt.cs`, `BinCollector.cs`, `DispenserGenerator.cs`, `FactoryScoreBoard.cs`, `WallClock.cs`, `AnomalyCube.cs`.
+### 4.3 The Ambivalence of Escape
 
-### 4.2 Scene 2: The Colorful Playground (The Escape)
+The MUS 441 version proposed a strong contrast between the factory and the playground. The MUS 442 version extends this idea so that the fantasy develops its own routines.
 
-**Narrative Overview**  
-After leaving the factory environment, the player enters The Colorful Playground—a surreal space that reflects the logic of maladaptive daydreaming. This scene presents a recontextualization of familiar objects. The same cube-based interactions are reworked with new meanings and functions: cubes become colorful, playful, and capable of producing sound, allowing the user to engage with them through exploration and play rather than labor.
+The metro contains voluntary cleanup work and a visible commuter cycle. The concert offers the strongest creative agency, but that agency is organized into twelve repeating positions. The player's completed composition becomes the mechanism that returns them to the factory.
 
-**Mechanics & Interaction**
-*   **Creative Freedom:** The room contains 20 colorful cubes (Red, Blue, Green, Yellow, Purple) scattered across the floor.
-*   **Reactive Environment:** Throwing a cube at a wall triggers the `ColorReactiveWall` script, painting the wall with that color. This allows the user to reshape their environment dynamically.
-*   **Physics & Play:** Unlike the rigid sorting mechanics of Scene 1, this scene allows objects to be freely thrown and to react to surfaces through collision. There are no quotas, rules, or predefined goals guiding the interaction.
+The final project therefore does not argue that imagination is false or useless. It argues that imagination is shaped by the reality it escapes.
 
-**Symbolism**
-*   **20 Colorful Cubes:** Represent fragments of creativity suppressed by the factory.
-*   **Reactive Walls:** Represent the malleability of reality within the imagination.
-*   **Throwing vs. Sorting:** Throwing represents creative expression and release, contrasting with the careful sorting of Scene 1.
-*   **No Quotas:** The absence of objectives critiques the productivity-obsessed nature of capitalism.
+## 5. Narrative and Interaction Design
 
-**Thematic Contrast**
+## 5.1 Scene 1: The Shift
 
-| Scene 1: The Shift | Scene 2: The Playground |
-|-------------------|------------------------|
-| Dark, oppressive | Bright, liberating |
-| Rules and quotas | Freedom and creativity |
-| Sorting (conformity) | Throwing (expression) |
-| Fixed environment | Reactive, changeable |
-| Monotone colors | Vibrant spectrum |
+The player wakes at a workstation inside a dark industrial room. Red and blue cubes arrive on a conveyor belt and must be placed into matching bins. Correct and incorrect actions produce clearly different feedback. After thirty standard cubes have spawned, green anomaly cubes appear. Because there is no green bin, the anomaly exposes the limitation of the factory's classification system. Grabbing it loads the playground.
 
-**Key Scripts**
-*   `Scene2RoomGenerator.cs`, `Scene2TwentyColoredCubesGenerator.cs`, `ColorReactiveWall.cs`, `PlaygroundCube.cs`.
+The interaction is intentionally simple and repetitive. Its purpose is to establish a physical memory that later scenes can transform.
 
----
+## 5.2 Scene 2: The Colorful Playground
 
-### 4.3 Scene 3: The Platform (The Quiet Decay)
+The player enters a compact dream space containing twenty colored cubes. The cube is no longer an object to classify. Each color has a synth voice, and throwing cubes at the walls repaints the room.
 
-**Narrative Overview**  
-The third scene relocates the daydream to an underground metro platform — a deliberately ordinary, liminal space. A subway train arrives, exchanges NPC passengers, and departs in an endless cycle, with the same passengers reappearing at their original positions each loop. Litter is scattered across the platform, and a cleaning cart follows the player. The fantasy has begun to reproduce the very structures the player escaped: waiting, routine, and voluntary labor.
+There is no correct color arrangement. The player creates a temporary audiovisual composition through movement. However, repeated impact also damages the room. After twenty total wall hits, the final wall and then the room collapse. At that moment, the enclosed sound world opens into procedural city rumble and passing traffic before Scene 3.
 
-**Mechanics & Interaction**
-*   **The Train Cycle:** `SubwayTrainController.cs` runs the arrival/departure loop with sliding doors; `TrainPassengerDirector.cs` and `NPCTrainPassenger.cs` choreograph NPC boarding and exiting via waypoint chains.
-*   **Ambient Life:** `NPCScene3Wanderer.cs` drives commuters wandering the platform with procedural, bone-driven walk animation (no Animator Controllers), grounded by a unified floor-snapping system (`NPCGrounding.cs`).
-*   **Trash Cleanup:** The player may collect 20 pieces of trash into the following cart (`TrashCart.cs`); each deposit plays a quantized melody note. Completing the chore — or grabbing an anomalous cube — transitions to Scene 4.
+## 5.3 Scene 3: The Platform
 
-**Symbolism**
-*   **The Cyclic Train:** The loop made visible: the same passengers, the same departures, going nowhere.
-*   **Voluntary Chores:** The player tidies their own daydream — escapism re-inventing labor from within.
-*   **Generative Muzak:** The station itself hums a pleasant, endless score (`MetroMusicDirector.cs`) — comfort indistinguishable from sedation.
+The player arrives at a metro station where trains and commuters repeat an autonomous cycle. NPCs wander, approach authored boarding paths, enter through sliding doors, travel away, and later return to their original positions.
 
-**Key Scripts**
-*   `SubwayTrainController.cs`, `TrainPassengerDirector.cs`, `NPCTrainPassenger.cs`, `NPCScene3Wanderer.cs`, `NPCGrounding.cs`, `TrashCart.cs`, `MetroMusicDirector.cs`.
+Trash is scattered across the station. The player can collect it using a cleanup cart that follows when needed. Each collected item adds a quantized note to the station score. After twenty pieces, the project advances to Scene 4. A transition cube also exists as an alternate route.
 
----
+The metro is the narrative turning point. The fantasy is still musical and visually different from the factory, but waiting, commuting, and work have returned.
 
-### 4.4 Scene 4: The Concert / The Loop (The Trap)
+## 5.4 Scene 4: The Concert / The Loop
 
-**Narrative Overview**  
-The final scene delivers the daydream's promised reward: an open-air concert at night, performed by an NPC band before a dancing crowd. Near the stage floats a radial sequencer — a luminous ring of twelve slots with a sweeping playhead — surrounded by twelve glowing sound orbs. The player composes: each orb placed into a slot joins a musical loop, and with every filled slot the concert's music yields to the player's own creation. When the twelfth slot is filled and the loop plays through, the instrument reveals what it has always been: a clock. The tempo decelerates to exactly one tick per second, the playhead thins into a red second hand, numbers 1–12 surface over the filled slots, frozen hands appear at 9:00 — shift start — and the player is returned to the factory.
+The concert is the apparent reward at the end of the daydream. Synchronized musical stems are distributed between stereo playback and spatial stage objects. A performing band and fourteen-person audience make the spectacle responsive: as the player's loop takes over, the band slows, the crowd turns toward the sequencer, and both freeze during the clock reveal.
 
-**Mechanics & Interaction**
-*   **The Radial Sequencer:** `RadialSequencer.cs` runs a DSP-clock-scheduled 12-step loop with procedurally synthesized timbres; `SequencerSampleOrb.cs` provides grabbable, slot-snapping sound orbs with audible previews.
-*   **Displacement of the Band:** Each filled slot ducks the concert stems by one twelfth (`ConcertAudioDirector.cs`); the NPC musicians (`NPCMusicianPerformer.cs`) visibly wind down and freeze as their music disappears, and the audience (`NPCAudienceMember.cs`) turns away from the stage toward the player's creation.
-*   **The Reveal & Return:** `SequencerFinaleDirector.cs` decelerates the loop, collapses every placed tone into a mechanical tick, drains the ring into the Scene 1 wall-clock palette, and returns the player to `scene1` — where the factory score now plays subtly degraded (faster, detuned).
+The final interaction is a twelve-slot radial sequencer. The player previews and places sound orbs into the ring. Each filled slot adds a tone and reduces the concert by one twelfth. When all slots are filled, the concert has been replaced by the player's composition.
 
-**Symbolism**
-*   **Twelve Slots:** The clock face hidden in plain sight — the player's creativity was always being arranged into clock positions.
-*   **Replacing the Band:** Creative agency displaces spectacle, only to discover it has built the instrument of its own return to labor-time.
-*   **The Frozen Crowd:** At the reveal, band and audience freeze mid-pose — a tableau of stopped workers facing the clock the player built.
-*   **The Degraded Return:** Scene 1 returns slightly faster and out of tune: the loop is the same; the loop is never the same.
+After the complete sequence plays, the ring slows to one step per second. Its colors drain, the slots become clock positions, the playhead becomes a red second hand, and fixed hands appear at 9:00. The player's tones are replaced by ticks, the orbs can no longer be removed, and the factory reloads.
 
-**Thematic Arc**
+The second shift is slightly faster and detuned. The loop has closed, but it is not exactly the same.
 
-| | Scene 1 | Scene 2 | Scene 3 | Scene 4 |
-|---|---------|---------|---------|---------|
-| **Space** | Factory | Playground | Metro platform | Concert |
-| **Mode** | Labor | Play | Waiting | Creation |
-| **The loop** | Imposed | Broken | Observed | Self-built |
+## 6. Music and Sound Design
 
-**Key Scripts**
-*   `RadialSequencer.cs`, `SequencerSampleOrb.cs`, `SequencerFinaleDirector.cs`, `ConcertAudioDirector.cs`, `NPCMusicianPerformer.cs`, `NPCAudienceMember.cs`.
+## 6.1 Compositional Strategy
 
----
+The project's musical systems use repetition as both material and subject. Ostinatos, tape loops, train cycles, stem loops, and step sequencing are not only sound-design techniques; they express the narrative.
 
-## 5. Technical Implementation
+The factory and metro systems are influenced by Brian Eno's use of the studio as a compositional tool and by incommensurate tape-loop structures in which layers repeat at different lengths and do not return to the same alignment.
 
-### 5.1 Platform & Tools
-*   **Device:** Meta Quest 3S (Android)
-*   **Engine:** Unity 6 (6000.2.10f1)
-*   **Frameworks:** OpenXR, XR Interaction Toolkit, Unity Input System
-*   **Language:** C#
-*   **Version Control:** Git
+## 6.2 Scene 1: Machine Recordings as Score
 
-### 5.2 Key Systems & Architecture
+`FactoryMusicDirector` loads machine recordings and slices them at runtime into:
 
-#### 5.2.1 XR Interaction System
-The project utilizes the **XR Interaction Toolkit** for robust hand tracking and controller support. Custom configurations on `XRGrabInteractable` allow for precise manipulation of cubes. Physics are tuned for realistic weight and collision response.
+- percussive transients for the factory ostinato;
+- long tonal tape-loop materials;
+- steam breaths;
+- spatial layers attached to factory objects.
 
-#### 5.2.2 Procedural Generation
-To ensure replayability and a sense of scale, much of the world is generated procedurally at runtime.
-*   **Factory:** `FactoryFloorGenerator.cs` and `MachineGenerator.cs` construct the industrial environment.
-*   **Playground:** `Scene2RoomGenerator.cs` builds the reactive room, while `Scene2TwentyColoredCubesGenerator.cs` handles the distribution of interactive cubes.
+The score runs at 76 BPM on a sample-accurate DSP grid. Correct sorts produce quantized pentatonic notes and wrong sorts produce a distinct error figure. As the quota rises, the melodic register rises. On the second shift, the tempo increases by 6 BPM and selected tape loops are slightly detuned.
 
-#### 5.2.3 Dynamic Environment Logic
-*   **Reactive Walls:** The `ColorReactiveWall.cs` script detects collisions and applies the material color of the colliding object to the wall mesh.
-*   **Game Management:** A central `GameManager.cs` orchestrates the state flow, tracking the sorting quota and triggering scene transitions.
+## 6.3 Scene 2: Color as Timbre
 
-#### 5.2.4 Audio Immersion
-*   **Spatial Audio:** Sounds are spatialized to ground the user.
-*   **Procedural Audio:** Impact sounds are dynamically generated and modulated by collision velocity through `CubeCollisionSound.cs`, while `CubeGrabAudio.cs` provides audio feedback when objects are grabbed.
-*   **Atmosphere:** `RuntimeAtmosphereController.cs` manages the visual atmosphere (lighting, fog) to create the oppressive factory mood.
+Each cube color is associated with a synth recording. The loop plays while the cube is held and fades after release. Impact velocity influences response, and wall hits combine color change with musical feedback.
 
-#### 5.2.5 Optimization
-*   **Lighting:** `LightingOptimizer.cs` manages real-time vs. baked lighting.
-*   **Asset Management:** Efficient use of prefabs and object pooling prevents garbage collection spikes.
+Audio loudness is normalized across the five source recordings to keep one color from dominating the scene.
 
-### 5.3 Folder Structure
-*   **Assets/**: Main project assets (Materials, Prefabs, Scenes, Scripts, Resources).
-*   **Library/**: Unity-generated cache.
-*   **Packages/**: Unity package manifest.
-*   **ProjectSettings/**: Unity project settings.
+`StreetAmbienceDirector` repairs the street's environmental playback and makes the collapse an audible transition. It converts unnaturally looping animal and voice clips into intermittent events, supplies procedural shop-radio and electrical sounds, and fades in city rumble and car passes once the room opens.
 
----
+## 6.4 Scene 3: The Station as Ensemble
 
-## 6. Development Process
+`MetroMusicDirector` runs at 58 BPM in A minor pentatonic. It creates a shared musical world from:
 
-### Phase 1: Project Setup & Prototyping
-*   Repository initialization and XR configuration (OpenXR, XR Interaction Toolkit).
-*   Prototyping core XR mechanics: grabbing, throwing, and collision detection.
-*   The "sorting" mechanic was built first to establish the baseline interaction.
+- rail ostinatos;
+- bench tape-loop dyads;
+- fluorescent hum drones;
+- trash-can tick patterns;
+- NPC hums, murmurs, and whispers;
+- tunnel rumble;
+- brake hiss;
+- train-event and idle PA announcements;
+- quantized trash-collection melody.
 
-### Phase 2: Environment & Tools
-*   Developed procedural scene generation scripts for rapid prototyping.
-*   Created distinct visual identities: low-poly industrial assets for the factory, high-contrast vibrant materials for the playground.
-*   Implemented custom editor tools for batch asset creation.
+The station remains musically coherent even though its layers repeat independently. This creates a calm surface for a world built from routines.
 
-### Phase 3: Scripting & Logic
-*   Implemented the core logic for "The Shift," connecting `BinCollector` to `GameManager` to track the 30-cube quota.
-*   Developed the `AnomalyAssetGenerator` and transition logic.
-*   Implemented the reactive wall system for Scene 2.
+## 6.5 Scene 4: Player Composition and Capture
 
-### Phase 4: Polish & Optimization
-*   Performance tuning for Quest 3S (profiling, reducing draw calls).
-*   Visual and audio polish: Haptic feedback, spatial audio, and baked lighting.
-*   Deployed APK to device for real-world testing and iteration.
+`ConcertAudioDirector` starts all concert stems on one DSP timestamp. Some stems are heard as stereo layers while others come from stage objects.
 
----
+The radial sequencer uses procedurally synthesized tones and a DSP-locked playhead. Placement feedback, haptics, and slot glow support musical interaction. As the player fills the sequencer, the concert and the band's movement are progressively reduced. The finale converts the musical pulse into clock time.
 
-## 7. Outcome & Conclusion
+## 7. Technical Implementation
 
-### 7.1 Current Status
-The project successfully implements the complete narrative arc. Users can experience the transition from the monotonous sorting task to the liberating creative playground. The application runs stably on the Meta Quest 3S with functional hand tracking and physics.
+### 7.1 Platform and Interaction
 
-### 7.2 Reflection
-The project demonstrates the potential of VR to convey complex psychological and sociological themes. By placing the user physically inside the metaphor, the abstract concepts of "alienation" and "freedom" become tangible, felt experiences. The contrast between the two scenes effectively communicates the relief and joy of the daydreaming state.
+The project is built in Unity 6 for Meta Quest 3S using OpenXR, XR Interaction Toolkit, XR Hands, and the Unity Input System. Interactions are based on grabbing, releasing, throwing, collision, trigger volumes, and haptic feedback.
 
-### 7.3 Future Work
-*   **Expanded Narrative:** Further developing the narrative depth to enhance the psychological contrast between the two worlds.
-*   **Enhanced Creativity:** Adding tools in the Playground scene for sculpting or gravity manipulation, further empowering the user.
-*   **User Studies:** Conducting formal user testing to measure the emotional impact and interpretability of the experience.
+### 7.2 Procedural and Tool-Based Workflow
 
----
+The project uses procedural runtime systems and editor tools to build and repair scenes. Factory environments, instruments, speakers, room elements, interaction components, train doors, sequencer components, band characters, audience characters, and lighting helpers can be generated or configured through scripts.
 
-## 8. References
-1.  Somer, E. (2002). *Maladaptive Daydreaming: A Qualitative Inquiry*. Journal of Contemporary Psychotherapy.
-2.  Marx, K. (1844). *Economic and Philosophic Manuscripts*.
-3.  Breton, A. (1924). *Manifesto of Surrealism*.
-4.  Unity Technologies. (2024). *Unity Documentation*.
-5.  Meta. (2024). *Meta Quest Developer Documentation*.
+This approach allowed rapid iteration but also created a final integration requirement: the newest Scene 4 sequencer, band, and audience systems must be installed with their editor tools and saved into `Scene 4.unity` before the final build.
+
+### 7.3 Autonomous Metro System
+
+The metro required a hybrid navigation approach. NPCs use NavMesh while wandering and while approaching the start of a boarding route. They then switch to explicit waypoint chains for reliable movement through train doors and interiors. The train waits for all passengers or a timeout before closing.
+
+The final cyclic system stores each NPC's original position, hides the NPC after travel, and restores it for the next loop.
+
+### 7.4 Quest 3S Reliability
+
+Several issues appeared only or mainly on the device:
+
+- XR rig position and tilt;
+- missing or inconsistent trash physics;
+- unstable grab behavior;
+- NPC LOD disappearance;
+- floating NPC appearance without realtime shadows;
+- lighting differences;
+- train passenger alignment.
+
+The project addresses these with runtime physics repair, diagnostic logging, blob shadows, light-probe tooling, transform and LOD fixes, and repeated device testing.
+
+### 7.5 Project Scale
+
+At the final documentation pass, the current `main` workspace contains:
+
+- four build scenes;
+- 69 runtime scripts;
+- 14 editor scripts;
+- approximately 16,000 lines of project C#;
+- multiple Resources-based sound-design libraries;
+- Android APK build artifacts.
+
+## 8. Development Process
+
+### 8.1 MUS 441: Establishing the Core Contrast
+
+The first semester established:
+
+- Quest and XR project setup;
+- factory environment and sorting mechanic;
+- quota, anomaly, and Scene 1-to-Scene 2 transition;
+- colored cubes and reactive walls;
+- basic spatial and interaction sound;
+- the original conceptual contrast between alienation and creative freedom.
+
+The MUS 441 submission used the working title **Mind Palace** and documented a two-scene experience.
+
+### 8.2 MUS 442: Expanding and Revising the Thesis
+
+The second semester changed the project at both narrative and technical levels.
+
+The playground gained destructible progression. A previous Scene 3 direction was replaced by the metro station. Scene 4 was established as a concert. Train systems, NPC behavior, trash cleanup, new transition logic, and device diagnostics were developed. In June, the factory and metro received generative musical systems, Scene 2 audio and street ambience were polished, trash deposits were made more reliable, and the concert finale was redesigned around the radial sequencer, responsive band and audience, and clock reveal.
+
+The most important conceptual revision was the move from a binary escape story to a circular and ambivalent one.
+
+## 9. Challenges and Solutions
+
+### 9.1 Reliable NPC Boarding
+
+**Problem:** NavMesh alone was unreliable for entering and exiting a moving train, and NPCs could slide, disappear, or face backward.
+
+**Solution:** Use NavMesh only for the approach, then switch to authored waypoint chains for door and interior movement. Make the train wait for passenger completion and reset passengers cyclically.
+
+### 9.2 Standalone Device Differences
+
+**Problem:** Editor behavior did not always match Quest behavior.
+
+**Solution:** Add runtime repair systems, device-visible debug logging, NPC diagnostics, blob shadows, LOD fixes, and repeated on-headset testing.
+
+### 9.3 Making Interaction Musically Legible
+
+**Problem:** Raw environmental recordings and uneven source clips could obscure interaction feedback.
+
+**Solution:** Create distinct synthesized confirmation/error tones, normalize Scene 2 loop loudness, use DSP quantization, spatialize important sources, and duck competing layers.
+
+### 9.4 Connecting the Ending to the Thesis
+
+**Problem:** A concert could feel like a large but thematically disconnected final scene.
+
+**Solution:** Make the player progressively replace the concert with a personal twelve-step loop, then reveal the loop as the factory clock. This makes the ending an action the player performs rather than a message delivered to them.
+
+## 10. Outcome and Evaluation
+
+The project now has a coherent four-scene narrative and a stronger relationship between its conceptual argument, sound design, and interaction systems. Its most successful design strategy is the transformation of repeated gestures and loops across contexts.
+
+The final version demonstrates:
+
+- interactive sound composition as narrative structure;
+- a complete circular story rather than a simple reality/fantasy contrast;
+- technically complex autonomous metro behavior;
+- generative music integrated with scene objects and player actions;
+- an ending in which the central argument is expressed through mechanics and sound.
+
+No formal user study has been completed. Evaluation has primarily taken the form of iterative implementation, Editor testing, device testing, debugging, and comparison against the intended narrative flow.
+
+## 11. Authorship and Resources
+
+**Semiha Paksoy** conceived the project, developed its narrative and conceptual framework, designed its interactions and sound systems, implemented and integrated the Unity systems, assembled scenes, tested the Quest build, and produced the project documentation.
+
+The project uses third-party Unity asset packages and source recordings as production resources. Their project-specific behavior, interaction logic, procedural music systems, spatialization, scene roles, and narrative integration were authored for **The Shift**.
+
+## 12. Current Finalization Status
+
+The full project architecture and intended finale are implemented. Before the presentation build is considered final, the following checks remain:
+
+- install and save the radial sequencer, performing band, and audience into Scene 4;
+- decide whether to disable the active direct-transition cubes in Scene 1 and Scene 2;
+- decide whether Scene 1 anomaly timing should remain spawn-count based or follow the correct-sort score;
+- verify the full four-scene loop on Meta Quest 3S;
+- complete the cross-scene audio master pass;
+- improve Scene 4 drum sounds;
+- confirm NPC reliability in a long device session;
+- prepare the required final recording and presentation materials.
+
+These tasks are tracked in [MUS442_SUBMISSION_CHECKLIST.md](MUS442_SUBMISSION_CHECKLIST.md).
+
+## 13. Conclusion
+
+The first version of the project asked whether imagination could provide freedom from monotonous labor. The final version asks a more complicated question: what happens when the structures of labor enter the imagination itself?
+
+The project answers through a sequence of embodied transformations. Sorting becomes throwing, throwing becomes cleaning, cleaning becomes composition, and composition becomes a clock. Sound connects these transformations and makes the loop perceptible before it becomes explicit.
+
+**The Shift** treats escape as real, valuable, and fragile. The player reaches creative agency, but that agency is not outside history, labor, or time. At the end, the factory returns. It sounds different because the player has heard what lies inside its rhythm.
+
+## 14. References
+
+1. Breton, A. (1924). *Manifesto of Surrealism*.
+2. Eno, B. (1978). *Ambient 1: Music for Airports*.
+3. Marx, K. (1844). *Economic and Philosophic Manuscripts of 1844*.
+4. Radiohead and Epic Games. (2021). *Kid A Mnesia Exhibition*.
+5. Somer, E. (2002). "Maladaptive Daydreaming: A Qualitative Inquiry." *Journal of Contemporary Psychotherapy*.
+6. Unity Technologies. Unity documentation and XR Interaction Toolkit documentation.
+7. Meta. Meta Quest developer documentation.

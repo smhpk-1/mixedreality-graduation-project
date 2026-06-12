@@ -54,6 +54,9 @@ public class MetroMusicDirector : MonoBehaviour
     [Range(0f, 1f)] public float hissVolume     = 0.45f; // tren fren hışırtısı
     [Range(0f, 1f)] public float cartNoteVolume = 0.55f; // çöp toplama notaları
 
+    [Tooltip("Sahne master'ı — loudness pass: tüm katmanlara uygulanır, sahneler arası denge trim'i")]
+    [Range(0f, 2f)] public float masterVolume = 1f;
+
     [Header("Mekansal Ses (3D)")]
     public float layerMinDistance = 2f;
     public float layerMaxDistance = 25f;
@@ -292,21 +295,21 @@ public class MetroMusicDirector : MonoBehaviour
             int octave = rng.NextDouble() < 0.3 ? 12 : 0;
             src.clip   = padClip;
             src.pitch  = SemitoneToPitch(degree + octave - 12); // A2-A3 bandı: insan hum'ı
-            src.volume = npcVoiceVolume * 0.8f;
+            src.volume = npcVoiceVolume * masterVolume * 0.8f;
         }
         else if (roll < 0.8 && murmurs.Count > 0)
         {
             // Anlaşılmaz konuşma mırıltısı
             src.clip   = murmurs[rng.Next(murmurs.Count)];
             src.pitch  = SemitoneToPitch(rng.Next(-3, 2));
-            src.volume = npcVoiceVolume;
+            src.volume = npcVoiceVolume * masterVolume;
         }
         else if (whispers.Count > 0)
         {
             // Fısıltı
             src.clip   = whispers[rng.Next(whispers.Count)];
             src.pitch  = 1f;
-            src.volume = npcVoiceVolume * 1.1f;
+            src.volume = npcVoiceVolume * masterVolume * 1.1f;
         }
         else return;
 
@@ -339,7 +342,7 @@ public class MetroMusicDirector : MonoBehaviour
         foreach (var pa in paSources)
         {
             pa.clip   = speech;
-            pa.volume = paVolume / Mathf.Sqrt(paSources.Count); // çok hoparlör = tek tek kısık
+            pa.volume = paVolume * masterVolume / Mathf.Sqrt(paSources.Count); // çok hoparlör = tek tek kısık
             pa.PlayScheduled(speechTime);
         }
 
@@ -480,7 +483,7 @@ public class MetroMusicDirector : MonoBehaviour
             src.clip         = humLoop;
             src.loop         = true;
             src.pitch        = SemitoneToPitch(DroneChord[i % DroneChord.Length]);
-            src.volume       = droneVolume;
+            src.volume       = droneVolume * masterVolume;
             src.minDistance  = 1.5f;
             src.maxDistance  = 12f;
             src.Play();
@@ -505,7 +508,7 @@ public class MetroMusicDirector : MonoBehaviour
             var src = NewChildSource($"Rumble_{anchor.name}", anchor.position);
             src.clip        = rumbleLoop;
             src.loop        = true;
-            src.volume      = rumbleVolume;
+            src.volume      = rumbleVolume * masterVolume;
             src.minDistance = 4f;
             src.maxDistance = 45f;
             src.Play();
@@ -591,7 +594,7 @@ public class MetroMusicDirector : MonoBehaviour
         src.transform.position = pos;
         src.clip         = clip;
         src.pitch        = pitch;
-        src.volume       = volume;
+        src.volume       = volume * masterVolume;
         src.spatialBlend = spatial ? 1f : 0f;
         src.minDistance  = minDist;
         src.maxDistance  = maxDist;

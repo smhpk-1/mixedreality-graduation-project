@@ -30,6 +30,7 @@ public class ConcertAudioDirector : MonoBehaviour
 
         // Runtime'da oluşturulur
         [System.NonSerialized] public AudioSource runtimeSource;
+        [System.NonSerialized] public float normGain = 1f; // RMS eşitleme çarpanı
     }
 
     [Header("Stem'ler")]
@@ -38,6 +39,14 @@ public class ConcertAudioDirector : MonoBehaviour
     [Header("Ayarlar")]
     public bool  playOnAwake = true;
     public float startDelay  = 0f;
+
+    [Header("Master (loudness pass)")]
+    [Tooltip("Sahne master'ı — tüm stem'lere uygulanır. Sahneler arası denge için trim.")]
+    [Range(0f, 2f)] public float masterVolume = 1f;
+
+    [Tooltip("Stem'leri yüklerken ortak RMS hedefine eşitle (ölçülen yayılım 14 dB'di: " +
+             "drum −18.7 / bass −24.3 / FX −32.4 LUFS). stem.volume bu eşit zeminin üstünde offset olur.")]
+    public bool normalizeStems = true;
 
     [Header("Ducking")]
     [Tooltip("Duck hedefine yumuşak geçiş süresi (saniye). Sequencer doldukça konser kısılır.")]
@@ -63,9 +72,12 @@ public class ConcertAudioDirector : MonoBehaviour
                 ? stem.sourceObject
                 : gameObject; // 2D stem'ler bu objeye eklenir
 
+            // Loudness pass: her stem ortak RMS zeminine eşitlenir
+            stem.normGain = normalizeStems ? AudioMasterUtil.NormalizationGain(stem.clip) : 1f;
+
             var src = target.AddComponent<AudioSource>();
             src.clip        = stem.clip;
-            src.volume      = stem.volume;
+            src.volume      = EffectiveVolume(stem);
             src.loop        = false;
             src.playOnAwake = false;
             src.priority    = 0;
@@ -103,8 +115,12 @@ public class ConcertAudioDirector : MonoBehaviour
         PerformanceLevel = duckCurrent;
         foreach (var stem in stems)
             if (stem.runtimeSource != null)
-                stem.runtimeSource.volume = stem.volume * duckCurrent;
+                stem.runtimeSource.volume = EffectiveVolume(stem) * duckCurrent;
     }
+
+    /// <summary>Stem'in nihai seviyesi: sanatsal offset × RMS eşitleme × sahne master'ı.</summary>
+    private float EffectiveVolume(Stem stem)
+        => stem.volume * stem.normGain * masterVolume;
 
     /// <summary>
     /// Konser seviyesi hedefi (0-1). Sequencer her dolduğunda azaltılır —

@@ -1,105 +1,212 @@
-# Storyboard: Mixed Reality Graduation Project
+# The Shift - Final Storyboard
 
-## Scene 1: The Shift (Factory Setting)
+This storyboard describes the intended final MUS 442 presentation flow. Each step combines visual action, player interaction, sound, and narrative purpose.
 
-### Step 1: The Awakening
-**Visual:** The user opens their eyes to find themselves standing at a workstation in a dim, oppressive factory. A conveyor belt stretches out before them, humming with mechanical life. From the darkness above, a steady stream of red and blue cubes begins to descend onto the belt, moving relentlessly towards the user.
-**Action:** The user looks around, establishing their presence in this industrial environment.
-**Audio:** The low, rhythmic hum of machinery and the clanking of the conveyor belt fill the air, setting a monotonous tone.
+## Scene 1: The Shift
 
-### Step 2: The Error
-**Visual:** The user reaches out with a virtual hand and grabs a red cube from the moving belt. They attempt to place it into a bin clearly marked for blue items.
-**Action:** As the red cube nears the blue bin, the system emits a sound indicating that the action is incorrect.
-**Audio:** A comical, jarring "buzzer" or "error" sound plays, signaling a mistake and reinforcing the rigid rules of the factory.
+### 1. Awakening
 
-### Step 3: The Success
-**Visual:** Correcting their action, the user grabs a blue cube and guides it towards the matching blue bin. The cube slides smoothly into the receptacle without resistance.
-**Action:** The user successfully sorts the object according to the factory's demands.
-**Audio:** A satisfying, crisp "ding" sound plays, providing positive reinforcement and a brief sense of accomplishment in the repetitive task.
+**Visual:** The player stands at a conveyor workstation in a dim factory. Machines, reports, sorting bins, and a wall clock surround them.
 
-### Step 4: The Anomaly
-**Visual:** While the routine continues, abnormal-looking green cubes that have never existed before start appearing on the conveyor belt. These cubes are anomalies because there is no corresponding green bin to place them in.
-**Action:** The moment the user focuses on these anomalies and touches one of the green cubes, they are immediately spawned into Scene 2.
-**Audio:** The normal mechanical hum and ambient factory sounds continue without any distortion; the transition happens instantly.
+**Action:** The player looks around and identifies the red and blue bins.
 
----
+**Sound:** Spatial machine recordings, conveyor movement, steam, and a slow generative ostinato establish the factory's pulse.
+
+**Purpose:** Place the player inside a system before explaining it.
+
+### 2. Instruction
+
+**Visual:** Red and blue cubes arrive on the conveyor.
+
+**Action:** The player places a cube into a bin. A wrong bin rejects the action with a distinct error sound; a correct bin accepts it.
+
+**Sound:** Correct sorts create quantized pentatonic confirmation notes. Incorrect sorts create a synchronized dissonant buzz.
+
+**Purpose:** Teach the rules through action and feedback.
+
+### 3. The Shift
+
+**Visual:** Cubes continue to arrive while the run of thirty standard cubes approaches its end.
+
+**Action:** The player repeats the sorting task.
+
+**Sound:** Each correct action adds to a rising musical line. The machine score remains stable and repetitive.
+
+**Purpose:** Make monotony and productivity physically felt rather than only represented.
+
+### 4. The Anomaly
+
+**Visual:** After the thirtieth standard cube has spawned, green glowing cubes appear. No green bin exists.
+
+**Action:** The player touches an anomaly cube.
+
+**Sound:** The factory score is interrupted as the scene changes.
+
+**Purpose:** Introduce an object that cannot be processed by the factory's categories.
 
 ## Scene 2: The Colorful Playground
 
-### Step 1: The New World
-**Visual:** The user spawns in a completely different space: a minimally designed room with dark walls, notably smaller than the factory in the first scene. A grid of vibrant, colorful cubes (red, blue, green, yellow, purple) is spread across the floor. At the points where the cubes interact with the room, the space begins to gain color.
-**Action:** The user looks at the colorful array, realizing the freedom and the absence of machinery in this new space.
-**Audio:** The oppressive factory noise is gone, replaced by a dreamlike silence and a magical ambience.
+### 1. New Rules
 
-### Step 2: Exploration
-**Visual:** The user steps forward and picks up a cube from the ground.
-**Action:** The user rotates the cube in their hand, inspecting it closely and realizing it is not a product to be sorted, but an object to be played with.
-**Audio:** When the cube is held, a synth sound assigned to its specific color is heard, inviting interaction.
+**Visual:** The player enters a compact dark room filled with twenty bright cubes in five colors.
 
-### Step 3: Creation
-**Visual:** The user throws a cube across the room. It arcs through the air and strikes a wall. Upon impact, the wall instantly changes color, becoming a massive canvas of that same color.
-**Action:** The user discovers their power to paint the world through play.
-**Audio:** A satisfying, musical impact sound echoes as the wall transforms, emphasizing the action.
+**Action:** The player picks up a cube without being told where it belongs.
 
-### Step 4: The Masterpiece
-**Visual:** The scene concludes with a general view of the room, which has been completely transformed. The once dark and minimal space is now a chaotic, beautiful mosaic of colors. Walls are splashed with various colors, standing as a testament to the user's creative expression.
-**Action:** The user stands in the center of their creation. They realize they can create their own musical composition and perform in real-time using these colorful cubes that emit different sounds.
-**Audio:** The audio is entirely up to the player's decision. By using the cubes—each assigned a different synth tone—the player creates their own unique soundscape, celebrating the freedom of the playground.
+**Sound:** Holding the cube reveals a synth voice linked to its color.
 
-### Step 5: The Breakthrough
-**Visual:** As the user continues to play, the walls slowly rumble and sink a little with each impact. After 20 cube hits in total across all walls, the room gives way: the struck wall collapses, the ceiling and remaining walls follow, and the cubes themselves dissolve along with the room, triggering the transition to the next space.
-**Action:** The user keeps throwing cubes at the walls until the entire room breaks down.
-**Audio:** A crumbling, heavy stone-grinding sound plays as the room sinks, fading out the energetic playground sounds and leading into the transition.
+**Purpose:** Reframe the cube from product to instrument.
 
----
+### 2. Painting with Impact
+
+**Visual:** A thrown cube strikes a wall, and the wall changes to the cube's color.
+
+**Action:** The player throws different colors at different surfaces.
+
+**Sound:** Color-specific tones, physical impact, and a fading response make each throw musical.
+
+**Purpose:** Give the player immediate creative influence over the environment.
+
+### 3. Free Performance
+
+**Visual:** The room becomes a changing composition of color. A saxophone and surreal details reinforce the musical dream space.
+
+**Action:** The player combines repeated throws, colors, and sounds into an improvised performance.
+
+**Sound:** The player determines the density and sequence of tones through physical gesture.
+
+**Purpose:** Present the most direct contrast with factory labor.
+
+### 4. Collapse
+
+**Visual:** Walls sink and shake as the total number of hits approaches twenty. On the final hit, the struck wall and then the room collapse.
+
+**Action:** The player continues playing until the environment gives way.
+
+**Sound:** Playground tones are overtaken by structural collapse, then the enclosed room opens into city rumble, intermittent street voices, and passing traffic.
+
+**Purpose:** Show that even a liberating space cannot remain permanently open or stable.
 
 ## Scene 3: The Platform
 
-### Step 1: The Descent
-**Visual:** The user finds themselves on an underground metro platform. Fluorescent lights hum overhead, benches line the wall, and commuter NPCs wander the platform, waiting. A train arrives, its doors slide open, passengers board and exit, and it departs again — an endless cycle.
-**Action:** The user takes in the space: the daydream has landed somewhere quieter, more ordinary, suspended between freedom and routine.
-**Audio:** A generative ambient score grows out of the station itself — bench drones, fluorescent hum, rail ostinatos, the murmur of NPCs — all locked to one musical grid. PA announcements accompany the train's arrivals and departures.
+### 1. Liminal Arrival
 
-### Step 2: The Chore
-**Visual:** Litter is scattered across the platform. A cleaning cart stands nearby. The user discovers that trash can be picked up and tossed into the cart.
-**Action:** The user tidies the platform piece by piece — voluntarily doing janitorial work inside their own daydream.
-**Audio:** Each collected piece of trash plays a quantized melody note, folding even the cleanup into the station's score.
+**Visual:** The player appears on a metro platform under fluorescent lights. Commuters wander and wait.
 
-### Step 3: The Cycle
-**Visual:** The train keeps returning. The same NPCs board, depart, and reappear at their original positions — the loop is visible now, if the user cares to notice.
-**Action:** The user watches the cycle repeat, free to board nothing and go nowhere.
-**Audio:** The generative score continues unbroken; the train cycle adds its own recurring sonic events.
+**Action:** The player observes the station and the approaching train.
 
-### Step 4: The Way Out
-**Visual:** A glowing anomalous cube waits on the platform — the same kind of impossible object that broke the factory's logic.
-**Action:** The user grabs the cube and is carried deeper into the daydream, toward the concert.
-**Audio:** The station score continues until the moment of transition.
+**Sound:** Rails, benches, lights, trash cans, commuters, tunnel rumble, and distant announcements form a generative ambient score.
 
----
+**Purpose:** Move from exuberant fantasy into a quieter and more ambiguous dream space.
+
+### 2. Train Cycle
+
+**Visual:** A train arrives, opens its doors, waits for passengers, closes, departs, and eventually returns. NPCs board using the doors and interior paths.
+
+**Action:** The player watches or moves around the boarding flow.
+
+**Sound:** Brake hiss and PA announcements respond to train events.
+
+**Purpose:** Make the loop visible as a social and spatial routine.
+
+### 3. Cleanup
+
+**Visual:** Litter is scattered across the platform and a cleanup cart waits nearby.
+
+**Action:** The player grabs trash and deposits it into the cart. The cart follows only when the player moves far enough away.
+
+**Sound:** Every collected item adds a quantized pentatonic note; every fifth item adds a confirmation interval.
+
+**Purpose:** Let labor return in a voluntary, musical, and apparently harmless form.
+
+### 4. Reappearance
+
+**Visual:** Passengers who left with the train reappear at their original positions and resume wandering.
+
+**Action:** The player recognizes, or fails to recognize, that the station is repeating.
+
+**Sound:** The metro composition continues without a break, making the reset feel natural.
+
+**Purpose:** Show routine becoming normalized inside the daydream.
+
+### 5. Departure to the Concert
+
+**Visual:** After twenty collected trash items, the scene advances. A purple transition cube is also available as an alternate route.
+
+**Action:** The player completes the cleanup or grabs the cube.
+
+**Sound:** The cleanup melody resolves into a short arpeggio before transition.
+
+**Purpose:** Turn productive completion into access to the daydream's promised reward.
 
 ## Scene 4: The Concert / The Loop
 
-### Step 1: The Stage
-**Visual:** An open-air concert at night — stage, speaker stacks, drum kit, instruments. The music is alive and everywhere: some of it inside the user's head, some pouring spatially from the speakers and instruments on stage.
-**Action:** The user walks the grounds, finally inside the daydream's promised reward: pure spectacle, pure pleasure.
-**Audio:** Synchronized stems play in a hybrid mix — 2D stereo layers in the headset, 3D spatial layers from the stage objects.
+### 1. Spectacle
 
-### Step 2: The Instrument
-**Visual:** Near the stage floats a luminous ring — twelve slots arranged in a circle, a glowing hand sweeping around it. Twelve colored orbs hover in front of it, each humming its own synth voice when held.
-**Action:** The user grabs orbs and places them into the ring's slots. Each placed orb joins the loop, its tone triggered every time the sweeping hand passes.
-**Audio:** Placed tones play instantly on the beat, quantized to a tight grid. With every slot the user fills, the concert's music yields a little — the user's own loop is gradually replacing the band.
+**Visual:** The player enters an outdoor night concert with a stage, band, dancing audience, instruments, and speaker stacks.
 
-### Step 3: The Masterpiece
-**Visual:** All twelve slots filled, the ring pulses with the user's complete composition. The concert has gone quiet; only the user's creation plays.
-**Action:** The user stands before the loop they built, listening to it revolve.
-**Audio:** The user's twelve-step loop, alone, at full presence.
+**Action:** The player explores the space and approaches the music.
 
-### Step 4: The Recognition
-**Visual:** The loop begins to slow. Color drains from the ring — white face, black rim. Numbers fade in over the slots: 1 through 12. The sweeping hand thins into a red second hand. Frozen hour and minute hands appear, reading 9:00. The orbs the user placed shrink into gray hour markers. It was never an instrument. It has twelve slots. It was always the clock.
-**Action:** The user reaches for an orb — and can no longer take it back. The loop doesn't belong to them anymore.
-**Audio:** One by one, the user's tones are replaced by a dry mechanical tick. The tempo settles at exactly one tick per second. Tick. Tock.
+**Sound:** Synchronized concert stems combine headset-centered stereo layers with spatial layers emitted by instruments and speakers.
 
-### Step 5: The Return
-**Visual:** Darkness closes in around the user until only the ticking remains. Then: the factory. The conveyor. The cubes. The wall clock. The shift begins again — but something in the machines hums slightly out of tune now, and the belt runs a touch faster.
-**Action:** The user is back at their workstation. There is sorting to do.
-**Audio:** The factory's generative score returns, subtly degraded — detuned tape loops, a faster pulse. The loop is the same. The loop is never the same.
+**Purpose:** Deliver the fantasy at its largest and most seductive scale.
+
+### 2. The Instrument
+
+**Visual:** A luminous radial sequencer floats near the stage. Twelve colored sample orbs hover nearby.
+
+**Action:** The player grabs an orb, previews its tone, and places it into a glowing slot.
+
+**Sound:** Placement is quantized and confirmed with haptics. The new tone joins the loop.
+
+**Purpose:** Give the player direct compositional agency.
+
+### 3. Replacing the Concert
+
+**Visual:** More slots fill, the band gradually slows toward stillness, and the audience turns away from the stage toward the player's sequencer.
+
+**Action:** The player fills, removes, and rearranges orbs.
+
+**Sound:** Each occupied slot reduces the concert level by one twelfth. The player's loop gradually replaces the stage performance.
+
+**Purpose:** Transform the player from listener into composer.
+
+### 4. The Complete Loop
+
+**Visual:** All twelve slots are filled and pulse as one complete pattern.
+
+**Action:** The player listens to the full loop.
+
+**Sound:** The concert is silent; only the player's sequence remains for two complete revolutions.
+
+**Purpose:** Create a moment of ownership before the reveal.
+
+### 5. Clock Reveal
+
+**Visual:** The ring slows, colors drain, numbers appear, the playhead becomes a red second hand, and the face settles at 9:00. Orbs shrink into hour markers while the band and audience freeze.
+
+**Action:** The player reaches for the orbs but can no longer remove them.
+
+**Sound:** Musical tones are progressively replaced by a dry tick until the sequence moves at one step per second.
+
+**Purpose:** Reveal that the player's creative loop has reproduced measured time.
+
+### 6. Second Shift
+
+**Visual:** Darkness closes around the player. The factory returns.
+
+**Action:** The player faces the workstation again.
+
+**Sound:** The factory score returns six BPM faster, with selected tape loops slightly detuned.
+
+**Purpose:** Close the narrative circle without making the return identical.
+
+## Presentation Emphasis
+
+For the final jury presentation, the most important live or recorded moments are:
+
+1. One correct and one incorrect factory sort.
+2. The anomaly transition.
+3. A color-and-sound wall impact followed by the Scene 2 collapse.
+4. NPC boarding, train departure, trash collection, and commuter reset.
+5. Concert ducking as sequencer slots fill.
+6. The full clock reveal and return to the second shift.

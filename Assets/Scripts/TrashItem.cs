@@ -44,5 +44,20 @@ public class TrashItem : MonoBehaviour
         // Bırakılınca fizik açık kalır — çöp düşer, yerde kalır
         rb.isKinematic = false;
         rb.useGravity  = true;
+
+        // XRI'ın bırakış sırasındaki rigidbody state restore'una karşı garanti:
+        // bir frame sonra tekrar zorla (çöp havada asılı kalmasın)
+        if (isActiveAndEnabled)
+            StartCoroutine(EnforceDropNextFrame());
+    }
+
+    private System.Collections.IEnumerator EnforceDropNextFrame()
+    {
+        yield return null;
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.useGravity  = true;
+        }
     }
 }

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="560" viewBox="0 0 1400 560" font-family="Helvetica, Arial, sans-serif">
+  <rect width="1400" height="560" fill="white"/>
+  <text x="700" y="40" text-anchor="middle" font-size="26" font-weight="bold" fill="#111">The Shift — Musical Arc of the Four-Scene Loop</text>
+
+  <!-- Scene boxes -->
+  <g stroke="#222" stroke-width="2" fill="#f4f4f4">
+    <rect x="60"  y="90"  width="290" height="170" rx="10"/>
+    <rect x="400" y="90"  width="290" height="170" rx="10"/>
+    <rect x="740" y="90"  width="290" height="170" rx="10"/>
+    <rect x="1080" y="90" width="280" height="170" rx="10"/>
+  </g>
+  <g fill="#111">
+    <text x="205" y="122" text-anchor="middle" font-size="20" font-weight="bold">SCENE 1 · The Shift</text>
+    <text x="205" y="150" text-anchor="middle" font-size="16">76 BPM · 16-step DSP grid</text>
+    <text x="205" y="174" text-anchor="middle" font-size="16">Machine ostinato (root + 5th)</text>
+    <text x="205" y="198" text-anchor="middle" font-size="16">4 tape loops: 21.3 / 26.7 / 33.1 / 39.9 s</text>
+    <text x="205" y="222" text-anchor="middle" font-size="16">Sorting = quantized pentatonic notes</text>
+    <text x="205" y="246" text-anchor="middle" font-size="16">Error = 110 Hz buzz (A2)</text>
+
+    <text x="545" y="122" text-anchor="middle" font-size="20" font-weight="bold">SCENE 2 · Playground</text>
+    <text x="545" y="150" text-anchor="middle" font-size="16">No grid — free play</text>
+    <text x="545" y="174" text-anchor="middle" font-size="16">5 color-coded synth voices</text>
+    <text x="545" y="198" text-anchor="middle" font-size="16">Loop while held, fade on release</text>
+    <text x="545" y="222" text-anchor="middle" font-size="16">Wall hits = color + tone events</text>
+    <text x="545" y="246" text-anchor="middle" font-size="16">Collapse opens city ambience</text>
+
+    <text x="885" y="122" text-anchor="middle" font-size="20" font-weight="bold">SCENE 3 · The Platform</text>
+    <text x="885" y="150" text-anchor="middle" font-size="16">58 BPM · A minor pentatonic</text>
+    <text x="885" y="174" text-anchor="middle" font-size="16">Station objects = ensemble</text>
+    <text x="885" y="198" text-anchor="middle" font-size="16">10 bench loops, 19.7 – 59.3 s</text>
+    <text x="885" y="222" text-anchor="middle" font-size="16">NPC voices, PA, rail ostinato</text>
+    <text x="885" y="246" text-anchor="middle" font-size="16">Trash pickup = quantized melody</text>
+
+    <text x="1220" y="122" text-anchor="middle" font-size="20" font-weight="bold">SCENE 4 · The Loop</text>
+    <text x="1220" y="150" text-anchor="middle" font-size="16">DSP-synced concert stems</text>
+    <text x="1220" y="174" text-anchor="middle" font-size="16">12-slot radial sequencer</text>
+    <text x="1220" y="198" text-anchor="middle" font-size="16">0.25 s/step → player composes</text>
+    <text x="1220" y="222" text-anchor="middle" font-size="16">Each slot mutes 1/12 of concert</text>
+    <text x="1220" y="246" text-anchor="middle" font-size="16">Finale: steps slow to 1.0 s</text>
+  </g>
+
+  <!-- forward arrows -->
+  <g stroke="#222" stroke-width="3" fill="#222">
+    <line x1="350" y1="175" x2="392" y2="175"/><polygon points="392,168 406,175 392,182"/>
+    <line x1="690" y1="175" x2="732" y2="175"/><polygon points="732,168 746,175 732,182"/>
+    <line x1="1030" y1="175" x2="1072" y2="175"/><polygon points="1072,168 1086,175 1072,182"/>
+  </g>
+  <g fill="#444" font-size="14">
+    <text x="378" y="160" text-anchor="middle">anomaly</text>
+    <text x="718" y="160" text-anchor="middle">collapse</text>
+    <text x="1058" y="160" text-anchor="middle">20 items</text>
+  </g>
+
+  <!-- clock transformation box -->
+  <rect x="430" y="330" width="540" height="120" rx="10" fill="#fff" stroke="#222" stroke-width="2" stroke-dasharray="8 5"/>
+  <text x="700" y="365" text-anchor="middle" font-size="19" font-weight="bold" fill="#111">CLOCK REVEAL — composition becomes the timekeeper</text>
+  <text x="700" y="393" text-anchor="middle" font-size="16" fill="#111">step interval 0.25 s → 1.0 s · tones → mechanical ticks · 12 slots → hour positions</text>
+  <text x="700" y="419" text-anchor="middle" font-size="16" fill="#111">playhead → red second hand · frozen hands at 9:00 — shift start</text>
+
+  <!-- return path -->
+  <g stroke="#993333" stroke-width="3" fill="none">
+    <path d="M 1220 260 L 1220 390 L 980 390"/>
+    <path d="M 430 390 L 205 390 L 205 274"/>
+  </g>
+  <polygon points="198,274 205,260 212,274" fill="#993333"/>
+  <text x="240" y="330" text-anchor="start" font-size="15" fill="#993333" font-weight="bold">second shift: 82 BPM,</text>
+  <text x="240" y="350" text-anchor="start" font-size="15" fill="#993333" font-weight="bold">tape loops slightly detuned</text>
+
+  <text x="700" y="510" text-anchor="middle" font-size="15" fill="#666">All scenes share one pitch language (minor pentatonic rooted on A) and sample-accurate AudioSettings.dspTime scheduling.</text>
+</svg>
