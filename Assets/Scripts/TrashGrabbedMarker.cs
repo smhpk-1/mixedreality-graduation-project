@@ -9,8 +9,17 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 [RequireComponent(typeof(XRGrabInteractable))]
 public class TrashGrabbedMarker : MonoBehaviour
 {
-    // Bu component sadece bir flag — özellik yok, sadece varlığı yeterli.
-    // Eklenme mantığı TrashGrabAutoMarker tarafından yönetilir.
+    // Flag + bırakılma zamanı kaydı. Eklenme mantığı TrashGrabAutoMarker'da.
+
+    /// <summary>Son bırakılma anı (Time.time). Cart "eldeyken/yeni bırakılmışken sayma" guard'ı için.</summary>
+    public float LastReleaseTime { get; private set; } = -999f;
+
+    private void Awake()
+    {
+        var grab = GetComponent<XRGrabInteractable>();
+        if (grab != null)
+            grab.selectExited.AddListener(_ => LastReleaseTime = Time.time);
+    }
 }
 
 /// <summary>

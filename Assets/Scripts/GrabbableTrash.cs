@@ -29,5 +29,7 @@ public class GrabbableTrash : MonoBehaviour
     {
         rb.isKinematic = false;
         rb.useGravity  = true;
+        // Hızlı fırlatmada cart trigger'ını tünelleyip kaçmasın
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
     }
 }
