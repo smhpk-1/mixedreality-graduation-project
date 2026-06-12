@@ -27,10 +27,15 @@ public class StreetAmbienceDirector : MonoBehaviour
 {
     public static StreetAmbienceDirector Instance { get; private set; }
 
-    [Header("Şehir Bed'i")]
-    [Range(0f, 1f)] public float cityBedVolume = 0.12f;
+    [Header("Rüzgar Bed'i")]
+    [Tooltip("2D yönsüz rüzgar ambiyansı — belirli bir yerden gelmez")]
+    [Range(0f, 1f)] public float cityBedVolume = 0.14f;
     [Tooltip("Oda çöktükten sonra bed'in yükselme süresi (saniye)")]
     public float cityFadeIn = 6f;
+
+    [Header("Storefront / Tabela")]
+    [Range(0f, 1f)] public float storefrontVolume = 0.3f;
+    [Range(0f, 1f)] public float signCreakVolume = 0.25f;
 
     [Header("Araba Geçişleri")]
     public float carIntervalMin = 12f;
@@ -74,9 +79,16 @@ public class StreetAmbienceDirector : MonoBehaviour
     private void Start()
     {
         FixStreetSources();
+        SetupStorefronts();
+        SetupSigns();
         BuildCityBed();
         carWhoosh = ProceduralStreet.CarWhoosh();
         StartCoroutine(CarPassLoop());
+
+        // Oyuncu adım sesleri — yürüme hissi için
+        var fs = new GameObject("PlayerFootsteps");
+        fs.transform.SetParent(transform, false);
+        fs.AddComponent<PlayerFootsteps>();
 
         // Odanın tavanını bul — oda çökünce deaktive olur, şehir o an açılır
         foreach (var t in FindObjectsByType<Transform>(FindObjectsSortMode.None))
@@ -172,15 +184,88 @@ public class StreetAmbienceDirector : MonoBehaviour
         }
     }
 
-    // ── Şehir bed'i ve araba geçişleri ──────────────────────────────────
+    // ── Storefront'lar: her dükkandan farklı, gündelik bir ses ──────────
+
+    /// <summary>
+    /// Sahnedeki "Shopfront" objelerine sırayla farklı ambiyanslar bağlar:
+    /// restoran (mırıltı + çatal-bıçak), market (dolap uğultusu + barkod bipleri),
+    /// dükkan radyosu. Hepsi 3D lokal kaynak — önünden geçerken duyulur.
+    /// </summary>
+    private void SetupStorefronts()
+    {
+        var shopfronts = new List<Transform>();
+        foreach (var t in FindObjectsByType<Transform>(FindObjectsSortMode.None))
+            if (t.name == "Shopfront") shopfronts.Add(t);
+        if (shopfronts.Count == 0) return;
+
+        // Deterministik sıra (pozisyona göre) — her çalışmada aynı dükkan aynı sesi alsın
+        shopfronts.Sort((a, b) => (a.position.x + a.position.z * 1000f)
+                        .CompareTo(b.position.x + b.position.z * 1000f));
+
+        for (int i = 0; i < shopfronts.Count; i++)
+        {
+            AudioClip clip;
+            float vol = storefrontVolume;
+            switch (i % 3)
+            {
+                case 0:  clip = ProceduralStreet.RestaurantAmbience(); break;
+                case 1:  clip = ProceduralStreet.MarketAmbience(); vol *= 0.85f; break;
+                default: clip = ProceduralStreet.ShopRadio(); vol *= 0.8f; break;
+            }
+
+            var go = new GameObject("ShopfrontAmbience_" + i);
+            go.transform.SetParent(shopfronts[i], false);
+            go.transform.localPosition = Vector3.up * 1.6f;
+            var src = go.AddComponent<AudioSource>();
+            src.clip = clip;
+            src.loop = true;
+            src.playOnAwake = false;
+            src.spatialBlend = 1f;
+            src.rolloffMode = AudioRolloffMode.Linear;
+            src.minDistance = 1.5f;
+            src.maxDistance = 9f;
+            src.dopplerLevel = 0f;
+            src.volume = vol;
+            src.time = Random.Range(0f, clip.length); // hepsi aynı anda başlamasın
+            src.Play();
+        }
+    }
+
+    // ── Tabelalar: rüzgarda sallanan metal gıcırtısı ────────────────────
+
+    private void SetupSigns()
+    {
+        var creak = ProceduralStreet.SignCreak();
+        foreach (var t in FindObjectsByType<Transform>(FindObjectsSortMode.None))
+        {
+            if (t.name != "StandingSign") continue;
+
+            var go = new GameObject("SignCreak");
+            go.transform.SetParent(t, false);
+            go.transform.localPosition = Vector3.up * 1.2f;
+            var src = go.AddComponent<AudioSource>();
+            src.clip = creak;
+            src.loop = false;
+            src.playOnAwake = false;
+            src.spatialBlend = 1f;
+            src.rolloffMode = AudioRolloffMode.Linear;
+            src.minDistance = 1f;
+            src.maxDistance = 6f;
+            src.dopplerLevel = 0f;
+            src.volume = signCreakVolume;
+            StartCoroutine(IntervalPlay(src, minGap: 9f, maxGap: 26f, pitchVar: 0.18f));
+        }
+    }
+
+    // ── Rüzgar bed'i ve araba geçişleri ─────────────────────────────────
 
     private void BuildCityBed()
     {
         bedSource = gameObject.AddComponent<AudioSource>();
-        bedSource.clip = ProceduralStreet.CityRumble();
+        bedSource.clip = ProceduralStreet.WindAmbience();
         bedSource.loop = true;
         bedSource.playOnAwake = false;
-        bedSource.spatialBlend = 0f; // uzak şehir — yönsüz
+        bedSource.spatialBlend = 0f; // rüzgar yönsüz AMBIYANSTIR — belirli bir kaynaktan gelmez
         bedSource.volume = 0f;       // oda çökünce fade-in
         bedSource.Play();
 
@@ -276,23 +361,257 @@ public static class ProceduralStreet
         return Bake("ElectricBuzz", s, rate, loopBlend: rate / 20);
     }
 
-    /// <summary>Uzak şehir uğultusu — alçak geçirilmiş kahverengi gürültü.</summary>
-    public static AudioClip CityRumble()
+    /// <summary>
+    /// Rüzgar ambiyansı. Eski "CityRumble" (kahverengi gürültü) dalga sesi gibi
+    /// tınlıyordu — dalga karakteri periyodik kabarma/çekilmeden gelir. Rüzgar ise
+    /// sürekli bir orta-bant hışırtıdır: esinti LFO'ları filtreyi açıp kapar
+    /// (sertleşince tizleşir) ve genliği yavaşça dalgalandırır. 18 sn dikişsiz döngü.
+    /// </summary>
+    public static AudioClip WindAmbience()
     {
         int rate = AudioSettings.outputSampleRate;
-        int count = rate * 6;
+        float dur = 18f;
+        int count = (int)(rate * dur);
         float[] s = new float[count];
-        var rng = new System.Random(34);
-        float brown = 0f, lp = 0f;
+        var rng = new System.Random(11);
+        float lpFast = 0f, lpSlow = 0f;
+
         for (int i = 0; i < count; i++)
         {
+            float t = i / (float)rate;
+            // Esinti zarfı: eş ölçülü olmayan iki yavaş LFO — asla aynı deseni tekrarlamaz
+            float gust = 0.55f
+                       + 0.30f * Mathf.Sin(2f * Mathf.PI * 0.071f * t + 1.3f)
+                       + 0.15f * Mathf.Sin(2f * Mathf.PI * 0.187f * t + 4.1f);
+            gust = Mathf.Clamp01(gust);
+
             float white = (float)(rng.NextDouble() * 2.0 - 1.0);
-            brown = Mathf.Clamp(brown + white * 0.02f, -1f, 1f); // entegre → koyu
-            lp += (brown - lp) * 0.05f;                          // ekstra lowpass
-            s[i] = lp;
+            // Esinti sertleştikçe filtre açılır → hışırtı tizleşir (gerçek rüzgar karakteri)
+            float k = Mathf.Lerp(0.05f, 0.30f, gust);
+            lpFast += (white - lpFast) * k;
+            lpSlow += (white - lpSlow) * k * 0.35f;
+            float band = lpFast - lpSlow; // orta bant — boğuk uğultu değil, hışırtı
+
+            s[i] = band * (0.30f + 0.70f * gust);
+        }
+        Normalize(s, 0.75f);
+        return Bake("WindAmbience", s, rate, loopBlend: rate);
+    }
+
+    /// <summary>Restoran vitrini: konuşma mırıltısı + seyrek çatal-bıçak tıkırtısı.</summary>
+    public static AudioClip RestaurantAmbience()
+    {
+        int rate = AudioSettings.outputSampleRate;
+        float dur = 14f;
+        int count = (int)(rate * dur);
+        float[] s = new float[count];
+        var rng = new System.Random(52);
+
+        // 3 mırıltı akışı: ses bandında (200-800 Hz) gürültü, her biri kendi
+        // konuşma ritminde dalgalanır — camın ardından duyulan kalabalık
+        float[] lpF = new float[3], lpS = new float[3];
+        float[] amRate = { 1.7f, 2.3f, 1.1f };
+        float[] amPhase = { 0.4f, 2.9f, 5.2f };
+        for (int i = 0; i < count; i++)
+        {
+            float t = i / (float)rate;
+            float v = 0f;
+            for (int m = 0; m < 3; m++)
+            {
+                float white = (float)(rng.NextDouble() * 2.0 - 1.0);
+                lpF[m] += (white - lpF[m]) * 0.12f;
+                lpS[m] += (white - lpS[m]) * 0.03f;
+                float am = 0.4f + 0.6f * Mathf.Max(0f, Mathf.Sin(2f * Mathf.PI * amRate[m] * t + amPhase[m]));
+                v += (lpF[m] - lpS[m]) * am;
+            }
+            s[i] = v * 0.5f;
+        }
+
+        // Seyrek çatal-bıçak: kısa, tiz metalik pingler
+        for (int c = 0; c < 9; c++)
+        {
+            int start = (int)((float)rng.NextDouble() * (dur - 0.3f) * rate);
+            float f = 1800f + (float)rng.NextDouble() * 1700f;
+            int len = (int)(0.12f * rate);
+            for (int i = 0; i < len && start + i < count; i++)
+            {
+                float t = i / (float)rate;
+                s[start + i] += Mathf.Sin(2f * Mathf.PI * f * t) * Mathf.Exp(-t * 45f) * 0.35f;
+            }
+        }
+        Normalize(s, 0.7f);
+        return Bake("RestaurantAmbience", s, rate, loopBlend: rate / 2);
+    }
+
+    /// <summary>Market vitrini: soğutucu dolap uğultusu + ara sıra barkod bipleri.</summary>
+    public static AudioClip MarketAmbience()
+    {
+        int rate = AudioSettings.outputSampleRate;
+        float dur = 12f;
+        int count = (int)(rate * dur);
+        float[] s = new float[count];
+        var rng = new System.Random(73);
+        float lp = 0f;
+
+        for (int i = 0; i < count; i++)
+        {
+            float t = i / (float)rate;
+            // Dolap kompresörü: 49 Hz + oktav, hafif dalgalı
+            float hum = (Mathf.Sin(2f * Mathf.PI * 49f * t)
+                       + 0.45f * Mathf.Sin(2f * Mathf.PI * 98f * t))
+                       * (0.8f + 0.2f * Mathf.Sin(2f * Mathf.PI * 0.23f * t));
+            float white = (float)(rng.NextDouble() * 2.0 - 1.0);
+            lp += (white - lp) * 0.04f; // fan hışırtısı
+            s[i] = hum * 0.4f + lp * 0.35f;
+        }
+
+        // Barkod bipleri: 1 kHz çift bip, rastgele 3 yerde
+        for (int b = 0; b < 3; b++)
+        {
+            int start = (int)((float)rng.NextDouble() * (dur - 0.5f) * rate);
+            for (int rep = 0; rep < 2; rep++)
+            {
+                int s0 = start + (int)(rep * 0.15f * rate);
+                int len = (int)(0.07f * rate);
+                for (int i = 0; i < len && s0 + i < count; i++)
+                    s[s0 + i] += Mathf.Sin(2f * Mathf.PI * 1000f * i / rate) * 0.25f
+                                 * Mathf.Min(1f, (len - i) / (len * 0.3f));
+            }
+        }
+        Normalize(s, 0.65f);
+        return Bake("MarketAmbience", s, rate, loopBlend: rate / 2);
+    }
+
+    /// <summary>Rüzgarda sallanan tabela gıcırtısı — düşen perdeli, vibratolu metal sesi.</summary>
+    public static AudioClip SignCreak()
+    {
+        int rate = AudioSettings.outputSampleRate;
+        float dur = 1.1f;
+        int count = (int)(rate * dur);
+        float[] s = new float[count];
+        var rng = new System.Random(29);
+        float phase = 0f;
+
+        for (int i = 0; i < count; i++)
+        {
+            float t = i / (float)rate;
+            float p = t / dur;
+            // Perde 850 → 480 Hz kayar, üstüne büyüyen vibrato — "gıcırt"
+            float f = Mathf.Lerp(850f, 480f, p)
+                    + Mathf.Sin(2f * Mathf.PI * 23f * t) * 40f * p;
+            phase += 2f * Mathf.PI * f / rate;
+            float env = Mathf.Sin(p * Mathf.PI); // yumuşak gir-çık
+            float noise = ((float)rng.NextDouble() * 2f - 1f) * 0.15f;
+            s[i] = (Mathf.Sin(phase) * 0.8f + noise) * env;
+        }
+        Normalize(s, 0.6f);
+        return Bake("SignCreak", s, rate, loopBlend: 0);
+    }
+
+    /// <summary>Beton üzerinde tek adım sesi — variant: 0/1/2 farklı karakter.</summary>
+    public static AudioClip Footstep(int variant)
+    {
+        int rate = AudioSettings.outputSampleRate;
+        float dur = 0.16f;
+        int count = (int)(rate * dur);
+        float[] s = new float[count];
+        var rng = new System.Random(40 + variant);
+        float lp = 0f;
+        float thumpF = 68f + variant * 7f;
+        float k = 0.16f + variant * 0.04f;
+
+        for (int i = 0; i < count; i++)
+        {
+            float t = i / (float)rate;
+            float white = (float)(rng.NextDouble() * 2.0 - 1.0);
+            lp += (white - lp) * k;
+            // Topuk teması: gürültü "scuff" + alçak gövde vuruşu
+            s[i] = lp * Mathf.Exp(-t * 50f) * 0.8f
+                 + Mathf.Sin(2f * Mathf.PI * thumpF * t) * Mathf.Exp(-t * 35f) * 0.6f;
         }
         Normalize(s, 0.8f);
-        return Bake("CityRumble", s, rate, loopBlend: rate / 2);
+        return Bake("Footstep_" + variant, s, rate, loopBlend: 0);
+    }
+
+    /// <summary>Asansör "ding" — iki tonlu varış zili.</summary>
+    public static AudioClip ElevatorDing()
+    {
+        int rate = AudioSettings.outputSampleRate;
+        float dur = 1.0f;
+        int count = (int)(rate * dur);
+        float[] s = new float[count];
+        for (int i = 0; i < count; i++)
+        {
+            float t = i / (float)rate;
+            s[i] = Mathf.Sin(2f * Mathf.PI * 1318.5f * t) * Mathf.Exp(-t * 5f) * 0.6f; // E6
+            if (t > 0.22f)
+            {
+                float t2 = t - 0.22f;
+                s[i] += Mathf.Sin(2f * Mathf.PI * 1046.5f * t2) * Mathf.Exp(-t2 * 4.5f) * 0.6f; // C6
+            }
+        }
+        Normalize(s, 0.7f);
+        return Bake("ElevatorDing", s, rate, loopBlend: 0);
+    }
+
+    /// <summary>Asansör kapısı kayma sesi — süresi kapı animasyonuna uyarlanır.</summary>
+    public static AudioClip DoorSlide(float duration)
+    {
+        int rate = AudioSettings.outputSampleRate;
+        int count = (int)(rate * Mathf.Max(0.3f, duration));
+        float[] s = new float[count];
+        var rng = new System.Random(58);
+        float lp = 0f;
+        for (int i = 0; i < count; i++)
+        {
+            float p = i / (float)count;
+            float white = (float)(rng.NextDouble() * 2.0 - 1.0);
+            lp += (white - lp) * 0.10f;
+            float env = Mathf.Sin(p * Mathf.PI); // başla-yumuşa-bit
+            s[i] = lp * env;
+        }
+        Normalize(s, 0.5f);
+        return Bake("DoorSlide", s, rate, loopBlend: 0);
+    }
+
+    /// <summary>Asansör kabin motoru — hareket süresi boyunca alçak uğultu, fade'li.</summary>
+    public static AudioClip MotorHum(float duration)
+    {
+        int rate = AudioSettings.outputSampleRate;
+        int count = (int)(rate * Mathf.Max(1f, duration));
+        float[] s = new float[count];
+        var rng = new System.Random(64);
+        float lp = 0f;
+        for (int i = 0; i < count; i++)
+        {
+            float t = i / (float)rate;
+            float p = i / (float)count;
+            float white = (float)(rng.NextDouble() * 2.0 - 1.0);
+            lp += (white - lp) * 0.03f;
+            float env = Mathf.Min(Mathf.Min(t / 0.8f, 1f), (count - i) / (rate * 0.8f));
+            s[i] = (Mathf.Sin(2f * Mathf.PI * 38f * t) * 0.6f
+                  + Mathf.Sin(2f * Mathf.PI * 76f * t) * 0.25f
+                  + lp * 0.2f) * Mathf.Clamp01(env);
+        }
+        Normalize(s, 0.6f);
+        return Bake("MotorHum", s, rate, loopBlend: 0);
+    }
+
+    /// <summary>Asansör çağrı butonu tık sesi.</summary>
+    public static AudioClip ButtonClick()
+    {
+        int rate = AudioSettings.outputSampleRate;
+        int count = (int)(rate * 0.06f);
+        float[] s = new float[count];
+        var rng = new System.Random(81);
+        for (int i = 0; i < count; i++)
+        {
+            float t = i / (float)rate;
+            s[i] = ((float)rng.NextDouble() * 2f - 1f) * Mathf.Exp(-t * 120f) * 0.5f
+                 + Mathf.Sin(2f * Mathf.PI * 2100f * t) * Mathf.Exp(-t * 90f) * 0.5f;
+        }
+        Normalize(s, 0.7f);
+        return Bake("ButtonClick", s, rate, loopBlend: 0);
     }
 
     /// <summary>Geçen araba — yükselip alçalan, gövdeli gürültü süpürmesi.</summary>

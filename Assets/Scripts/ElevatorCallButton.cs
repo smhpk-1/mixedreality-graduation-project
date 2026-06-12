@@ -31,6 +31,9 @@ namespace MusicSpace
             if (pressed) return;
             pressed = true;
 
+            // İşitsel feedback: buton tık sesi (prosedürel, dosya yok)
+            AudioSource.PlayClipAtPoint(ProceduralStreet.ButtonClick(), transform.position, 0.6f);
+
             // Visual feedback: button turns bright white
             if (btnRenderer != null)
             {
