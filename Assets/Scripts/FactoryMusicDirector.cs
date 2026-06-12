@@ -75,10 +75,11 @@ public class FactoryMusicDirector : MonoBehaviour
 
     // ── Kesilmiş "enstrümanlar" ──────────────────────────────────────────
     private AudioClip hitSlice;     // machine_4 transient'i — perküsyon (kısa)
-    private AudioClip noteSlice;    // aynı transient, uzun kuyruklu — melodi notaları
     private AudioClip tickSlice;    // machine_1 transient'i — hafif offbeat
     private AudioClip steamSlice;   // machine_7'den nefes
     private AudioClip[] tapeSlices; // uzun tonal dilimler (Eno loop'ları)
+    private AudioClip confirmTone;  // prosedürel harmonik ton — doğru küp onayı
+    private AudioClip errorBuzz;    // prosedürel sert vızıltı — yanlış küp hatası
 
     // ── Mekansal çapalar: sesler sahnedeki gerçek makine objelerinden çıkar ──
     private Transform anchorHit;    // machine_4 objesinin konumu — ostinato vuruşları
@@ -147,6 +148,7 @@ public class FactoryMusicDirector : MonoBehaviour
             return;
         }
 
+        GenerateFeedbackTones();
         BuildSourcePool();
         ScanAnchorsAndDuckAmbience();
 
@@ -249,22 +251,26 @@ public class FactoryMusicDirector : MonoBehaviour
         int semis = degree + octave + rise + redBlue;
         while (semis > 15) semis -= 12;
 
+        // Net duyulan onay: makine gürültüsü yerine harmonik ton —
+        // gürültü diliminin pitch'i algılanamadığı için onay/hata ayrımı kayboluyordu
         double t = NextGridTime(quantizeTo: 1); // bir sonraki 16'lık
-        ScheduleNote(noteSlice, t, semis, noteVolume, worldPos);
+        ScheduleNote(confirmTone, t, semis, noteVolume, worldPos);
 
         // Her 5. doğru küpte küçük bir "onay" ek notası — beşli paralel
         if (correctCount % 5 == 0)
-            ScheduleNote(noteSlice, t + stepDuration * 2,
+            ScheduleNote(confirmTone, t + stepDuration * 2,
                          semis - 5, noteVolume * 0.7f, worldPos);
     }
 
     /// <summary>Yanlış sıralama — disonan ama ritmik cluster (küçük ikili), grid'e kuantize.</summary>
     public void PlayWrongNote(Vector3 worldPos)
     {
+        // Klasik çift "bızz" hata sesi — sert vızıltı, grid'e kuantize.
+        // Eskiden gürültü dilimi kullanılıyordu; pitch algılanamadığından
+        // onay sesinden ayırt edilemiyordu.
         double t = NextGridTime(quantizeTo: 2); // bir sonraki 8'lik
-        ScheduleNote(noteSlice, t, -11, noteVolume, worldPos);
-        ScheduleNote(noteSlice, t, -10, noteVolume * 0.8f, worldPos);
-        ScheduleNote(noteSlice, t + stepDuration, -23, noteVolume * 0.7f, worldPos);
+        ScheduleNote(errorBuzz, t, 0, noteVolume, worldPos);
+        ScheduleNote(errorBuzz, t + stepDuration, -2, noteVolume * 0.85f, worldPos);
     }
 
     /// <summary>Kutu notası: kutunun konumundan, yakın mesafede tam volume duyulur.</summary>
@@ -403,11 +409,6 @@ public class FactoryMusicDirector : MonoBehaviour
         // Perküsif vuruş: machine_4 içindeki en güçlü transient'ten ~180ms
         hitSlice  = SliceAtLoudestTransient(machineHit ?? machineTonalA, 0.18f, "OstinatoHit");
 
-        // Melodi notası: aynı transient ama uzun kuyruklu (~600ms) —
-        // pitch yukarı kaydırılınca bile duyulur uzunlukta kalır
-        noteSlice = SliceAtLoudestTransient(machineHit ?? machineTonalA, 0.6f, "BinNote");
-        if (noteSlice == null) noteSlice = hitSlice;
-
         // Tik: machine_1 transient'i, daha kısa ve hafif
         tickSlice = SliceAtLoudestTransient(machineTonalB ?? machineHit ?? machineTonalA, 0.09f, "OstinatoTick");
 
@@ -493,6 +494,60 @@ public class FactoryMusicDirector : MonoBehaviour
 
         var clip = AudioClip.Create(name, count, 1, freq, false);
         clip.SetData(slice, 0);
+        return clip;
+    }
+
+    // ── Onay / hata geri bildirim tonları ───────────────────────────────
+
+    /// <summary>
+    /// Kutu geri bildirimi için iki ayrı prosedürel klip üretir.
+    /// Makine gürültüsü diliminin pitch'i algılanamadığından onay ile hata
+    /// birbirinden ayırt edilemiyordu — net duyulan tonlar şart.
+    /// </summary>
+    private void GenerateFeedbackTones()
+    {
+        confirmTone = GenerateHarmonicTone(440f, 0.5f, "ConfirmTone");
+        errorBuzz   = GenerateBuzzTone(110f, 0.22f, "ErrorBuzz");
+    }
+
+    /// <summary>Yumuşak zarlı, harmonik (sinüs + üst ton) onay tonu.</summary>
+    private static AudioClip GenerateHarmonicTone(float freq, float duration, string name)
+    {
+        int rate  = AudioSettings.outputSampleRate;
+        int count = (int)(rate * duration);
+        float[] s = new float[count];
+        for (int i = 0; i < count; i++)
+        {
+            float t   = i / (float)rate;
+            float env = Mathf.Exp(-6f * t / duration);     // üstel sönüm — çan benzeri
+            float w   = 2f * Mathf.PI * freq * t;
+            s[i] = (Mathf.Sin(w) + 0.35f * Mathf.Sin(2f * w) + 0.15f * Mathf.Sin(3f * w))
+                   * env * 0.6f;
+        }
+        var clip = AudioClip.Create(name, count, 1, rate, false);
+        clip.SetData(s, 0);
+        return clip;
+    }
+
+    /// <summary>Sert, testere dişli hata vızıltısı — hafif detune ile kalınlaştırılmış.</summary>
+    private static AudioClip GenerateBuzzTone(float freq, float duration, string name)
+    {
+        int rate  = AudioSettings.outputSampleRate;
+        int count = (int)(rate * duration);
+        float[] s = new float[count];
+        for (int i = 0; i < count; i++)
+        {
+            float t   = i / (float)rate;
+            // Kenarlarda kısa fade — tıklama (click) önler
+            float env = Mathf.Min(1f, Mathf.Min(t / 0.005f, (duration - t) / 0.03f));
+            float p1  = t * freq;          // testere dişi 1
+            float p2  = t * freq * 1.01f;  // hafif detune — daha "arızalı" tını
+            float saw1 = 2f * (p1 - Mathf.Floor(p1 + 0.5f));
+            float saw2 = 2f * (p2 - Mathf.Floor(p2 + 0.5f));
+            s[i] = (saw1 + saw2) * 0.5f * env * 0.55f;
+        }
+        var clip = AudioClip.Create(name, count, 1, rate, false);
+        clip.SetData(s, 0);
         return clip;
     }
 }
